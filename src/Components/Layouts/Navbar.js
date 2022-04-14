@@ -51,11 +51,11 @@ const FixedNavbar = () => {
                 <Nav.Link href="#link">Contact Us</Nav.Link>
               </Nav>
               <Nav className="ms-auto mr-[5%]">
-                <Nav.Link href="#home"><PhoneIcon/> +1 800-555-6789</Nav.Link>
+                <Nav.Link className='mt-2' href="#home"><PhoneIcon/> +1 800-555-6789</Nav.Link>
 
-                <Nav.Link href="#link"><AccountCircleIcon/></Nav.Link>
+                <Nav.Link className='mt-2' href="#link"><AccountCircleIcon/></Nav.Link>
                 <Nav.Link>
-                  <Button variant="primary">Add Listing</Button>
+                  <Button variant={navVariant == "dark" ? "outline-light" : "outline-primary"}>Add Listing</Button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

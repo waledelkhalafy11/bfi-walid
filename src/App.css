@@ -88,3 +88,6 @@
   transform: none;
   }
   } 
+  .filter-white{
+    filter: invert(100%) sepia(100%) saturate(100%) ;
+}

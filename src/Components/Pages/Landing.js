@@ -6,6 +6,7 @@ const Landing = () => {
     <>
      <FixedNavbar/>
      <Hero/>
+     <div className="h-[100vh]"></div>
     </>
   );
 };

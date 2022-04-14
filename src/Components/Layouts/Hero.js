@@ -1,7 +1,7 @@
-import VillaOutlinedIcon from '@mui/icons-material/VillaOutlined';
-import GiteOutlinedIcon from '@mui/icons-material/GiteOutlined';
-import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
-import MeetingRoomOutlinedIcon from '@mui/icons-material/MeetingRoomOutlined';
+import houseIcon from '../../Assets/icons/house-svgrepo-com.svg';
+import appartmentIcon from '../../Assets/icons/appartment-svgrepo-com.svg';
+import officeIcon from '../../Assets/icons/office-svgrepo-com.svg';
+import villaIcon from '../../Assets/icons/villa-svgrepo-com.svg';
 import { useState } from "react";
 import {
   Form,
@@ -94,7 +94,7 @@ const Hero = () => {
                 </div>
                 <div className="md:w-[25%] p-2 flex mx-2 flex-col">
                   <Button
-                    className="md:ml-2 rounded-full w-[100%] border-none"
+                    className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
                     size="lg"
                   >
                     Search
@@ -159,20 +159,20 @@ const Hero = () => {
           </Container>
           <Container className="text-white p-4 rounded-3xl justify-between align-middle md:rounded-full mt-[3%] md:mt-[10%] flex-wrap flex md:flex-row">
                 <div>
-                <div className="md:w-[110px] w-12 h-12 mx-4 p-2 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                    <GiteOutlinedIcon className='md:text-[5rem] '/></div>Houses
+                <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
+                <img className='filter-white' src={houseIcon}/></div>Houses
                 </div>
                 <div>
-                <div className="md:w-[110px] w-12 h-12 mx-4 p-2 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                <ApartmentOutlinedIcon className='md:text-[5rem] '/></div>Appartment
+                <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
+                <img className='filter-white' src={appartmentIcon}/></div>Appartment
                 </div>
                 <div>
-                <div className="md:w-[110px] w-12 h-12 mx-4 p-2 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                    <MeetingRoomOutlinedIcon  className='md:text-[5rem] '/></div>Ofices
+                <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
+                <img className='filter-white' src={officeIcon}/></div>Ofices
                 </div>
                 <div>
-                <div className="md:w-[110px] w-12 h-12 mx-4 p-2 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]"> 
-                <VillaOutlinedIcon className='md:text-[5rem] '/></div>Villas
+                <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]"> 
+                <img className='filter-white' src={villaIcon}/></div>Villas
                 </div>
                
                 
