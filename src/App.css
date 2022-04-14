@@ -1,5 +1,11 @@
+@font-face {
+  font-family: Jost;
+  src: url(./Assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf);
+  src: url(./Assets/fonts/Jost/Jost-VariableFont_wght.ttf);
+}
 .App {
   text-align: center;
+  font-family: Jost;
 }
 
 .App-logo {
@@ -36,3 +42,49 @@
     transform: rotate(360deg);
   }
 }
+.hero-bg{
+  background-image: 
+  linear-gradient(180deg, rgba(41,170,227,0.6) 0%, rgba(0,0,0,0.6) 100%), 
+   url('./Assets/imgs/HeroBackground.jpg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+  
+}
+.scrolledTop{
+  background-color: white !important;
+
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeInUp {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInUp {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  } 
