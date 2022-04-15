@@ -3,6 +3,13 @@
   src: url(./Assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf);
   src: url(./Assets/fonts/Jost/Jost-VariableFont_wght.ttf);
 }
+@font-face {
+  font-family: Changa;
+  src: url(./Assets/fonts/Changa/Changa-VariableFont_wght.ttf);
+  
+}
+
+
 .App {
   text-align: center;
   font-family: Jost;
@@ -89,5 +96,20 @@
   }
   } 
   .filter-white{
-    filter: invert(100%) sepia(100%) saturate(100%) ;
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(-90deg);
+  }
+
+#demo{
+  font-family: Changa ;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.cursor::after {
+  content: "|";
+  font-size: 1.1em;
+  color: black;
+  animation: blink infinite alternate 0.4s;
 }
