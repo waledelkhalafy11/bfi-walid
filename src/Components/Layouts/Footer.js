@@ -20,16 +20,66 @@ import telephone from "../../Assets/icons/telephone.png"
 
 
 function Footer() {
+
+
+    function Client(props) {
+        return (
+
+            <div className='flex flex-row slide'>
+                <img src={props.img} className='w-8 h-8'></img>
+                <p className='ml-2'>{props.name}</p>
+            </div>
+
+        )
+    }
+
+    function MyhomeItem(props) {
+        return (
+
+            <div className={`flex flex-row mb-3 ${props.classNameAdd}`}>
+                <img src={props.img} className='w-6 h-6   '></img>
+                <p className='my-auto ml-2 '>{props.title}  </p>
+            </div>
+
+        )
+    }
+
+
+    function BlogItem(props) {
+        return (
+
+            <a href={props.href}> <p className='p-2 border-solid border-b border-[#a9a5a1] hover:font-bold hover:text-lg hover:text-[#29aae3]'>{props.title}</p></a>
+
+        )
+    }
+
+    function FeaturesItem(props) {
+        return (
+
+            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href={props.href}>{props.title}</a></p>
+
+        )
+    }
+
+    function FollowusItem(props) {
+        return (
+
+            <a href={props.href} target='_blank'> <img src={props.img} className={`w-8 h-8 mb-3 ml-2 ${props.classNameAdd}`}></img></a>
+
+        )
+    }
+
+
+
+
+
+
+
     return (
         <>
 
 
-
-
-
-
-
-            {/* First Part Of The Footer */} 
+            {/* First Part Of The Footer */}
 
 
             <div className='   h-auto bg-[#ffffff] md:pb-8'>
@@ -41,68 +91,16 @@ function Footer() {
                 </div>
 
                 <div className='flex  slider flex-row   md:mt-8 text-[#a9a5a1] md:gap-14 mx-auto md:justify-center text-lg'>
-                    <div className='flex flex-row slide'>
-                        <img src={themeforest} className='w-8 h-8'></img>
-                        <p className='ml-2'>themeforest</p>
-                    </div>
 
-                    <div className='flex flex-row slide'>
-                        <img src={audiojungle} className='w-8 h-8'></img>
-                        <p className='ml-2'>audiojungle</p>
-                    </div>
-
-                    <div className='flex flex-row slide'>
-                        <img src={codecanyon} className='w-8 h-8'></img>
-                        <p className='ml-2'>codecanyon</p>
-                    </div>
-
-                    <div className='flex flex-row slide'>
-                        <img src={graphicriver} className='w-8 h-8'></img>
-                        <p className='ml-2'>graphicriver</p>
-                    </div>
-
-                    <div className='flex flex-row slide'>
-                        <img src={photodune} className='w-8 h-8'></img>
-                        <p className='ml-2'>photodune</p>
-                    </div>
-
+                    <Client img={themeforest} name="themeforest" />
+                    <Client img={audiojungle} name="audiojungle" />
+                    <Client img={codecanyon} name="codecanyon" />
+                    <Client img={graphicriver} name="graphicriver" />
+                    <Client img={photodune} name="photodune" />
 
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,32 +122,25 @@ function Footer() {
                         <p className='mb-3 text-left'>    Lorem ipsum dolor,eius, illo eum, adipisci perferendis.</p>
 
 
-
-
-                        <div className='flex flex-row mb-3 '>
-                            <img src={location} className='w-6 h-6   '></img>
-                            <p className='my-auto ml-2'>520 5th Ave, New York, USA  </p>
-                        </div>
-                        <div className='flex flex-row mb-3 myhome'>
-                            <img src={telephone} className='w-6 h-6  '></img>
-                            <p className='my-auto ml-2'>(123) 345-6789  </p>
-                        </div>
-                        <div className='flex flex-row mb-3 myhome'>
-                            <img src={email} className='w-6 h-6 '></img>
-                            <p className='my-auto ml-2'>support@tangibledesing.net  </p>
-                        </div>
+                        <MyhomeItem img={location} title='520 5th Ave, New York, USA' />
+                        <MyhomeItem img={telephone} title='(123) 345-6789' classNameAdd='myhome' />
+                        <MyhomeItem img={email} title='support@tangibledesing.net' classNameAdd='myhome md:mt-8  lg:mt-0' />
 
 
 
                     </div>
+
+
                     <div className='w-full md:w-[22%] mr-6 mt-4 text-left'>
                         <p className='font-bold mb-3 text-[#f2f2f2]'>BLOG</p>
                         <div className='blogs'>
-                           <a href='#'> <p className='p-2 border-solid border-b border-[#a9a5a1]'>october 2017</p></a>
-                           <a href='#'> <p className='p-2 border-solid border-b border-[#a9a5a1]'>september 2017</p></a>
 
-                           <a href='#'> <p className='p-2 border-solid border-b border-[#a9a5a1]'>august 2017</p></a>
-                           <a href='#'> <p className='p-2 border-solid border-b border-[#a9a5a1]'>july 2017</p></a>
+
+                            <BlogItem href="#" title='october 2017' />
+                            <BlogItem href="#" title='september 2017' />
+                            <BlogItem href="#" title='august 2017' />
+                            <BlogItem href="#" title='july 2017' />
+
                         </div>
                     </div>
                     <div className='w-full md:w-[35%] mx-2 mt-4 text-left'>
@@ -159,21 +150,24 @@ function Footer() {
                         </div>
                         <div className='flex flex-wrap mt-3 features'>
 
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Air Conditioning</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Ceilfing Fan</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Dishwasher</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Fireplace</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>High Ceiling</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Microwave</a> </p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Patio</a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Porch </a></p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Refrigerator</a> </p>
-                            <p className='w-auto border-solid border ml-2 border-[#a9a5a1] py-[1px] px-[2px] md:px-4  hover:bg-[#29aae3]'><a href='#'>Wifi   </a> </p>
+                            <FeaturesItem title='Air Conditioning' href='#' />
+                            <FeaturesItem title='Ceilfing Fan' href='#' />
+                            <FeaturesItem title='Dishwasher' href='#' />
+                            <FeaturesItem title='Fireplace' href='#' />
+                            <FeaturesItem title='High Ceiling' href='#' />
+                            <FeaturesItem title='Microwave' href='#' />
+                            <FeaturesItem title='Patio' href='#' />
+                            <FeaturesItem title='Porch' href='#' />
+                            <FeaturesItem title='Refrigerator' href='#' />
+                            <FeaturesItem title='Wifi' href='#' />
 
                         </div>
                     </div>
-                    <div className='w-3/4 md:w-[17%] mx-auto md:mx-2 mt-4 text-left'>
 
+
+
+
+                    <div className='w-3/4 md:w-[17%] mx-auto md:mx-2 mt-4 text-left'>
 
 
                         <div>
@@ -182,17 +176,16 @@ function Footer() {
 
                         <div className='flex flex-wrap mt-3 followus'>
 
-                            <a href='https://www.facebook.com/' target='_blank'> <img src={facebook} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.twitter.com/' target='_blank'> <img src={twitter} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.instagram.com/' target='_blank'> <img src={instagram} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.linkedin.com/' target='_blank'> <img src={linkedin} className='w-8 h-8 mb-3 ml-2'></img></a>
-
-                            <a href='https://www.youtube.com/' target='_blank'> <img src={youtube} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.google.com/' target='_blank'>  <img src={google} className='w-8 h-8 mb-3 ml-2 hover:rotate-180 hover:translate-y-[-5px]'></img></a>
-                            <a href='https://www.linkedin.com/' target='_blank'> <img src={youtube} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.linkedin.com/' target='_blank'> <img src={instagram} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.linkedin.com/' target='_blank'> <img src={facebook} className='w-8 h-8 mb-3 ml-2'></img></a>
-                            <a href='https://www.linkedin.com/' target='_blank'> <img src={linkedin} className='w-8 h-8 mb-3 ml-2'></img></a>
+                            <FollowusItem href='https://www.facebook.com/' img={facebook} />
+                            <FollowusItem href='https://www.twitter.com/' img={twitter} />
+                            <FollowusItem href='https://www.instagram.com/' img={instagram} />
+                            <FollowusItem href='https://www.linkedin.com/' img={linkedin} />
+                            <FollowusItem href='https://www.youtube.com/' img={youtube} />
+                            <FollowusItem href='https://www.google.com/' img={google} classNameAdd='hover:rotate-180 hover:translate-y-[-5px]' />
+                            <FollowusItem href='https://www.linkedin.com/' img={youtube} />
+                            <FollowusItem href='https://www.linkedin.com/' img={instagram} />
+                            <FollowusItem href='https://www.linkedin.com/' img={facebook} />
+                            <FollowusItem href='https://www.linkedin.com/' img={linkedin} />
 
 
                         </div>
