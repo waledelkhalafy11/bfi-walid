@@ -31,7 +31,7 @@ const FixedNavbar = () => {
           fixed="top"
         >
           <Container fluid>
-            <Navbar.Brand href="#home" className="ml-[5%] text-4xl">
+            <Navbar.Brand href="#home" className="font-[Changa] ml-[5%] text-5xl">
               BFI
             </Navbar.Brand>
             <Navbar.Toggle
