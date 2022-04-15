@@ -14,8 +14,11 @@ const FixedNavbar = () => {
       };
     function scrollFunction() {
         if (document.documentElement.scrollTop > 80) {
-          document.getElementById("navbar").classList.add("scrolledTop");
-          setnavVariant("light");
+          if( window.innerWidth >= 768){
+            document.getElementById("navbar").classList.add("scrolledTop");
+            setnavVariant("light");
+
+          }
         } else {
           document.getElementById("navbar").classList.remove("scrolledTop");
           setnavVariant("dark");
@@ -42,16 +45,16 @@ const FixedNavbar = () => {
               className="bg-[#000000ab] md:bg-[#70707000] rounded-3xl mt-2"
               id="basic-navbar-nav"
             >
-              <Nav className="text-white me-auto lg:mx-[30%]">
-                <Nav.Link href="#home">Home</Nav.Link>
+              <Nav className="text-white font-[900] me-auto lg:mx-[30%]">
+                <Nav.Link active href="#home">Home</Nav.Link>
                 <Nav.Link href="#link">Demos</Nav.Link>
                 <Nav.Link href="#link">Properties</Nav.Link>
                 <Nav.Link href="#link">Agent</Nav.Link>
                 <Nav.Link href="#link">Blog</Nav.Link>
                 <Nav.Link href="#link">Contact Us</Nav.Link>
               </Nav>
-              <Nav className="ms-auto mr-[5%]">
-                <Nav.Link className='mt-2' href="#home"><PhoneIcon/> +1 800-555-6789</Nav.Link>
+              <Nav className="ms-auto font-[900] mr-[5%]">
+                <Nav.Link className='mt-2' href="#home"><PhoneIcon/> +2 800-555-6789</Nav.Link>
 
                 <Nav.Link className='mt-2' href="#link"><AccountCircleIcon/></Nav.Link>
                 <Nav.Link>

@@ -179,7 +179,8 @@ const Hero = () => {
               </>
             )}
           </Container>
-          <Container className="text-white p-4 rounded-3xl justify-between align-middle md:rounded-full mt-[3%] md:mt-[5%] flex-wrap flex md:flex-row">
+          <Container className="text-white p-4 rounded-3xl justify-between align-middle md:rounded-full mt-[3%] md:mt-[10%] flex-wrap flex md:flex-row">
+
             <div>
               <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
                 <img className="filter-white" src={houseIcon} />
