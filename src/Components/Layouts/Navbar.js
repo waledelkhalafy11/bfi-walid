@@ -29,7 +29,7 @@ const FixedNavbar = () => {
          <Navbar
           id="navbar"
           variant={navVariant}
-          className="h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
+          className="min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
           expand="lg"
           fixed="top"
         >

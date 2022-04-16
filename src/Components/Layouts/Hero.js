@@ -18,10 +18,10 @@ const Hero = () => {
 
   return (
     <>
-      <Container fluid className="  p-0 hero-bg h-[100vh]">
-        <Container fluid className="relative pl-[5%] pt-[10%]">
+      <Container fluid className="  p-0 hero-bg min-h-[100vh]">
+        <Container fluid className="relative pl-[5%] pt-[15%] md:pt-[10%]">
           <div className="hidden md:block firstLine text-left">
-            <h1 className="md:text-[90px] font-[900]">We Got You</h1>
+            <h1 className="md:text-[90px] font-[900]">We Got You</h1> 
           </div>
           <div className="hidden md:block firstLine text-right absolute left-[7.5%]">
             <h1 id="demo" className="md:text-[90px] text-white font-[900]"></h1>
