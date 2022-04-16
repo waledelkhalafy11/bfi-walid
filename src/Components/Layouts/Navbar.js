@@ -58,7 +58,7 @@ const FixedNavbar = () => {
 
                 <Nav.Link className='mt-2' href="#link"><AccountCircleIcon/></Nav.Link>
                 <Nav.Link>
-                  <Button variant={navVariant == "dark" ? "outline-light" : "outline-primary"}>Add Listing</Button>
+                  <Button variant={navVariant === "dark" ? "outline-light" : "outline-primary"}>Add Listing</Button>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

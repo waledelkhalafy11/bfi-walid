@@ -9,7 +9,6 @@ const Landing = () => {
     <FixedNavbar/>
     <Hero/>
     <Imgs/>
-
     <Blog/>
     <Footer/>
     </>
