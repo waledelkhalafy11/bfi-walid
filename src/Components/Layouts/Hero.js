@@ -18,13 +18,8 @@ const Hero = () => {
 
   return (
     <>
-
       <Container fluid className="  p-0 hero-bg min-h-[100vh]">
         <Container fluid className="relative pl-[5%] pt-[15%] md:pt-[10%]">
-
-      <Container fluid className="  p-0 hero-bg h-[100vh]">
-        <Container fluid className="relative pl-[5%] pt-[10%]">
-
           <div className="hidden md:block firstLine text-left">
             <h1 className="md:text-[90px] font-[900]">We Got You</h1> 
           </div>
@@ -185,7 +180,6 @@ const Hero = () => {
             )}
           </Container>
           <Container className="text-white p-4 rounded-3xl justify-between align-middle md:rounded-full mt-[3%] md:mt-[10%] flex-wrap flex md:flex-row">
-
             <div>
               <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
                 <img className="filter-white" src={houseIcon} />
