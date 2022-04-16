@@ -20,7 +20,6 @@
 
 
 
-
 /* Footer  Styling */          /* Footer  Styling */         /* Footer  Styling */
 
 
@@ -40,13 +39,9 @@ a {
     cursor: pointer;
 }
 
-.blogs p:hover {
-    font-size: larger;
-    font-weight: 800;
+.myhomeitem a:hover {
     color: #29aae3;
 }
-
-
 
 .followus img:hover {
 
