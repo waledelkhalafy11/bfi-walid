@@ -29,7 +29,8 @@ const FixedNavbar = () => {
          <Navbar
           id="navbar"
           variant={navVariant}
-          className="min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
+          
+          className="h-[9vh] md:min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
           expand="lg"
           fixed="top"
         >
@@ -45,7 +46,7 @@ const FixedNavbar = () => {
               className="bg-[#000000ab] md:bg-[#70707000] rounded-3xl mt-2"
               id="basic-navbar-nav"
             >
-              <Nav className="text-white font-[900] me-auto lg:mx-[30%]">
+              <Nav className="text-white small-caps font-[900] me-auto text-[25px] lg:mx-[25%] md:gap-4">
                 <Nav.Link active href="#home">Home</Nav.Link>
                 <Nav.Link href="#link">Demos</Nav.Link>
                 <Nav.Link href="#link">Properties</Nav.Link>

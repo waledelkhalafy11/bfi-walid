@@ -68,7 +68,6 @@ function tw (instance) {
     tw({
       // (C1) REQUIRED
       target : document.getElementById("demo"), // target html container
-      //text : "Wow. Much text. Very paragraph. Such contents.", // text
       text : [
         "A House",
         "Appartment",
@@ -84,4 +83,6 @@ function tw (instance) {
       loop : true,   // loop typewriter effect, default true
       cursor : true  // add fake cursor? default true
     });
+
+
   };

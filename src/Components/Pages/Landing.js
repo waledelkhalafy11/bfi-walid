@@ -8,8 +8,8 @@ const Landing = () => {
     <>
     <FixedNavbar/>
     <Hero/>
-    <Imgs/>
     <Blog/>
+    <Imgs/>
     <Footer/>
     </>
   );
