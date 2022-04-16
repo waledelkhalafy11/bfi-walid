@@ -4,11 +4,19 @@
   src: url(./Assets/fonts/Jost/Jost-VariableFont_wght.ttf);
 }
 @font-face {
-  font-family: Changa;
-  src: url(./Assets/fonts/Changa/Changa-VariableFont_wght.ttf);
-  
+  font-family: Montserrat;
+  src: url(./Assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
+  src: url(./Assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: Changa;
+  src: url(./Assets/fonts/Changa/Changa-VariableFont_wght.ttf);
+}
+  /* sitting class of small caps */
+.small-caps{
+  font-variant-caps: all-small-caps;
+}
 
 .App {
   text-align: center;
@@ -101,6 +109,7 @@
 
 #demo{
   font-family: Changa ;
+  letter-spacing: 5px !important;
 }
 
 @keyframes blink {
@@ -110,6 +119,21 @@
 .cursor::after {
   content: "|";
   font-size: 1.1em;
-  color: black;
+  color: #0c303f;
   animation: blink infinite alternate 0.4s;
+}
+
+
+.hovered-card{
+  padding-bottom: 1.5rem !important;
+  -webkit-box-shadow: 5px 5px 5px 0px #0000006e, inset 4px 4px 15px 0px #0000006e, 3px 6px 9px -1px rgba(0, 0, 0, 0.616); 
+  box-shadow: 5px 5px 5px 0px #0000006e, inset 4px 4px 15px 0px #0000006e, 3px 6px 9px -1px rgba(0, 0, 0, 0.603);
+  transition: 0.2s ease-in-out;
+}
+
+.hover-invert{
+  
+  opacity: 0.4;
+  transition: 0.2s ease-in-out;
+
 }

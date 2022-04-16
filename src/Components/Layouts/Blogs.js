@@ -32,7 +32,7 @@ function Blog() {
     <section className="blog bg-[#f2f2f2] py-[50px] ">
       <div className="container max-w-[1170px]">
         <h2 className="text-center  font-black">BLOG</h2>
-        <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#29AAE3] "></div>
+        <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
         <Container>
           <OwlCarousel
@@ -48,7 +48,7 @@ function Blog() {
                     alt="1"
                   />
                 </div>
-                <div className="date bg-[#29AAE3] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
+                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
                   September 30, 2017
                 </div>
                 <div className="card-body  bg-[#ffff] text-right">
@@ -67,7 +67,7 @@ function Blog() {
                   </p>
 
                   <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#29AAE3] py-[5px] px-[16px] border-2 border-[#29AAE3]  hover:bg-[#29AAE3] hover:text-white"
+                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
                     href=""
                   >
                     READ MORE
@@ -85,7 +85,7 @@ function Blog() {
                     alt="1"
                   />
                 </div>
-                <div className="date bg-[#29AAE3] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
+                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
                   September 30, 2017
                 </div>
                 <div className="card-body  bg-[#ffff] text-right">
@@ -104,7 +104,7 @@ function Blog() {
                   </p>
 
                   <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#29AAE3] py-[5px] px-[16px] border-2 border-[#29AAE3]  hover:bg-[#29AAE3] hover:text-white"
+                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
                     href=""
                   >
                     READ MORE
@@ -122,7 +122,7 @@ function Blog() {
                     alt="1"
                   />
                 </div>
-                <div className="date bg-[#29AAE3] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
+                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
                   September 30, 2017
                 </div>
                 <div className="card-body  bg-[#ffff] text-right">
@@ -141,7 +141,7 @@ function Blog() {
                   </p>
 
                   <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#29AAE3] py-[5px] px-[16px] border-2 border-[#29AAE3]  hover:bg-[#29AAE3] hover:text-white"
+                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
                     href=""
                   >
                     READ MORE
@@ -159,7 +159,7 @@ function Blog() {
                     alt="1"
                   />
                 </div>
-                <div className="date bg-[#29AAE3] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
+                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
                   September 30, 2017
                 </div>
                 <div className="card-body  bg-[#ffff] text-right">
@@ -178,7 +178,7 @@ function Blog() {
                   </p>
 
                   <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#29AAE3] py-[5px] px-[16px] border-2 border-[#29AAE3]  hover:bg-[#29AAE3] hover:text-white"
+                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
                     href=""
                   >
                     READ MORE
@@ -190,7 +190,7 @@ function Blog() {
         </Container>
         <div className="text-center m-3">
           <a
-            className="bot-button no-underline  bg-[#29AAE3] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
+            className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
             href=""
           >
             VISIT BLOG
