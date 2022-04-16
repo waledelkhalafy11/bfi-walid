@@ -40,6 +40,12 @@ a {
     cursor: pointer;
 }
 
+.blogs p:hover {
+    font-size: larger;
+    font-weight: 800;
+    color: #29aae3;
+}
+
 
 
 .followus img:hover {
