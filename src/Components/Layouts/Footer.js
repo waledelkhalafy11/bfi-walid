@@ -30,9 +30,9 @@ function Footer() {
 
   function MyhomeItem(props) {
     return (
-      <div className={`flex flex-row mb-3 ${props.classNameAdd}`}>
+      <div className={`flex flex-row mb-3 myhomeitem ${props.classNameAdd}`}>
         <img src={props.img} className="w-6 h-6   "></img>
-        <p className="my-auto ml-2 ">{props.title} </p>
+        <a href={props.href}><p className="my-auto ml-2 ">{props.title} </p></a>
       </div>
     );
   }
@@ -76,7 +76,7 @@ function Footer() {
         <div className="h-4"></div>
 
         <div className="text-center text-[#a9a5a1] md:text-3xl ">
-          <p className="text-[#000000] font-bold">
+          <p className="text-[#000000]  font-black">
             C
             <span className="pb-2 border-solid md:border-b-2 border-[#b85d7c]">
               LIENT
@@ -85,7 +85,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex  slider flex-row   md:mt-8 text-[#a9a5a1] md:gap-14 mx-auto md:justify-center text-lg">
+        <div className="flex  slider flex-row   md:mt-8 text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
           <Client img={themeforest} name="themeforest" />
           <Client img={audiojungle} name="audiojungle" />
           <Client img={codecanyon} name="codecanyon" />
@@ -110,6 +110,7 @@ function Footer() {
               img={telephone}
               title="(123) 345-6789"
               classNameAdd="myhome"
+              href="tel:0105050505"
             />
             <MyhomeItem
               img={email}

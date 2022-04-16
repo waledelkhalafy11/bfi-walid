@@ -40,7 +40,9 @@ a {
     cursor: pointer;
 }
 
-
+.myhomeitem a:hover {
+    color: #29aae3;
+}
 
 .followus img:hover {
 
