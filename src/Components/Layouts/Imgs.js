@@ -3,13 +3,12 @@ import { Container } from "react-bootstrap";
 const Imgs = () => {
   return (
     <section className="galary bg-[#bg-white] py-[50px]">
-      <h2 className="text-center  font-black mb-5">
-        Explore the most attractive areas in Beijing
-      </h2>
+      <h2 className="text-center  font-black">EXPLORE</h2>
+        <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
       <Container className="lg:d-none ">
         <div className="row place-content-center  lg:gap-[14px] ">
-          <div className=" col-lg-4 relative  col-sm-12  col-md-12 flex items-center  px-[20px] m-[14px] lg:px-[0px] lg:m-[0px]  overflow-hidden           w-full                         h-[345px]  lg:w-[26.5%]  ">
+          <div className=" col-lg-4 relative  col-sm-12  col-md-12 flex items-center  px-[20px] m-[14px] lg:px-[0px] lg:m-[0px]  overflow-hidden  w-full                         h-[345px]  lg:w-[26.5%]  ">
             <img
               src="https://beijing.b-cdn.net/wp-content/uploads/2021/11/city2.jpg"
               className="object-cover h-full w-full rounded-md  text-center    lg:h-full transition-all	 brightness-[80%] hover:brightness-[100%] hue-rotate-50"
@@ -17,7 +16,7 @@ const Imgs = () => {
             />
             <h5 className="absolute  top-[20px] left-[40px] lg:left-[20px]">
               <a className=" no-underline font-bold text-white" href="#1">
-                Balizhuang
+                Maadi
               </a>
             </h5>
             <p className="absolute  bottom-[0px] left-[40px] lg:left-[20px] font-medium text-white">
@@ -33,7 +32,7 @@ const Imgs = () => {
             />
             <h5 className="absolute  top-[20px] left-[40px] lg:left-[20px]">
               <a className=" no-underline font-bold text-white" href="#1">
-                Balizhuang
+                Salah Salem
               </a>
             </h5>
             <p className="absolute  bottom-[0px] left-[40px] lg:left-[20px] font-medium text-white">
@@ -49,7 +48,7 @@ const Imgs = () => {
             />
             <h5 className="absolute  top-[20px] left-[40px] lg:left-[20px]">
               <a className=" no-underline font-bold text-white" href="#1">
-                Balizhuang
+                Shubra Al-khima
               </a>
             </h5>
             <p className="absolute  bottom-[0px] left-[40px] lg:left-[20px] font-medium text-white">
@@ -67,7 +66,7 @@ const Imgs = () => {
             />
             <h5 className="absolute  top-[20px] left-[40px] lg:left-[20px]">
               <a className=" no-underline font-bold text-white" href="#1">
-                Balizhuang
+                Imbaba
               </a>
             </h5>
             <p className="absolute  bottom-[0px] left-[40px] lg:left-[20px] font-medium text-white">
@@ -83,7 +82,7 @@ const Imgs = () => {
             />
             <h5 className="absolute  top-[20px] left-[40px] lg:left-[20px]">
               <a className=" no-underline font-bold text-white" href="#1">
-                Balizhuang
+                Elmarg
               </a>
             </h5>
             <p className="absolute  bottom-[0px] left-[40px] font-medium text-white">

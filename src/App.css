@@ -137,3 +137,22 @@
   transition: 0.2s ease-in-out;
 
 }
+
+.btn-outline-primary {
+  color: #45b6ca !important;
+  border-color: #45b6ca !important;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: #45b6ca !important;
+  border-color: #45b6ca !important;
+}
+
+.navbar-light .navbar-nav .nav-link.active,.nav-link.active .navbar-light .navbar-nav .show>.nav-link {
+  color: #45b6ca !important;
+}
+
+.navbar-light:hover .navbar-nav:hover .nav-link.active,.nav-link.active:hover .navbar-light:hover .navbar-nav:hover .show>.nav-link:hover {
+  color: #45b6ca !important;
+} 

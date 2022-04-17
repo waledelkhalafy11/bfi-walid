@@ -1,19 +1,16 @@
 import React from "react";
 import "./layouts.css";
-
 import facebook from "../../Assets/icons/facebook.png";
 import instagram from "../../Assets/icons/instagram.png";
 import twitter from "../../Assets/icons/twitter.png";
 import linkedin from "../../Assets/icons/linkedin.png";
 import youtube from "../../Assets/icons/youtube.png";
 import google from "../../Assets/icons/google.png";
-
 import themeforest from "../../Assets/icons/themeforest.png";
 import audiojungle from "../../Assets/icons/audiojungle.png";
 import codecanyon from "../../Assets/icons/codecanyon.png";
 import graphicriver from "../../Assets/icons/graphicriver.png";
 import photodune from "../../Assets/icons/photodune.png";
-
 import email from "../../Assets/icons/email.png";
 import location from "../../Assets/icons/location.png";
 import telephone from "../../Assets/icons/telephone.png";
@@ -72,18 +69,11 @@ function Footer() {
     <>
       {/* First Part Of The Footer */}
 
-      <div className="   h-auto bg-[#ffffff] md:pb-8">
+      <div className="   h-auto bg-[#f2f2f2] md:py-12">
         <div className="h-4"></div>
 
-        <div className="text-center text-[#a9a5a1] md:text-3xl ">
-          <p className="text-[#000000]  font-black">
-            C
-            <span className="pb-2 border-solid md:border-b-2 border-[#b85d7c]">
-              LIENT
-            </span>
-            S
-          </p>
-        </div>
+        <h2 className="text-center  font-black">CLIENTS</h2>
+        <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
         <div className="flex  slider flex-row   md:mt-8 text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
           <Client img={themeforest} name="themeforest" />
