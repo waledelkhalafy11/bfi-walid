@@ -1,4 +1,4 @@
-function tw (instance) {
+export function tw (instance) {
     // (A) SET DEFAULT OPTIONS
     if (instance.forward === undefined) { instance.forward = 100; }
     if (instance.backward === undefined) { instance.backward = 50; }
@@ -63,26 +63,3 @@ function tw (instance) {
     instance.timer = setInterval(instance.typist, instance.forward);
   }
   
-  // (E) ATTACH TYPEWRITER EFFECT
-  window.onload = () => {
-    tw({
-      // (C1) REQUIRED
-      target : document.getElementById("demo"), // target html container
-      text : [
-        "A House",
-        "Appartment",
-        "An Office",
-        "A Villa",
-        
-      ],
-  
-      // (C2) OPTIONAL
-      forward : 80,  // delay between each character, default 100 ms
-      backward : 40, // delay between each character, default 50 ms
-      pause : 1500,  // pause before next cycle, default 1 sec
-      loop : true,   // loop typewriter effect, default true
-      cursor : true  // add fake cursor? default true
-    });
-
-
-  };

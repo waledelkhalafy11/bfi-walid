@@ -18,7 +18,7 @@ import telephone from "../../Assets/icons/telephone.png";
 function Footer() {
   function Client(props) {
     return (
-      <div className="flex flex-row slide">
+      <div className="flex flex-row slideOfClients">
         <img src={props.img} className="w-8 h-8"></img>
         <p className="ml-2">{props.name}</p>
       </div>
@@ -75,7 +75,7 @@ function Footer() {
         <h2 className="text-center  font-black">CLIENTS</h2>
         <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
-        <div className="flex  slider flex-row   md:mt-8 text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
+        <div className="flex  sliderOfClients flex-row   md:mt-8 text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
           <Client img={themeforest} name="themeforest" />
           <Client img={audiojungle} name="audiojungle" />
           <Client img={codecanyon} name="codecanyon" />
@@ -95,17 +95,17 @@ function Footer() {
               Lorem ipsum dolor,eius, illo eum, adipisci perferendis.
             </p>
 
-            <MyhomeItem img={location} title="520 5th Ave, New York, USA" />
+            <MyhomeItem img={location} className="filter-white" title="520 5th Ave, New York, USA"/>
             <MyhomeItem
               img={telephone}
               title="(123) 345-6789"
-              classNameAdd="myhome"
+              classNameAdd="myhome filter-white"
               href="tel:0105050505"
             />
             <MyhomeItem
               img={email}
               title="support@tangibledesing.net"
-              classNameAdd="myhome md:mt-8  lg:mt-0"
+              classNameAdd="myhome filter-white md:mt-8  lg:mt-0"
             />
           </div>
 

@@ -1,5 +1,5 @@
 
-import "../../Assets/Animations/typeWrite";
+import { tw } from "../../Assets/Animations/typeWrite";
 import { hc } from "../../Assets/Animations/heroCards";
 import villaIcon from "../../Assets/icons/villa-svgrepo-com.svg";
 import { useEffect, useState } from "react";
@@ -12,11 +12,38 @@ import {
 } from "react-bootstrap";
 
 const Hero = () => {
-  const [hoverdCard , setHoverdCard] = useState(-1)
-  useEffect(()=> {
+  
+  // TYPEWRITE ANIMATION 
+  
+  useEffect(()=>{  
+    
+    tw({
+      target : document.getElementById("demo"), 
+      text : [
+        "A House",
+        "Appartment",
+        "An Office",
+        "A Villa",
+      ],
+      forward : 80, 
+      backward : 40, 
+      pause : 1500, 
+      loop : true,  
+      cursor : true 
+    });
+    
+  },[])
 
+  
+  // HOVER ANIMATION 
+  const [hoverdCard , setHoverdCard] = useState(-1)
+  
+  useEffect(()=> {
+  
     hc(hoverdCard)
   } , [hoverdCard])
+
+
   return (
     <>
       <Container fluid className="  p-0 hero-bg min-h-[35vh] md:min-h-[100vh]">
@@ -30,7 +57,7 @@ const Hero = () => {
           </div>
         </Container>
 
-        <Container className="text-white py-4 rounded-3xl justify-between align-middle mt-[3%] md:mt-[5%] flex-col flex md:flex-row">
+        <Container className="text-white py-4 rounded-3xl justify-between align-middle mt-[3%] md:mt-[5%] flex-wrap flex md:flex-row">
             <div>
               <a>
               <div

@@ -12,19 +12,19 @@ import {
   ToggleButton,
 } from "react-bootstrap";
 
-const Search = () => {
+const SearchFilter = () => {
     const [filterSale, setFilterSale] = useState(true);
     
     return ( 
         <>
-        <Container className="fadeInUp px-[10%] md:px-[5%] ">
+        <Container className="static top px-[10%] pb-[2%] md:px-[5%] ">
           <Container className="pt-[10%] md:mt-[17]">
             <ButtonGroup className="mb-2">
               <ToggleButton
                 className="m-2 w-24 rounded-full"
                 id="toggle-check"
                 type="checkbox"
-                variant="outline-light"
+                variant="outline-primary"
                 checked={filterSale}
                 value="1"
                 onChange={(e) => setFilterSale(true)}
@@ -35,7 +35,7 @@ const Search = () => {
                 className="m-2 w-24 rounded-full"
                 id="toggle-check2"
                 type="checkbox"
-                variant="outline-light"
+                variant="outline-primary"
                 checked={!filterSale}
                 value="2"
                 onChange={(e) => setFilterSale(false)}
@@ -44,7 +44,7 @@ const Search = () => {
               </ToggleButton>
             </ButtonGroup>
           </Container>
-          <Container className="bg-white p-2 md:h-[80px] rounded-3xl md:rounded-full mt-[3%] md:mt-[1%] flex flex-col md:flex-row">
+          <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[3%] md:mt-[1%] flex flex-col md:flex-row">
             {filterSale ? (
               <>
                 {" "}
@@ -69,7 +69,7 @@ const Search = () => {
                     City
                   </Form.Label>
                   <Form.Select
-                    className="md:ml-2 w-[100%] border-none"
+                    className="md:ml-2 w-[100%] border-none ay7aga"
                     size="sm"
                   >
                     <option disabled selected>
@@ -114,6 +114,7 @@ const Search = () => {
                     City
                   </Form.Label>
                   <Form.Select
+                    id="ay7aga"
                     className="md:ml-2 w-[100%] border-none"
                     size="sm"
                   >
@@ -169,35 +170,9 @@ const Search = () => {
               </>
             )}
           </Container>
-          <Container className="text-white p-4 rounded-3xl justify-between align-middle md:rounded-full mt-[3%] md:mt-[10%] flex-wrap flex md:flex-row">
-            <div>
-              <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                <img className="filter-white" src={houseIcon} />
-              </div>
-              Houses
-            </div>
-            <div>
-              <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                <img className="filter-white" src={appartmentIcon} />
-              </div>
-              Appartment
-            </div>
-            <div>
-              <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                <img className="filter-white" src={officeIcon} />
-              </div>
-              Ofices
-            </div>
-            <div>
-              <div className="md:w-[110px] w-12 h-12 mx-4 md:p-4 my-2 md:m-2 md:h-[110px] rounded-full bg-[#0000006b]">
-                <img className="filter-white" src={villaIcon} />
-              </div>
-              Villas
-            </div>
-          </Container>
         </Container>
         </>
      );
 }
  
-export default Search;
+export default SearchFilter;
