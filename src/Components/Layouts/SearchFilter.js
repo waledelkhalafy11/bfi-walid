@@ -1,7 +1,4 @@
-import houseIcon from "../../Assets/icons/house-svgrepo-com.svg";
-import appartmentIcon from "../../Assets/icons/appartment-svgrepo-com.svg";
-import officeIcon from "../../Assets/icons/office-svgrepo-com.svg";
-import villaIcon from "../../Assets/icons/villa-svgrepo-com.svg";
+
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import {

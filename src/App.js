@@ -8,6 +8,7 @@ import Landing from "./Components/Pages/Landing";
 import Search from "./Components/Pages/SearchPage";
 
 function App() {
+
   return (
       <Router>
     <div className="App">
@@ -18,6 +19,8 @@ function App() {
         </Routes>
     </div>
       </Router>
+
+      
   );
 }
 
