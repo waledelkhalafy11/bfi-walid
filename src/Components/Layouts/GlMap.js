@@ -8,7 +8,7 @@ export default function GlMap() {
   const [viewport, setViewport] = useState({
     latitude: 30.044420,
     longitude: 31.235712,
-    width : "100%" ,
+    width : "100vw" ,
     height: "65vh",
     zoom: 13
   });
@@ -56,13 +56,14 @@ export default function GlMap() {
 
         {selectedPark ? (
           <Popup
+          className="rounded-full"
             latitude={selectedPark.geometry.coordinates[1]}
             longitude={selectedPark.geometry.coordinates[0]}
             onClose={() => {
               setSelectedPark(null);
             }}
           >
-            <div>
+            <div >
               <h2>{selectedPark.properties.NAME}</h2>
               <p>{selectedPark.properties.DESCRIPTIO}</p>
             </div>
