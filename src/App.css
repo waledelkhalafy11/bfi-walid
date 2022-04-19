@@ -196,28 +196,23 @@
 }
 
 select {
-
-
   box-shadow: none !important;
 }
 
 button {
-
-
   box-shadow: none !important;
 }
 
 label {
-
-
   box-shadow: none !important;
-
 }
-.mapboxgl-popup-content{
-  border-radius: 40px ;
+
+.mapboxgl-popup-content {
+  border-radius: 40px;
   width: 500px;
   padding: 30px;
 }
+
 .mapboxgl-popup-close-button {
   right: 20px;
   top: 10px;

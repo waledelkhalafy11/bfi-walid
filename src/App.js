@@ -1,9 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FixedNavbar from "./Components/Layouts/Navbar";
-
 import Landing from "./Components/Pages/Landing";
 import Search from "./Components/Pages/SearchPage";
 

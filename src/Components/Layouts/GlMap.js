@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import markerIcon from '../../Assets/icons/map-marker.svg'
 import ReactMapGL , { Marker, Popup }  from "react-map-gl";
-import * as parkDate from "../../data/skateboard-parks.json";
+import * as placesData from "../../data/places-on-map.json";
 
 export default function GlMap() {
-  const parkDateF = parkDate ;
+  const placesMarkers = placesData ;
   const [viewport, setViewport] = useState({
     latitude: 30.044420,
     longitude: 31.235712,
@@ -12,12 +12,12 @@ export default function GlMap() {
     height: "65vh",
     zoom: 13
   });
-  const [selectedPark, setSelectedPark] = useState(null);
+  const [selectedPlace, setSelectedPlace] = useState(null);
 
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
-        setSelectedPark(null);
+        setSelectedPlace(null);
       }
     };
     window.addEventListener("keydown", listener);
@@ -36,7 +36,7 @@ export default function GlMap() {
           setViewport(viewport);
         }}
       >
-        {parkDateF.features.map(park => (
+        {placesMarkers.features.map(park => (
           <Marker
             key={park.properties.PARK_ID}
             latitude={park.geometry.coordinates[1]}
@@ -46,7 +46,7 @@ export default function GlMap() {
               className="marker-btn"
               onClick={e => {
                 e.preventDefault();
-                setSelectedPark(park);
+                setSelectedPlace(park);
               }}
             >
               <img src={markerIcon} alt="Skate Park Icon" />
@@ -54,18 +54,18 @@ export default function GlMap() {
           </Marker>
         ))}
 
-        {selectedPark ? (
+        {selectedPlace ? (
           <Popup
           className="rounded-full"
-            latitude={selectedPark.geometry.coordinates[1]}
-            longitude={selectedPark.geometry.coordinates[0]}
+            latitude={selectedPlace.geometry.coordinates[1]}
+            longitude={selectedPlace.geometry.coordinates[0]}
             onClose={() => {
-              setSelectedPark(null);
+              setSelectedPlace(null);
             }}
           >
             <div >
-              <h2>{selectedPark.properties.NAME}</h2>
-              <p>{selectedPark.properties.DESCRIPTIO}</p>
+              <h2>{selectedPlace.properties.NAME}</h2>
+              <p>{selectedPlace.properties.DESCRIPTIO}</p>
             </div>
           </Popup>
         ) : null} 
