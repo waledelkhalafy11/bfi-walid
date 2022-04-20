@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 
 const Imgs = () => {
   return (
-    <section className="galary bg-[#bg-white] py-[50px]">
+    <section className="galary bg-white py-[50px]">
       <h2 className="text-center  font-black mb-5">
         Explore the most attractive areas in Beijing
       </h2>
