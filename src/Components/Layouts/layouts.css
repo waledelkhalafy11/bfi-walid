@@ -52,16 +52,32 @@ a {
 
 
 @media (max-width: 768px) {
-    .slider {
+    .sliderOfClients {
         width: 300px;
         height: 50px;
         display: flex;
-
         overflow-x: auto;
 
     }
 
-    .slide {
+    .slideOfClients {
+        width: 200px;
+        flex-shrink: 0;
+        height: 100%;
+    }
+}
+
+
+@media (max-width: 820px) {
+    .sliderOfClients {
+        width: 90%;
+        height: 50px;
+        display: flex;
+        overflow-x: auto;
+
+    }
+
+    .slideOfClients {
         width: 200px;
         flex-shrink: 0;
         height: 100%;

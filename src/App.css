@@ -3,6 +3,7 @@
   src: url(./Assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf);
   src: url(./Assets/fonts/Jost/Jost-VariableFont_wght.ttf);
 }
+
 @font-face {
   font-family: Montserrat;
   src: url(./Assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf);
@@ -13,8 +14,10 @@
   font-family: Changa;
   src: url(./Assets/fonts/Changa/Changa-VariableFont_wght.ttf);
 }
-  /* sitting class of small caps */
-.small-caps{
+
+
+/* sitting class of small caps */
+.small-caps {
   font-variant-caps: all-small-caps;
 }
 
@@ -53,20 +56,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.hero-bg{
-  background-image: 
-  linear-gradient(180deg, rgba(41,170,227,0.6) 0%, rgba(0,0,0,0.6) 100%), 
-   url('./Assets/imgs/HeroBackground.jpg');
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-  
+
+.hero-bg {
+  background-image:
+    linear-gradient(180deg, rgba(41, 170, 227, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%),
+    url('./Assets/imgs/HeroBackground.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
-.scrolledTop{
+
+.scrolledTop {
   background-color: white !important;
 
 }
@@ -78,44 +84,55 @@
   animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  }
-  @-webkit-keyframes fadeInUp {
+}
+
+@-webkit-keyframes fadeInUp {
   0% {
-  opacity: 0;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  }
-  100% {
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-  }
-  }
-  @keyframes fadeInUp {
-  0% {
-  opacity: 0;
-  -webkit-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  }
-  100% {
-  opacity: 1;
-  -webkit-transform: none;
-  transform: none;
-  }
-  } 
-  .filter-white{
-    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(-90deg);
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
 
-#demo{
-  font-family: Changa ;
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.filter-white {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(116deg) brightness(109%) contrast(109%) !important;
+}
+
+#demo {
+  font-family: Changa;
   letter-spacing: 5px !important;
 }
 
 @keyframes blink {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
+
 .cursor::after {
   content: "|";
   font-size: 1.1em;
@@ -124,16 +141,79 @@
 }
 
 
-.hovered-card{
+.hovered-card {
   padding-bottom: 1.5rem !important;
-  -webkit-box-shadow: 5px 5px 5px 0px #0000006e, inset 4px 4px 15px 0px #0000006e, 3px 6px 9px -1px rgba(0, 0, 0, 0.616); 
+  -webkit-box-shadow: 5px 5px 5px 0px #0000006e, inset 4px 4px 15px 0px #0000006e, 3px 6px 9px -1px rgba(0, 0, 0, 0.616);
   box-shadow: 5px 5px 5px 0px #0000006e, inset 4px 4px 15px 0px #0000006e, 3px 6px 9px -1px rgba(0, 0, 0, 0.603);
   transition: 0.2s ease-in-out;
 }
 
-.hover-invert{
-  
+.hover-invert {
+
   opacity: 0.4;
   transition: 0.2s ease-in-out;
 
+}
+
+.btn-outline-primary {
+  color: #45b6ca !important;
+  border-color: #45b6ca !important;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: #45b6ca !important;
+  border-color: #45b6ca !important;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.nav-link.active .navbar-light .navbar-nav .show>.nav-link {
+  color: #45b6ca !important;
+}
+
+.navbar-light:hover .navbar-nav:hover .nav-link.active,
+.nav-link.active:hover .navbar-light:hover .navbar-nav:hover .show>.nav-link:hover {
+  color: #45b6ca !important;
+}
+
+.btn-check:active+.btn-outline-primary,
+.btn-check:checked+.btn-outline-primary,
+.btn-outline-primary.active,
+.btn-outline-primary.dropdown-toggle.show,
+.btn-outline-primary:active {
+  color: #fff !important;
+  background-color: #45b6ca !important;
+  border-color: #45b6ca !important;
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+select {
+  box-shadow: none !important;
+}
+
+button {
+  box-shadow: none !important;
+}
+
+label {
+  box-shadow: none !important;
+}
+
+.mapboxgl-popup-content {
+  border-radius: 40px;
+  width: 500px;
+  padding: 30px;
+}
+
+.mapboxgl-popup-close-button {
+  right: 20px;
+  top: 10px;
 }
