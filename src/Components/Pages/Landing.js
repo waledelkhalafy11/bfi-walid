@@ -5,6 +5,7 @@ import Imgs from '../Layouts/Imgs'
 import WhyUs from '../Layouts/WhyUs';
 import UnitPage from "./UnitPage";
 import Counter from '../Layouts/Counter';
+import Listings from "../Layouts/ListingsCards";
 const Landing = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Landing = () => {
     <Counter/>
     <WhyUs />
     <Blog/>
+    <Listings/>
     <Imgs/>
     <UnitPage/>
     <Footer/>

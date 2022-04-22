@@ -27,6 +27,9 @@ export default function GlMap() {
     };
   }, []);
 
+
+
+  
   return (
     <div>
       <ReactMapGL
