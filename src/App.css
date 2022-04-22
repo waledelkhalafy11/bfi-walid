@@ -217,3 +217,8 @@ label {
   right: 20px;
   top: 10px;
 }
+
+.filter-primary-color{
+
+  filter: brightness(0) saturate(100%) invert(80%) sepia(7%) saturate(4099%) hue-rotate(151deg) brightness(85%) contrast(84%);
+}
