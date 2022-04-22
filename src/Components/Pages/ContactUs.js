@@ -26,7 +26,7 @@ function ContactUs() {
     return (
         <>
 
-            <div className="bg-[#0c303f] mt-16  h-[100vh]  py-14">
+            <div className="bg-[#0c303f] mt-16    py-24">
                 <div>
                     <p className="w-[55%] mx-auto  text-2xl font-bold text-white">Contact us today if you'd like to know more about how we help buy,sell or rent your home</p>
                 </div>
@@ -56,7 +56,7 @@ function ContactUs() {
 
 
                     </div>
-               
+
 
 
                     <input
@@ -70,7 +70,7 @@ function ContactUs() {
                         content={<>
                             <b></b>
                             <p className="font-bold text-lg text-[#0c303f]">Thank You For Sending Us</p>
-                     
+
                         </>}
                         handleClose={togglePopup}
                     />}

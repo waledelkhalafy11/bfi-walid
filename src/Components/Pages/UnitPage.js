@@ -3,23 +3,6 @@ import UnitGalary from "../Layouts/UnitGalary";
 import Footer from "../Layouts/Footer";
 
 
-import ReactDOM from 'react-dom'
-
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// import { faBedPulse} from '@fortawesome/free-solid-svg-icons';
-// import {faBath} from '@fortawesome/free-solid-svg-icons';
-// import {faCouch} from '@fortawesome/free-solid-svg-icons';
-
-// import kitchen from "../../Assets/icons/kitchen.png";
-// import bedroom from "../../Assets/icons/bedroom.png";
-// import bathroom from "../../Assets/icons/bathroom.png";
-// import livingroom from "../../Assets/icons/livingroom.png";
-
-
-import { useCallback } from 'react';
-
 import kitchen from "../../Assets/icons/kitchen.svg";
 import bedroom from "../../Assets/icons/bedroom.svg";
 import livingroom from "../../Assets/icons/livingroom.svg";
@@ -30,13 +13,6 @@ import elevator from "../../Assets/icons/elevator.svg";
 import price from "../../Assets/icons/price.svg";
 
 
-
-// import kitchen from "../../Assets/icons/kitchen.svg";
-
-
-// import ShareToSocial from "../Layouts/ShareToSocial";
-
-
 const UnitPage = () => {
 
 
@@ -45,9 +21,9 @@ const UnitPage = () => {
             <div className="flex flex-row mb-3 gap-24 md:gap-3">
 
                 <div className="flex flex-row w-[70%] md:w-[90%]">
-           
+
                     <img src={props.icon} className=" h-8 w-8 my-auto "></img>
-               
+
                     <p className=" text-left my-auto text-xl ml-3 md:w-[60%] ">{props.title}</p>
                 </div>
 
@@ -79,9 +55,9 @@ const UnitPage = () => {
 
                 <UnitGalary />
 
-              
-             
-                
+
+
+
 
             </div>
             <div className="mb-24 mt-16 w-[70%] md:w-[60%] mx-auto ">
@@ -92,9 +68,9 @@ const UnitPage = () => {
                         <UnitContent icon={bedroom} title="bed Room" />
                         <UnitContent icon={livingroom} title="living Room" />
                         <UnitContent icon={bathroom} title="Bath Room" />
- 
-                        
-                        
+
+
+
                     </div>
                     <div className="flex flex-col w-[30%]">
                         <UnitContent icon={gardenn} title="Garden" />
