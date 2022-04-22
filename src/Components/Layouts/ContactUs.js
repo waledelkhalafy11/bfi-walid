@@ -1,36 +1,24 @@
 import React from "react";
-import { useState } from 'react';
 import "../Layouts/layouts.css";
-import Popup from '../Layouts/Popup';
-import SweetAlert from 'react-bootstrap-sweetalert';
-
-
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import swal from 'sweetalert';
 
 
 function ContactUs() {
 
-    const [isOpen, setIsOpen] = useState(false);
 
-    const togglePopup = () => {
-        setIsOpen(!isOpen);
-
-
-    }
-
-
-
+    const sendCase = false ;
+    const sendMessageSucsess = () => swal("Good job!", "Thank You For Sending Us!", "success");
+    const sendMessageError = () => swal("Sending Error", "Please Try Again .", "error");
 
 
     return (
         <>
 
-            <div className="bg-[#0c303f] mt-16    py-24">
+            <div className="bg-white  py-24" id="contact-us">
                 <div>
-                    <p className="w-[55%] mx-auto  text-2xl font-bold text-white">Contact us today if you'd like to know more about how we help buy,sell or rent your home</p>
+                    <p className="w-[55%] mx-auto  text-2xl font-bold text-[#45b6ca]">Contact us today if you'd like to know more about how we help buy,sell or rent your home</p>
                 </div>
-                <div className="bg-white  w-[70%] mx-auto mt-8 py-8 px-2 rounded-md">
+                <div className="bg-white shadow-[0px_0px_10px_2px_rgba(204,204,204,0.5)] w-[70%] mx-auto mt-8 py-16 px-2 rounded-md">
                     <div>
                         <p className="text-xl font-bold">scedule a meeting with our team</p>
                         <p>our experts and developers would love to contribute their expertise and insights</p>
@@ -52,44 +40,13 @@ function ContactUs() {
                         <div className="mx-auto w-[70%]"> <div className=" mx-auto"><textarea placeholder="message" className="p-2 bg-[#f2f2f2] w-full mx-auto mt-2 "></textarea></div></div>
 
 
-
-
-
                     </div>
 
 
+                    <button className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-2" onClick={sendCase ? sendMessageSucsess : sendMessageError}>Send Message</button>
 
-                    <input
-                        type="button"
-                        value="Send Your Email"
-                        onClick={togglePopup}
-                        className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-2"
-
-                    />
-                    {isOpen && <Popup
-                        content={<>
-                            <b></b>
-                            <p className="font-bold text-lg text-[#0c303f]">Thank You For Sending Us</p>
-
-                        </>}
-                        handleClose={togglePopup}
-                    />}
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </>
