@@ -56,7 +56,7 @@ function ContactUs() {
 
 
                     </div>
-               
+
 
 
                     <input
@@ -70,7 +70,7 @@ function ContactUs() {
                         content={<>
                             <b></b>
                             <p className="font-bold text-lg text-[#0c303f]">Thank You For Sending Us</p>
-                     
+
                         </>}
                         handleClose={togglePopup}
                     />}
