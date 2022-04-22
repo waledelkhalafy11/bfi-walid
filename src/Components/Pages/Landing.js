@@ -3,8 +3,8 @@ import Footer from "../Layouts/Footer";
 import Blog from "../Layouts/Blogs";
 import Imgs from '../Layouts/Imgs'
 import ClientSection from "../Layouts/ClientsSection";
+import ContactUs from "../Layouts/ContactUs";
 
-import UnitPage from "./UnitPage";
 
 const Landing = () => {
   return (
@@ -12,7 +12,9 @@ const Landing = () => {
     <Hero/> 
     <Blog/>
     <Imgs/>  
+ 
     <ClientSection/> 
+       <ContactUs/>
     <Footer/> 
     </>
   );
