@@ -1,6 +1,6 @@
 
 /*Start Blog Styling */
-/* 
+ 
 .owl-theme .owl-dots .owl-dot span {
     width: 15px !important;
     height: 15px !important;
@@ -11,7 +11,7 @@
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background: #29AAE3 !important;
 }
- */
+ 
 
 
 
@@ -86,10 +86,36 @@ a {
 
 
 
-
+/* Unit page and Unit galary */
 
 @media (max-width: 768px) {
     .galaryOfUnits ul{
         display: none;
     }
+}
+
+
+.galaryOfUnits ul li {
+    border-radius: 20%;
+}
+
+.galaryOfUnits  ul  li > img {
+    border-radius: 20%;
+}
+
+
+
+
+.carousel .thumb.selected, .carousel .thumb:hover {
+    border: 3px solid #29AAE3 !important;
+}
+
+
+
+
+
+/* popup */
+
+.swal-button-container > .swal-button {
+    background-color: #45b6ca !important;
 }

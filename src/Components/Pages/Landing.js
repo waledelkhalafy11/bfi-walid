@@ -2,21 +2,20 @@ import Hero from "../Layouts/Hero";
 import Footer from "../Layouts/Footer";
 import Blog from "../Layouts/Blogs";
 import Imgs from '../Layouts/Imgs'
-import WhyUs from '../Layouts/WhyUs';
-import UnitPage from "./UnitPage";
-import Counter from '../Layouts/Counter';
-import Listings from "../Layouts/ListingsCards";
+import ClientSection from "../Layouts/ClientsSection";
+import ContactUs from "../Layouts/ContactUs";
+
+
 const Landing = () => {
   return (
     <>
-    <Hero/>
-    <Counter/>
-    <WhyUs />
+    <Hero/> 
     <Blog/>
-    <Listings/>
-    <Imgs/>
-    <UnitPage/>
-    <Footer/>
+    <Imgs/>  
+ 
+    <ClientSection/> 
+       <ContactUs/>
+    <Footer/> 
     </>
   );
 };

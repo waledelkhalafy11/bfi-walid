@@ -1,7 +1,8 @@
 import PhoneIcon from "@mui/icons-material/Phone";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import darkLogo from '../../Assets/imgs/logo1.png'
+import lightLogo from '../../Assets/imgs/logo2.png'
 import { useEffect, useState } from "react";
 import { Button, Navbar, Container, Nav } from "react-bootstrap";
 
@@ -47,7 +48,7 @@ const FixedNavbar = () => {
       id: 5,
       name: "Contact Us",
 
-      navigate: "/login",
+      navigate: "",
     },
   ];
 
@@ -86,6 +87,7 @@ const FixedNavbar = () => {
     if (location.pathname === "/") {
       document.getElementById("navbar").classList.remove("bg-white");
       document.getElementById("navbar").classList.remove("scrolledTop");
+      
       SetActive(1);
     } else {
       document.getElementById("navbar").classList.add("bg-white");
@@ -107,16 +109,16 @@ const FixedNavbar = () => {
         expand="md"
         fixed="top"
       >
-        <Container fluid>
+        <Container fluid className="flex flex-row">
           <Navbar.Brand
             href="#home"
-            className="hover:text-[#45b6ca] text-left xl:w-[15%] font-[Changa] ml-[5%] text-5xl"
+            className="w-[50%] md:w-[100%] hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
           >
-            BFI
+            <img className="md:w-[80%]" src={navVariant === "dark" ? darkLogo : lightLogo} />
           </Navbar.Brand>
           <Navbar.Toggle
-            className="text-white "
-            aria-controls=" basic-navbar-nav"
+            className="text-white"
+            aria-controls="basic-navbar-nav"
           />
           <Navbar.Collapse
             className="bg-[#000000ab] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
