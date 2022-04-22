@@ -1,7 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
 import VisibilitySensor from 'react-visibility-sensor';
-import { Container,Row,Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import clocation from "../../Assets/icons/counter/maplocation.png";
 import agents from "../../Assets/icons/counter/insurance.png";
@@ -9,7 +9,7 @@ import happy from "../../Assets/icons/counter/satisfaction.png";
 import property from "../../Assets/icons/counter/insurance-(1).png";
 function Counter() {
     return (
-<div className="Counter py-[50px] mt-[20px] w-[80%] sm:w-[70%] mx-auto bg-[#45b6ca] rounded-[40px] ">
+<div className="Counter py-[50px]  w-[100%]  mx-auto bg-[#45b6ca]  ">
 
 <Container>
 

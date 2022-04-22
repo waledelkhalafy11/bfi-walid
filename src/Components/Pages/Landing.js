@@ -4,15 +4,19 @@ import Blog from "../Layouts/Blogs";
 import Imgs from '../Layouts/Imgs'
 import ClientSection from "../Layouts/ClientsSection";
 import ContactUs from "../Layouts/ContactUs";
-
-
+import Counter from "../Layouts/Counter";
+import Listings from "../Layouts/ListingsCards";
+import WhyUs from "../Layouts/WhyUs";
 const Landing = () => {
   return (
     <>
     <Hero/> 
+    <Counter/>
+    <WhyUs/>
     <Blog/>
+    <Listings/>
     <Imgs/>  
- 
+    
     <ClientSection/> 
        <ContactUs/>
     <Footer/> 
