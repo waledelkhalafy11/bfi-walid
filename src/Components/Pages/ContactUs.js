@@ -11,30 +11,13 @@ import withReactContent from 'sweetalert2-react-content'
 
 function ContactUs() {
 
-    // const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    // const togglePopup = () => {
-    //     setIsOpen(!isOpen);
-
-
-    // }
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
 
 
-
-
-    // const MySwal = withReactContent(Swal)
-
-    // MySwal.fire({
-    //     title: <p>Hello World</p>,
-    //     footer: 'Copyright 2018',
-    //     didOpen: () => {
-    //         // `MySwal` is a subclass of `Swal`
-    //         //   with all the same instance & static methods
-    //         MySwal.clickConfirm()
-    //     }
-    // }).then(() => {
-    //     return MySwal.fire(<p>Shorthand works too</p>)
-    // })
+    }
 
 
 
@@ -74,19 +57,9 @@ function ContactUs() {
 
                     </div>
                
-{/* 
-                    <SweetAlert
-    success
-    title="Woot!"
-    onConfirm={this.hideAlert}
-    dependencies={this.state.send}
->
-    I did it!
-</SweetAlert> */}
-                    <input type="button" value={this.state.send}
-                    > kkk</input>
 
-                    {/* <input
+
+                    <input
                         type="button"
                         value="Send Your Email"
                         onClick={togglePopup}
@@ -100,7 +73,7 @@ function ContactUs() {
                      
                         </>}
                         handleClose={togglePopup}
-                    />} */}
+                    />}
                 </div>
             </div>
 
