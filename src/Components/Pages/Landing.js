@@ -7,6 +7,7 @@ import ContactUs from "../Layouts/ContactUs";
 import Counter from "../Layouts/Counter";
 import Listings from "../Layouts/ListingsCards";
 import WhyUs from "../Layouts/WhyUs";
+import GorgeousHome from "../Layouts/GorgeousHome";
 const Landing = () => {
   return (
     <>
@@ -14,11 +15,12 @@ const Landing = () => {
     <Counter/>
     <WhyUs/>
     <Blog/>
+    <GorgeousHome />
     <Listings/>
     <Imgs/>  
     
     <ClientSection/> 
-       <ContactUs/>
+    <ContactUs/>
     <Footer/> 
     </>
   );
