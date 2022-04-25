@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FixedNavbar from "./Components/Layouts/Navbar";
 import Landing from "./Components/Pages/Landing";
 import Search from "./Components/Pages/SearchPage";
+import UnitPage from "./Components/Pages/UnitPage";
+import ContactUs from "./Components/Layouts/ContactUs";
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/search" element={<Search />} />
+          <Route exact path="/unit" element={<UnitPage />} />
+          
         </Routes>
     </div>
       </Router>

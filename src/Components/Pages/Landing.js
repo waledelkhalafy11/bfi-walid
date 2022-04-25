@@ -2,18 +2,26 @@ import Hero from "../Layouts/Hero";
 import Footer from "../Layouts/Footer";
 import Blog from "../Layouts/Blogs";
 import Imgs from '../Layouts/Imgs'
-import WhyUs from '../Layouts/WhyUs';
-import UnitPage from "./UnitPage";
-
+import ClientSection from "../Layouts/ClientsSection";
+import ContactUs from "../Layouts/ContactUs";
+import Counter from "../Layouts/Counter";
+import Listings from "../Layouts/ListingsCards";
+import WhyUs from "../Layouts/WhyUs";
+import GorgeousHome from "../Layouts/GorgeousHome";
 const Landing = () => {
   return (
     <>
-    <Hero/>
-    <WhyUs />
+    <Hero/> 
+    <Counter/>
+    <WhyUs/>
     <Blog/>
-    <Imgs/>
-    <UnitPage/>
-    <Footer/>
+    <GorgeousHome />
+    <Listings/>
+    <Imgs/>  
+    
+    <ClientSection/> 
+    <ContactUs/>
+    <Footer/> 
     </>
   );
 };

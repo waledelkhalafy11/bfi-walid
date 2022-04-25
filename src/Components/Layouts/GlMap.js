@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import markerIcon from '../../Assets/icons/map-marker.svg'
+import markerIcon from '../../Assets/icons/marker.svg'
+import markerIcon2 from '../../Assets/icons/map-marker2.svg'
 import ReactMapGL , { Marker, Popup }  from "react-map-gl";
 import * as placesData from "../../data/places-on-map.json";
 
@@ -49,7 +50,7 @@ export default function GlMap() {
                 setSelectedPlace(park);
               }}
             >
-              <img src={markerIcon} alt="Skate Park Icon" />
+              <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
             </button>
           </Marker>
         ))}
