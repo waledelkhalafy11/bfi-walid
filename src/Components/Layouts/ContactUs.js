@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 function ContactUs() {
 
 
-    const sendCase = false ;
+    const sendCase = false;
     const sendMessageSucsess = () => swal("Good job!", "Thank You For Sending Us!", "success");
     const sendMessageError = () => swal("Sending Error", "Please Try Again .", "error");
 
@@ -14,14 +14,12 @@ function ContactUs() {
     return (
         <>
 
-            <div className="bg-white  py-24" id="contact-us">
-                <div>
-                    <p className="w-[55%] mx-auto  text-2xl font-bold text-[#45b6ca]">Contact us today if you'd like to know more about how we help buy,sell or rent your home</p>
-                </div>
-                <div className="bg-white shadow-[0px_0px_10px_2px_rgba(204,204,204,0.5)] w-[70%] mx-auto mt-8 py-16 px-2 rounded-md">
+            <div className="bg-white " id="contact-us">
+                
+                <div className="bg-white shadow-[0px_0px_10px_2px_rgba(204,204,204,0.5)]    py-16 px-2 rounded-md">
                     <div>
-                        <p className="text-xl font-bold">scedule a meeting with our team</p>
-                        <p>our experts and developers would love to contribute their expertise and insights</p>
+                        <p className="text-3xl font-bold">Get in touch</p>
+                        <p className="text-center mx-auto w-[90%]">Have an inquiry or some feedback for us? Fill out the form below to contact our team.</p>
 
                     </div>
                     <div className="flex flex-col md:text-left ">
@@ -43,7 +41,7 @@ function ContactUs() {
                     </div>
 
 
-                    <button className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-2" onClick={sendCase ? sendMessageSucsess : sendMessageError}>Send Message</button>
+                    <button className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-2" onClick={sendCase ? sendMessageSucsess : sendMessageError}>Get in touch</button>
 
                 </div>
             </div>

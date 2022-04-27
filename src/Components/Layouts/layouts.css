@@ -119,3 +119,23 @@ a {
 .swal-button-container > .swal-button {
     background-color: #45b6ca !important;
 }
+
+
+
+
+/* Contact Us */
+
+
+
+@media (max-width: 768px) {
+    .contactUsResponsive {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .contactUsResponsive > div {
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

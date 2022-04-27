@@ -5,7 +5,7 @@ import FixedNavbar from "./Components/Layouts/Navbar";
 import Landing from "./Components/Pages/Landing";
 import Search from "./Components/Pages/SearchPage";
 import UnitPage from "./Components/Pages/UnitPage";
-import ContactUs from "./Components/Layouts/ContactUs";
+import ContactUsPage from "./Components/Pages/ContactUsPage";
 
 function App() {
 
@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/search" element={<Search />} />
+          <Route exact path="/contact-us" element={<ContactUsPage />} />
           <Route exact path="/unit" element={<UnitPage />} />
           
         </Routes>
