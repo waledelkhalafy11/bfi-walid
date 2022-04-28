@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import markerIcon from '../../Assets/icons/marker.svg'
+import 'mapbox-gl/dist/mapbox-gl.css';
 import markerIcon2 from '../../Assets/icons/map-marker2.svg'
-import ReactMapGL , { Marker, Popup }  from "react-map-gl";
+import ReactMapGL , { Marker, Popup ,NavigationControl }  from "react-map-gl";
 import * as placesData from "../../data/places-on-map.json";
+import placeImg from "../../Assets/imgs/placeimg.jpg";
 
 export default function GlMap() {
   const placesMarkers = placesData ;
   const [viewport, setViewport] = useState({
     latitude: 30.044420,
     longitude: 31.235712,
-    width : "100vw" ,
-    height: "65vh",
+    width : "200" ,
+    height: "300",
     zoom: 13
   });
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -32,7 +34,7 @@ export default function GlMap() {
     <div>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_TOKEN}
+        mapboxApiAccessToken='pk.eyJ1Ijoid2FsZWRlbGtoYWxhZnkiLCJhIjoiY2wyNWo3bHFkMjluZzNqbXRleGlyN3ZyaCJ9.coSVjsI0VLsTl6198hKECQ'
         onViewportChange={viewport => {
           setViewport(viewport);
         }}
@@ -54,7 +56,7 @@ export default function GlMap() {
             </button>
           </Marker>
         ))}
-
+        <NavigationControl/>
         {selectedPlace ? (
           <Popup
           className="rounded-full"
@@ -64,9 +66,14 @@ export default function GlMap() {
               setSelectedPlace(null);
             }}
           >
-            <div >
-              <h2>{selectedPlace.properties.NAME}</h2>
-              <p>{selectedPlace.properties.DESCRIPTIO}</p>
+            <div className="flex  flex-row">
+              <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={placeImg}></img>
+              <div className="flex flex-col">
+              <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.properties.NAME}</h2>
+          
+
+<h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+              </div>
             </div>
           </Popup>
         ) : null} 
