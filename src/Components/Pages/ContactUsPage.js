@@ -24,11 +24,11 @@ const ContactUsPage = () => {
                 <div className="w-[80%] flex flex-col md:flex-row mx-auto my-10 md:mt-20 gap-4 md:gap-12 contactUsResponsive">
                     <div className="md:w-[60%]">
 
-                        <img className=" h-full rounded-md" src={ContactUsPhoto}></img>
+                        <img className="  rounded-md h-full" src={ContactUsPhoto}></img>
 
                     </div>
 
-                    <div className="md:w-[40%]">
+                    <div className="md:w-[40%] h-full">
 
                         <ContactUs />
 
