@@ -126,7 +126,7 @@ const FixedNavbar = () => {
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-8">
               {btns.map((item) => {
-               if(item.id === 5 ){
+               if(item.id === 9 ){
                 return (
                   <Nav.Link
                     onClick={() => {
