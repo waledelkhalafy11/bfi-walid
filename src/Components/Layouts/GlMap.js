@@ -13,7 +13,8 @@ export default function GlMap() {
     longitude: 31.235712,
     width : "200" ,
     height: "300",
-    zoom: 13
+    zoom: 13 , 
+    
   });
   const [selectedPlace, setSelectedPlace] = useState(null);
 
@@ -29,15 +30,20 @@ export default function GlMap() {
       window.removeEventListener("keydown", listener);
     };
   }, []);
+  
 
   return (
     <div>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken='pk.eyJ1Ijoid2FsZWRlbGtoYWxhZnkiLCJhIjoiY2wyNWo3bHFkMjluZzNqbXRleGlyN3ZyaCJ9.coSVjsI0VLsTl6198hKECQ'
+        
         onViewportChange={viewport => {
           setViewport(viewport);
+        
         }}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        
       >
         {placesMarkers.features.map(park => (
           <Marker
