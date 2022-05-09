@@ -48,7 +48,7 @@ const FixedNavbar = () => {
       id: 5,
       name: "Contact Us",
 
-      navigate: "contact-us",
+      navigate: "/contact-us",
     },
   ];
 
