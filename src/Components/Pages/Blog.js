@@ -1,8 +1,8 @@
 import {Container} from "react-bootstrap";
 import react from 'react'
-import blog1 from "../../Assets/imgs/blog/pexels-expect-best-323780.jpg";
-import blog2 from "../../Assets/imgs/blog/pexels-pixabay-269262.jpg";
-import blog3 from "../../Assets/imgs/blog/pexels-sevenstorm-juhaszimrus-439416.jpg"
+import blog1 from "../../Assets/imgs/blog/1.png";
+import blog2 from "../../Assets/imgs/blog/2.png";
+import blog3 from "../../Assets/imgs/blog/3.png"
 const Blog = () =>{
     let prag =`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -37,7 +37,7 @@ const Blog = () =>{
                     </div>
                 </div>
             </div>
-            
+
     )
 }
 export default  Blog ;

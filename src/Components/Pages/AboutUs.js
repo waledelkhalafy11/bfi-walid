@@ -86,7 +86,7 @@ const AboutUs = () => {
                         </div>
                     </div>
                     <div className="w-[540px] h-[460px] right-[97px] mt-[95px]   absolute rounded-md overflow-hidden">
-                        <img src={box9} className="object-cover rounded-md " alt=""/>
+                        <img src={box9} className="object-cover rounded-md h-full w-full" alt=""/>
                     </div>
                 </div>
             </div>
