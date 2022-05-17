@@ -28,9 +28,9 @@ const FixedNavbar = () => {
     },
     {
       id: 3,
-      name: "Properties",
+      name: "About Us",
 
-      navigate: "/",
+      navigate: "/about-us",
     },
     {
       id: 6,
@@ -42,7 +42,7 @@ const FixedNavbar = () => {
       id: 4,
       name: "Blog",
 
-      navigate: "",
+      navigate: "/Blog",
     },
     {
       id: 5,
@@ -94,7 +94,7 @@ const FixedNavbar = () => {
       setnavVariant("light");
       btns.map((itm) => {
         if (itm.navigate === location.pathname) {
-         SetActive(itm.id);
+        SetActive(itm.id);
         }
         return null
       });
@@ -126,11 +126,11 @@ const FixedNavbar = () => {
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-8">
               {btns.map((item) => {
-               if(item.id === 9 ){
+              if(item.id === 9 ){
                 return (
                   <Nav.Link
                     onClick={() => {
-                     
+                    
                       document.getElementById(item.navigate).scrollIntoView();
 
                       handleActive(item.id);
@@ -144,12 +144,12 @@ const FixedNavbar = () => {
                     {item.name}
                   </Nav.Link>
                 );
-               }else {
+              }else {
 
                 return (
                   <Nav.Link
                     onClick={() => {
-                     
+                    
                       navigate(item.navigate)
                       handleActive(item.id);
                     }}
@@ -162,7 +162,7 @@ const FixedNavbar = () => {
                     {item.name}
                   </Nav.Link>
                 );
-               }
+              }
               })}
             
             </Nav>
