@@ -17,11 +17,7 @@ const WhyUs =()=> {
     return (
         <>
             <Container>
-
-
             <div className="m-auto ">
-
-
                 <div className="mb-[50px]  lg:mt-6  ">
                     <p className="text-3xl font-bold text-[#005f8f] pt-[50px] ">Why Choose Us</p>
                     <p></p>
@@ -37,28 +33,20 @@ const WhyUs =()=> {
                                     {whyus1}
                                 </p>
                             </div>
-
                         </div>
-
-
-
 
                           {/* --------------------car 2-----------------------------------------  */}
                         <div class=" w-[350px] py-[40px] col-lg-4  col-md-12    overflow-hidden  mx-auto   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between ">
                         <img src={Icon2} alt="handshake" className="w-14 h-14 mx-auto ] pl-[10px]"></img>
                             <div class="px-6 ">
-                                <div class="font-bold text-xl  text-[#005f8f] text-left">FINANCING</div>
+                                <div class="font-bold text-xl   text-left">FINANCING</div>
                                 <p class="text-gray-700 text-base text-left whitespace-normal">
                                 {whyus2}
                                 </p>
                             </div>
-
                         </div>
 
-
-
                           {/* --------------------car 3-----------------------------------------  */}
-
                         <div class=" w-[350px] py-[40px] md:my-0  col-lg-4  col-md-12 mx-auto  overflow-hidden  md:m-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
                         <img src={Icon4} alt="nofee" className="w-14 h-14 mx-auto  pl-[10px]"></img>
                             <div class="px-6 "> 
@@ -67,20 +55,9 @@ const WhyUs =()=> {
                                 {whyus3}
                                 </p>
                             </div>
-
-                        </div>
-                   
-
-
-
-
-
-
-
+                        </div>                   
 
                          {/* --------------------car 4-----------------------------------------  */}
-
-                   
                     <div class="w-[350px]  my-[40px] xl:my-0  col-lg-4  col-md-12   overflow-hidden  mx-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
                             <img src={Icon6} alt="heart" className="w-14 h-14 mx-auto  pl-[10px]"></img>
                             <div class="px-6">
@@ -89,16 +66,10 @@ const WhyUs =()=> {
                                 {whyus4}
                                 </p>
                             </div>
-
                         </div>
 
-
-
-
-
-
                        {/* --------------------car 5-----------------------------------------  */}
-                        <div class=" w-[350px] py-[40px] md:py-0 py-[40px] lg:py-0      col-lg-4  col-md-12   overflow-hidden  mx-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
+                        <div class=" w-[350px]  md:py-0 py-[40px] lg:py-0      col-lg-4  col-md-12   overflow-hidden  mx-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
                         <img src={Icon3} alt="moneybag" className="w-14 h-14 mx-auto  pl-[10px]"></img>
                             <div class="px-6 ">
                                 <div class="font-bold text-xl  text-[#005f8f] text-left">TRANSPARENCY</div>
@@ -106,16 +77,10 @@ const WhyUs =()=> {
                                 {whyus5}                               
                                 </p>
                             </div>
-
                         </div>
 
-
-
-
-
-
                         {/* --------------------car 6-----------------------------------------  */}
-                        <div class="  w-[350px] py-[40px] md:py-0 py-[40px] lg:py-0  col-lg-4  col-md-12   overflow-hidden  mx-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
+                        <div class="  w-[350px]  md:py-0 py-[40px] lg:py-0  col-lg-4  col-md-12   overflow-hidden  mx-auto  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between">
                         <img src={Icon5} alt="clock" className="w-14 h-14 mx-auto  pl-[10px] "></img>
                             <div class="px-6">
                                 <div class="font-bold text-xl  text-[#005f8f] text-left">NEAR BY MY</div>
@@ -125,17 +90,7 @@ const WhyUs =()=> {
                             </div>
                         </div>
                     </div>
-                    
-
-
-            
-
-
-
             </div>
-
-
-
             </Container>                
         </>
     )
