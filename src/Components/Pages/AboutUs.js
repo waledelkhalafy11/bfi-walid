@@ -19,8 +19,8 @@ const AboutUs = () => {
 
 
 
-
     return(
+        // ================> Cards photo
         <div className=" mt-[90px] bg-[#f2f2f2]">
             <div className="grid grid-cols-2 mb-[21px]">
 
