@@ -1,11 +1,11 @@
 import React from "react";
 import "./layouts.css";
-import facebook from "../../Assets/icons/facebook.png";
-import instagram from "../../Assets/icons/instagram.png";
-import twitter from "../../Assets/icons/twitter.png";
-import linkedin from "../../Assets/icons/linkedin.png";
-import youtube from "../../Assets/icons/youtube.png";
-import google from "../../Assets/icons/google.png";
+import facebook from "../../Assets/icons/footer/facebook.png"
+import instagram from "../../Assets/icons/footer/instagram.png";
+import twitter from "../../Assets/icons/footer/twitter2.png";
+import linkedin from "../../Assets/icons/footer/linkedin.png";
+import whatsapp from "../../Assets/icons/footer/whatsapp.png";
+// import google from "../../Assets/icons/google.png";
 import email from "../../Assets/icons/email.png";
 import location from "../../Assets/icons/location.png";
 import telephone from "../../Assets/icons/telephone.png";
@@ -27,7 +27,7 @@ function Footer() {
     return (
       <a href={props.href}>
         {" "}
-        <p className="p-2 border-solid border-b border-[#a9a5a1] hover:font-bold hover:text-lg hover:text-[#29aae3]">
+        <p className="p-2 h-[40px] border-solid border-b border-[#a9a5a1] hover:font-bold hover:text-lg hover:text-[#29aae3]">
           {props.title}
         </p>
       </a>
@@ -62,8 +62,8 @@ function Footer() {
 
     
 
-      <div className="w-full h-auto bg-[#333333]">
-        <div className="flex flex-col md:flex-row mb-2 w-3/4 h-full mx-auto text-[#a9a5a1]">
+      <div className="w-full h-auto bg-[#0c314e]">
+        <div className="flex flex-col md:flex-row mb-2 w-3/4 h-full mx-auto text-[#ffff]">
           <div className="w-full md:w-[26%] md:mr-2 mt-4 text-left">
             <p className="font-bold mb-5 text-[#f2f2f2]">MY HOME</p>
             <p className="mb-3 text-left">
@@ -122,21 +122,21 @@ function Footer() {
               <FollowusItem href="https://www.twitter.com/" img={twitter} />
               <FollowusItem href="https://www.instagram.com/" img={instagram} />
               <FollowusItem href="https://www.linkedin.com/" img={linkedin} />
-              <FollowusItem href="https://www.youtube.com/" img={youtube} />
-              <FollowusItem
+              <FollowusItem href="https://www.whatsapp.com/" img={whatsapp} />
+              {/* <FollowusItem
                 href="https://www.google.com/"
                 img={google}
                 classNameAdd="hover:rotate-180 hover:translate-y-[-5px]"
-              />
-              <FollowusItem href="https://www.linkedin.com/" img={youtube} />
+              /> */}
+              {/* <FollowusItem href="https://www.linkedin.com/" img={youtube} />
               <FollowusItem href="https://www.linkedin.com/" img={instagram} />
               <FollowusItem href="https://www.linkedin.com/" img={facebook} />
-              <FollowusItem href="https://www.linkedin.com/" img={linkedin} />
+              <FollowusItem href="https://www.linkedin.com/" img={linkedin} /> */}
             </div>
           </div>
         </div>
-        <div className="w-full h-10  bg-[#222222] pt-1">
-          <p className="text-[#a9a5a1] ">2022 MyHome by Regums development </p>
+        <div className="w-full h-10  bg-[#061d2e] pt-1">
+          <p className="text-[#ffff] ">2022 MyHome by Regums development </p>
         </div>
       </div>
     </>

@@ -25,7 +25,7 @@
 
 a {
     text-decoration: none;
-    color: #a9a5a1;
+    color: #fff;
 }
 
 
@@ -40,13 +40,19 @@ a {
 }
 
 .myhomeitem a:hover {
-    color: #29aae3;
+    color: #29aae3 ;
+}
+.followus img{
+    filter: grayscale(80%);
+    transition-duration: 0.5s !important;
+
 }
 
 .followus img:hover {
-        
-    border-radius: 50%;
-    transform: translateY(-5px);
+  
+    filter: grayscale(0%);
+    /* border-radius: 50%;
+    transform: translateY(-5px); */
 }
 
 
@@ -137,5 +143,7 @@ a {
         width: 80% !important;
         margin-left: auto;
         margin-right: auto;
+     
+       
     }
 }

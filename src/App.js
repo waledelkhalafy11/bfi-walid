@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FixedNavbar from "./Components/Layouts/Navbar";
 import Landing from "./Components/Pages/Landing";
