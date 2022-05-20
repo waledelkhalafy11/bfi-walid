@@ -62,9 +62,9 @@ const Blog = () =>{
 
             <nav>
   <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-    <button class="nav-link text-[black]  active  " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-    <button class="nav-link text-[black]  " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-    <button class="nav-link text-[black]  " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+    <button class="nav-link text-[black] hover:text-[#45b6ca]  active  " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+    <button class="nav-link text-[black] hover:text-[#45b6ca] " id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+    <button class="nav-link text-[black] hover:text-[#45b6ca] " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
   </div>
 </nav>
 
@@ -101,8 +101,44 @@ const Blog = () =>{
 
 </div>
   
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">w</div>
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">..adddda.</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  <div className="row mt-5">
+             
+             <div className="col-lg-4 col-md-6">
+            
+              <Cards 
+                title="Apartment with subunits"
+                price="45000"
+                rooms="3"
+                bathrooms="2"
+                space= "170"
+                address="Abu Al Feda, Cairo Governorate, Egypt"
+                 />
+     
+             </div>
+     
+             
+             </div> 
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+  <div className="row mt-5">
+             
+             <div className="col-lg-4 col-md-6">
+            
+              <Cards 
+                title="Apartment with subunits"
+                price="455000"
+                rooms="3"
+                bathrooms="2"
+                space= "170"
+                address="Abu Al Feda, Cairo Governorate, Egypt"
+                 />
+     
+             </div>
+     
+             
+             </div> 
+  </div>
 
 
 
