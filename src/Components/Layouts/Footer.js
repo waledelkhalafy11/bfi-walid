@@ -114,7 +114,7 @@ function Footer() {
 
           <div className="w-3/4 md:w-[17%] mx-auto md:mx-2 mt-4 text-left">
             <div>
-              <p className="font-bold text-[#f2f2f2]">FOLLOW US</p>
+              <p className="font-bold text-[#f2f2f2]">CONTACT US</p>
             </div>
 
             <div className="flex flex-wrap mt-3 followus">

@@ -9,9 +9,37 @@ import UnitPage from "./Components/Pages/UnitPage";
 import ContactUsPage from "./Components/Pages/ContactUsPage";
 import AboutUs from "./Components/Pages/AboutUs";
 import Blog from "./Components/Pages/Blog"
+import axios from "axios";
+import { useEffect ,useState , createContext} from "react";
+import 'animate.css';
+
+
+export const ApiContext = createContext();
+
 function App() {
+  // console.log(res.data[0].unit.unit_name)
+  const [post, setPost] = useState(['']);
+  
+  useEffect(() =>{
+    axios.get('http://127.0.0.1:8000/api/allunits')
+    .then(res => {
+        setPost(res.data)
+      
+  // console.log(res.data[1].unit.unit_name)
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+},[]);
+
+
+
+
+
+
 
   return (
+    <ApiContext.Provider value={post}>
       <Router>
     <div className="App">
       <FixedNavbar/>
@@ -25,7 +53,7 @@ function App() {
         </Routes>
     </div>
       </Router>
-
+      </ApiContext.Provider>
       
   );
 }

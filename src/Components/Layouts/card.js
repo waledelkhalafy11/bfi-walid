@@ -19,8 +19,10 @@ function Cards(props) {
     
   return (
  <>
+
+
     <div className="col-lg-4 col-md-6">
-            <div className="item w-[400px]  h-fit bg-[#f2f2f2]">
+            <div className="item w-[400px]  h-fit bg-[#f2f2f2] ">
                 <div className="cardd">
                         <div className="image relative">
                             <div className="overflow-hidden  w-full h-[300px]">
