@@ -1,11 +1,10 @@
-import {Container} from "react-bootstrap";
-import react from 'react'
+import {useContext ,useEffect} from 'react';
+import { ApiContext } from '../../App';
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
-
-import Cards from "../Layouts/card";
 import Footer from"../Layouts/Footer";
+import Cards from '../Layouts/card';
 const Blog = () =>{
     let prag =`Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -13,10 +12,42 @@ const Blog = () =>{
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `
 
 
+    const dataApi = useContext (ApiContext);
+
+    let blogData
 
 
+    useEffect(() =>{
+       
 
-  
+        // console.log(dataApi);
+    
+    
+    
+     blogData = dataApi.map(itm => { 
+    
+    
+        return(
+    
+                  <Cards 
+               title= {itm.unit.unit_name}
+               price={itm.unit.unit_price}
+               rooms= {itm.props[0].bedroom}
+               bathrooms={itm.props[0].bathroom}
+               space= "170"
+                />
+           
+            
+        )})
+   
+       
+    },[]);
+    
+
+     
+
+   
+
     return (
         <div className="blog bg-[#f2f2f2]">
             <div className=" mt-[90px] row bg-[#f2f2f2] p-[20px]">
@@ -40,7 +71,7 @@ const Blog = () =>{
                 {/* ===========.>>>>>>>>>>>>>> Cards */}
 
                 <div className="col-lg-6 col-md-12 order-1 order-lg-2 my-auto p-0" >
-                <div className=" relative mx-auto w-[95%] md:w-[70%]  h-[651px] mx-auto bg-[#f2f2f2] mt-[50px] rounded-md">
+                <div className=" relative mx-auto w-[95%] md:w-[70%]  h-[651px] mx-auto bg-[#f2f2f2] mt-[50px] rounded-md animate__fadeInUp animate__delay-2s	2s">
                     <div className="absolute bottom-0 left-0 h-[651px] w-[55%] sm:h-[550px] overflow-hidden rounded-md">
                         <img src={blog1} alt="" className="absolute h-full w-full object-cover"/>
                     </div>
@@ -81,18 +112,15 @@ const Blog = () =>{
 
     <div className="row mt-5">
              
-        <div className="col-lg-4 col-md-6">
        
-         <Cards 
-           title="Apartment with subunits"
-           price="45000"
-           rooms="3"
-           bathrooms="2"
-           space= "170"
-           address="Abu Al Feda, Cairo Governorate, Egypt"
-            />
+       
 
-        </div>
+
+
+       {blogData} 
+   
+
+   
 
         
         </div> 
