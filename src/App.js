@@ -15,7 +15,6 @@ import 'animate.css';
 
 
 export const ApiContext = createContext();
-
 function App() {
   // console.log(res.data[0].unit.unit_name)
   const [post, setPost] = useState([]);
@@ -30,7 +29,7 @@ function App() {
     .catch(err =>{
         console.log(err)
     })
-},[]);
+});
 
 
 

@@ -15,7 +15,7 @@ import Location from "../../Assets/icons/ListingsCards/location.png";
 // title,price,space,rooms,bathrooms,address
 function Cards(props) {
  
-console.log(props.image)
+
     
   return (
  <>
