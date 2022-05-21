@@ -1,5 +1,5 @@
 import {useContext ,useEffect} from 'react';
-import { ApiContext } from '../../App';
+import { ApiContext , apiFet } from '../../App';
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
@@ -14,17 +14,16 @@ const Blog = () =>{
 
     const dataApi = useContext (ApiContext);
 
-    let blogData
 
 
-    useEffect(() =>{
+    apiFet()
        
 
         // console.log(dataApi);
     
     
     
-     blogData = dataApi.map(itm => { 
+     let blogData =  dataApi.map(itm => { 
     
     
         return(
@@ -40,8 +39,7 @@ const Blog = () =>{
             
         )})
    
-       
-    },[]);
+
     
 
      
