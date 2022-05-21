@@ -12,14 +12,14 @@ const Search = () => {
   return (
     <>
       
-       {windowWidth <= 768 ? <div className="bg-[#f2f2f2] md:h-[100vh]">
+      {windowWidth <= 768 ? <div className="bg-[#f2f2f2] md:h-[100vh]">
         <Container className="absolute" >
           <SearchFilter />
         </Container><Container
           fluid
           className="p-0 w-[100%] flex flex-col lg:flex-row h-[70%]"
         >
-         
+        
           <Container
             fluid
             className="p-0 mapps g:h-[100vh] w-[100%] md:w-[70%] bg-black "
