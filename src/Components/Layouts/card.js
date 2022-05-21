@@ -26,7 +26,8 @@ function Cards(props) {
                 <div className="cardd">
                         <div className="image relative">
                             <div className="overflow-hidden  w-full h-[300px]">
-                                <img src={apartment1} className="card-img-top  object-cover h-full w-full" alt="1"/>
+                                <img src={props.image} className="card-img-top  object-cover h-full w-full" alt="1"/>
+
                             </div>
                         <div className="absolute top-[20px] right-5">
                             <div className="text-[12px]  ">
