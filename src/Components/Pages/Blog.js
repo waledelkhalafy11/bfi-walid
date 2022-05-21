@@ -1,4 +1,4 @@
-import {useContext ,useEffect} from 'react';
+import {useContext} from 'react';
 import { ApiContext } from '../../App';
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
@@ -12,41 +12,34 @@ const Blog = () =>{
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `
 
 
-    const dataApi = useContext (ApiContext);
-
-    let blogData
 
 
-    useEffect(() =>{
-       
 
-        // console.log(dataApi);
-    
-    
-    
-     blogData = dataApi.map(itm => { 
-    
-    
-        return(
-    
-                  <Cards 
-               title= {itm.unit.unit_name}
-               price={itm.unit.unit_price}
-               rooms= {itm.props[0].bedroom}
-               bathrooms={itm.props[0].bathroom}
-               space= "170"
-                />
-           
-            
-        )})
-   
-       
-    },[]);
-    
 
      
+    
+    const dataApi = useContext (ApiContext);
 
-   
+    // console.log(dataApi);
+
+// filter(unit_category => unit_category.includes('Villa'))
+
+let blogData = dataApi.map(itm => { 
+
+
+    return(
+
+              <Cards 
+           title= {itm.unit.unit_name}
+           price={itm.unit.unit_price}
+           rooms= {itm.props[0].bedroom}
+           bathrooms={itm.props[0].bathroom}
+           space= "170"
+           image = {`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            />
+       
+        
+    )})
 
     return (
         <div className="blog bg-[#f2f2f2]">

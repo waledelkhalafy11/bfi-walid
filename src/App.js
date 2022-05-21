@@ -18,7 +18,7 @@ export const ApiContext = createContext();
 
 function App() {
   // console.log(res.data[0].unit.unit_name)
-  const [post, setPost] = useState(['']);
+  const [post, setPost] = useState([]);
   
   useEffect(() =>{
     axios.get('http://127.0.0.1:8000/api/allunits')
