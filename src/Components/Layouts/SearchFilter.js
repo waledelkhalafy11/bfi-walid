@@ -10,6 +10,10 @@ import {
 } from "react-bootstrap";
 
 const SearchFilter = () => {
+//     onTrigger = (event) => {
+//     props.parentCallback(event.target.value);
+//     event.preventDefault();
+// }
     const [filterSale, setFilterSale] = useState(true);
     
     return ( 

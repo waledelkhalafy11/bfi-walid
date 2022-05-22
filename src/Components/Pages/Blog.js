@@ -12,7 +12,7 @@ const Blog = () => {
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
   let filterByNA = (item) => {
-    if (item.unit.unit_category === "Appartment") {
+    if (item.unit.unit_category === "Villa") {
       return item;
     }
   };
