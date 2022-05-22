@@ -5,7 +5,7 @@ import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
 import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
-import { Apartment } from "@material-ui/icons";
+
 
 
 const Blog = () => {
@@ -20,11 +20,11 @@ const Blog = () => {
        
     let filter_appartment = (item) => {
         if (item.unit.unit_category === "Appartment") {return item;}};
-    let filter_office = (item) => {
+    let filter_office = (item) =>     {
         if (item.unit.unit_category === "Office")     {return item;}};
-    let filter_villa = (item) => {
+    let filter_villa = (item) =>      {
         if (item.unit.unit_category === "Villa")      {return item;}};
-    let filter_house = (item) => {
+    let filter_house = (item) =>      {
         if (item.unit.unit_category === "House")      {return item;}};
 
     let all        = dataApi;
@@ -33,13 +33,15 @@ const Blog = () => {
     let villa      = dataApi.filter(filter_villa);
     let house      = dataApi.filter(filter_house);
 
+    
 
-
-    const [data ,setData]= useState([]);
-
+    const [data ,setData] = useState([...dataApi]);
  
-  
+    
+
+
   let blogData = data.map((itm) => {
+  
     return (
       <Cards
         title={itm.unit.unit_name}
@@ -48,13 +50,14 @@ const Blog = () => {
         bathrooms={itm.props[0].bathroom}
         space="170"
         image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+        id= {itm.unit.id}
       />
     );
   });
    
-    window.onload = ()=>{
-       setData([...all]);
-     }
+    // window.onload = ()=>{
+    //    setData([...all]);
+    //  }
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] p-[20px]">

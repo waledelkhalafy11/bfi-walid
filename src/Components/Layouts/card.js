@@ -4,15 +4,13 @@ import Bedrooms from "../../Assets/icons/ListingsCards/bed.png";
 import Bathrooms from "../../Assets/icons/ListingsCards/bath.png";
 import Space from "../../Assets/icons/ListingsCards/size.svg";
 import Share from "../../Assets/icons/ListingsCards/share.svg";
-
+import {Link} from "react-router-dom"
 import Location from "../../Assets/icons/ListingsCards/location.png";
 
 
 
 
-// Abu Al Feda, Cairo Governorate, Egypt
-//Apartment with subunits
-// title,price,space,rooms,bathrooms,address
+
 function Cards(props) {
  
 
@@ -23,7 +21,9 @@ function Cards(props) {
 
     <div className="col-lg-4 col-md-6">
             <div className="item w-[400px]  h-fit bg-[#f2f2f2] ">
+              
                 <div className="cardd">
+               <Link to = {`/unit/${props.id}`}>
                         <div className="image relative">
                             <div className="overflow-hidden  w-full h-[300px]">
                                 <img src={props.image} className="card-img-top  object-cover h-full w-full" alt="1"/>
@@ -40,7 +40,7 @@ function Cards(props) {
                                             <a className="text-white py-[0px]  " href="#">s</a> 
                                         </div>
                                     </div>
-                        </div>
+                        </div></Link>
                     <div className="card-body  bg-[#ffff] text-right">
                             <h5 className="card-title  text-left">
                             <a className="text-[24px] font-semibold no-underline text-black" href="">
