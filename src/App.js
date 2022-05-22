@@ -52,6 +52,7 @@ useEffect(()=>{
           <Route exact path="/search" element={<Search />} />
           <Route exact path="/contact-us" element={<ContactUsPage />} />
           <Route exact path="/unit" element={<UnitPage />} />
+          <Route exact path="/unit/:id" element={<UnitPage />} />
           <Route exact path="/About-us" element={<AboutUs />} />
           <Route exact path="/Blog" element={<Blog />} />
         </Routes>
