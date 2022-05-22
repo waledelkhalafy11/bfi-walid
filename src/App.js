@@ -11,25 +11,30 @@ import AboutUs from "./Components/Pages/AboutUs";
 import Blog from "./Components/Pages/Blog"
 import axios from "axios";
 import { useEffect ,useState , createContext} from "react";
-import 'animate.css';
+
 
 
 export const ApiContext = createContext();
 function App() {
-  // console.log(res.data[0].unit.unit_name)
   const [post, setPost] = useState([]);
-  
-  useEffect(() =>{
-    axios.get('http://127.0.0.1:8000/api/allunits')
-    .then(res => {
-        setPost(res.data)
-      
-  // console.log(res.data[1].unit.unit_name)
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-});
+  const GetRequest = async () => {
+    try {
+        const res = await axios.get('http://127.0.0.1:8000/api/allunits');
+        setPost(res.data);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+
+
+
+useEffect(()=>{
+ 
+  GetRequest();
+  },[])
+
 
 
 
