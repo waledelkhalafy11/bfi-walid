@@ -1,5 +1,6 @@
 import React from "react";
 import { useCallback } from 'react';
+import { useLocation } from "react-router";
 
 
 import {
@@ -68,6 +69,9 @@ import {
 const ShareToSocial = () => {
 
 
+  let location = useLocation()
+
+
 
 
   return (
@@ -77,7 +81,7 @@ const ShareToSocial = () => {
 
 
       <FacebookShareButton
-        url={"https://peing.net/ja/"}
+        url={`http://localhost:3000${location.pathname}`}
 
         hashtag={"#hashtag"}
         description={"aiueo"}
@@ -88,7 +92,7 @@ const ShareToSocial = () => {
 
 
       <TwitterShareButton
-        url={"https://peing.net/ja/"}
+        url={`http://localhost:3000${location.pathname}`}
 
         hashtag={"#hashtag"}
         description={"aiueo"}
@@ -99,7 +103,7 @@ const ShareToSocial = () => {
 
 
       <WhatsappShareButton
-        url={"https://peing.net/ja/"}
+        url={`http://localhost:3000${location.pathname}`}
 
         hashtag={"#hashtag"}
         description={"aiueo"}
