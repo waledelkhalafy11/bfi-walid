@@ -1,30 +1,30 @@
 import { useContext , useState ,useEffect} from "react";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
 import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
-import { Apartment } from "@material-ui/icons";
+
 
 
 const Blog = () => {
+  const dataApi = useContext(ApiContext);
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
     
-    const dataApi = useContext(ApiContext);
 
        
     let filter_appartment = (item) => {
         if (item.unit.unit_category === "Appartment") {return item;}};
-    let filter_office = (item) => {
+    let filter_office = (item) =>     {
         if (item.unit.unit_category === "Office")     {return item;}};
-    let filter_villa = (item) => {
+    let filter_villa = (item) =>      {
         if (item.unit.unit_category === "Villa")      {return item;}};
-    let filter_house = (item) => {
+    let filter_house = (item) =>      {
         if (item.unit.unit_category === "House")      {return item;}};
 
     let all        = dataApi;
@@ -33,13 +33,15 @@ const Blog = () => {
     let villa      = dataApi.filter(filter_villa);
     let house      = dataApi.filter(filter_house);
 
+    
 
-
-    const [data ,setData]= useState([]);
-
+    const [data ,setData] = useState([...dataApi]);
  
-  
+    
+
+
   let blogData = data.map((itm) => {
+  
     return (
       <Cards
         title={itm.unit.unit_name}
@@ -48,13 +50,14 @@ const Blog = () => {
         bathrooms={itm.props[0].bathroom}
         space="170"
         image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+        id= {itm.unit.id}
       />
     );
   });
    
-    window.onload = ()=>{
-       setData([...all]);
-     }
+    // window.onload = ()=>{
+    //    setData([...all]);
+    //  }
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] p-[20px]">

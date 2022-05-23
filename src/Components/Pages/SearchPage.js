@@ -1,7 +1,7 @@
 import GlMap from "../Layouts/GlMap";
 import SearchFilter from "../Layouts/SearchFilter";
 import PlacesCard from "../Layouts/PlacesCard";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import { Container } from "react-bootstrap";
 import { useEffect, useState , useContext } from "react";
 import SwipeableEdgeDrawer from '../Layouts/Swibable'

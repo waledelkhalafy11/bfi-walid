@@ -1,12 +1,13 @@
-import React from "react";
+import React , {useContext } from "react";
 import "./layouts.css";
-
+import { useParams } from "react-router";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
 import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ShareToSocial from "./ShareToSocial";
+
 
 
 const options = {
@@ -35,7 +36,11 @@ const options = {
 
 
 function UnitGalary() {
+  // const dataApi = useContext(ApiContext);
+
+  
   return (
+
 
 
 

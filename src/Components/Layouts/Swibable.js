@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import PlacesCard from "./PlacesCard";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
