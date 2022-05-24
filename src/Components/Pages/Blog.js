@@ -1,5 +1,5 @@
 import { useContext , useState ,useEffect} from "react";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
@@ -9,13 +9,13 @@ import Cards from "../Layouts/card";
 
 
 const Blog = () => {
+  const dataApi = useContext(ApiContext);
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
     
-    const dataApi = useContext(ApiContext);
 
        
     let filter_appartment = (item) => {

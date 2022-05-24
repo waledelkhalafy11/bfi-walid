@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import PlacesCard from "./PlacesCard";
-
+import { ApiContext } from "../../ApiContext";
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
@@ -33,13 +33,30 @@ const Puller = styled(Box)(({ theme }) => ({
 }));
 
 function SwipeableEdgeDrawer(props) {
+
+    const dataApi = React.useContext(ApiContext);
+
+
   const { window } = props;
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-  
+  let cardDara = dataApi.map((itm) => {
+    return (
+      <PlacesCard
+        key = {itm.unit.id}
+        title={itm.unit.unit_name}
+        price={itm.unit.unit_price}
+        description={itm.unit.unit_description}
+        rooms={itm.props[0].bedroom}
+        bathrooms={itm.props[0].bathroom}
+        space="170"
+        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+      />
+    );
+  });
 
   // This is used only for the example
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -92,10 +109,7 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-           <PlacesCard />
-            <PlacesCard />
-            <PlacesCard />
-            <PlacesCard />
+           {cardDara}
         </StyledBox>
       </SwipeableDrawer>
     </Root>
