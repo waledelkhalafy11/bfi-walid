@@ -2,7 +2,7 @@ import React from "react";
 import UnitGalary from "../Layouts/UnitGalary";
 import Footer from "../Layouts/Footer";
 import { useContext , useState ,useEffect} from "react";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import { useParams } from "react-router";
 import '../../App.js'
 import '.././Layouts/UnitGalary'
@@ -37,20 +37,6 @@ const UnitPage = () => {
      let unit = unitData[0];
 
 
-
-//         if(itm.unit.id == id ){
-
-//    return itm 
-
-//         }else{
-//             return null
-//         }
-  
-     
-//       });
-
-
-      console.log(unit.props[0].kitchen);
 
 
     function UnitContent(props) {

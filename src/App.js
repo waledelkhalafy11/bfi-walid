@@ -10,37 +10,26 @@ import ContactUsPage from "./Components/Pages/ContactUsPage";
 import AboutUs from "./Components/Pages/AboutUs";
 import Blog from "./Components/Pages/Blog"
 import axios from "axios";
-import { useEffect ,useState , createContext} from "react";
+import { useEffect ,useState , useMemo} from "react";
+import { ApiContext } from "./ApiContext";
 
 
 
-export const ApiContext = createContext();
 function App() {
   const [post, setPost] = useState([]);
   const GetRequest = async () => {
     try {
-        const res = await axios.get('http://127.0.0.1:8000/api/allunits');
-        setPost(res.data);
+      const res = await axios.get('http://127.0.0.1:8000/api/allunits');
+      setPost(res.data);
     } catch (err) {
-        console.error(err);
+      console.error(err);
     }
-};
-
-
-
-
-
+  };
+  
 useEffect(()=>{
  
   GetRequest();
   },[])
-
-
-
-
-
-
-
 
   return (
     <ApiContext.Provider value={post}>

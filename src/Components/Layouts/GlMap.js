@@ -5,8 +5,9 @@ import markerIcon2 from '../../Assets/icons/map-marker2.svg'
 import ReactMapGL , { Marker, Popup ,NavigationControl }  from "react-map-gl";
 import * as placesData from "../../data/places-on-map.json";
 import placeImg from "../../Assets/imgs/placeimg.jpg";
+import { number } from "yup";
 
-export default function GlMap() {
+export default function GlMap(props) {
   const placesMarkers = placesData ;
   const [viewport, setViewport] = useState({
     latitude: 30.044420,
@@ -17,7 +18,7 @@ export default function GlMap() {
     
   });
   const [selectedPlace, setSelectedPlace] = useState(null);
-
+const sssss =  props.data
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -45,11 +46,11 @@ export default function GlMap() {
         mapStyle="mapbox://styles/mapbox/streets-v11"
         
       >
-        {placesMarkers.features.map(park => (
+        {sssss.map((park , i ) => (
           <Marker
-            key={park.properties.PARK_ID}
-            latitude={park.geometry.coordinates[1]}
-            longitude={park.geometry.coordinates[0]}
+            key={i}
+            latitude={Number(park.lat)}
+            longitude={Number(park.lng)}
           >
             <button
               className="marker-btn"
@@ -63,7 +64,7 @@ export default function GlMap() {
           </Marker>
         ))}
         <NavigationControl/>
-        {selectedPlace ? (
+        {/* {selectedPlace ? (
           <Popup
           className="rounded-full"
             latitude={selectedPlace.geometry.coordinates[1]}
@@ -82,7 +83,7 @@ export default function GlMap() {
               </div>
             </div>
           </Popup>
-        ) : null} 
+        ) : null}  */}
       </ReactMapGL>
     </div>
   );
