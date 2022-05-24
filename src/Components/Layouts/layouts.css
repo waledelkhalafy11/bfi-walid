@@ -25,7 +25,7 @@
 
 a {
     text-decoration: none;
-    color: #a9a5a1;
+    color: #fff;
 }
 
 
@@ -40,13 +40,19 @@ a {
 }
 
 .myhomeitem a:hover {
-    color: #29aae3;
+    color: #29aae3 ;
+}
+.followus img{
+    filter: grayscale(80%);
+    transition-duration: 0.5s !important;
+
 }
 
 .followus img:hover {
-        
-    border-radius: 50%;
-    transform: translateY(-5px);
+  
+    filter: grayscale(0%);
+    /* border-radius: 50%;
+    transform: translateY(-5px); */
 }
 
 
@@ -118,4 +124,61 @@ a {
 
 .swal-button-container > .swal-button {
     background-color: #45b6ca !important;
+}
+
+
+
+
+/* Contact Us */
+
+
+
+@media (max-width: 768px) {
+    .contactUsResponsive {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .contactUsResponsive > div {
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+     
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* blog page */
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+
+
+border :none;
+
+
+}
+
+.nav-tabs .nav-link{
+    margin-bottom: 0;
+
+    border: 0px solid transparent !important; 
+     border-top-left-radius: none !important; 
+     border-top-right-radius: none !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #45b6ca !important;
+    background-color: transparent; 
+    border-bottom:2px solid #45b6ca ;
 }

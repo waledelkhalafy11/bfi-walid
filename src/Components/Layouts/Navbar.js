@@ -28,9 +28,9 @@ const FixedNavbar = () => {
     },
     {
       id: 3,
-      name: "Properties",
+      name: "About Us",
 
-      navigate: "/",
+      navigate: "/about-us",
     },
     {
       id: 6,
@@ -42,13 +42,13 @@ const FixedNavbar = () => {
       id: 4,
       name: "Blog",
 
-      navigate: "",
+      navigate: "/Blog",
     },
     {
       id: 5,
       name: "Contact Us",
 
-      navigate: "",
+      navigate: "/contact-us",
     },
   ];
 
@@ -94,7 +94,7 @@ const FixedNavbar = () => {
       setnavVariant("light");
       btns.map((itm) => {
         if (itm.navigate === location.pathname) {
-         SetActive(itm.id);
+        SetActive(itm.id);
         }
         return null
       });
@@ -114,7 +114,7 @@ const FixedNavbar = () => {
             href="#home"
             className="w-[50%] md:w-[100%] hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
           >
-            <img className="md:w-[80%]" src={navVariant === "dark" ? darkLogo : lightLogo} />
+            <img className="md:w-[80%]" alt="" src={navVariant === "dark" ? darkLogo : lightLogo} />
           </Navbar.Brand>
           <Navbar.Toggle
             className="text-white"
@@ -126,10 +126,13 @@ const FixedNavbar = () => {
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-8">
               {btns.map((item) => {
+              if(item.id === 9 ){
                 return (
                   <Nav.Link
                     onClick={() => {
-                      navigate(item.navigate);
+                    
+                      document.getElementById(item.navigate).scrollIntoView();
+
                       handleActive(item.id);
                     }}
                     className={
@@ -141,6 +144,25 @@ const FixedNavbar = () => {
                     {item.name}
                   </Nav.Link>
                 );
+              }else {
+
+                return (
+                  <Nav.Link
+                    onClick={() => {
+                    
+                      navigate(item.navigate)
+                      handleActive(item.id);
+                    }}
+                    className={
+                      isActive === item.id
+                        ? Active + navHoverClass
+                        : navHoverClass
+                    }
+                  >
+                    {item.name}
+                  </Nav.Link>
+                );
+              }
               })}
             
             </Nav>

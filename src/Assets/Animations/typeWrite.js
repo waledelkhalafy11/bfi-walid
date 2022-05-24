@@ -62,4 +62,17 @@ export function tw (instance) {
     // (D) START
     instance.timer = setInterval(instance.typist, instance.forward);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
   
