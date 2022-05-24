@@ -4,7 +4,6 @@ import placeImg from "../../Assets/imgs/placeimg.jpg";
 import { Container } from "react-bootstrap";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 const PlacesCard = (props) => {
-  console.log(props.title);
   return (
     <>
       <Container

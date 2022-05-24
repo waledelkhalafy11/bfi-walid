@@ -29,7 +29,7 @@ function App() {
 useEffect(()=>{
  
   GetRequest();
-  })
+  },[])
 
   return (
     <ApiContext.Provider value={post}>

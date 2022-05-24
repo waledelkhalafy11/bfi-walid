@@ -1,7 +1,11 @@
 import React from "react";
 import UnitGalary from "../Layouts/UnitGalary";
 import Footer from "../Layouts/Footer";
-
+import { useContext , useState ,useEffect} from "react";
+import { ApiContext } from "../../ApiContext";
+import { useParams } from "react-router";
+import '../../App.js'
+import '.././Layouts/UnitGalary'
 
 import kitchen from "../../Assets/icons/kitchen.svg";
 import bedroom from "../../Assets/icons/bedroom.svg";
@@ -11,9 +15,28 @@ import gardenn from "../../Assets/icons/gardenn.svg";
 import garage from "../../Assets/icons/garage.svg";
 import elevator from "../../Assets/icons/elevator.svg";
 import price from "../../Assets/icons/price.svg";
+import { NavItem } from "react-bootstrap";
 
 
 const UnitPage = () => {
+
+
+   
+
+     let {id} = useParams() ;
+     
+
+    const dataApi = useContext(ApiContext);
+
+    let filter_specfic_unit = (item) => {
+        if (item.unit.id == id ) {return item;}};
+
+    let unitData = dataApi.filter(filter_specfic_unit)
+
+
+     let unit = unitData[0];
+
+
 
 
     function UnitContent(props) {
@@ -27,13 +50,13 @@ const UnitPage = () => {
                     <p className=" text-left my-auto text-xl ml-3 md:w-[60%] ">{props.title}</p>
                 </div>
 
-                <p className=" my-auto text-xl text-left w-[30%] md:w-[10%]">7754</p>
+                <p className=" my-auto text-xl text-left w-[30%] md:w-[10%]">{props.quantity == null ? '—' : props.quantity } </p>
             </div>
         );
     }
 
 
-
+  
 
 
 
@@ -46,14 +69,14 @@ const UnitPage = () => {
 
             <div className="bg-[#f2f2f2]">
                 <div className="mt-20  pt-10  w-[80%] md:w-[60%] mx-auto   ">
-                    <p className=" font-bold mb-2 text-lg md:text-2xl text-left">Newly Refurbished One Bedroom Studio-1</p>
-                    <p className="text-left  mb-3">  Abu Al Feda, Cairo Governorate, Egypt</p>
+                    <p className=" font-bold mb-2 text-lg md:text-2xl text-left">{unit.unit.unit_name}</p>
+                    <p className="text-left  mb-3">{unit.unit.unit_address}</p>
                 </div>
 
 
 
 
-                <UnitGalary />
+                <UnitGalary photos={unit.photos} />
 
 
 
@@ -64,19 +87,19 @@ const UnitPage = () => {
                 <p className="text-2xl font-bold text-left ">What this place include</p>
                 <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
                     <div className="flex flex-col w-[30%]">
-                        <UnitContent icon={kitchen} title="kitchen" />
-                        <UnitContent icon={bedroom} title="bed Room" />
-                        <UnitContent icon={livingroom} title="living Room" />
-                        <UnitContent icon={bathroom} title="Bath Room" />
+                        <UnitContent icon={kitchen} title="kitchen" quantity={unit.props[0].kitchen}  />
+                        <UnitContent icon={bedroom} title="bed Room" quantity={unit.props[0].bedroom} />
+                        <UnitContent icon={livingroom} title="living Room" quantity={unit.props[0].living_room} />
+                        <UnitContent icon={bathroom} title="Bath Room" quantity={unit.props[0].bathroom} />
 
 
 
                     </div>
                     <div className="flex flex-col w-[30%]">
-                        <UnitContent icon={gardenn} title="Garden" />
-                        <UnitContent icon={garage} title="Garage" />
-                        <UnitContent icon={elevator} title="Elevator" />
-                        <UnitContent icon={price} title="Price" />
+                        <UnitContent icon={gardenn} title="Garden" quantity={unit.props[0].garden} />
+                        <UnitContent icon={garage} title="Garage" quantity={unit.props[0].garage} />
+                        <UnitContent icon={elevator} title="Elevator" quantity={unit.props[0].elevator} />
+                        <UnitContent icon={price} title="Floors" quantity={unit.props[0].floor}/>
 
 
 
@@ -93,7 +116,7 @@ const UnitPage = () => {
                         <p className="text-2xl font-bold  ">Description</p>
 
 
-                        <div className="text-lg">Located in the heart of the most sought-after neighborhood in Cairo, ZAMALEK, this refurbished Studio apartment is the perfect destination for your holiday, business trip, or long-term accommodation. It also boasts a spacious living room with modern furnishing, a well-equipped kitchen, a fully automatic washing machine, and fine furnishings.</div>
+                        <div className="text-lg">{unit.unit.unit_description}</div>
 
                     </div>
 
