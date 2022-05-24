@@ -83,6 +83,7 @@ let allCats = cats.filter((c, index) => {
 
 
   let cardDara = dataApi.map((itm) => {
+    
     return (
       <PlacesCard
         key={itm.unit.id}
