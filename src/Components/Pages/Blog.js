@@ -15,9 +15,9 @@ const Blog = () => {
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
-    
 
-       
+
+    
     let filter_appartment = (item) => {
         if (item.unit.unit_category === "Appartment") {return item;}};
     let filter_office = (item) =>     {
