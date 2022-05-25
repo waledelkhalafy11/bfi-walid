@@ -33,7 +33,7 @@ const options = {
   const Blog = () => {
 
 
-
+    // ==========> api condition
 
     const blogApi = useContext(ApiContext);
 
@@ -60,7 +60,6 @@ const options = {
     />
       )
     })
-
 
 
   return (
