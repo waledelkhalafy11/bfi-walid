@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./layouts.css";
 import OwlCarousel from "react-owl-carousel";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
 import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 import { Container } from "react-bootstrap";
-
+import { ApiContext } from "../../ApiContext";
+import CardWhatsNew from "./CardWhatsNew";
 const options = {
   margin: 10,
   responsiveClass: false,
@@ -27,7 +28,41 @@ const options = {
   },
 };
 
-function Blog() {
+
+
+  const Blog = () => {
+
+
+
+
+    const blogApi = useContext(ApiContext);
+
+
+    let BlogData  = [];
+    let i;
+    for(i = 0; i < blogApi.length; i++){
+      if(i >= (blogApi.length - 4) || i > blogApi.length){
+        BlogData.push(blogApi[i]);
+      }
+    }
+
+
+    console.log(BlogData);
+
+    let blogFilter = BlogData.map(itm => {
+      return (
+        <CardWhatsNew 
+            title = {itm.unit.unit_name}
+            description = {itm.unit.unit_description}
+            date = {itm.unit.updated_at}
+            image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            id= {itm.unit.id}
+    />
+      )
+    })
+
+
+
   return (
     <section className="blog bg-[#f2f2f2] py-[50px] ">
       <div className="container max-w-[1170px]">
@@ -39,153 +74,10 @@ function Blog() {
             className="slider-items owl-carousel owl-theme "
             {...options}
           >
-            <div className="item  h-fit bg-[#f2f2f2]">
-              <div className="cardd  relative">
-                <div className="image    overflow-hidden">
-                  <img
-                    src="https://myhometheme.net/agency/wp-content/uploads/2017/02/full-floor-office-condo-600x375.jpg"
-                    className="card-img-top "
-                    alt="1"
-                  />
-                </div>
-                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
-                  September 30, 2017
-                </div>
-                <div className="card-body  bg-[#ffff] text-right">
-                  <h5 className="card-title  text-left">
-                    <a
-                      className="text-[24px] font-semibold no-underline text-black"
-                      href=""
-                    >
-                      Interior design books for beginners
-                    </a>
-                  </h5>
-                  <p className="card-text text-[16px] leading[1.5] text-left">
-                    We went down the lane, by the body of the man in black,
-                    sodden now from the overnight hail, and broke into the woods
-                    at the foot of the hill. We pushed through these towards...
-                  </p>
 
-                  <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
-                    href=""
-                  >
-                    READ MORE
-                  </a>
-                </div>
-              </div>
-            </div>
+          {blogFilter}
 
-            <div className="item  h-fit bg-[#f2f2f2]">
-              <div className="cardd  relative">
-                <div className="image  overflow-hidden">
-                  <img
-                    src="https://myhometheme.net/agency/wp-content/uploads/2018/07/inside-600x375.jpg"
-                    className="card-img-top "
-                    alt="1"
-                  />
-                </div>
-                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
-                  September 30, 2017
-                </div>
-                <div className="card-body  bg-[#ffff] text-right">
-                  <h5 className="card-title  text-left">
-                    <a
-                      className="text-[24px] font-semibold no-underline text-black"
-                      href=""
-                    >
-                      Interior design books for beginners
-                    </a>
-                  </h5>
-                  <p className="card-text text-[16px] leading[1.5] text-left">
-                    We went down the lane, by the body of the man in black,
-                    sodden now from the overnight hail, and broke into the woods
-                    at the foot of the hill. We pushed through these towards...
-                  </p>
-
-                  <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
-                    href=""
-                  >
-                    READ MORE
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="item  h-fit bg-[#f2f2f2]">
-              <div className="cardd  relative">
-                <div className="image  overflow-hidden">
-                  <img
-                    src="https://myhometheme.net/agency/wp-content/uploads/2018/07/inside-600x375.jpg"
-                    className="card-img-top "
-                    alt="1"
-                  />
-                </div>
-                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
-                  September 30, 2017
-                </div>
-                <div className="card-body  bg-[#ffff] text-right">
-                  <h5 className="card-title  text-left">
-                    <a
-                      className="text-[24px] font-semibold no-underline text-black"
-                      href=""
-                    >
-                      Interior design books for beginners
-                    </a>
-                  </h5>
-                  <p className="card-text text-[16px] leading[1.5] text-left">
-                    We went down the lane, by the body of the man in black,
-                    sodden now from the overnight hail, and broke into the woods
-                    at the foot of the hill. We pushed through these towards...
-                  </p>
-
-                  <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
-                    href=""
-                  >
-                    READ MORE
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="item  h-fit bg-[#f2f2f2]">
-              <div className="cardd  relative">
-                <div className="image  overflow-hidden">
-                  <img
-                    src="https://myhometheme.net/agency/wp-content/uploads/2018/07/inside-600x375.jpg"
-                    className="card-img-top "
-                    alt="1"
-                  />
-                </div>
-                <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
-                  September 30, 2017
-                </div>
-                <div className="card-body  bg-[#ffff] text-right">
-                  <h5 className="card-title  text-left">
-                    <a
-                      className="text-[24px] font-semibold no-underline text-black"
-                      href=""
-                    >
-                      Interior design books for beginners
-                    </a>
-                  </h5>
-                  <p className="card-text text-[16px] leading[1.5] text-left">
-                    We went down the lane, by the body of the man in black,
-                    sodden now from the overnight hail, and broke into the woods
-                    at the foot of the hill. We pushed through these towards...
-                  </p>
-
-                  <a
-                    className="blogButton  text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
-                    href=""
-                  >
-                    READ MORE
-                  </a>
-                </div>
-              </div>
-            </div>
+            
           </OwlCarousel>
         </Container>
         <div className="text-center m-3">
