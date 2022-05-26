@@ -94,19 +94,38 @@ a {
 
 /* Unit page and Unit galary */
 
+
+@media (min-width: 768px) { 
+    .carousel.carousel-slider {
+        height: 550px !important;
+        border-radius: 2% !important;
+ }
+
+
+}
 @media (max-width: 768px) {
     .galaryOfUnits ul{
         display: none;
     }
+
+    
 }
 
 
 .galaryOfUnits ul li {
     border-radius: 20%;
+ 
+}
+
+ul > .thumb {
+    height: 60px !important;
 }
 
 .galaryOfUnits  ul  li > img {
     border-radius: 20%;
+    object-fit: cover;
+    height: 100%;
+
 }
 
 
