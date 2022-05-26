@@ -85,7 +85,7 @@ const ShareToSocial = () => {
 
         hashtag={"#hashtag"}
         description={"aiueo"}
-        className="Demo__some-network__share-button"
+        className="Demo__some-network__share-button "
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
@@ -96,7 +96,7 @@ const ShareToSocial = () => {
 
         hashtag={"#hashtag"}
         description={"aiueo"}
-        className="Demo__some-network__share-button ml-2"
+        className="Demo__some-network__share-button ml-3"
       >
         <TwitterIcon size={32} round />
       </TwitterShareButton>
@@ -107,7 +107,7 @@ const ShareToSocial = () => {
 
         hashtag={"#hashtag"}
         description={"aiueo"}
-        className="Demo__some-network__share-button ml-2"
+        className="Demo__some-network__share-button ml-3"
       >
         <WhatsappIcon size={32} round />
       </WhatsappShareButton>

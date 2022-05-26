@@ -2,7 +2,7 @@ import React from "react";
 import UnitGalary from "../Layouts/UnitGalary";
 import Footer from "../Layouts/Footer";
 import { useContext , useState ,useEffect} from "react";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import { useParams } from "react-router";
 import '../../App.js'
 import '.././Layouts/UnitGalary'
@@ -16,6 +16,9 @@ import garage from "../../Assets/icons/garage.svg";
 import elevator from "../../Assets/icons/elevator.svg";
 import price from "../../Assets/icons/price.svg";
 import { NavItem } from "react-bootstrap";
+
+
+
 
 
 const UnitPage = () => {
@@ -37,9 +40,6 @@ const UnitPage = () => {
      let unit = unitData[0];
 
 
-
-
-      console.log(unit.props[0].kitchen);
 
 
     function UnitContent(props) {

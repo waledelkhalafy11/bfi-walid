@@ -1,5 +1,5 @@
 import { useContext , useState ,useEffect} from "react";
-import { ApiContext } from "../../App";
+import { ApiContext } from "../../ApiContext";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
@@ -9,15 +9,15 @@ import Cards from "../Layouts/card";
 
 
 const Blog = () => {
+  const dataApi = useContext(ApiContext);
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
-    
-    const dataApi = useContext(ApiContext);
 
-       
+
+    
     let filter_appartment = (item) => {
         if (item.unit.unit_category === "Appartment") {return item;}};
     let filter_office = (item) =>     {
@@ -38,6 +38,21 @@ const Blog = () => {
     const [data ,setData] = useState([...dataApi]);
  
     
+    
+  let allblogData = all.map((itm) => {
+  
+    return (
+      <Cards
+        title={itm.unit.unit_name}
+        price={itm.unit.unit_price}
+        rooms={itm.props[0].bedroom}
+        bathrooms={itm.props[0].bathroom}
+        space="170"
+        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+        id= {itm.unit.id}
+      />
+    );
+  });
 
 
   let blogData = data.map((itm) => {
@@ -188,7 +203,7 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-all-tab"
           >
-            <div className="row mt-5">{blogData}</div>
+            <div className="row mt-5">{allblogData}</div>
           </div>
 
           <div
