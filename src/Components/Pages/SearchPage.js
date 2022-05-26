@@ -7,26 +7,29 @@ import { useEffect, useState, useContext } from "react";
 import SwipeableEdgeDrawer from "../Layouts/Swibable";
 import { createContext } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import {
   Form,
   Button,
   Container,
-  ButtonGroup,
-  ToggleButton,
 } from "react-bootstrap";
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-  const dataApi = useContext(ApiContext);
+  const [dataApi, setDataApi] = useState([]);
+  // const dataApi = useContext(ApiContext);
+  const dataApiPromise = useSelector(state => state);
+ 
   const [unitsData, setunitsData] = useState(dataApi);
   const [allLocations, setLocations] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [mapZoom, setMapZoom] = useState({});
   const [categories, setCategories] = useState([
     "Appartment",
     "Villa",
     "House",
     "Office",
   ]);
-  const [cities, setCities] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
     region: null,
     category: null,
@@ -47,17 +50,14 @@ const Search = () => {
   let regions = allregions.filter((c, index) => {
     return allregions.indexOf(c) === index;
   });
-
-  let getRegionCategories = dataApi.map((unit) => {});
-
   useEffect(() => {
     GetRequest();
   }, []);
 
   let majorFilter = (item) => {
     if (item.location.unit_region == selectedFilters.region) {
-      if (item.unit.unit_category == selectedFilters.category) {
-        if (item.location.unit_city == selectedFilters.city) {
+      if (item.location.unit_city == selectedFilters.city) {
+        if (item.unit.unit_category == selectedFilters.category) {
           return item;
         }
       }
@@ -101,7 +101,7 @@ const Search = () => {
 
   const windowWidth = window.innerWidth;
 
-  const sendDataToParent = (selected, index) => {
+  const selectedData = (selected, index) => {
     switch (index) {
       case 1:
         setSelectedFilters({
@@ -109,7 +109,6 @@ const Search = () => {
           category: selectedFilters.category,
           city: selectedFilters.city,
         });
-        setCategories();
 
         break;
       case 2:
@@ -118,7 +117,6 @@ const Search = () => {
           category: selected,
           city: selectedFilters.city,
         });
-        setCities();
         break;
       case 3:
         setSelectedFilters({
@@ -132,15 +130,63 @@ const Search = () => {
         break;
     }
   };
+useEffect(()=>{
 
+  dataApiPromise.then(function(result) {
+    setDataApi(result);
+      });
+},)
   useEffect(() => {
     setunitsData(unitsData.filter(majorFilter));
-
+    let allCats11 = []
     dataApi.map((itm) => {
-      if (selectedFilters.region == itm.unit.region_category) {
+      if (selectedFilters.region == itm.location[0].region_name) {
+        if(selectedFilters.city == itm.location[0].city_name){
+          allCats11.push(itm.unit.unit_category)
+        }
       }
     });
-    console.log(allCats);
+    let allcities11 = []
+    dataApi.map((itm) => {
+      if (selectedFilters.region == itm.location[0].region_name) {
+        allcities11.push(itm.location[0].city_name)
+      }
+    });
+    setCategories(allCats11);
+    setCities(allcities11); 
+    // let mapdata= {};
+    // if(selectedFilters.city == 'All' | null){
+
+    //   let the_region = allLocations?.filter(function(x){
+    //     if(x.region == selectedFilters.region ){
+
+    //       return x
+    //     }
+    //   })
+    //   mapdata = {
+    //    'lng' : the_region.region_longitude , 
+    //    'lat' : the_region.region_latitude
+    //   }
+    //   setMapZoom(mapdata)
+      
+    // }else{
+    //  let the_region = allLocations?.filter(function(x){
+    //    if(x.region == selectedFilters.region )
+    //    return x
+    //  })
+    //  let the_city = the_region.cities.filter(function(x){
+    //   if(x.city_name == selectedFilters.city ){
+
+    //     return x
+    //   }
+    // })
+    //  mapdata = {
+    //   'lng' : the_city.city_longitude , 
+    //   'lat' : the_city.city_latitude
+    //  }
+    //  setMapZoom(mapdata)
+    // }
+    console.log(unitsData);
   }, [selectedFilters]);
 
   return (
@@ -151,7 +197,7 @@ const Search = () => {
             <SearchFilter
               categories={categories}
               regions={regions}
-              sendDataToParent={sendDataToParent}
+              sendDataToParent={selectedData}
             />
           </Container>
           <Container
@@ -181,7 +227,7 @@ const Search = () => {
                     <Form.Select
                       className="md:ml-2 w-[100%] border-none"
                       size="sm"
-                      onChange={(e) => sendDataToParent(e.target.value, 1)}
+                      onChange={(e) => selectedData(e.target.value, 1)}
                     >
                       <option disabled selected>
                         Select a Region
@@ -192,30 +238,13 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[25%] flex mx-2 flex-col">
-                    <Form.Label className="md:ml-4 text-xl text-left">
-                      Category
-                    </Form.Label>
-                    <Form.Select
-                      className="md:ml-2 w-[100%] border-none ay7aga"
-                      size="sm"
-                    >
-                      <option disabled selected>
-                        Select a Category
-                      </option>
-                      <option value="all">All</option>
-                      {/* {categoriess.map(ii=>{
-                     return(<option value={ii} >
-                     {ii}
-                   </option>)
-                    })} */}
-                    </Form.Select>
-                  </div>
+                 
                   <div className="md:w-[25%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       City
                     </Form.Label>
                     <Form.Select
+                    onChange={(e) => selectedData(e.target.value, 3)}
                       className="md:ml-2 w-[100%] border-none"
                       size="sm"
                     >
@@ -223,8 +252,27 @@ const Search = () => {
                         Select City
                       </option>
                       <option value="all">All</option>
-                      <option>Large select</option>
-                      <option>Large select</option>
+                      {cities?.map((city)=>{
+                     return<option value={city}>{city}</option>
+                    })}
+                    </Form.Select>
+                  </div>
+                  <div className="md:w-[25%] flex mx-2 flex-col">
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      Category
+                    </Form.Label>
+                    <Form.Select
+                    onChange={(e) => selectedData(e.target.value, 2)}
+                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select a Category
+                      </option>
+                      <option value="all">All</option>
+                      {categories?.map((category)=>{
+                     return<option value={category}>{category}</option>
+                    })}
                     </Form.Select>
                   </div>
                   <div className="md:w-[25%] p-2 flex mx-2 flex-col">
@@ -254,7 +302,7 @@ const Search = () => {
               fluid
               className="p-0 mapps g:h-[70vh] w-[100%] md:w-[70%] bg-black "
             >
-              <GlMap data={mapData} />
+              <GlMap mapzoom={mapZoom} data={mapData} />
             </Container>
           </Container>
         </div>
