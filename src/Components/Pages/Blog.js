@@ -7,17 +7,14 @@ import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
 
 
-
 const Blog = () => {
   const dataApi = useContext(ApiContext);
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
-
-
-
-    
+      
+ 
     let filter_appartment = (item) => {
         if (item.unit.unit_category === "Appartment") {return item;}};
     let filter_office = (item) =>     {
@@ -33,46 +30,46 @@ const Blog = () => {
     let villa      = dataApi.filter(filter_villa);
     let house      = dataApi.filter(filter_house);
 
-    
+    const [data ,setData] = useState([...dataApi]); 
+    const [visible , setVisible]= useState()
 
-    const [data ,setData] = useState([...dataApi]);
- 
-    
-    
-  let allblogData = all.map((itm) => {
+
+    const showMoreUnits = () => {
+      setVisible((prevValue) => prevValue + 3 )
+    }
+
+
+    let allblogData = all.slice(0,visible).map((itm) => {
   
-    return (
-      <Cards
-        title={itm.unit.unit_name}
-        price={itm.unit.unit_price}
-        rooms={itm.props[0].bedroom}
-        bathrooms={itm.props[0].bathroom}
-        space="170"
-        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
-        id= {itm.unit.id}
-      />
-    );
+        return (
+          <Cards
+            title={itm.unit.unit_name}
+            price={itm.unit.unit_price}
+            rooms={itm.props[0].bedroom}
+            bathrooms={itm.props[0].bathroom}
+            space="170"
+            image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            id= {itm.unit.id}
+          />
+        );
   });
 
 
-  let blogData = data.map((itm) => {
-  
-    return (
-      <Cards
-        title={itm.unit.unit_name}
-        price={itm.unit.unit_price}
-        rooms={itm.props[0].bedroom}
-        bathrooms={itm.props[0].bathroom}
-        space="170"
-        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
-        id= {itm.unit.id}
-      />
-    );
-  });
-   
-    // window.onload = ()=>{
-    //    setData([...all]);
-    //  }
+  let blogData = data.map((itm) => { return (
+    <Cards
+      title={itm.unit.unit_name}
+      price={itm.unit.unit_price}
+      rooms={itm.props[0].bedroom}
+      bathrooms={itm.props[0].bathroom}
+      space="170"
+      image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+      id= {itm.unit.id}
+    />
+  );}
+
+);
+
+
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] p-[20px]">
@@ -203,7 +200,8 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-all-tab"
           >
-            <div className="row mt-5">{allblogData}</div>
+           
+            <div className="row"> {all.length == 0 ? (<h1>No unit available</h1>) : allblogData }</div>
           </div>
 
           <div
@@ -212,7 +210,7 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-villa-tab"
           >
-            <div className="row mt-5">{blogData}</div>
+            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
           </div>
 
           <div
@@ -221,7 +219,7 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-house-tab"
           >
-            <div className="row mt-5">{blogData}</div>
+            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
      
           </div>
 
@@ -234,7 +232,7 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-appartment-tab"
           >
-            <div className="row mt-5">{blogData}</div>
+            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
      
           </div>
 
@@ -246,13 +244,14 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-office-tab"
           >
-            <div className="row mt-5">{blogData}</div>
+            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
      
           </div>
 
         </div>
+     
       </div>
-
+      <button onClick={showMoreUnits}>Load More</button>
       <Footer />
     </div>
   );

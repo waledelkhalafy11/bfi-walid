@@ -105,16 +105,16 @@ const FixedNavbar = () => {
       <Navbar
         id="navbar"
         variant={navVariant}
-        className="h-auto sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
+        className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
         expand="md"
         fixed="top"
       >
         <Container fluid className="flex flex-row">
           <Navbar.Brand
             href="#home"
-            className="w-[50%] md:w-[100%] hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
+            className="w-[200px]  hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
           >
-            <img className="md:w-[80%]" alt="" src={navVariant === "dark" ? darkLogo : lightLogo} />
+            <img className="w-[200px]" alt="" src={navVariant === "dark" ? darkLogo : lightLogo} />
           </Navbar.Brand>
           <Navbar.Toggle
             className="text-white"
@@ -124,7 +124,7 @@ const FixedNavbar = () => {
             className="bg-[#000000ab] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
             id="basic-navbar-nav"
           >
-            <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-8">
+            <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
               {btns.map((item) => {
               if(item.id === 9 ){
                 return (
@@ -167,16 +167,16 @@ const FixedNavbar = () => {
             
             </Nav>
             <Nav className="hidden xl:flex ms-auto md:font-[900] mr-[5%]">
-              <Nav.Link className="md:mt-2" href="#home">
+              <Nav.Link className="md:mt-2 ml-[120px]" href="#home">
                 <span className={navHoverClass}>
                   <PhoneIcon /> +2 800-555-6789
                 </span>
               </Nav.Link>
 
-              <Nav.Link className="md:mt-2" href="#link">
+              {/* <Nav.Link className="md:mt-2" href="#link">
                 <AccountCircleIcon className={navHoverClass} />
-              </Nav.Link>
-              <Nav.Link>
+              </Nav.Link> */}
+              {/* <Nav.Link>
                 <Button
                   variant={
                     navVariant === "dark" ? "outline-light" : "outline-primary"
@@ -184,7 +184,7 @@ const FixedNavbar = () => {
                 >
                   Add Listing
                 </Button>
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

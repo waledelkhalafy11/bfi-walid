@@ -22,8 +22,9 @@ function Cards(props) {
  <>
 
 
-    <div className="col-lg-4 col-md-6">
-            <div className="item w-[400px]  h-fit bg-[#f2f2f2] ">
+    <div className="col-lg-4 col-md-6  col-sm-12  blogcards">
+
+            <div className="item w-full   md:w-[300px] xl:w-[350px]  mx-auto  mt-5  h-fit bg-[#f2f2f2] ">
               
                 <div className="cardd">
                <Link to = {`/unit/${props.id}`}>
