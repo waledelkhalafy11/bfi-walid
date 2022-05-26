@@ -38,17 +38,6 @@ const UnitPage = () => {
 
 
 
-//         if(itm.unit.id == id ){
-
-//    return itm 
-
-//         }else{
-//             return null
-//         }
-  
-     
-//       });
-
 
       console.log(unit.props[0].kitchen);
 

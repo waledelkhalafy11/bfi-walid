@@ -76,7 +76,7 @@ const Blog = () => {
         {/* ===========.>>>>>>>>>>>>>> Cards */}
 
         <div className="col-lg-6 col-md-12 order-1 order-lg-2 my-auto p-0">
-            <div className=" relative mx-auto w-[95%] md:w-[70%]  h-[651px] mx-auto bg-[#f2f2f2] mt-[50px] rounded-md animate__fadeInUp animate__delay-2s	2s">
+            <div className=" relative mx-auto w-[95%] md:w-[70%]  h-[651px] bg-[#f2f2f2] mt-[50px] rounded-md animate__fadeInUp animate__delay-2s	2s">
                 <div className="absolute bottom-0 left-0 h-[651px] w-[55%] sm:h-[550px] overflow-hidden rounded-md">
                     <img
                         src={blog1}
