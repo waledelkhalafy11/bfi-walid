@@ -24,7 +24,7 @@ export default function GlMap(props) {
   });
   
 
-const sssss =  props.data
+const mapData =  props.data
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -79,17 +79,17 @@ const sssss =  props.data
         mapStyle="mapbox://styles/mapbox/streets-v11"
         
       >
-        {sssss.map((park , i ) => (
+        {mapData.map((unit , i ) => (
           <Marker
             key={i}
-            latitude={Number(park.lat)}
-            longitude={Number(park.lng)}
+            latitude={Number(unit.lat)}
+            longitude={Number(unit.lng)}
           >
             <button
               className="marker-btn"
               onClick={e => {
                 e.preventDefault();
-                setSelectedPlace(park);
+                setSelectedPlace(unit);
               }}
             >
               <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
@@ -97,26 +97,26 @@ const sssss =  props.data
           </Marker>
         ))}
         <NavigationControl/>
-        {/* {selectedPlace ? (
-          <Popup
-          className="rounded-full"
-            latitude={selectedPlace.geometry.coordinates[1]}
-            longitude={selectedPlace.geometry.coordinates[0]}
-            onClose={() => {
-              setSelectedPlace(null);
-            }}
-          >
-            <div className="flex  flex-row">
-              <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={placeImg}></img>
-              <div className="flex flex-col">
-              <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.properties.NAME}</h2>
-          
+          {selectedPlace ? (
+            <Popup
+            className="rounded-full"
+              latitude={Number(selectedPlace.lat)}
+              longitude={Number(selectedPlace.lng)}
+              onClose={() => {
+                setSelectedPlace(null);
+              }}
+            >
+              <div className="flex  flex-row">
+                <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={selectedPlace.image}></img>
+                <div className="flex flex-col">
+                <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.name}</h2>
+            
 
-<h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+  <h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+                </div>
               </div>
-            </div>
-          </Popup>
-        ) : null}  */}
+            </Popup>
+          ) : null} 
       </ReactMapGL>
     </div>
   );

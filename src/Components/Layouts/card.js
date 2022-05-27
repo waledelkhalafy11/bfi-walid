@@ -22,8 +22,9 @@ function Cards(props) {
  <>
 
 
-    <div className="col-lg-4 col-md-6">
-            <div className="item w-[400px]  h-fit bg-[#f2f2f2] ">
+    <div className="col-lg-4 col-md-6  col-sm-12  blogcards">
+
+            <div className="item w-full   md:w-[300px] xl:w-[350px]  mx-auto  mt-5  h-fit bg-[#f2f2f2] ">
               
                 <div className="cardd">
                <Link to = {`/unit/${props.id}`}>
@@ -40,7 +41,7 @@ function Cards(props) {
                                     <div className="absolute bottom-[10px] left-5">
                                         <div className="text-[12px]  d-flex">
                                             <img className="w-[10px] h-[10px] my-auto mr-[2px]" src={Location} alt="location" />
-                                            <a className="text-white py-[0px]  " href="#">s</a> 
+                                            <a className="text-white py-[0px]  " href="#">{props.address}</a> 
                                         </div>
                                     </div>
                         </div></Link>
@@ -67,7 +68,7 @@ function Cards(props) {
                             </div>
                             </div>
 
-                            <img className="w-[22px]  p-[3px] mr-1 opacity-40 hover:opacity-100" src={Share} alt="share" />
+                            {/* <img className="w-[22px]  p-[3px] mr-1 opacity-40 hover:opacity-100" src={Share} alt="share" /> */}
                     </div>
                 </div>
                 </div>

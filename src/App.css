@@ -255,3 +255,17 @@ label {
   -ms-overflow-style: none !important;  /* IE and Edge */
   scrollbar-width: none !important;  /* Firefox */
 }
+
+
+.bs-tooltip-top{
+  position: absolute !important;
+  inset: auto auto 0px 0px !important;
+
+}
+
+.btn-higlight{
+  padding: 5px !important;
+  background-color: #45b6ca !important;
+  border-radius: 40px !important;
+  border: none !important;
+}

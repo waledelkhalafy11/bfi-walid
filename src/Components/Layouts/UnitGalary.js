@@ -36,13 +36,13 @@ function UnitGalary(props) {
 
   let unitPhotos = galaryimges.map((photo) => {
     return (
-      <div>
+      <div className="w-full h-full">
         <img
-          className="w-full "
+          className="object-cover h-full"
           src={`http://127.0.0.1:8000${photo.unit_image_url}`}
         />
 
-        <p className="legend">Legend 1</p>
+       
       </div>
     );
   });

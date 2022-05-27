@@ -19,7 +19,7 @@ const Search = () => {
   const [dataApi, setDataApi] = useState([]);
   // const dataApi = useContext(ApiContext);
   const dataApiPromise = useSelector(state => state);
- 
+
   const [unitsData, setunitsData] = useState([...dataApi]);
   const [allLocations, setLocations] = useState([]);
   const [cities, setCities] = useState([]);
@@ -51,21 +51,17 @@ const Search = () => {
     return allregions.indexOf(c) === index;
   });
   useEffect(() => {
-    
     GetRequest();
-  }, []);
+    setunitsData(dataApi.filter(majorFilter));
+    },[]);
 
   let majorFilter = (item) => {
-    // if (item.location[0].unit_region == selectedFilters.region) {
-    //   if (item.location[0].unit_city == selectedFilters.city) {
-    //     if (item.unit.unit_category == selectedFilters.category) {
-    //       return item;
-    //     }
-    //   }
-    // }
-
-    if(selectedFilters.region ==  'Egypt'){
-      return item 
+    if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all") {
+      if (selectedFilters.city == item.location[0].city_name || selectedFilters.city == "all") {
+        if (selectedFilters.category == item.unit.unit_category || selectedFilters.category == "all") {
+          return item
+        }
+      }
     }
   };
   let catFilter = (item) => {
@@ -84,12 +80,16 @@ const Search = () => {
 
   let mapData = dataApi.map((itm) => {
     return {
-      lng: itm.unit.unit_longitude,
-      lat: itm.unit.unit_latitude,
+      'image' : `http://127.0.0.1:8000${itm.photos[0].unit_image_url}`,
+      'name' : itm.unit.unit_name,
+      'price' : itm.unit.unit_price,
+      'description' : itm.unit.unit_description,
+      'lng': itm.unit.unit_longitude,
+      'lat': itm.unit.unit_latitude,
     };
   });
 
-  let cardDara = dataApi.map((itm) => {
+  let cardData = dataApi.map((itm) => {
     return (
       <PlacesCard
         key={itm.unit.id}
@@ -103,7 +103,22 @@ const Search = () => {
       />
     );
   });
-  let isRegion = (region)=> {
+
+  let cardDara = unitsData.map((itm) => {
+    return (
+      <PlacesCard
+        key={itm.unit.id}
+        title={itm.unit.unit_name}
+        price={itm.unit.unit_price}
+        description={itm.unit.unit_description}
+        rooms={itm.props[0].bedroom}
+        bathrooms={itm.props[0].bathroom}
+        space="170"
+        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+      />
+    );
+  });
+  let isRegion = (region) => {
     return region.region.region_name === selectedFilters.region;
   }
 
@@ -127,8 +142,8 @@ const Search = () => {
           category: selected,
           city: selectedFilters.city,
         });
-        
-       
+
+
 
         break;
       case 3:
@@ -143,19 +158,20 @@ const Search = () => {
         break;
     }
   };
-useEffect(()=>{
+  useEffect(() => {
 
-  dataApiPromise.then(function(result) {
-    setDataApi(result);
-      });
-},)
+    dataApiPromise.then(function (result) {
+      setDataApi(result);
+      
+    });
+  })
   useEffect(() => {
     console.log(selectedFilters);
-   
+
     let allCats11 = []
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
-        if(selectedFilters.city == itm.location[0].city_name){
+        if (selectedFilters.city == itm.location[0].city_name) {
           allCats11.push(itm.unit.unit_category)
         }
       }
@@ -167,7 +183,7 @@ useEffect(()=>{
       }
     });
     setCategories(allCats11);
-    setCities(allcities11); 
+    setCities(allcities11);
     // let mapdata= {};
     // if(selectedFilters.city == 'All' | selectedFilters.city == null){
 
@@ -182,7 +198,7 @@ useEffect(()=>{
     //    'lat' : the_region.region_latitude
     //   }
     //   setMapZoom(mapdata)
-      
+
     // }else{
     //  let the_region = allLocations?.filter(function(x){
     //    if(x.region == selectedFilters.region )
@@ -217,75 +233,75 @@ useEffect(()=>{
       {windowWidth <= 768 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
           <Container className="absolute top-2 z-50">
-          <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
-                <>
-                  {" "}
-                  <div className="md:w-[25%] flex mx-2 flex-col">
-                    <Form.Label className="md:ml-4 text-xl text-left">
-                      Region
-                    </Form.Label>
-                    <Form.Select
-                      className="md:ml-2 w-[100%] border-none"
-                      size="sm"
-                      onChange={(e) => selectedData(e.target.value, 1)}
-                    >
-                      <option disabled selected>
-                        Select a Region
-                      </option>
-                      <option value="all">All</option>
-                      {regions.map((region) => {
-                        return <option value={region}>{region}</option>;
-                      })}
-                    </Form.Select>
-                  </div>
-                 
-                  <div className="md:w-[25%] flex mx-2 flex-col">
-                    <Form.Label className="md:ml-4 text-xl text-left">
-                      City
-                    </Form.Label>
-                    <Form.Select
+            <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
+              <>
+                {" "}
+                <div className="md:w-[25%] flex mx-2 flex-col">
+                  <Form.Label className="md:ml-4 text-xl text-left">
+                    Region
+                  </Form.Label>
+                  <Form.Select
+                    className="md:ml-2 w-[100%] border-none"
+                    size="sm"
+                    onChange={(e) => selectedData(e.target.value, 1)}
+                  >
+                    <option disabled selected>
+                      Select a Region
+                    </option>
+                    <option value="all">All</option>
+                    {regions.map((region) => {
+                      return <option value={region}>{region}</option>;
+                    })}
+                  </Form.Select>
+                </div>
+
+                <div className="md:w-[25%] flex mx-2 flex-col">
+                  <Form.Label className="md:ml-4 text-xl text-left">
+                    City
+                  </Form.Label>
+                  <Form.Select
                     onChange={(e) => selectedData(e.target.value, 3)}
-                      className="md:ml-2 w-[100%] border-none"
-                      size="sm"
-                    >
-                      <option disabled selected>
-                        Select City
-                      </option>
-                      <option value="all">All</option>
-                      {cities?.map((city)=>{
-                     return<option value={city}>{city}</option>
+                    className="md:ml-2 w-[100%] border-none"
+                    size="sm"
+                  >
+                    <option disabled selected>
+                      Select City
+                    </option>
+                    <option value="all">All</option>
+                    {cities?.map((city) => {
+                      return <option value={city}>{city}</option>
                     })}
-                    </Form.Select>
-                  </div>
-                  <div className="md:w-[25%] flex mx-2 flex-col">
-                    <Form.Label className="md:ml-4 text-xl text-left">
-                      Category
-                    </Form.Label>
-                    <Form.Select
+                  </Form.Select>
+                </div>
+                <div className="md:w-[25%] flex mx-2 flex-col">
+                  <Form.Label className="md:ml-4 text-xl text-left">
+                    Category
+                  </Form.Label>
+                  <Form.Select
                     onChange={(e) => selectedData(e.target.value, 2)}
-                      className="md:ml-2 w-[100%] border-none ay7aga"
-                      size="sm"
-                    >
-                      <option disabled selected>
-                        Select a Category
-                      </option>
-                      <option value="all">All</option>
-                      {categories?.map((category)=>{
-                     return<option value={category}>{category}</option>
+                    className="md:ml-2 w-[100%] border-none ay7aga"
+                    size="sm"
+                  >
+                    <option disabled selected>
+                      Select a Category
+                    </option>
+                    <option value="all">All</option>
+                    {categories?.map((category) => {
+                      return <option value={category}>{category}</option>
                     })}
-                    </Form.Select>
-                  </div>
-                  <div className="md:w-[25%] p-2 flex mx-2 flex-col">
-                    <Button
-                      className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
-                      size="lg"
-                    >
-                      <SearchIcon />
-                      Search
-                    </Button>
-                  </div>
-                </>
-              </Container>
+                  </Form.Select>
+                </div>
+                <div className="md:w-[25%] p-2 flex mx-2 flex-col">
+                  <Button
+                    className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
+                    size="lg"
+                  >
+                    <SearchIcon />
+                    Search
+                  </Button>
+                </div>
+              </>
+            </Container>
           </Container>
           <Container
             fluid
@@ -297,7 +313,7 @@ useEffect(()=>{
             >
               <GlMap data={mapData} />
             </Container>
-            <SwipeableEdgeDrawer />
+            <SwipeableEdgeDrawer carddata={unitsData}  />
           </Container>
         </div>
       ) : (
@@ -325,13 +341,13 @@ useEffect(()=>{
                       })}
                     </Form.Select>
                   </div>
-                 
+
                   <div className="md:w-[25%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       City
                     </Form.Label>
                     <Form.Select
-                    onChange={(e) => selectedData(e.target.value, 3)}
+                      onChange={(e) => selectedData(e.target.value, 3)}
                       className="md:ml-2 w-[100%] border-none"
                       size="sm"
                     >
@@ -339,9 +355,9 @@ useEffect(()=>{
                         Select City
                       </option>
                       <option value="all">All</option>
-                      {cities?.map((city)=>{
-                     return<option value={city}>{city}</option>
-                    })}
+                      {cities?.map((city) => {
+                        return <option value={city}>{city}</option>
+                      })}
                     </Form.Select>
                   </div>
                   <div className="md:w-[25%] flex mx-2 flex-col">
@@ -349,7 +365,7 @@ useEffect(()=>{
                       Category
                     </Form.Label>
                     <Form.Select
-                    onChange={(e) => selectedData(e.target.value, 2)}
+                      onChange={(e) => selectedData(e.target.value, 2)}
                       className="md:ml-2 w-[100%] border-none ay7aga"
                       size="sm"
                     >
@@ -357,9 +373,9 @@ useEffect(()=>{
                         Select a Category
                       </option>
                       <option value="all">All</option>
-                      {categories?.map((category)=>{
-                     return<option value={category}>{category}</option>
-                    })}
+                      {categories?.map((category) => {
+                        return <option value={category}>{category}</option>
+                      })}
                     </Form.Select>
                   </div>
                   <div className="md:w-[25%] p-2 flex mx-2 flex-col">
@@ -383,7 +399,7 @@ useEffect(()=>{
               fluid
               className="w-[100] md:w-[60%] placeCardss overflow-y-scroll md:max-h-[100%] px-3 py-"
             >
-              {cardDara}
+              {unitsData[0] ?  cardDara : cardData}
             </Container>
             <Container
               fluid
