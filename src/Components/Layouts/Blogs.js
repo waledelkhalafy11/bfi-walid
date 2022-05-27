@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import {Link} from "react-router-dom"
 import "./layouts.css";
 import OwlCarousel from "react-owl-carousel";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
@@ -80,12 +81,12 @@ const options = {
           </OwlCarousel>
         </Container>
         <div className="text-center m-3">
-          <a
+          <Link to = "/Blog"
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
-            href=""
+            
           >
             VISIT BLOG
-          </a>
+          </Link>
         </div>
       </div>
     </section>
