@@ -9,16 +9,22 @@ import { number } from "yup";
 
 export default function GlMap(props) {
   const placesMarkers = placesData ;
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState({
+    'lng': 0 , 
+    'lat' : 0 
+  });
   const [viewport, setViewport] = useState({
-    latitude: 30.044420,
-    longitude: 31.235712,
+    latitude: selectedRegion.lat,
+    longitude: selectedRegion.lng,
     width : "200" ,
     height: "300",
-    zoom: 13 , 
+    zoom: 2 , 
     
   });
-  const [selectedPlace, setSelectedPlace] = useState(null);
-const sssss =  props.data
+  
+
+const mapData =  props.data
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -31,8 +37,35 @@ const sssss =  props.data
       window.removeEventListener("keydown", listener);
     };
   }, []);
-  
+  useEffect(()=>{
+    let lng =Number(props.mapzoom?.region?.region_longitude);
+    let lat =Number(props.mapzoom?.region?.region_latitude);
+    
+   
+    setSelectedRegion({
+      'lng': lng , 
+      'lat' :lat 
+    })
 
+    setViewport({
+      latitude: 35,
+      longitude: 35,
+      width : "200" ,
+      height: "300",
+      zoom: 3 , 
+      
+    });
+    
+   
+
+
+  },[props.mapzoom])
+
+
+
+  useEffect(()=>{
+    
+  },[selectedRegion])
   return (
     <div>
       <ReactMapGL
@@ -46,17 +79,17 @@ const sssss =  props.data
         mapStyle="mapbox://styles/mapbox/streets-v11"
         
       >
-        {sssss.map((park , i ) => (
+        {mapData.map((unit , i ) => (
           <Marker
             key={i}
-            latitude={Number(park.lat)}
-            longitude={Number(park.lng)}
+            latitude={Number(unit.lat)}
+            longitude={Number(unit.lng)}
           >
             <button
               className="marker-btn"
               onClick={e => {
                 e.preventDefault();
-                setSelectedPlace(park);
+                setSelectedPlace(unit);
               }}
             >
               <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
@@ -64,26 +97,26 @@ const sssss =  props.data
           </Marker>
         ))}
         <NavigationControl/>
-        {/* {selectedPlace ? (
-          <Popup
-          className="rounded-full"
-            latitude={selectedPlace.geometry.coordinates[1]}
-            longitude={selectedPlace.geometry.coordinates[0]}
-            onClose={() => {
-              setSelectedPlace(null);
-            }}
-          >
-            <div className="flex  flex-row">
-              <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={placeImg}></img>
-              <div className="flex flex-col">
-              <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.properties.NAME}</h2>
-          
+          {selectedPlace ? (
+            <Popup
+            className="rounded-full"
+              latitude={Number(selectedPlace.lat)}
+              longitude={Number(selectedPlace.lng)}
+              onClose={() => {
+                setSelectedPlace(null);
+              }}
+            >
+              <div className="flex  flex-row">
+                <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={selectedPlace.image}></img>
+                <div className="flex flex-col">
+                <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.name}</h2>
+            
 
-<h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+  <h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+                </div>
               </div>
-            </div>
-          </Popup>
-        ) : null}  */}
+            </Popup>
+          ) : null} 
       </ReactMapGL>
     </div>
   );

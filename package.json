@@ -30,6 +30,7 @@
     "react-countup": "^6.2.0",
     "react-dom": "^18.0.0",
     "react-google-maps": "^9.4.5",
+    "react-loading": "^2.0.3",
     "react-map-gl": "^6.1.19",
     "react-owl-carousel": "^2.3.3",
     "react-read-more-read-less": "^1.0.7",

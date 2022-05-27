@@ -19,17 +19,14 @@ function App() {
   const [post, setPost] = useState([]);
   const GetRequest = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/allunits');
+      const res = await axios.get(`${process.env.REACT_APP_DOMAIN}/api/allunits`);
       setPost(res.data);
     } catch (err) {
       console.error(err);
     }
   };
   
-useEffect(()=>{
 
-  GetRequest();
-  },[])
 
   return (
     <ApiContext.Provider value={post}>
