@@ -8,10 +8,10 @@ const PlacesCard = (props) => {
     <>
       <Container
         fluid
-        className="flex shadow-sm py-[0%] md:py-[2.5%] pl-0 mt-4 rounded-2xl md:h-[30%] bg-white flex-row"
+        className="flex shadow-sm py-[1%] md:py-[2.5%] pl-0 mt-4 rounded-2xl h-[20%]  md:h-[30%] bg-white flex-row"
       >
-        <Container fluid className=" w-[30%] ">
-          <img className="w-[100%] rounded-xl" src={props.image}></img>
+        <Container fluid className=" w-[30%] overflow-hidden ">
+          <img className="rounded-xl object-cover h-full w-full" src={props.image}></img>
         </Container>
         <Container
           fluid
@@ -27,7 +27,7 @@ const PlacesCard = (props) => {
            <span  className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon/></span>
            <h3 className="text-[6px] md:text-lg text-gray-600">3 bedrooms , 1 bathroom , 110m</h3>
 
-            <h4 className="text-[10px] md:text-lg">{props.price} </h4>
+            <h4 className="text-[10px] md:text-lg">{props.price} LE </h4>
           </Container>
         </Container>
       </Container>

@@ -32,12 +32,12 @@ const FixedNavbar = () => {
 
       navigate: "/about-us",
     },
-    {
-      id: 6,
-      name: "Agent",
+      // {
+      //   id: 6,
+      //   name: "Agent",
 
-      navigate: "/",
-    },
+      //   navigate: "/",
+      // },
     {
       id: 4,
       name: "Blog",
@@ -124,7 +124,7 @@ const FixedNavbar = () => {
             className="bg-[#000000ab] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
             id="basic-navbar-nav"
           >
-            <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-8">
+            <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto md:gap-12">
               {btns.map((item) => {
               if(item.id === 9 ){
                 return (
@@ -173,10 +173,10 @@ const FixedNavbar = () => {
                 </span>
               </Nav.Link>
 
-              <Nav.Link className="md:mt-2" href="#link">
+              {/* <Nav.Link className="md:mt-2" href="#link">
                 <AccountCircleIcon className={navHoverClass} />
-              </Nav.Link>
-              <Nav.Link>
+              </Nav.Link> */}
+              {/* <Nav.Link>
                 <Button
                   variant={
                     navVariant === "dark" ? "outline-light" : "outline-primary"
@@ -184,7 +184,7 @@ const FixedNavbar = () => {
                 >
                   Add Listing
                 </Button>
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -99,7 +99,7 @@ function SwipeableEdgeDrawer(props) {
           }}
         >
           <Puller  />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+          <Typography sx={{ p: 2, color: 'text.secondary' }}>{dataApi.length} result</Typography>
         </StyledBox>
         <StyledBox
           sx={{

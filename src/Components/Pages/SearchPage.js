@@ -20,7 +20,7 @@ const Search = () => {
   // const dataApi = useContext(ApiContext);
   const dataApiPromise = useSelector(state => state);
  
-  const [unitsData, setunitsData] = useState(dataApi);
+  const [unitsData, setunitsData] = useState([...dataApi]);
   const [allLocations, setLocations] = useState([]);
   const [cities, setCities] = useState([]);
   const [mapZoom, setMapZoom] = useState({});
@@ -51,16 +51,21 @@ const Search = () => {
     return allregions.indexOf(c) === index;
   });
   useEffect(() => {
+    
     GetRequest();
   }, []);
 
   let majorFilter = (item) => {
-    if (item.location.unit_region == selectedFilters.region) {
-      if (item.location.unit_city == selectedFilters.city) {
-        if (item.unit.unit_category == selectedFilters.category) {
-          return item;
-        }
-      }
+    // if (item.location[0].unit_region == selectedFilters.region) {
+    //   if (item.location[0].unit_city == selectedFilters.city) {
+    //     if (item.unit.unit_category == selectedFilters.category) {
+    //       return item;
+    //     }
+    //   }
+    // }
+
+    if(selectedFilters.region ==  'Egypt'){
+      return item 
     }
   };
   let catFilter = (item) => {
@@ -98,6 +103,9 @@ const Search = () => {
       />
     );
   });
+  let isRegion = (region)=> {
+    return region.region.region_name === selectedFilters.region;
+  }
 
   const windowWidth = window.innerWidth;
 
@@ -110,6 +118,8 @@ const Search = () => {
           city: selectedFilters.city,
         });
 
+
+
         break;
       case 2:
         setSelectedFilters({
@@ -117,6 +127,9 @@ const Search = () => {
           category: selected,
           city: selectedFilters.city,
         });
+        
+       
+
         break;
       case 3:
         setSelectedFilters({
@@ -137,7 +150,8 @@ useEffect(()=>{
       });
 },)
   useEffect(() => {
-    setunitsData(unitsData.filter(majorFilter));
+    console.log(selectedFilters);
+   
     let allCats11 = []
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
@@ -155,7 +169,7 @@ useEffect(()=>{
     setCategories(allCats11);
     setCities(allcities11); 
     // let mapdata= {};
-    // if(selectedFilters.city == 'All' | null){
+    // if(selectedFilters.city == 'All' | selectedFilters.city == null){
 
     //   let the_region = allLocations?.filter(function(x){
     //     if(x.region == selectedFilters.region ){
@@ -186,6 +200,15 @@ useEffect(()=>{
     //  }
     //  setMapZoom(mapdata)
     // }
+    // console.log(unitsData);
+
+    let region = allLocations.find(isRegion);
+    setMapZoom(region)
+
+
+
+
+    setunitsData(dataApi.filter(majorFilter));
     console.log(unitsData);
   }, [selectedFilters]);
 
@@ -193,12 +216,76 @@ useEffect(()=>{
     <>
       {windowWidth <= 768 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
-          <Container className="absolute">
-            <SearchFilter
-              categories={categories}
-              regions={regions}
-              sendDataToParent={selectedData}
-            />
+          <Container className="absolute top-2 z-50">
+          <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
+                <>
+                  {" "}
+                  <div className="md:w-[25%] flex mx-2 flex-col">
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      Region
+                    </Form.Label>
+                    <Form.Select
+                      className="md:ml-2 w-[100%] border-none"
+                      size="sm"
+                      onChange={(e) => selectedData(e.target.value, 1)}
+                    >
+                      <option disabled selected>
+                        Select a Region
+                      </option>
+                      <option value="all">All</option>
+                      {regions.map((region) => {
+                        return <option value={region}>{region}</option>;
+                      })}
+                    </Form.Select>
+                  </div>
+                 
+                  <div className="md:w-[25%] flex mx-2 flex-col">
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      City
+                    </Form.Label>
+                    <Form.Select
+                    onChange={(e) => selectedData(e.target.value, 3)}
+                      className="md:ml-2 w-[100%] border-none"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select City
+                      </option>
+                      <option value="all">All</option>
+                      {cities?.map((city)=>{
+                     return<option value={city}>{city}</option>
+                    })}
+                    </Form.Select>
+                  </div>
+                  <div className="md:w-[25%] flex mx-2 flex-col">
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      Category
+                    </Form.Label>
+                    <Form.Select
+                    onChange={(e) => selectedData(e.target.value, 2)}
+                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select a Category
+                      </option>
+                      <option value="all">All</option>
+                      {categories?.map((category)=>{
+                     return<option value={category}>{category}</option>
+                    })}
+                    </Form.Select>
+                  </div>
+                  <div className="md:w-[25%] p-2 flex mx-2 flex-col">
+                    <Button
+                      className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
+                      size="lg"
+                    >
+                      <SearchIcon />
+                      Search
+                    </Button>
+                  </div>
+                </>
+              </Container>
           </Container>
           <Container
             fluid

@@ -9,15 +9,21 @@ import { number } from "yup";
 
 export default function GlMap(props) {
   const placesMarkers = placesData ;
+  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState({
+    'lng': 0 , 
+    'lat' : 0 
+  });
   const [viewport, setViewport] = useState({
-    latitude: 30.044420,
-    longitude: 31.235712,
+    latitude: selectedRegion.lat,
+    longitude: selectedRegion.lng,
     width : "200" ,
     height: "300",
-    zoom: 13 , 
+    zoom: 2 , 
     
   });
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  
+
 const sssss =  props.data
   useEffect(() => {
     const listener = e => {
@@ -31,8 +37,35 @@ const sssss =  props.data
       window.removeEventListener("keydown", listener);
     };
   }, []);
-  
+  useEffect(()=>{
+    let lng =Number(props.mapzoom?.region?.region_longitude);
+    let lat =Number(props.mapzoom?.region?.region_latitude);
+    
+   
+    setSelectedRegion({
+      'lng': lng , 
+      'lat' :lat 
+    })
 
+    setViewport({
+      latitude: 35,
+      longitude: 35,
+      width : "200" ,
+      height: "300",
+      zoom: 3 , 
+      
+    });
+    
+   
+
+
+  },[props.mapzoom])
+
+
+
+  useEffect(()=>{
+    
+  },[selectedRegion])
   return (
     <div>
       <ReactMapGL
