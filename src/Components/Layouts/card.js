@@ -41,7 +41,7 @@ function Cards(props) {
                                     <div className="absolute bottom-[10px] left-5">
                                         <div className="text-[12px]  d-flex">
                                             <img className="w-[10px] h-[10px] my-auto mr-[2px]" src={Location} alt="location" />
-                                            <a className="text-white py-[0px]  " href="#">s</a> 
+                                            <a className="text-white py-[0px]  " href="#">{props.address}</a> 
                                         </div>
                                     </div>
                         </div></Link>
@@ -68,7 +68,7 @@ function Cards(props) {
                             </div>
                             </div>
 
-                            <img className="w-[22px]  p-[3px] mr-1 opacity-40 hover:opacity-100" src={Share} alt="share" />
+                            {/* <img className="w-[22px]  p-[3px] mr-1 opacity-40 hover:opacity-100" src={Share} alt="share" /> */}
                     </div>
                 </div>
                 </div>

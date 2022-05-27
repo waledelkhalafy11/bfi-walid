@@ -1,10 +1,10 @@
 import React from "react";
 import "./layouts.css";
-import facebook from "../../Assets/icons/footer/facebook.png"
-import instagram from "../../Assets/icons/footer/instagram.png";
-import twitter from "../../Assets/icons/footer/twitter2.png";
-import linkedin from "../../Assets/icons/footer/linkedin.png";
-import whatsapp from "../../Assets/icons/footer/whatsapp.png";
+import facebook from "../../Assets/icons/footer/facebook.svg"
+import instagram from "../../Assets/icons/footer/instagram.svg";
+import twitter from "../../Assets/icons/footer/twitter.svg";
+import linkedin from "../../Assets/icons/footer/linkedin.svg";
+import whatsapp from "../../Assets/icons/footer/whatsapp.svg";
 // import google from "../../Assets/icons/google.png";
 import email from "../../Assets/icons/email.png";
 import location from "../../Assets/icons/location.png";

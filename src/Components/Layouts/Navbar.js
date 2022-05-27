@@ -167,9 +167,9 @@ const FixedNavbar = () => {
             
             </Nav>
             <Nav className="hidden xl:flex ms-auto md:font-[900] mr-[5%]">
-              <Nav.Link className="md:mt-2 ml-[120px]" href="#home">
+              <Nav.Link className="md:mt-2 ml-[120px]" href="tel:0105050505">
                 <span className={navHoverClass}>
-                  <PhoneIcon /> +2 800-555-6789
+                 <PhoneIcon  /> +2 800-555-6789
                 </span>
               </Nav.Link>
 

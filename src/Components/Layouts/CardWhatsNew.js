@@ -2,6 +2,8 @@ import react from "react";
 
 
 function CardWhatsNew (props){
+    let filterDate = props.date;
+if(filterDate.length > 10 ) filterDate = filterDate.substring(0,10);
     return(
 
 
@@ -20,7 +22,7 @@ function CardWhatsNew (props){
                     />
                     </div>
                     <div className="date bg-[#45b6ca] absolute top-[20px] right-0 text-white font-semibold leading-[14px] py-[6px] px-[14px] uppercase">
-                        {props.date}
+                        {filterDate}
                     </div>
                     <div className="card-body h-[200px]  bg-[#ffff] text-right">
                     <h5 className="card-title  text-left">
