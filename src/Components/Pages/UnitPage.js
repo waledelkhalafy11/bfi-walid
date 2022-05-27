@@ -1,8 +1,7 @@
 import React from "react";
 import UnitGalary from "../Layouts/UnitGalary";
 import Footer from "../Layouts/Footer";
-import { useContext, useState, useEffect } from "react";
-import { ApiContext } from "../../ApiContext";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import "../../App.js";
 import ".././Layouts/UnitGalary";
@@ -14,7 +13,6 @@ import gardenn from "../../Assets/icons/unit/plant-garden.svg";
 import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import price from "../../Assets/icons/unit/floors.svg";
-import { NavItem } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 
@@ -25,7 +23,7 @@ const UnitPage = () => {
 
     //  ********* Redux Context *************
     const dataApiPromise = useSelector((state) => state);
-    
+
 
 
 

@@ -39,6 +39,55 @@ const Blog = () => {
     }
 
 
+
+      let noUnitAll = () =>{
+      if(all.length == 0  ){
+        return ""
+      }else if (all.length <= visible){
+        return ""
+      }else {
+        return <button onClick={showMoreUnits}
+            className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
+            >
+            Load More
+            </button>
+        
+      }}
+
+        let noUnit = () =>{
+          if(data.length == 0  ){
+            return "";
+          } else if (data.length <= visible){
+            return "";
+          }else {
+            return(
+              <button onClick={showMoreUnits}
+                className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
+                >
+                Load More
+                </button>
+            )}}
+  
+
+ 
+
+
+            let unitAvailable = (itm , category) => {
+
+              if(dataApi.length != 0 ){
+                  if(category.length == 0) {
+                      return (
+                      <h1
+                      className="py-[100px]">No unit available</h1> 
+                      )
+                    }else{
+
+                     return itm
+                    } } else {
+                      return "";
+                    } 
+            }
+
     let allblogData = all.slice(0,visible).map((itm) => {
   
         return (
@@ -72,7 +121,7 @@ const Blog = () => {
 
   return (
     <div className="blog bg-[#f2f2f2]">
-      <div className=" mt-[90px] row bg-[#f2f2f2] p-[20px]">
+      <div className=" mt-[90px] row bg-[#f2f2f2] w-full p-[20px]">
         {/*-----------------------------------HEro--------------------------------------*/}
         {/* ===========.>>>>>>>>>>>>> text */}
         <div className="col-lg-6 col-md-12 order-2 order-lg-1  my-auto p-0">
@@ -194,16 +243,9 @@ const Blog = () => {
             aria-labelledby="nav-all-tab"
           >
            
-            <div className="row"> {all.length == 0 ? (<h1>No unit available</h1>) : allblogData }</div>
-
-
-            {all.length == 0 ? 
-       "": ( <button onClick={showMoreUnits}
-       className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
-       >
-       Load More
-       </button>) }
-          </div>
+            <div className="row"> {unitAvailable(allblogData,all)}</div>
+            {noUnitAll()}
+            </div>
 
           <div
             class="tab-pane fade"
@@ -211,13 +253,8 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-villa-tab"
           >
-            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
-            {data.length == 0 ? "":
-            ( <button 
-              onClick={showMoreUnits} 
-              className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
-          >Load More
-        </button>) }
+            <div className="row mt-5">{unitAvailable(blogData,data)} </div>
+            {noUnit()}
           </div>
 
           <div
@@ -226,13 +263,8 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-house-tab"
           >
-            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
-            {data.length == 0 ? 
-       "": ( <button onClick={showMoreUnits}
-       className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
-       >
-       Load More
-       </button>) }
+            <div className="row mt-5">{unitAvailable(blogData,data)}</div>
+            {noUnit()}
      
           </div>
 
@@ -245,13 +277,8 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-appartment-tab"
           >
-            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
-            {data.length == 0 ? 
-       "": ( <button onClick={showMoreUnits}
-       className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
-       >
-       Load More
-       </button>) }
+            <div className="row mt-5">{unitAvailable(blogData,data)}</div>
+            {noUnit()}
      
           </div>
 
@@ -263,13 +290,8 @@ const Blog = () => {
             role="tabpanel"
             aria-labelledby="nav-office-tab"
           >
-            <div className="row mt-5">{data.length == 0 ? (<h1>No unit available</h1>) : blogData }</div>
-            {data.length == 0 ? 
-       "": ( <button onClick={showMoreUnits}
-       className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[50%] h-[50px]  sm:w-[164px] sm:h-[57px] mt-5  mb-[30px]  hover:opacity-80"
-       >
-       Load More
-       </button>) }
+            <div className="row mt-5">{unitAvailable(blogData,data)}</div>
+            {noUnit()}
      
           </div>
 

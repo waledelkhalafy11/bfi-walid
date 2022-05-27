@@ -1,8 +1,6 @@
 import GlMap from "../Layouts/GlMap";
 import SearchIcon from "@mui/icons-material/Search";
-import SearchFilter from "../Layouts/SearchFilter";
 import PlacesCard from "../Layouts/PlacesCard";
-import { ApiContext } from "../../ApiContext";
 import { useEffect, useState, useContext } from "react";
 import SwipeableEdgeDrawer from "../Layouts/Swibable";
 import { createContext } from "react";
