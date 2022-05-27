@@ -13,13 +13,18 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
+
+//  ********* Context API *************
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-  const [dataApi, setDataApi] = useState([]);
-  // const dataApi = useContext(ApiContext);
+
+  //  ********* Redux Context *************
   const dataApiPromise = useSelector(state => state);
 
+
+  //  ********* States Start *************
+  const [dataApi, setDataApi] = useState([]);
   const [unitsData, setunitsData] = useState([...dataApi]);
   const [allLocations, setLocations] = useState([]);
   const [cities, setCities] = useState([]);
@@ -35,10 +40,14 @@ const Search = () => {
     category: null,
     city: null,
   });
+  // +-+-+-+-+- States End +-+-+-+-+-
 
+  
+
+  //  ********* Locations Request Start *************
   const GetRequest = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/alllocations");
+      const res = await axios.get(`${process.env.REACT_APP_DOMAIN}/api/alllocations`);
       setLocations(res.data);
     } catch (err) {
       console.error(err);
@@ -50,44 +59,90 @@ const Search = () => {
   let regions = allregions.filter((c, index) => {
     return allregions.indexOf(c) === index;
   });
-  useEffect(() => {
-    GetRequest();
-    setunitsData(dataApi.filter(majorFilter));
-    },[]);
+
+  // +-+-+-+-+- Locations Request End +-+-+-+-+-
+
+
+
+  //  ********* Data Filtration Start *************
 
   let majorFilter = (item) => {
-    if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all") {
+    if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all" ) {
+
       if (selectedFilters.city == item.location[0].city_name || selectedFilters.city == "all") {
+    
+    
         if (selectedFilters.category == item.unit.unit_category || selectedFilters.category == "all") {
           return item
+        }else if (selectedFilters.category == null ){
+          return item
+      
         }
+    
+    
+      }else if (selectedFilters.city == null ){
+
+      return item 
       }
+    }else if (selectedFilters.region == null){
+
+      return item
     }
+
+
   };
-  let catFilter = (item) => {
-    if (item.location[0].region_name == selectedFilters.region) {
-      return item;
+
+  const selectedData = (selected, index) => {
+    switch (index) {
+      case 1:
+        setSelectedFilters({
+          region: selected,
+          category: selectedFilters.category,
+          city: selectedFilters.city,
+        });
+        break;
+      case 2:
+        setSelectedFilters({
+          region: selectedFilters.region,
+          category: selected,
+          city: selectedFilters.city,
+        });
+        break;
+      case 3:
+        setSelectedFilters({
+          region: selectedFilters.region,
+          category: selectedFilters.category,
+          city: selected,
+        });
+        break;
+      default:
+        break;
     }
   };
 
-  let itmscat = dataApi.filter(catFilter);
-  let cats = itmscat.map((unit) => {
-    return unit.unit.category_name;
-  });
-  let allCats = cats.filter((c, index) => {
-    return cats.indexOf(c) === index;
-  });
+  let isRegion = (region) => {
+    return region.region.region_name === selectedFilters.region;
+  }
+
+
+  //  +-+-+-+-+- Data Filtration End +-+-+-+-+-
+
+
+
+  //  ********* Child Props Data Start *************
 
   let mapData = dataApi.map((itm) => {
     return {
-      'image' : `http://127.0.0.1:8000${itm.photos[0].unit_image_url}`,
-      'name' : itm.unit.unit_name,
-      'price' : itm.unit.unit_price,
-      'description' : itm.unit.unit_description,
+      'image': process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url,
+      'name': itm.unit.unit_name,
+      'price': itm.unit.unit_price,
+      'description': itm.unit.unit_description,
       'lng': itm.unit.unit_longitude,
       'lat': itm.unit.unit_latitude,
     };
   });
+
+
 
   let cardData = dataApi.map((itm) => {
     return (
@@ -99,7 +154,7 @@ const Search = () => {
         rooms={itm.props[0].bedroom}
         bathrooms={itm.props[0].bathroom}
         space="170"
-        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+        image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
       />
     );
   });
@@ -114,60 +169,37 @@ const Search = () => {
         rooms={itm.props[0].bedroom}
         bathrooms={itm.props[0].bathroom}
         space="170"
-        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+        image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
       />
     );
   });
-  let isRegion = (region) => {
-    return region.region.region_name === selectedFilters.region;
-  }
+
+  // +-+-+-+-+- Child Props Data End +-+-+-+-+-
+
+
+
+  //  ********* UseEffects Start *************
 
   const windowWidth = window.innerWidth;
 
-  const selectedData = (selected, index) => {
-    switch (index) {
-      case 1:
-        setSelectedFilters({
-          region: selected,
-          category: selectedFilters.category,
-          city: selectedFilters.city,
-        });
 
 
-
-        break;
-      case 2:
-        setSelectedFilters({
-          region: selectedFilters.region,
-          category: selected,
-          city: selectedFilters.city,
-        });
-
-
-
-        break;
-      case 3:
-        setSelectedFilters({
-          region: selectedFilters.region,
-          category: selectedFilters.category,
-          city: selected,
-        });
-        break;
-
-      default:
-        break;
-    }
-  };
   useEffect(() => {
-
     dataApiPromise.then(function (result) {
       setDataApi(result);
-      
+
     });
   })
+
+
+  useEffect(() => {
+    GetRequest();
+    setunitsData(dataApi.filter(majorFilter));
+  }, []);
+
+
   useEffect(() => {
     console.log(selectedFilters);
-
     let allCats11 = []
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
@@ -184,49 +216,15 @@ const Search = () => {
     });
     setCategories(allCats11);
     setCities(allcities11);
-    // let mapdata= {};
-    // if(selectedFilters.city == 'All' | selectedFilters.city == null){
-
-    //   let the_region = allLocations?.filter(function(x){
-    //     if(x.region == selectedFilters.region ){
-
-    //       return x
-    //     }
-    //   })
-    //   mapdata = {
-    //    'lng' : the_region.region_longitude , 
-    //    'lat' : the_region.region_latitude
-    //   }
-    //   setMapZoom(mapdata)
-
-    // }else{
-    //  let the_region = allLocations?.filter(function(x){
-    //    if(x.region == selectedFilters.region )
-    //    return x
-    //  })
-    //  let the_city = the_region.cities.filter(function(x){
-    //   if(x.city_name == selectedFilters.city ){
-
-    //     return x
-    //   }
-    // })
-    //  mapdata = {
-    //   'lng' : the_city.city_longitude , 
-    //   'lat' : the_city.city_latitude
-    //  }
-    //  setMapZoom(mapdata)
-    // }
-    // console.log(unitsData);
-
     let region = allLocations.find(isRegion);
     setMapZoom(region)
-
-
-
-
     setunitsData(dataApi.filter(majorFilter));
     console.log(unitsData);
   }, [selectedFilters]);
+
+  // +-+-+-+-+- UseEffects End +-+-+-+-+-
+
+  
 
   return (
     <>
@@ -313,7 +311,7 @@ const Search = () => {
             >
               <GlMap data={mapData} />
             </Container>
-            <SwipeableEdgeDrawer carddata={unitsData}  />
+            <SwipeableEdgeDrawer carddata={unitsData} />
           </Container>
         </div>
       ) : (
@@ -399,7 +397,7 @@ const Search = () => {
               fluid
               className="w-[100] md:w-[60%] placeCardss overflow-y-scroll md:max-h-[100%] px-3 py-"
             >
-              {unitsData[0] ?  cardDara : cardData}
+              {unitsData[0] ? cardDara : cardData}
             </Container>
             <Container
               fluid

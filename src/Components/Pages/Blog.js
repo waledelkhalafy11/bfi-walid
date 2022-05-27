@@ -49,7 +49,7 @@ const Blog = () => {
             bathrooms = {itm.props[0].bathroom}
             address   = {itm.unit.unit_address}
             space     = "170"
-            image     = {`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            image     = {process.env.REACT_APP_DOMAIN +itm.photos[0].unit_image_url}
             id        = {itm.unit.id}
           />
         );
@@ -63,7 +63,7 @@ const Blog = () => {
       rooms     = {itm.props[0].bedroom}
       bathrooms = {itm.props[0].bathroom}
       space     = "170"
-      image     = {`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+      image     = {process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
       id        = {itm.unit.id}
     />
     );}
