@@ -93,12 +93,10 @@ a {
 
 
 /* Unit page and Unit galary */
-
-
 @media (min-width: 768px) { 
     .carousel.carousel-slider {
-        height: 550px !important;
-        border-radius: 2% !important;
+    height: 550px !important;
+    border-radius: 2% !important;
  }
 
 
