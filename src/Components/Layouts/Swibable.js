@@ -35,6 +35,7 @@ const Puller = styled(Box)(({ theme }) => ({
 function SwipeableEdgeDrawer(props) {
 
     const dataApi = React.useContext(ApiContext);
+  let dataunits = props.carddata;
 
 
   const { window } = props;
@@ -43,7 +44,22 @@ function SwipeableEdgeDrawer(props) {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-  let cardDara = dataApi.map((itm) => {
+  let cardData = dataApi.map((itm) => {
+    return (
+      <PlacesCard
+        key = {itm.unit.id}
+        title={itm.unit.unit_name}
+        price={itm.unit.unit_price}
+        description={itm.unit.unit_description}
+        rooms={itm.props[0].bedroom}
+        bathrooms={itm.props[0].bathroom}
+        space="170"
+        image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+      />
+    );
+  });
+
+  let cardDara = dataunits.map((itm) => {
     return (
       <PlacesCard
         key = {itm.unit.id}
@@ -99,7 +115,7 @@ function SwipeableEdgeDrawer(props) {
           }}
         >
           <Puller  />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+          <Typography sx={{ p: 2, color: 'text.secondary' }}>{dataApi.length} result</Typography>
         </StyledBox>
         <StyledBox
           sx={{
@@ -109,7 +125,7 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-           {cardDara}
+           {dataunits[0] ?  cardDara : cardData}
         </StyledBox>
       </SwipeableDrawer>
     </Root>
