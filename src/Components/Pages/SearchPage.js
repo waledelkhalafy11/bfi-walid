@@ -1,7 +1,7 @@
 import GlMap from "../Layouts/GlMap";
 import SearchIcon from "@mui/icons-material/Search";
 import PlacesCard from "../Layouts/PlacesCard";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import SwipeableEdgeDrawer from "../Layouts/Swibable";
 import { createContext } from "react";
 import axios from "axios";
