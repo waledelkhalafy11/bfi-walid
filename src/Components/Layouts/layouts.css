@@ -114,13 +114,16 @@ a {
 
 .galaryOfUnits ul li {
     border-radius: 20%;
- 
+
 }
 
 ul > .thumb {
     height: 60px !important;
+   
 }
-
+.thumbs.animated ol, ul {
+    padding-left: 0 !important;
+}
 .galaryOfUnits  ul  li > img {
     border-radius: 20%;
     object-fit: cover;
