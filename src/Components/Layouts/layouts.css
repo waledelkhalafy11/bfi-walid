@@ -43,16 +43,16 @@ a {
     color: #29aae3 ;
 }
 .followus img{
-    filter: grayscale(80%);
-    transition-duration: 0.5s !important;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(116deg) brightness(109%) contrast(109%) !important;
+    opacity: 0.7;
 
+    
 }
 
 .followus img:hover {
-  
-    filter: grayscale(0%);
-    /* border-radius: 50%;
-    transform: translateY(-5px); */
+    opacity: 1;
+    filter: none !important;
+
 }
 
 
@@ -93,7 +93,9 @@ a {
 
 
 /* Unit page and Unit galary */
-@media (min-width: 768px) { 
+
+
+@media (min-width: 900px) { 
     .carousel.carousel-slider {
     height: 550px !important;
     border-radius: 2% !important;
@@ -112,13 +114,16 @@ a {
 
 .galaryOfUnits ul li {
     border-radius: 20%;
- 
+
 }
 
 ul > .thumb {
     height: 60px !important;
+   
 }
-
+.thumbs.animated ol, ul {
+    padding-left: 0 !important;
+}
 .galaryOfUnits  ul  li > img {
     border-radius: 20%;
     object-fit: cover;
