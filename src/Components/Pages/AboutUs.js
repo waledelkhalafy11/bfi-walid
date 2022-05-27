@@ -39,7 +39,7 @@ const AboutUs = () => {
                     <p className="mt-[25px] not-italic font-medium text-[18px] leading-[135.2%px] text-justify  text-xl ">{prag1}</p>
                     <div className="mt-[38px] text-left">
                         
-                        <button  className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[164px] h-[57px]   text-center hover:opacity-80">Join Us</button>
+                        <button  className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[164px] h-[57px]   text-center hover:opacity-80">Contact Us</button>
 
                     </div>
 
