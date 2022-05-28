@@ -5,6 +5,10 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 
+
+
+ 
+
 const SignupSchema = Yup.object().shape({
     Name: Yup.string()
         .matches("^[a-zA-Z]+$", "Invalid name")
