@@ -187,7 +187,7 @@ const Search = () => {
       setDataApi(result);
 
     });
-  })
+  },[])
 
 
   useEffect(() => {
@@ -212,8 +212,16 @@ const Search = () => {
         allcities11.push(itm.location[0].city_name)
       }
     });
+
+    let allcities12 = allcities11.filter((c, index) => {
+      return allcities11.indexOf(c) === index;
+    });
+    let allCats12 = allCats11.filter((c, index) => {
+      return allCats11.indexOf(c) === index;
+    });
+  
     setCategories(allCats11);
-    setCities(allcities11);
+    setCities(allcities12);
     let region = allLocations.find(isRegion);
     setMapZoom(region)
     setunitsData(dataApi.filter(majorFilter));
@@ -401,7 +409,7 @@ const Search = () => {
               fluid
               className="p-0 mapps g:h-[70vh] w-[100%] md:w-[70%] bg-black "
             >
-              <GlMap mapzoom={mapZoom} data={mapData} />
+              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
             </Container>
           </Container>
         </div>

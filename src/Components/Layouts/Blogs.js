@@ -5,7 +5,6 @@ import OwlCarousel from "react-owl-carousel";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
 import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 import { Container } from "react-bootstrap";
-import { ApiContext } from "../../ApiContext";
 import CardWhatsNew from "./CardWhatsNew";
 import { Link } from "react-router-dom";
 
@@ -70,15 +69,13 @@ const options = {
     for(i = 0; i < dataApi.length; i++){
       if(i >= (dataApi.length - 4) || i > dataApi.length){
         BlogData.push(dataApi[i]);
-   
+  
 
 
-    console.log(BlogData);
       }
     }
 
 
-    console.log(BlogData);
 
     let blogFilter = BlogData.map(itm => {
       return (
