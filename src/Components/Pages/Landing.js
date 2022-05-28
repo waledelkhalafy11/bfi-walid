@@ -3,7 +3,7 @@ import Footer from "../Layouts/Footer";
 import Imgs from '../Layouts/Imgs'
 import ClientSection from "../Layouts/ClientsSection";
 import Counter from "../Layouts/Counter";
-import Listings from "../Layouts/ListingsCards";
+import Listings from "../Layouts/ListingCardApi";
 import WhyUs from "../Layouts/WhyUs";
 // import GorgeousHome from "../Layouts/GorgeousHome";
 import Blogs from "../Layouts/Blogs"
