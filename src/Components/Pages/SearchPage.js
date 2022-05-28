@@ -409,7 +409,7 @@ const Search = () => {
               fluid
               className="p-0 mapps g:h-[70vh] w-[100%] md:w-[70%] bg-black "
             >
-              <GlMap mapzoom={mapZoom} data={mapData} />
+              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
             </Container>
           </Container>
         </div>

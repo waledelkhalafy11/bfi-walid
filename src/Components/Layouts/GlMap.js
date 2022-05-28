@@ -24,7 +24,7 @@ export default function GlMap(props) {
   });
   
 
-const mapData =  props.data
+let mapData =  props.data
   useEffect(() => {
     const listener = e => {
       if (e.key === "Escape") {
@@ -61,6 +61,73 @@ const mapData =  props.data
   useEffect(()=>{
    
   },[selectedRegion])
+
+
+  mapData.map((unit , i ) => (
+    <Marker
+      key={i}
+      latitude={Number(unit.lat)}
+      longitude={Number(unit.lng)}
+    >
+      <button
+        className="marker-btn"
+        onClick={e => {
+          e.preventDefault();
+          setSelectedPlace(unit);
+        }}
+      >
+        <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
+      </button>
+    </Marker>
+  ))
+
+
+
+  let markerMaker = ()=>{
+    if (props.selectedunits[0]){
+      props.selectedunits.map((unit , i ) => (
+        <Marker
+          key={i}
+          latitude={Number(unit.lat)}
+          longitude={Number(unit.lng)}
+        >
+          <button
+            className="marker-btn"
+            onClick={e => {
+              e.preventDefault();
+              setSelectedPlace(unit);
+            }}
+          >
+            <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
+          </button>
+        </Marker>
+      ))
+    }else{
+      mapData.map((unit , i ) => (
+        <Marker
+          key={i}
+          latitude={Number(unit.lat)}
+          longitude={Number(unit.lng)}
+        >
+          <button
+            className="marker-btn"
+            onClick={e => {
+              e.preventDefault();
+              setSelectedPlace(unit);
+            }}
+          >
+            <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
+          </button>
+        </Marker>
+      ))
+    }
+  }
+
+  useEffect(()=>{
+     if(props.selectedunits[0]){
+     mapData = props.selectedunits
+    }
+  }, [props.selectedunits])
   return (
     <div>
       <ReactMapGL
@@ -74,23 +141,7 @@ const mapData =  props.data
         mapStyle="mapbox://styles/mapbox/streets-v11"
         
       >
-        {mapData.map((unit , i ) => (
-          <Marker
-            key={i}
-            latitude={Number(unit.lat)}
-            longitude={Number(unit.lng)}
-          >
-            <button
-              className="marker-btn"
-              onClick={e => {
-                e.preventDefault();
-                setSelectedPlace(unit);
-              }}
-            >
-              <img className="w-[40px]" src={markerIcon2} alt="Skate Park Icon" />
-            </button>
-          </Marker>
-        ))}
+        {markerMaker()}
         
         <NavigationControl/>
           {selectedPlace ? (
