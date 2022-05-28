@@ -71,7 +71,7 @@ console.log(process.env.REACT_APP_TEST);
 
   
 
-                <div className=" down    relative">
+                <div className=" down    ">
 
                 <div className="h-[300px]  w-full bg-[#f2f2f2]   " ></div>
 
@@ -79,18 +79,18 @@ console.log(process.env.REACT_APP_TEST);
                 <div className="  w-full bg-[#45b6ca]  " >
 
                 <div className="bg-[#ffffff]  p-[30px] w-[80%] relative md:bottom-[200px] bottom-[100px] mx-auto rounded-md row  ">
-                <div className="col-lg-7 my-auto ">
+                <div className="col-lg-7  ">
                 <div>
                     <div>
                         <h1 className="text-left font-semibold text-[#45b6ca] text-[200%]">About Us</h1>
                     </div>
                     <div className="text-left">
-                        <p className="lg:w-[80%] w-full  text-justify">
+                        <p className="lg:w-[80%] w-full  text-justify ">
                             
                         <ReactReadMoreReadLess
-                  charLimit={200}
-                  readMoreText={<button  className="bg-[#45b6ca] absolute left-10 bottom-0 rounded-[64px] text-white font-bold w-[100%] h-[50px]  sm:w-[164px] sm:h-[57px]  mb-[30px]  hover:opacity-80">Read more</button>}
-                  readLessText={<button  className="bg-[#45b6ca] absolute left-10 bottom-0 rounded-[64px] text-white font-bold w-[100%] h-[50px]  sm:w-[164px] sm:h-[57px]  mb-[30px]  hover:opacity-80">Read less</button>}
+                  charLimit={350}
+                  readMoreText={<button  className="text-[#45b6ca]    font-bold  hover:opacity-80">Read more</button>}
+                  readLessText={<button  className="text-[#45b6ca]    font-bold  hover:opacity-80">Read less</button>}
                   readMoreClassName="read-more-less--more"
                   readLessClassName="read-more-less--less"
                 >

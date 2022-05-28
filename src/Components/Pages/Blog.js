@@ -1,4 +1,5 @@
-import { useContext , useState } from "react";
+import { useContext , useState , useEffect } from "react";
+import { useSelector } from "react-redux";
 import { ApiContext } from "../../ApiContext";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
@@ -8,7 +9,28 @@ import Cards from "../Layouts/card";
 
 
 const Blog = () => {
-  const dataApi = useContext(ApiContext);
+
+    //  ********* Redux Context *************
+    const dataApiPromise = useSelector((state) => state);
+
+
+
+
+    //  ********* States  *************
+    const [dataApi, setDataApi] = useState([]);
+
+
+
+    //  ********* UseEffects *************
+
+    useEffect(() => {
+        dataApiPromise.then(function (result) {
+            setDataApi(result);
+        });
+    });
+
+
+
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
