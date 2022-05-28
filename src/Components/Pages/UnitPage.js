@@ -49,10 +49,13 @@ const UnitPage = () => {
 
 
     //  ********* Loading *************
-
+    let color = "#45b6ca"
+    let type = "spinningBubbles"
+    
     while (!dataApi[0]) {
         return (
-            <ReactLoading type="balls" color="#45b6ca" height="64px" width="64px" />
+            <ReactLoading type={type} color={color} height={667} width={375} />
+            
         );
     }
 
