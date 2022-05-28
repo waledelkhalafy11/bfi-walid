@@ -1,39 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Layouts/layouts.css";
 import swal from 'sweetalert';
-import { Formik, Form, Field} from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
+import axios from "axios";
 
 const SignupSchema = Yup.object().shape({
     Name: Yup.string()
+        .matches("^[a-zA-Z]+$", "Invalid name")
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
 
-    email: Yup.string().email('Invalid email').required('Required'),
+    Email: Yup.string().email('Invalid email').required('Required'),
 
-    phone: Yup.string().matches("^[0-9]+$",
-              "Invalid number"
-            ).required('Required'),
+    Phone: Yup.string().matches("^[0-9]+$", "Invalid number").required('Required'),
 
 
-    city: Yup.string(),
-     
+    City: Yup.string(),
+
     msg: Yup.string().min(20, 'Too Short').required('Required'),
-        
+
 });
 
 
 function ContactUs() {
- 
+
+
+    const [name , setname ] = useState() ;
+    const [phone , setphone ] = useState() ;
+    const [email , setemail ] = useState() ;
+    const [city , setcity ] = useState() ;
+    const [message , setmessage ] = useState() ;
+
+
+//     axios.post('http://127.0.0.1:8000/api/addcontact', contactData)
+//     .then(response => element.innerHTML = response.data.id);
+// let contactData = {
+//     'name'    : value  ,
+//     'phone'   : value  ,
+//     'email'   : value  ,
+//     'city'    : value  , 
+//     'message' : value
+// }
+
+    const handleSubmitBtn = () => {
+
+
+         let contactData = {
+            'name'    : name  ,
+            'phone'   : phone  ,
+            'email'   : email  ,
+            'city'    : city  , 
+            'message' : message
+        }
+
+
+
+
+        axios.post('http://127.0.0.1:8000/api/addcontact', contactData)
+        .then(response => console.log(response));
+
+    }
+    const sendCase = false;
+    const sendMessageSucsess = () => swal("Good job!", "Thank You For Sending Us!", "success");
+    const sendMessageError = () => swal("Sending Error", "Please Try Again .", "error");
+
+
+
+
+
+
 
 
 
     
-    const sendCase = true;
-    const sendMessageSucsess = () => swal("Good job!", "Thank You For Sending Us!", "success");
-    const sendMessageError = () => swal("Sending Error", "Please Try Again .", "error");
+
+
 
 
     return (
@@ -47,77 +90,90 @@ function ContactUs() {
                         <p className="text-center mx-auto w-[90%]">Have an inquiry or some feedback for us? Fill out the form below to contact our team.</p>
 
                     </div>
-                   
+
 
 
                     <Formik className="flex flex-col md:text-left "
                         initialValues={{
                             Name: '',
 
-                            email: '',
+                            Email: '',
 
-                            phone: '',
+                            Phone: '',
 
-                            city: '',
+                            City: '',
 
-                            msg:'',
+                            msg: '',
                         }}
                         validationSchema={SignupSchema}
                         onSubmit={values => {
                             // same shape as initial values
                             console.log(values);
+
+                            setname(values.Name) ;
+                            setphone(values.Phone);
+                            setemail(values.Email);
+                            setcity(values.City);
+                            setmessage(values.msg);
+                            
+                            console.log(name);
+                            console.log(email);
+                            console.log(phone);
+                            console.log(city);
+                            console.log(message);
+                            
                         }}
                     >
                         {({ errors, touched }) => (
                             <Form   >
 
-                                    <div className="h-auto">
-                                <div className="w-[80%] mx-auto flex flex-col md:flex-row  justify-between  ">
+                                <div className="h-auto">
+                                    <div className="w-[80%] mx-auto flex flex-col md:flex-row  justify-between  ">
 
-                                    <div className="flex flex-col mb-2 w-full md:w-[48%] ">
-                                        <Field name="Name"  placeholder="Name" className="p-2 w-full  h-10  bg-[#f2f2f2]" />
-                                        {errors.Name && touched.Name ? (
-                                            <div className="text-left ml-1 text-[red] text-sm">{errors.Name}</div>
-                                        ) : null}
+                                        <div className="flex flex-col mb-2 w-full md:w-[48%] ">
+                                            <Field name="Name" placeholder="Name"  className="p-2 w-full  h-10  bg-[#f2f2f2]" />
+                                            {errors.Name && touched.Name ? (
+                                                <div className="text-left ml-1 text-[red] text-sm">{errors.Name}</div>
+                                            ) : null}
 
+                                        </div>
+
+
+                                        <div className="flex flex-col mb-2 w-full md:w-[48%] ">
+                                            <Field name="Phone" placeholder="Phone"   className=" p-2 w-full  h-10  bg-[#f2f2f2]" />
+                                            {errors.Phone && touched.Phone ? (
+                                                <div className="text-left ml-1 text-[red] text-sm">{errors.Phone}</div>
+                                            ) : null}
+                                        </div>
                                     </div>
 
 
-                                    <div className="flex flex-col mb-2 w-full md:w-[48%] ">
-                                        <Field name="phone"   placeholder="Phone" className=" p-2 w-full  h-10  bg-[#f2f2f2]" />
-                                        {errors.phone && touched.phone ? (
-                                            <div className="text-left ml-1 text-[red] text-sm">{errors.phone}</div>
-                                        ) : null}
+                                    <div className="w-[80%] mx-auto flex flex-col md:flex-row justify-between">
+
+                                        <div className="flex flex-col mb-2 w-full md:w-[48%]">
+                                            <Field name="Email" placeholder="Email"   className="p-2 w-full   h-10  bg-[#f2f2f2]" />
+                                            {errors.Email && touched.Email ? <div className="text-left ml-1 text-[red] text-sm" >{errors.Email}</div> : null}
+                                        </div>
+
+                                        <div className="flex flex-col mb-2 w-full md:w-[48%]">
+                                            <Field name="City" placeholder="City"   className="p-2 w-full  h-10   bg-[#f2f2f2]" />
+                                            {errors.City && touched.City ? <div className="text-left ml-1 text-[red] text-sm">{errors.City}</div> : null}
+                                        </div>
+
+
                                     </div>
+
+                                    <div className="mx-auto w-[80%]"> <Field name="msg"   as="textarea" placeholder="Enter Your Messege" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 " />
+                                        {errors.msg && touched.msg ? <div className="text-left ml-1 text-[red] text-sm">{errors.msg}</div> : null}  </div>
+
+                                    {/* <div className="mx-auto w-[80%]"> <textarea placeholder="message" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 "></textarea>  </div> */}
+
+
                                 </div>
 
 
-                                <div className="w-[80%] mx-auto flex flex-col md:flex-row justify-between">
+                                <button type="submit" className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-4  " onClick={()=> handleSubmitBtn}>Get in touch</button>
 
-                                    <div className="flex flex-col mb-2 w-full md:w-[48%]">
-                                        <Field name="email" placeholder="Email" className="p-2 w-full   h-10  bg-[#f2f2f2]" />
-                                        {errors.email && touched.email ? <div className="text-left ml-1 text-[red] text-sm" >{errors.email}</div> : null}
-                                    </div>
-
-                                    <div className="flex flex-col mb-2 w-full md:w-[48%]">
-                                        <Field name="city" placeholder="City" className="p-2 w-full  h-10   bg-[#f2f2f2]" />
-                                        {errors.city && touched.city ? <div className="text-left ml-1 text-[red] text-sm">{errors.city}</div> : null}
-                                    </div>
-
-
-                                </div>
-
-                                <div className="mx-auto w-[80%]"> <Field name="msg" as="textarea" placeholder="Enter Your Messege" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 " /> 
-                                {errors.msg && touched.msg ? <div className="text-left ml-1 text-[red] text-sm">{errors.msg}</div> : null}  </div>
-
-                                {/* <div className="mx-auto w-[80%]"> <textarea placeholder="message" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 "></textarea>  </div> */}
-
-
-                                </div>
-
-
-                                <button type="submit"  className="bg-[#45b6ca] rounded-md text-white font-bold w-[70%] h-[35px] my-4  "onClick={ sendCase ? sendMessageSucsess : sendMessageError}>Get in touch</button>
-                            
 
 
 
