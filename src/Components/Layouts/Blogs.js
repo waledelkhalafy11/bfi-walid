@@ -70,12 +70,10 @@ const options = {
   
 
 
-    console.log(BlogData);
       }
     }
 
 
-    console.log(BlogData);
 
     let blogFilter = BlogData.map(itm => {
       return (

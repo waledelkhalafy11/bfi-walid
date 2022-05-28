@@ -187,7 +187,7 @@ const Search = () => {
       setDataApi(result);
 
     });
-  })
+  },[])
 
 
   useEffect(() => {

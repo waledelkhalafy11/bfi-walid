@@ -24,73 +24,73 @@ import Location from "../../Assets/icons/ListingsCards/location.png";
 
 
 
-function Listings(props){
+function Listings(props) {
 
   return (
     <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
-            {/* ------------------------------------------ Card ----------------------------------------------------------- */}
-<div className="item max-w-[750px]  h-fit bg-[#f2f2f2] ">
-              <div className="cardd  ">
-                <div className="image relative">
-                  <div className="   overflow-hidden overflow-hidden  w-full h-[300px]">
-                  <img
-                    src={props.image}
-                    className="card-img-top  object-cover h-full w-full"
-                    alt="1"
-                  /></div>
-<div className="absolute top-[20px] right-5">
-                <div className="text-[12px]  ">
-              <a className="text-white py-[0px] px-[10px]  bg-[#45b6ca] mr-2 rounded-[5px]" href="#">Sales</a> 
-              <a className="text-white py-[0px] px-[10px]  bg-[red]          rounded-[5px] " href="#">New Offer</a> 
-                </div>
-                </div>
-
-                <div className="absolute top-[20px] left-5">
-                <div className="text-[12px]  ">
-            <a className="text-white py-[0px] px-[10px]  bg-[#eebf87] mr-2 rounded-[5px]" href="#">Featured</a> 
-            
-                </div>
-                </div>
-
-                <div className="absolute bottom-[10px] left-5">
-                <div className="text-[12px]  d-flex">
-                <img className="w-[10px] h-[10px] my-auto mr-[2px]" src={Location} alt="location" />
-            
-            <a className="text-white py-[0px]  " href="#">{props.address}</a> 
-            
-                </div>
-                </div>
-
-                </div>
-
-                <div className="card-body  bg-[#ffff] text-right">
-                  <h5 className="card-title  text-left">
-                    <a
-                      className="text-[24px] font-semibold no-underline text-black"
-                      href=""
-                    >
-                      {props.title}
-                    </a>
-                  </h5>
-                  <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from LE {props.price}</h6>
-                  
-                  <div className="details-icons d-flex bt-3">
-                  <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                  <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
-                  <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
-                  </div>
-                  <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
-                  <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
-                  <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
-                  </div>
-                  <div className="Lspace  d-flex opacity-40 hover:opacity-100">
-                  <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                  <h6 className="text-[14px]  font-black mt-[14px]"> {props.space}  180 m<sup>2</sup></h6>
-                  </div>
-                  </div>
-                </div>
+      {/* ------------------------------------------ Card ----------------------------------------------------------- */}
+      <div className="item max-w-[750px]  h-fit bg-[#f2f2f2] ">
+        <div className="cardd  ">
+          <div className="image relative">
+            <div className="   overflow-hidden overflow-hidden  w-full h-[300px]">
+              <img
+                src={props.image}
+                className="card-img-top  object-cover h-full w-full"
+                alt="1"
+              /></div>
+            <div className="absolute top-[20px] right-5">
+              <div className="text-[12px]  ">
+                <a className="text-white py-[0px] px-[10px]  bg-[#45b6ca] mr-2 rounded-[5px]" href="#">Sales</a>
+                <a className="text-white py-[0px] px-[10px]  bg-[red]          rounded-[5px] " href="#">New Offer</a>
               </div>
             </div>
+
+            <div className="absolute top-[20px] left-5">
+              <div className="text-[12px]  ">
+                <a className="text-white py-[0px] px-[10px]  bg-[#eebf87] mr-2 rounded-[5px]" href="#">Featured</a>
+
+              </div>
+            </div>
+
+            <div className="absolute bottom-[10px] left-5">
+              <div className="text-[12px]  d-flex">
+                <img className="w-[10px] h-[10px] my-auto mr-[2px]" src={Location} alt="location" />
+
+                <a className="text-white py-[0px]  " href="#">{props.address}</a>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div className="card-body  bg-[#ffff] text-right">
+            <h5 className="card-title  text-left">
+              <a
+                className="text-[24px] font-semibold no-underline text-black"
+                href=""
+              >
+                {props.title}
+              </a>
+            </h5>
+            <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from LE {props.price}</h6>
+
+            <div className="details-icons d-flex bt-3">
+              <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
+                <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+                <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
+              </div>
+              <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+                <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
+                <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
+              </div>
+              <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+                <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+                <h6 className="text-[14px]  font-black mt-[14px]"> {props.space}  180 m<sup>2</sup></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

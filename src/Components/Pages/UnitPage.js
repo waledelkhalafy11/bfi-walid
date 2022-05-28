@@ -38,7 +38,7 @@ const UnitPage = () => {
         dataApiPromise.then(function (result) {
             setDataApi(result);
         });
-    });
+    },[]);
 
 
 
