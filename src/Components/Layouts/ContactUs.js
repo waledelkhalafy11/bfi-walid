@@ -166,7 +166,6 @@ function ContactUs() {
                                     <div className="mx-auto w-[80%]"> <Field name="msg"   as="textarea" placeholder="Enter Your Messege" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 " />
                                         {errors.msg && touched.msg ? <div className="text-left ml-1 text-[red] text-sm">{errors.msg}</div> : null}  </div>
 
-                                    {/* <div className="mx-auto w-[80%]"> <textarea placeholder="message" className="p-2 bg-[#f2f2f2] w-full mx-auto  h-28 "></textarea>  </div> */}
 
 
                                 </div>
