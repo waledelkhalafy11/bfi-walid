@@ -1,21 +1,26 @@
 import imgbox from "../../Assets/imgs/about-us/11.png";
 import box9 from "../../Assets/imgs/about-us/box9.jpg";
 import Footer from"../Layouts/Footer";
+import {Link} from "react-router-dom";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 
 const AboutUs = () => {
     const prag1 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `
 
-
+console.log(process.env.REACT_APP_TEST);
     
   
     return(
         // ================> Cards photo
         
         <div className=" bg-[#f2f2f2] mt-[80px]">
-            <div className="row   w-[95%] w-full  p-[20px]  ">
+            <div className="row    w-full  p-[20px]  ">
                  
                  {/* left side */}
                 <div className="col-lg-6 col-md-12 col-sm-12 md:my-auto  ">
@@ -39,7 +44,7 @@ const AboutUs = () => {
                     <p className="mt-[25px] not-italic font-medium text-[18px] leading-[135.2%px] text-justify  text-xl ">{prag1}</p>
                     <div className="mt-[38px] text-left">
                         
-                        <button  className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[164px] h-[57px]   text-center hover:opacity-80">Contact Us</button>
+                        <Link  to = "/contact-us" className="bg-[#45b6ca] py-[15px]  px-[25px] rounded-[64px] text-white font-bold w-[164px] h-[57px]   text-center hover:opacity-80">Contact Us</Link>
 
                     </div>
 
@@ -74,14 +79,29 @@ const AboutUs = () => {
                 <div className="  w-full bg-[#45b6ca]  " >
 
                 <div className="bg-[#ffffff]  p-[30px] w-[80%] relative md:bottom-[200px] bottom-[100px] mx-auto rounded-md row  ">
-                <div className="col-lg-7 my-auto ">
+                <div className="col-lg-7  ">
                 <div>
                     <div>
                         <h1 className="text-left font-semibold text-[#45b6ca] text-[200%]">About Us</h1>
                     </div>
                     <div className="text-left">
-                        <p className="lg:w-[80%] w-full  text-justify">{prag1}<br/> {prag1}</p>
-                        <button  className="bg-[#45b6ca] rounded-[64px] text-white font-bold w-[100%] h-[50px]  sm:w-[164px] sm:h-[57px]  mb-[30px]  hover:opacity-80">Read more</button>
+                        <p className="lg:w-[80%] w-full  text-justify ">
+                            
+                        <ReactReadMoreReadLess
+                  charLimit={350}
+                  readMoreText={<button  className="text-[#45b6ca]    font-bold  hover:opacity-80">Read more</button>}
+                  readLessText={<button  className="text-[#45b6ca]    font-bold  hover:opacity-80">Read less</button>}
+                  readMoreClassName="read-more-less--more"
+                  readLessClassName="read-more-less--less"
+                >
+                  {prag1}
+                </ReactReadMoreReadLess>
+                            
+                            
+                            
+                            
+                            </p>
+                        
                     </div>
                 </div>
                 </div>

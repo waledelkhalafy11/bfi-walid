@@ -108,7 +108,7 @@ const UnitPage = () => {
                                 {unit.unit.unit_address}
                             </span>
                         </p>
-                        <h5 className="text-[#45b6ca] font-bold">500000 LE</h5>
+                        <h5 className="text-[#45b6ca] font-bold">{unit.unit.unit_price}</h5>
                     </div>
                 </div>
 

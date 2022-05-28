@@ -97,8 +97,8 @@ a {
 
 @media (min-width: 900px) { 
     .carousel.carousel-slider {
-        height: 550px !important;
-        border-radius: 2% !important;
+    height: 550px !important;
+    border-radius: 2% !important;
  }
 
 
