@@ -98,25 +98,24 @@ const Blog = () => {
             bathrooms = {itm.props[0].bathroom}
             address   = {itm.unit.unit_address}
             space     = "170"
-            image     = {`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            image     = {process.env.REACT_APP_DOMAIN +itm.photos[0].unit_image_url}
             id        = {itm.unit.id}
           />
         );
   });
 
 
-    let blogData = data.slice(0,visible).map((itm) => {
-       return (
-          <Cards
-            title     = {itm.unit.unit_name}
-            price     = {itm.unit.unit_price}
-            rooms     = {itm.props[0].bedroom}
-            bathrooms = {itm.props[0].bathroom}
-            space     = "170"
-            image     = {`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
-            id        = {itm.unit.id}
-      />
-      );}
+    let blogData = data.slice(0,visible).map((itm) => { return (
+    <Cards
+      title     = {itm.unit.unit_name}
+      price     = {itm.unit.unit_price}
+      rooms     = {itm.props[0].bedroom}
+      bathrooms = {itm.props[0].bathroom}
+      space     = "170"
+      image     = {process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
+      id        = {itm.unit.id}
+    />
+    );}
 
 );
 

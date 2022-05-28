@@ -32,12 +32,12 @@ const FixedNavbar = () => {
 
       navigate: "/about-us",
     },
-    {
-      id: 6,
-      name: "Agent",
+      // {
+      //   id: 6,
+      //   name: "Agent",
 
-      navigate: "/",
-    },
+      //   navigate: "/",
+      // },
     {
       id: 4,
       name: "Blog",
