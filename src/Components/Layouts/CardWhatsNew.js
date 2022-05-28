@@ -1,6 +1,6 @@
 import react from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
-
+import { Link } from "react-router-dom";
 function CardWhatsNew (props){
     let filterDate = props.date;
 if(filterDate.length > 10 ) filterDate = filterDate.substring(0,10);
@@ -48,12 +48,12 @@ if(filterDate.length > 10 ) filterDate = filterDate.substring(0,10);
              
                     </p>
                  
-                    <a
-                        className="blogButton absolute   right-[10px]  bottom-[30px] text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
-                        href=""
-                    >
+                    <Link to = {`/unit/${props.id}`}  className="blogButton absolute   right-[10px]  bottom-[30px] text-[14px] font-normal no-underline text-[#45b6ca] py-[5px] px-[16px] border-2 border-[#45b6ca]  hover:bg-[#45b6ca] hover:text-white"
+                        >
+                       
+                    
                         READ MORE
-                    </a>
+                    </Link>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import Bathrooms from "../../Assets/icons/ListingsCards/bath.png";
 import Space from "../../Assets/icons/ListingsCards/size.svg";
 
 import Location from "../../Assets/icons/ListingsCards/location.png";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -29,6 +29,7 @@ function Listings(props) {
   return (
     <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
       {/* ------------------------------------------ Card ----------------------------------------------------------- */}
+      <Link to={`/unit/${props.id}`}>
       <div className="item max-w-[750px]  h-fit bg-[#f2f2f2] ">
         <div className="cardd  ">
           <div className="image relative">
@@ -91,6 +92,7 @@ function Listings(props) {
           </div>
         </div>
       </div>
+      </Link>
     </section>
   );
 }
