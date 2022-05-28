@@ -46,25 +46,20 @@ const mapData =  props.data
       'lng': lng , 
       'lat' :lat 
     })
+    if(lng){
 
-    setViewport({
-      latitude: 35,
-      longitude: 35,
-      width : "200" ,
-      height: "300",
-      zoom: 3 , 
-      
-    });
-    
-   
+        setViewport({...viewport , 
+          latitude: lat, 
+          longitude :lng
+          , zoom : 5
+        })
+    }
 
 
   },[props.mapzoom])
 
-
-
   useEffect(()=>{
-    
+   
   },[selectedRegion])
   return (
     <div>
@@ -96,6 +91,7 @@ const mapData =  props.data
             </button>
           </Marker>
         ))}
+        
         <NavigationControl/>
           {selectedPlace ? (
             <Popup
@@ -117,6 +113,7 @@ const mapData =  props.data
               </div>
             </Popup>
           ) : null} 
+          
       </ReactMapGL>
     </div>
   );

@@ -9,29 +9,14 @@ import UnitPage from "./Components/Pages/UnitPage";
 import ContactUsPage from "./Components/Pages/ContactUsPage";
 import AboutUs from "./Components/Pages/AboutUs";
 import Blog from "./Components/Pages/Blog"
-import axios from "axios";
-import { useEffect ,useState , useMemo} from "react";
-import { ApiContext } from "./ApiContext";
-import { useSelector } from "react-redux";
+
 
 
 function App() {
-  const [post, setPost] = useState([]);
-  const GetRequest = async () => {
-    try {
-      const res = await axios.get(`${process.env.REACT_APP_DOMAIN}/api/allunits`);
-      setPost(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
   
 
-  useEffect(()=>{
-    GetRequest()
-  })
   return (
-    <ApiContext.Provider value={post}>
       <Router>
     <div className="App">
       <FixedNavbar/>
@@ -46,7 +31,6 @@ function App() {
         </Routes>
     </div>
       </Router>
-      </ApiContext.Provider>
       
   );
 }
