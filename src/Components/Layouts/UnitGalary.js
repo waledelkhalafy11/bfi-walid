@@ -38,7 +38,7 @@ function UnitGalary(props) {
     return (
       <div className="w-full h-full">
         <img
-          className="object-cover h-full"
+          className="object-fill h-full"
           src={`http://127.0.0.1:8000${photo.unit_image_url}`}
         />
 

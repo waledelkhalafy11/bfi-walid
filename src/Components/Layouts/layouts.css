@@ -97,7 +97,7 @@ a {
 
 @media (min-width: 900px) { 
     .carousel.carousel-slider {
-    height: 550px !important;
+    height: 500px !important;
     border-radius: 2% !important;
  }
 
@@ -116,6 +116,11 @@ a {
     border-radius: 20%;
 
 }
+
+.slider-wrapper , .slider-wrapper ul {
+    height: 100%;
+}
+
 
 ul > .thumb {
     height: 60px !important;
