@@ -15,7 +15,7 @@ const AboutUs = () => {
         // ================> Cards photo
         
         <div className=" bg-[#f2f2f2] mt-[80px]">
-            <div className="row   w-[95%] w-full  p-[20px]  ">
+            <div className="row    w-full  p-[20px]  ">
                  
                  {/* left side */}
                 <div className="col-lg-6 col-md-12 col-sm-12 md:my-auto  ">
