@@ -49,10 +49,13 @@ const UnitPage = () => {
 
 
     //  ********* Loading *************
-
+    let color = "#45b6ca"
+    let type = "spinningBubbles"
+    
     while (!dataApi[0]) {
         return (
-            <ReactLoading type="balls" color="#45b6ca" height="64px" width="64px" />
+            <ReactLoading type={type} color={color} height={667} width={375} />
+            
         );
     }
 
@@ -105,7 +108,7 @@ const UnitPage = () => {
                                 {unit.unit.unit_address}
                             </span>
                         </p>
-                        <h5 className="text-[#45b6ca] font-bold">500000 LE</h5>
+                        <h5 className="text-[#45b6ca] font-bold">{unit.unit.unit_price}</h5>
                     </div>
                 </div>
 

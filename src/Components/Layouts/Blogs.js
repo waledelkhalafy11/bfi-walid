@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
-import {Link} from "react-router-dom"
+import React, { useState , useEffect } from "react";
 import "./layouts.css";
+import { useSelector } from "react-redux";
 import OwlCarousel from "react-owl-carousel";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
 import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 import { Container } from "react-bootstrap";
 import { ApiContext } from "../../ApiContext";
 import CardWhatsNew from "./CardWhatsNew";
+import { Link } from "react-router-dom";
 const options = {
   margin: 10,
   responsiveClass: false,
@@ -33,17 +34,44 @@ const options = {
 
   const Blog = () => {
 
+    //  ********* Redux Context *************
+    const dataApiPromise = useSelector((state) => state);
+
+
+
+
+    //  ********* States  *************
+    const [dataApi, setDataApi] = useState([]);
+
+    const [dataApiLenth, setDataApiLenth] = useState([]);
+
+
+    //  ********* UseEffects *************
+
+    useEffect(() => {
+        dataApiPromise.then(function (result) {
+            setDataApi(result);
+        });
+    });
+
+    useEffect(() => {
+      setDataApiLenth(dataApi.length)
+  },[dataApi]);
+
 
     // ==========> api condition
 
-    const blogApi = useContext(ApiContext);
 
 
     let BlogData  = [];
     let i;
-    for(i = 0; i < blogApi.length; i++){
-      if(i >= (blogApi.length - 4) || i > blogApi.length){
-        BlogData.push(blogApi[i]);
+    for(i = 0; i < dataApi.length; i++){
+      if(i >= (dataApi.length - 4) || i > dataApi.length){
+        BlogData.push(dataApi[i]);
+   
+
+
+    console.log(BlogData);
       }
     }
 
@@ -81,9 +109,15 @@ const options = {
           </OwlCarousel>
         </Container>
         <div className="text-center m-3">
+<<<<<<< HEAD
           <Link to = "/Blog"
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
             
+=======
+          <Link
+            className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
+            to="/Blog"
+>>>>>>> d29f638ec0ac99d2a9b90d26bf96347a7c52d364
           >
             VISIT BLOG
           </Link>

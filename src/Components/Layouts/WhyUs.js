@@ -39,7 +39,7 @@ const WhyUs =()=> {
                         <div class=" w-[350px] py-[40px] col-lg-4  col-md-12    overflow-hidden  mx-auto   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300 flex justify-between ">
                         <img src={Icon2} alt="handshake" className="w-14 h-14 mx-auto ] pl-[10px]"></img>
                             <div class="px-6 ">
-                                <div class="font-bold text-xl   text-left">FINANCING</div>
+                                <div class="font-bold text-xl text-[#005f8f]  text-left">FINANCING</div>
                                 <p class="text-gray-700 text-base text-left whitespace-normal">
                                 {whyus2}
                                 </p>
