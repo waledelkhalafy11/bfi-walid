@@ -40,7 +40,7 @@ const FixedNavbar = () => {
       // },
     {
       id: 4,
-      name: "Blog",
+      name: "Units",
 
       navigate: "/Blog",
     },

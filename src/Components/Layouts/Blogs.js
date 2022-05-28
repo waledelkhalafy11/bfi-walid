@@ -109,9 +109,15 @@ const options = {
           </OwlCarousel>
         </Container>
         <div className="text-center m-3">
+<<<<<<< HEAD
+          <Link to = "/Blog"
+            className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
+            
+=======
           <Link
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
             to="/Blog"
+>>>>>>> d29f638ec0ac99d2a9b90d26bf96347a7c52d364
           >
             VISIT BLOG
           </Link>

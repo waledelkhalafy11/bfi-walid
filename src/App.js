@@ -19,7 +19,9 @@ function App() {
 
   
 
-
+  useEffect(()=>{
+    GetRequest()
+  })
   return (
       <Router>
     <div className="App">
