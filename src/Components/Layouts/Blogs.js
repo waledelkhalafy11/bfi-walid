@@ -5,7 +5,6 @@ import OwlCarousel from "react-owl-carousel";
 import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
 import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 import { Container } from "react-bootstrap";
-import { ApiContext } from "../../ApiContext";
 import CardWhatsNew from "./CardWhatsNew";
 import { Link } from "react-router-dom";
 const options = {

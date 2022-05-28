@@ -1,6 +1,5 @@
-import { useContext , useState , useEffect } from "react";
+import { useState , useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ApiContext } from "../../ApiContext";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
