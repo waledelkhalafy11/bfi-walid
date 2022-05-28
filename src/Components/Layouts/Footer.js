@@ -27,7 +27,7 @@ function Footer() {
     return (
       <a href={props.href}>
         {" "}
-        <p className="p-2 h-[40px] border-solid border-b border-[#a9a5a1] hover:font-bold hover:text-lg hover:text-[#29aae3]">
+        <p className="p-2 h-[40px] border-solid border-b border-[#a9a5a1] hover:font-bold hover:ml-[10px] duration-200 hover:text-[#29aae3]">
           {props.title}
         </p>
       </a>
@@ -86,12 +86,12 @@ function Footer() {
           </div>
 
           <div className="w-full md:w-[22%] mr-6 mt-4 text-left">
-            <p className="font-bold mb-3 text-[#f2f2f2]">BLOG</p>
+            <p className="font-bold mb-3 text-[#f2f2f2]">CATEGORIES</p>
             <div className="blogs">
-              <BlogItem href="#" title="october 2017" />
-              <BlogItem href="#" title="september 2017" />
-              <BlogItem href="#" title="august 2017" />
-              <BlogItem href="#" title="july 2017" />
+              <BlogItem href="#" title="Villa" />
+              <BlogItem href="#" title="House" />
+              <BlogItem href="#" title="Apartment" />
+              <BlogItem href="#" title="Office" />
             </div>
           </div>
           <div className="w-full md:w-[35%] mx-2 mt-4 text-left">
@@ -123,15 +123,7 @@ function Footer() {
               <FollowusItem href="https://www.instagram.com/" img={instagram} />
               <FollowusItem href="https://www.linkedin.com/" img={linkedin} />
               <FollowusItem href="https://www.whatsapp.com/" img={whatsapp} />
-              {/* <FollowusItem
-                href="https://www.google.com/"
-                img={google}
-                classNameAdd="hover:rotate-180 hover:translate-y-[-5px]"
-              /> */}
-              {/* <FollowusItem href="https://www.linkedin.com/" img={youtube} />
-              <FollowusItem href="https://www.linkedin.com/" img={instagram} />
-              <FollowusItem href="https://www.linkedin.com/" img={facebook} />
-              <FollowusItem href="https://www.linkedin.com/" img={linkedin} /> */}
+    
             </div>
           </div>
         </div>
