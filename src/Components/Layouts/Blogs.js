@@ -7,6 +7,8 @@ import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css
 import { Container } from "react-bootstrap";
 import CardWhatsNew from "./CardWhatsNew";
 import { Link } from "react-router-dom";
+
+
 const options = {
   margin: 10,
   responsiveClass: false,
@@ -79,7 +81,7 @@ const options = {
       return (
         <CardWhatsNew 
             title = {itm.unit.unit_name}
-            description = {itm.unit.unit_description}
+            description ={itm.unit.unit_description}
             date = {itm.unit.updated_at}
             image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
             id= {itm.unit.id}
