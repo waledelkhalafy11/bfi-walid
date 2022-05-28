@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import PropTypes from 'prop-types';
 import { Global } from '@emotion/react';
 import { styled } from '@mui/material/styles';
@@ -6,9 +7,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import PlacesCard from "./PlacesCard";
-import { ApiContext } from "../../ApiContext";
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { useSelector } from 'react-redux';
 
 const drawerBleeding = 56;
 
@@ -34,7 +35,25 @@ const Puller = styled(Box)(({ theme }) => ({
 
 function SwipeableEdgeDrawer(props) {
 
-    const dataApi = React.useContext(ApiContext);
+    //  ********* Redux Context *************
+    const dataApiPromise = useSelector((state) => state);
+
+
+
+
+    //  ********* States  *************
+    const [dataApi, setDataApi] = React.useState([]);
+
+
+
+    //  ********* UseEffects *************
+
+    React.useEffect(() => {
+        dataApiPromise.then(function (result) {
+            setDataApi(result);
+        });
+    });
+
   let dataunits = props.carddata;
 
 
