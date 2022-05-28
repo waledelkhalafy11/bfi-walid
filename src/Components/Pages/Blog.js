@@ -27,7 +27,7 @@ const Blog = () => {
         dataApiPromise.then(function (result) {
             setDataApi(result);
         });
-    });
+    },[]);
 
 
 
