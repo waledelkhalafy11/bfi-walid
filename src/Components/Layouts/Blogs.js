@@ -67,7 +67,7 @@ const options = {
     for(i = 0; i < dataApi.length; i++){
       if(i >= (dataApi.length - 4) || i > dataApi.length){
         BlogData.push(dataApi[i]);
-   
+  
 
 
     console.log(BlogData);
