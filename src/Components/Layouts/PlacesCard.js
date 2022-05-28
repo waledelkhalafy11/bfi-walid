@@ -20,17 +20,17 @@ const PlacesCard = (props) => {
           <Container className="relative" >
             <h3 className="text-[12px] md:text-lg text-gray-600">{props.title}</h3>
 
-            <h2 className="text-[10px] md:text-xl text-left">
+            <h2 className="text-[10px] md:text-xl text-left  hidden">
               {props.description}
             </h2>
 
             <span className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon /></span>
             <h3 className="text-[6px] md:text-lg text-gray-600">3 bedrooms , 1 bathroom , 110m</h3>
-            <OverlayTrigger className="hover:overflow-x-hidden"
-
+            <OverlayTrigger className="hover:overflow-x-hidden  "
+            //  style={{width:'1000px' , background:'black'}}
               placement='top'
               overlay={
-                <Tooltip >
+                <Tooltip  >
                  {props.description}
 
                 </Tooltip>
