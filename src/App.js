@@ -16,20 +16,11 @@ import { useSelector } from "react-redux";
 
 
 function App() {
-  const [post, setPost] = useState([]);
-  const GetRequest = async () => {
-    try {
-      const res = await axios.get(`${process.env.REACT_APP_DOMAIN}/api/allunits`);
-      setPost(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
   
 
 
   return (
-    <ApiContext.Provider value={post}>
       <Router>
     <div className="App">
       <FixedNavbar/>
@@ -43,7 +34,6 @@ function App() {
         </Routes>
     </div>
       </Router>
-      </ApiContext.Provider>
       
   );
 }
