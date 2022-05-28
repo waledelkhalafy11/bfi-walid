@@ -78,7 +78,7 @@ const UnitPage = () => {
 
 
 
-    //  ********* Child Component *************
+    //  ********* Child Component for unit content*************
 
     function UnitContent(props) {
         return (
