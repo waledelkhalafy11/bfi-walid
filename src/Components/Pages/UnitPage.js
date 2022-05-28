@@ -51,11 +51,16 @@ const UnitPage = () => {
     //  ********* Loading *************
     let color = "#45b6ca"
     let type = "spinningBubbles"
-    
+
     while (!dataApi[0]) {
         return (
-            <ReactLoading type={type} color={color} height={667} width={375} />
-            
+            <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] mt-[45vh]  ">
+
+                <ReactLoading type={type} color={color} height={100} width={100} />
+
+            </div>
+
+
         );
     }
 

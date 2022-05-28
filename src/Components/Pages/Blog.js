@@ -5,6 +5,7 @@ import blog2 from "../../Assets/imgs/blog/2.png";
 import blog3 from "../../Assets/imgs/blog/3.png";
 import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
+import ReactLoading from "react-loading";
 
 
 const Blog = () => {
@@ -90,8 +91,9 @@ const Blog = () => {
             )}}
   
 
- 
-
+         
+            let color = "#45b6ca"
+            let type = "spinningBubbles"
 
             let unitAvailable = (itm , category) => {
 
@@ -105,7 +107,15 @@ const Blog = () => {
 
                      return itm
                     } } else {
-                      return "";
+                      return (
+                        <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] my-[100px]  ">
+            
+                            <ReactLoading type={type} color={color} height={100} width={100} />
+            
+                        </div>
+            
+            
+                    );
                     } 
             }
 
