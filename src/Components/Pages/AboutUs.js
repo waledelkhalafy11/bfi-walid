@@ -107,7 +107,9 @@ const AboutUs = () => {
                         </div>
                         <div className="col-lg-5  my-auto">
                             <div className="lg:w-[85%] w-full   rounded-md overflow-hidden mx-auto">
-                                <img src={box9} className="object-cover rounded-md h-[300px] w-full" alt="" />
+                                {/* <img src={box9} className="object-cover rounded-md h-[300px] w-full" alt="" /> */}
+                                {/* <iframe  className="object-cover rounded-md h-[300px] w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13816.546198328997!2d31.43418945!3d30.03294015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583cdcbdb3ffd5%3A0x8ab89c3070c8d026!2sEdulinx%20Education%20Ltd.!5e0!3m2!1sen!2seg!4v1653831483637!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+                            <iframe  className="object-cover rounded-md h-[300px] w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13816.546198328997!2d31.43418945!3d30.03294015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583cdcbdb3ffd5%3A0x8ab89c3070c8d026!2sEdulinx%20Education%20Ltd.!5e0!3m2!1sen!2seg!4v1653831483637!5m2!1sen!2seg" ></iframe>
                             </div>
                         </div>
 

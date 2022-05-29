@@ -347,7 +347,7 @@ console.log(dataApi[0]);
                       Region
                     </Form.Label>
                     <Form.Select
-                      className="md:ml-2 w-[100%] border-none"
+                      className="md:ml-2 w-[50%] border-none"
                       size="sm"
                       onChange={(e) => selectedData(e.target.value, 1)}
                     >
@@ -367,7 +367,7 @@ console.log(dataApi[0]);
                     </Form.Label>
                     <Form.Select
                       onChange={(e) => selectedData(e.target.value, 3)}
-                      className="md:ml-2 w-[100%] border-none"
+                      className="md:ml-2 w-[50%] border-none"
                       size="sm"
                     >
                       <option disabled selected>
@@ -385,7 +385,7 @@ console.log(dataApi[0]);
                     </Form.Label>
                     <Form.Select
                       onChange={(e) => selectedData(e.target.value, 2)}
-                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      className="md:ml-2 w-[50%] border-none ay7aga"
                       size="sm"
                     >
                       <option disabled selected>

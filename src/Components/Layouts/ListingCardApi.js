@@ -81,13 +81,16 @@ const ListingCardApi = () => {
             let filteredList = [];
             const sortedList = bubbleSort(result, result.length);
     
-            
+            if (result.length > 4 ){
             for (let i = 0; i < 4; i++) {
                 filteredList.push(sortedList[i]);
     
             };
-            setlistingApi(filteredList);
-        });
+            setlistingApi(filteredList);}
+            else {
+                setlistingApi(result);
+            }
+        })
         
     },[]);
 
@@ -107,7 +110,7 @@ const ListingCardApi = () => {
 
         <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
             <div className="container max-w-[750px] lg:max-w-[900px]">
-                <h2 className="text-center  font-black text-[#45b6ca]">Listings available for sale</h2>
+                <h2 className="text-center  font-black text-[#45b6ca]">Top Units for sale</h2>
                 <p className="mx-auto max-w-[550px] mb-5">THese are the latest properties in the Sales category displayed using the latest properties slider shortcode. You control the number of listings.</p>
                 <Container>
                     <OwlCarousel

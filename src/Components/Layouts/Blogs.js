@@ -58,7 +58,10 @@ const options = {
     useEffect(() => {
       setDataApiLenth(dataApi.length)
   },[dataApi]);
-
+  useEffect(() => {
+   
+      window.scrollTo(0, 0);
+    });
 
     // ==========> api condition
 
@@ -66,6 +69,8 @@ const options = {
 
     let BlogData  = [];
     let i;
+
+    if(dataApi.length > 4){
     for(i = 0; i < dataApi.length; i++){
       if(i >= (dataApi.length - 4) || i > dataApi.length){
         BlogData.push(dataApi[i]);
@@ -74,8 +79,9 @@ const options = {
 
       }
     }
-
-
+  } else {
+    BlogData = dataApi;
+  }
 
     let blogFilter = BlogData.map(itm => {
       return (
@@ -112,7 +118,7 @@ const options = {
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
             to="/Blog"
           >
-            VISIT BLOG
+            VISIT UNITS
           </Link>
         </div>
       </div>
