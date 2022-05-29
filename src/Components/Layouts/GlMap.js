@@ -141,7 +141,7 @@ let mapData =  props.data
     <div>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken='pk.eyJ1Ijoid2FsZWRlbGtoYWxhZnkiLCJhIjoiY2wyNWo3bHFkMjluZzNqbXRleGlyN3ZyaCJ9.coSVjsI0VLsTl6198hKECQ'
+        mapboxApiAccessToken={process.env.REACT_APP_TOKEN}
         
         onViewportChange={viewport => {
           setViewport(viewport);
