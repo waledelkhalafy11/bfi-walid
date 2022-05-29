@@ -144,17 +144,20 @@ const Search = () => {
   });
 
 
-
+console.log(dataApi[0]);
   let cardData = dataApi.map((itm) => {
     return (
       <PlacesCard
         key={itm.unit.id}
+        id={itm.unit.id}
+        city={itm.location[0].city_name}
+        address={itm.unit.unit_address}
         title={itm.unit.unit_name}
         price={itm.unit.unit_price}
         description={itm.unit.unit_description}
         rooms={itm.props[0].bedroom}
         bathrooms={itm.props[0].bathroom}
-        space="170"
+        space={itm.props[0].surface_area}
         image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
       />
     );
