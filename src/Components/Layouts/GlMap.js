@@ -40,6 +40,9 @@ let mapData =  props.data
   useEffect(()=>{
     let lng =Number(props.mapzoom?.region?.region_longitude);
     let lat =Number(props.mapzoom?.region?.region_latitude);
+
+    let lng2 =Number(props.mapzoom?.city_longitude);
+    let lat2 =Number(props.mapzoom?.city_latitude);
     
    
     setSelectedRegion({
@@ -53,6 +56,12 @@ let mapData =  props.data
           longitude :lng
           , zoom : 5
         })
+    }else if(lng2){
+      setViewport({...viewport , 
+        latitude: lat2, 
+        longitude :lng2
+        , zoom : 8
+      })
     }
 
 

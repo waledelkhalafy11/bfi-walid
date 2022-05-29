@@ -121,6 +121,9 @@ const Search = () => {
   let isRegion = (region) => {
     return region.region.region_name === selectedFilters.region;
   }
+  let isCity = (city) => {
+    return city.city_name === selectedFilters.city;
+  }
 
 
   //  +-+-+-+-+- Data Filtration End +-+-+-+-+-
@@ -220,10 +223,21 @@ const Search = () => {
       return allCats11.indexOf(c) === index;
     });
   
-    setCategories(allCats11);
+    setCategories(allCats12);
     setCities(allcities12);
     let region = allLocations.find(isRegion);
+
+
+
+    if(selectedFilters.city != null && selectedFilters.city != 'all' && selectedFilters.city != '' ){
+      let region = allLocations.find(isRegion);
+      let city = region.cities.find(isCity);
+      setMapZoom(city)
+    }else{
+    let region = allLocations.find(isRegion);
     setMapZoom(region)
+
+    }
     setunitsData(dataApi.filter(majorFilter));
     console.log(unitsData);
   }, [selectedFilters]);
@@ -315,7 +329,7 @@ const Search = () => {
               fluid
               className="p-0 mapps g:h-[100vh] w-[100%] md:w-[70%] bg-black "
             >
-              <GlMap data={mapData} />
+              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
             </Container>
             <SwipeableEdgeDrawer carddata={unitsData} />
           </Container>
