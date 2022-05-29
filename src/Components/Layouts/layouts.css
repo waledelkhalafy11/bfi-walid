@@ -1,26 +1,25 @@
+/* Blog Styling */                   /* Blog Styling */              /* Blog Styling */
 
-/*Start Blog Styling */
- 
+
+
 .owl-theme .owl-dots .owl-dot span {
     width: 15px !important;
     height: 15px !important;
     margin: 5px 7px !important;
-    background: #b6b6b6!important;   
+    background: #b6b6b6 !important;
 }
 
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
     background: #29AAE3 !important;
 }
- 
 
 
 
 
-/* END Blog Styling */
+/* Footer  Styling */                /* Footer  Styling */               /* Footer  Styling */
 
 
-
-/* Footer  Styling */          /* Footer  Styling */         /* Footer  Styling */
 
 
 a {
@@ -40,13 +39,14 @@ a {
 }
 
 .myhomeitem a:hover {
-    color: #29aae3 ;
+    color: #29aae3;
 }
-.followus img{
+
+.followus img {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(116deg) brightness(109%) contrast(109%) !important;
     opacity: 0.7;
 
-    
+
 }
 
 .followus img:hover {
@@ -92,67 +92,97 @@ a {
 
 
 
-/* Unit page and Unit galary */
+/* Unit page and Unit galary */       /* Unit page and Unit galary */     /* Unit page and Unit galary */
 
 
-@media (min-width: 900px) { 
-    .carousel.carousel-slider {
-    height: 600px !important;
-    border-radius: 2% !important;
-    object-fit:fill;
- }
 
 
-}
-@media (max-width: 768px) {
-    .galaryOfUnits ul{
-        display: none;
-    }
-
-    
-}
-
+/* small photoes  */
 
 .galaryOfUnits ul li {
     border-radius: 20%;
 
 }
 
-ul > .thumb {
+ul>.thumb {
     height: 60px !important;
-   
+
 }
-.thumbs.animated ol, ul {
+
+.thumbs.animated ol,
+ul {
     padding-left: 0 !important;
 }
-.galaryOfUnits  ul  li > img {
+
+.galaryOfUnits ul li>img {
     border-radius: 20%;
     object-fit: cover;
     height: 100%;
 
 }
 
-
-
-
-.carousel .thumb.selected, .carousel .thumb:hover {
+.carousel .thumb.selected,
+.carousel .thumb:hover {
     border: 3px solid #29AAE3 !important;
+}
+
+
+/* slider  */
+
+.slider-wrapper,
+.slider-wrapper ul {
+    height: 100%;
+}
+
+.carousel.carousel-slider {
+
+    border-radius: 2% !important;
+}
+
+
+/* media  */
+
+
+
+@media (min-width: 900px) {
+    .carousel.carousel-slider {
+        height: 500px !important;
+
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .galaryOfUnits ul {
+        display: none;
+    }
+
+
 }
 
 
 
 
 
-/* popup */
 
-.swal-button-container > .swal-button {
+
+/* popup */             /* popup */              /* popup */              /* popup */
+
+
+
+
+.swal-button-container>.swal-button {
     background-color: #45b6ca !important;
 }
 
 
 
 
-/* Contact Us */
+/* Contact Us */         /* Contact Us */          /* Contact Us */        /* Contact Us */
+
+
+
 
 
 
@@ -162,46 +192,43 @@ ul > .thumb {
         flex-direction: column !important;
     }
 
-    .contactUsResponsive > div {
+    .contactUsResponsive>div {
         width: 80% !important;
         margin-left: auto;
         margin-right: auto;
-     
-       
+
+
     }
 }
 
 
 
 
+/* blog page */         /* blog page */          /* blog page */          /* blog page */         
 
 
 
 
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
 
 
-
-
-/* blog page */
-
-.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
-
-
-border :none;
+    border: none;
 
 
 }
 
-.nav-tabs .nav-link{
+.nav-tabs .nav-link {
     margin-bottom: 0;
 
-    border: 0px solid transparent !important; 
-     border-top-left-radius: none !important; 
-     border-top-right-radius: none !important;
+    border: 0px solid transparent !important;
+    border-top-left-radius: none !important;
+    border-top-right-radius: none !important;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
     color: #45b6ca !important;
-    background-color: transparent; 
-    border-bottom:2px solid #45b6ca ;
+    background-color: transparent;
+    border-bottom: 2px solid #45b6ca;
 }
