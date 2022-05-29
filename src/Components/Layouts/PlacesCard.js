@@ -21,14 +21,14 @@ const PlacesCard = (props) => {
           className=" md:p-2 text-left justify-between w-[70%]  "
         >
           <Container className="relative" >
-            <h3 className="text-[12px] md:text-lg text-gray-600">{props.title}</h3>
+            <h3 className="text-[12px] md:text-[12px] font-black">{props.title}</h3>
 
             <h2 className="text-[10px] md:text-xl text-left  hidden">
               {props.description}
             </h2>
 
             <span className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon /></span>
-            <h3 className="text-[6px] md:text-lg text-gray-600">{props.city} ,  {props.space} m<sup>2</sup></h3>
+            <h3 className="text-[6px] md:text-lg text-gray-600">{props.city} , {props.space} m<sup>2</sup></h3>
             <OverlayTrigger className="hover:overflow-x-hidden  "
             //  style={{width:'1000px' , background:'black'}}
               placement='top'
