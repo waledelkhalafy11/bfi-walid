@@ -97,8 +97,9 @@ a {
 
 @media (min-width: 900px) { 
     .carousel.carousel-slider {
-    height: 550px !important;
+    height: 600px !important;
     border-radius: 2% !important;
+    object-fit:fill;
  }
 
 
