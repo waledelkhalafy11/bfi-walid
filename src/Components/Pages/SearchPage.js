@@ -95,8 +95,8 @@ const Search = () => {
       case 1:
         setSelectedFilters({
           region: selected,
-          category: selectedFilters.category,
-          city: selectedFilters.city,
+          category: null,
+          city: null,
         });
         break;
       case 2:
@@ -120,6 +120,9 @@ const Search = () => {
 
   let isRegion = (region) => {
     return region.region.region_name === selectedFilters.region;
+  }
+  let isCity = (city) => {
+    return city.city_name === selectedFilters.city;
   }
 
 
@@ -197,7 +200,6 @@ const Search = () => {
 
 
   useEffect(() => {
-    console.log(selectedFilters);
     let allCats11 = []
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
@@ -220,12 +222,22 @@ const Search = () => {
       return allCats11.indexOf(c) === index;
     });
   
-    setCategories(allCats11);
+    setCategories(allCats12);
     setCities(allcities12);
     let region = allLocations.find(isRegion);
+
+
+
+    if(selectedFilters.city != null && selectedFilters.city != 'all' && selectedFilters.city != '' ){
+      let region = allLocations.find(isRegion);
+      let city = region.cities.find(isCity);
+      setMapZoom(city)
+    }else{
+    let region = allLocations.find(isRegion);
     setMapZoom(region)
+
+    }
     setunitsData(dataApi.filter(majorFilter));
-    console.log(unitsData);
   }, [selectedFilters]);
 
   // +-+-+-+-+- UseEffects End +-+-+-+-+-
@@ -295,7 +307,7 @@ const Search = () => {
                     })}
                   </Form.Select>
                 </div>
-                <div className="md:w-[25%] p-2 flex mx-2 flex-col">
+                {/* <div className="md:w-[25%] p-2 flex mx-2 flex-col">
                   <Button
                     className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
                     size="lg"
@@ -303,7 +315,7 @@ const Search = () => {
                     <SearchIcon />
                     Search
                   </Button>
-                </div>
+                </div> */}
               </>
             </Container>
           </Container>
@@ -315,7 +327,7 @@ const Search = () => {
               fluid
               className="p-0 mapps g:h-[100vh] w-[100%] md:w-[70%] bg-black "
             >
-              <GlMap data={mapData} />
+              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
             </Container>
             <SwipeableEdgeDrawer carddata={unitsData} />
           </Container>
@@ -327,7 +339,7 @@ const Search = () => {
               <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
                 <>
                   {" "}
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className="md:w-[33%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Region
                     </Form.Label>
@@ -346,7 +358,7 @@ const Search = () => {
                     </Form.Select>
                   </div>
 
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className="md:w-[33%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       City
                     </Form.Label>
@@ -364,7 +376,7 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className="md:w-[33%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Category
                     </Form.Label>
@@ -382,7 +394,7 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[25%] p-2 flex mx-2 flex-col">
+                  {/* <div className="md:w-[25%] p-2 flex mx-2 flex-col">
                     <Button
                       className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
                       size="lg"
@@ -390,7 +402,7 @@ const Search = () => {
                       <SearchIcon />
                       Search
                     </Button>
-                  </div>
+                  </div> */}
                 </>
               </Container>
             </Container>

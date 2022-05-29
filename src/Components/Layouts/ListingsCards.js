@@ -33,7 +33,7 @@ function Listings(props) {
       <div className="item max-w-[750px]  h-fit bg-[#f2f2f2] ">
         <div className="cardd  ">
           <div className="image relative">
-            <div className="   overflow-hidden overflow-hidden  w-full h-[300px]">
+            <div className="   overflow-hidden  w-full h-[300px]">
               <img
                 src={props.image}
                 className="card-img-top  object-cover h-full w-full"
