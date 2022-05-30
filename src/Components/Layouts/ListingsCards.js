@@ -73,7 +73,7 @@ function Listings(props) {
                 {props.title}
               </a>
             </h5>
-            <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from LE {props.price}</h6>
+            <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price.toLocaleString()} EGP</h6>
 
             <div className="details-icons d-flex bt-3">
               <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
@@ -86,7 +86,7 @@ function Listings(props) {
               </div>
               <div className="Lspace  d-flex opacity-40 hover:opacity-100">
                 <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                <h6 className="text-[14px]  font-black mt-[14px]"> {props.space}  180 m<sup>2</sup></h6>
+                <h6 className="text-[14px]  font-black mt-[14px]"> {props.space}  m<sup>2</sup></h6>
               </div>
             </div>
           </div>

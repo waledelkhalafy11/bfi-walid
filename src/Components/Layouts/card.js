@@ -50,7 +50,7 @@ function Cards(props) {
                             <Link className="text-[24px] font-semibold no-underline text-black" to={`/unit/${props.id}`} >
                             {props.title}</Link>
                             </h5>
-                            <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price} LE</h6>
+                            <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price.toLocaleString()} EGP</h6>
                                             
                     <div className="d-flex justify-betweem">
                             <div className="details-icons d-flex bt-3 w-full">

@@ -66,7 +66,7 @@ const PlacesCard = (props) => {
               }
             >
               
-              <Button className="btn-higlight text-[10px] md:text-[18px]  " variant="success">{props.price} LE</Button>
+              <Button className="btn-higlight text-[10px] md:text-[18px]  " variant="success">{props.price.toLocaleString()} EGP</Button>
             
             </OverlayTrigger>
             <Link to ={`/unit/${props.id}`} className="text-white btn-higlight  text-[10px] md:text-[18px] ">Visit Unit</Link></div>
