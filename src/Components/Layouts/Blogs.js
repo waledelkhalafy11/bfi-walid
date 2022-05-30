@@ -99,7 +99,7 @@ const options = {
   return (
     <section className="blog bg-[#f2f2f2] py-[50px] ">
       <div className="container max-w-[1170px]">
-        <h2 className="text-center  font-black">BLOG</h2>
+        <h2 className="text-center  font-black">UNITS</h2>
         <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
         <Container>
