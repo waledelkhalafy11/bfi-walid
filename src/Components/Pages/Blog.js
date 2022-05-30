@@ -199,7 +199,7 @@ const Blog = () => {
         <nav>
           <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
             <button onClick={()=>{setData([...all]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca]  active  "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] active sm:text-[16px] "
               id="nav-all-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-all"
@@ -211,7 +211,7 @@ const Blog = () => {
               All
             </button>
             <button onClick={()=> {setData([...villa]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
               id="nav-villa-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-villa"
@@ -223,7 +223,7 @@ const Blog = () => {
               Villa
             </button>
             <button  onClick={()=>{setData([...house]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
               id="nav-house-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-house"
@@ -236,7 +236,7 @@ const Blog = () => {
             </button>
           
             <button   onClick={()=>{setData([...appartment]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
               id="nav-appartment-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-appartment"
@@ -249,7 +249,7 @@ const Blog = () => {
             </button>
 
             <button onClick={()=>{setData([...office]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
               id="nav-office-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-office"
