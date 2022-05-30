@@ -37,15 +37,15 @@ const PlacesCard = (props) => {
            
             <div className="details-icons d-flex bt-3 w-full">
                             <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                            <img className="sm:w-[25px] w-[18px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
                             <h6 className="sm:text-[14px] text-[12px]   font-black mt-[12px]">{props.rooms}</h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
-                            <img className="sm:w-[25px] w-[18px]  my-auto" src={Bathrooms} alt="bathrooms" />
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
                             <h6 className="sm:text-[14px] text-[12px]   font-black mt-[12px]">{props.bathrooms}</h6>
                             </div>
                             <div className="Lspace  d-flex opacity-40 hover:opacity-100">
-                            <img className="sm:w-[25px] w-[15px]  my-auto " src={Space} alt="Size" />
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Space} alt="Size" />
                             <h6 className="sm:text-[14px] text-[12px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
                             </div>
                             </div>
