@@ -11,17 +11,17 @@ const PlacesCard = (props) => {
     <>
       <Container
         fluid
-        className="flex shadow-sm py-[1%] md:py-[2.5%] pl-0 mt-4 rounded-2xl h-[20%]  md:h-[30%] bg-white flex-row"
+        className="flex  shadow-sm py-[1%] md:py-[2.5%] pl-0 mt-4 rounded-2xl h-[20%]  md:h-[30%] bg-white flex-row"
       >
         <Container fluid className=" w-[30%] overflow-hidden ">
         <Link to = {`/unit/${props.id}`}><img className="rounded-xl object-cover h-full w-full" src={props.image}></img></Link> 
         </Container>
         <Container
           fluid
-          className=" md:p-2 text-left justify-between w-[70%]  "
+          className=" md:p-2 relative text-left justify-between w-[70%]  "
         >
-          <Container className="relative" >
-            <h3 className="text-[12px] md:text-[12px] font-black">{props.title}</h3>
+          <Container  >
+            <h3 className="text-[12px] md:text-[25px] font-black">{props.title}</h3>
 
             <h2 className="text-[10px] md:text-xl text-left  hidden">
               {props.description}
@@ -39,7 +39,7 @@ const PlacesCard = (props) => {
                 </Tooltip>
               }
             >
-              <Button className="btn-higlight" variant="success">{props.price} LE</Button>
+              <Button className="btn-higlight text-[10px] md:text-[18px] absolute  bottom-[0px] " variant="success">{props.price} LE</Button>
             </OverlayTrigger>
             
           </Container>
