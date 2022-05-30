@@ -144,13 +144,13 @@ const Search = () => {
   });
 
 
-console.log(dataApi[0]);
+
   let cardData = dataApi.map((itm) => {
     return (
       <PlacesCard
-        key={itm.unit.id}
+        // key={itm.unit.id}
         id={itm.unit.id}
-        city={itm.location[0].city_name}
+        city={itm.location.city_name}
         address={itm.unit.unit_address}
         title={itm.unit.unit_name}
         price={itm.unit.unit_price}
@@ -350,7 +350,7 @@ console.log(dataApi[0]);
                       Region
                     </Form.Label>
                     <Form.Select
-                      className="md:ml-2 w-[50%] border-none"
+                      className="md:ml-2 w-[100%] border-none"
                       size="sm"
                       onChange={(e) => selectedData(e.target.value, 1)}
                     >
@@ -370,7 +370,7 @@ console.log(dataApi[0]);
                     </Form.Label>
                     <Form.Select
                       onChange={(e) => selectedData(e.target.value, 3)}
-                      className="md:ml-2 w-[50%] border-none"
+                      className="md:ml-2 w-[100%] border-none"
                       size="sm"
                     >
                       <option disabled selected>
@@ -388,7 +388,7 @@ console.log(dataApi[0]);
                     </Form.Label>
                     <Form.Select
                       onChange={(e) => selectedData(e.target.value, 2)}
-                      className="md:ml-2 w-[50%] border-none ay7aga"
+                      className="md:ml-2 w-[100%] border-none ay7aga"
                       size="sm"
                     >
                       <option disabled selected>
