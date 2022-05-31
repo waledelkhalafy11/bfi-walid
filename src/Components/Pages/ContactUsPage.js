@@ -5,6 +5,8 @@ import ContactUsPhoto from "../../Assets/imgs/restaurant.jpg";
 import "../Layouts/layouts.css";
 
 const ContactUsPage = () => {
+    document.getElementById('bfiTitle').innerHTML = 'BFI | Contact Us';
+
     return (
         <>
             <div className="mb-40 ">

@@ -10,7 +10,12 @@ import {
   Form,
   Button,
   Container,
+  Modal,
+  ModalBody,
+  ModalDialog
 } from "react-bootstrap";
+
+
 
 //  ********* Context API *************
 export const SelectionContext = createContext(null);
@@ -23,6 +28,7 @@ const Search = () => {
 
   //  ********* States Start *************
   const [dataApi, setDataApi] = useState([]);
+  const [searchModal, setSerchModal] = useState(false);
   const [unitsData, setunitsData] = useState([...dataApi]);
   const [allLocations, setLocations] = useState([]);
   const [cities, setCities] = useState([]);
@@ -128,6 +134,10 @@ const Search = () => {
 
   //  +-+-+-+-+- Data Filtration End +-+-+-+-+-
 
+const handleShowModal = ()=> setSerchModal(true)
+const handleCloseModal = ()=> setSerchModal(false)
+
+
 
 
   //  ********* Child Props Data Start *************
@@ -192,6 +202,7 @@ const Search = () => {
 
 
   useEffect(() => {
+    document.getElementById('bfiTitle').innerHTML = 'BFI | Search' ;
     dataApiPromise.then(function (result) {
       setDataApi(result);
 
@@ -252,10 +263,21 @@ const Search = () => {
 
   return (
     <>
-      {windowWidth <= 768 ? (
+      {windowWidth <= 820 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
           <Container className="absolute top-2 z-50">
-            <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
+            
+            
+          <Button className="bg-[#45b6ca] mt-[25%] md:mt-[10%] rounded-" onClick={handleShowModal}>
+            Search 
+            </Button> 
+            <Modal
+            centered
+            className="rounded-3xl"
+            show={searchModal}
+              onHide={handleCloseModal}
+            >
+              <Container  className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl  flex flex-col md:flex-row">
               <>
                 {" "}
                 <div className="md:w-[25%] flex mx-2 flex-col">
@@ -324,6 +346,8 @@ const Search = () => {
                 </div> */}
               </>
             </Container>
+            </Modal>
+            
           </Container>
           <Container
             fluid

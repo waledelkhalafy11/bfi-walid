@@ -17,6 +17,7 @@ import Blogs from "../Layouts/Blogs"
 
 const Landing = () => {
 
+  document.getElementById('bfiTitle').innerHTML = 'BFI | Home ';
 
   const dataApiPromise = useSelector((state) => state);
 
