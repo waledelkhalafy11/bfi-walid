@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect , useCallback , useRef } from "react";
 import markerIcon from '../../Assets/icons/marker.svg'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import markerIcon2 from '../../Assets/icons/map-marker2.svg'
-import ReactMapGL , { Marker, Popup ,NavigationControl }  from "react-map-gl";
+import ReactMapGL , { Marker, Popup ,NavigationControl , GeolocateControl }  from "react-map-gl";
 import * as placesData from "../../data/places-on-map.json";
 import placeImg from "../../Assets/imgs/placeimg.jpg";
 import { number } from "yup";
 
 export default function GlMap(props) {
-  const placesMarkers = placesData ;
   const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedUnits, setSelectedUnits] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState({
     'lng': 0 , 
     'lat' : 0 
@@ -22,7 +22,12 @@ export default function GlMap(props) {
     zoom: 2 , 
     
   });
-  
+  const geolocateControlRef = useCallback((ref) => {
+    if (ref) {
+      // Activate as soon as the control is loaded
+      ref.trigger();
+    }
+  }, []);
 
 let mapData =  props.data
   useEffect(() => {
@@ -91,14 +96,34 @@ let mapData =  props.data
   ))
 
 
-
-  let markerMaker = ()=>{
-    if (props.selectedunits[0]){
-      props.selectedunits.map((unit , i ) => (
+  const geolocateControlStyle = {
+    right: 10,
+    top: 10
+  };
+  useEffect(()=>{
+     if(props.selectedunits[0]){
+     setSelectedUnits(props.selectedunits)
+    }
+  }, [props.selectedunits])
+  return (
+    <div>
+      <ReactMapGL
+        {...viewport}
+        mapboxApiAccessToken={process.env.REACT_APP_TOKEN}
+        
+        onViewportChange={viewport => {
+          setViewport(viewport);
+        
+        }}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        
+      >
+        { props.selectedunits[0] ? 
+      selectedUnits?.map((unit , i ) => (
         <Marker
           key={i}
-          latitude={Number(unit.lat)}
-          longitude={Number(unit.lng)}
+          latitude={Number(unit.unit.unit_latitude)}
+          longitude={Number(unit.unit.unit_longitude)}
         >
           <button
             className="marker-btn"
@@ -111,7 +136,7 @@ let mapData =  props.data
           </button>
         </Marker>
       ))
-    }else{
+    :
       mapData.map((unit , i ) => (
         <Marker
           key={i}
@@ -130,30 +155,37 @@ let mapData =  props.data
         </Marker>
       ))
     }
-  }
-
-  useEffect(()=>{
-     if(props.selectedunits[0]){
-     mapData = props.selectedunits
-    }
-  }, [props.selectedunits])
-  return (
-    <div>
-      <ReactMapGL
-        {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_TOKEN}
-        
-        onViewportChange={viewport => {
-          setViewport(viewport);
-        
-        }}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
-        
-      >
-        {markerMaker()}
-        
+        <GeolocateControl  
+        style={geolocateControlStyle}
+        positionOptions={{ enableHighAccuracy: false }}
+        trackUserLocation={false}
+        auto /> 
         <NavigationControl/>
-          {selectedPlace ? (
+          {selectedPlace ? 
+          props.selectedunits[0] ? 
+          
+          (
+            <Popup
+            className="rounded-full"
+              latitude={Number(selectedPlace.unit.unit_latitude)}
+              longitude={Number(selectedPlace.unit.unit_longitude)}
+              onClose={() => {
+                setSelectedPlace(null);
+              }}
+            >
+              <div className="flex  flex-row">
+                <img className="ml-2 w-[60px] md:w-[40%] rounded-xl md:rounded-lg" src={process.env.REACT_APP_DOMAIN+selectedPlace.photos[0].unit_image_url}></img>
+                <div className="flex flex-col">
+                <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.unit.unit_name}</h2>
+            
+
+  <h4 className="text-[10px] md:text-lg">{selectedPlace.unit.unit_price} LE </h4>
+                </div>
+              </div>
+            </Popup>
+          ) 
+          :
+          (
             <Popup
             className="rounded-full"
               latitude={Number(selectedPlace.lat)}
@@ -168,11 +200,12 @@ let mapData =  props.data
                 <h2 className="text-sm ml-1 md:text-3xl">{selectedPlace.name}</h2>
             
 
-  <h4 className="text-[10px] md:text-lg">2,000,0000 LE </h4>
+  <h4 className="text-[10px] md:text-lg">{selectedPlace.price} LE</h4>
                 </div>
               </div>
             </Popup>
-          ) : null} 
+          ) 
+         : null} 
           
       </ReactMapGL>
     </div>
