@@ -108,7 +108,7 @@ const Blog = () => {
                      return itm
                     } } else {
                       return (
-                        <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] my-[100px]  ">
+                        <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] my-[100px] translate-x-[-50%] ">
             
                             <ReactLoading type={type} color={color} height={100} width={100} />
             

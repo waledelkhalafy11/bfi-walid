@@ -41,6 +41,7 @@ function UnitGalary(props) {
           className="object-fill h-full"
           src={`http://127.0.0.1:8000${photo.unit_image_url}`}
         />
+        
 
        
       </div>
@@ -51,7 +52,7 @@ function UnitGalary(props) {
     <>
       <div className="bg-[#f2f2f2]">
         <div className="  h-[70%]  galaryOfUnits ">
-          <Carousel className="mx-auto w-[80%] md:w-[60%] ">
+          <Carousel className="mx-auto w-[80%] md:w-[60%]   ">
             {unitPhotos}
           </Carousel>
         </div>
