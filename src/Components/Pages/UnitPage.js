@@ -54,7 +54,7 @@ const UnitPage = () => {
 
     while (!dataApi[0]) {
         return (
-            <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] mt-[45vh]  ">
+            <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] mt-[45vh] translate-x-[-50%]  ">
 
                 <ReactLoading type={type} color={color} height={100} width={100} />
 
@@ -103,17 +103,17 @@ const UnitPage = () => {
         <>
             <div className="bg-[#f2f2f2]">
                 <div className="mt-20  pt-10  w-[80%] md:w-[60%] mx-auto   ">
-                    <p className=" font-bold mb-2 text-lg md:text-2xl text-left">
+                    <p className=" font-bold mb-2 text-xl md:text-2xl text-left">
                         {unit.unit.unit_name}
                     </p>
-                    <div className=" d-flex justify-between">
-                        <p className="text-left  mb-3">
-                            <span className="underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
-                                {" "}
+                    <div className=" md:d-flex flex flex-col justify-between">
+                        <p className="text-left  mb-3 text-lg md:text=xl">
+                            <span className="md:underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
+                             
                                 {unit.unit.unit_address}
                             </span>
                         </p>
-                        <h5 className="text-[#45b6ca] font-bold">{unit.unit.unit_price.toLocaleString()} EGP</h5>
+                        <p className="text-[#45b6ca] font-bold text-xl md:text-2xl ">{unit.unit.unit_price.toLocaleString()} EGP </p>
                     </div>
                 </div>
 
