@@ -106,7 +106,7 @@ const UnitPage = () => {
                     <p className=" font-bold mb-2 text-xl md:text-2xl text-left">
                         {unit.unit.unit_name}
                     </p>
-                    <div className=" md:d-flex flex flex-col justify-between">
+                    <div className=" lg:flex-row flex flex-col justify-between">
                         <p className="text-left  mb-3 text-lg md:text=xl">
                             <span className="md:underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
                              
