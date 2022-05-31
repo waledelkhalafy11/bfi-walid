@@ -9,6 +9,7 @@ import WhyUs from "../Layouts/WhyUs";
 import Blogs from "../Layouts/Blogs"
 const Landing = () => {
 
+  document.getElementById('bfiTitle').innerHTML = 'BFI | Home ';
 
   return (
     <>

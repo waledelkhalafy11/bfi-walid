@@ -37,6 +37,7 @@ const UnitPage = () => {
     useEffect(() => {
         dataApiPromise.then(function (result) {
             setDataApi(result);
+
         });
     },[]);
 
@@ -97,6 +98,7 @@ const UnitPage = () => {
             </div>
         );
     }
+    document.getElementById('bfiTitle').innerHTML = 'BFI | ' + unit.unit.unit_name ;
 
 
     return (

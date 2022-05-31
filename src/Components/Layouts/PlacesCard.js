@@ -54,7 +54,7 @@ const PlacesCard = (props) => {
 
 
             {/* <h3 className="text-[6px] md:text-lg text-gray-600"> {props.space} m<sup>2</sup></h3> */}
-            <div className="d-flex justify-between lg:relative top-[25px]">
+            <div className="d-flex justify-between lg:relative md:top-[25px]">
             <OverlayTrigger className="hover:overflow-x-hidden  "
             //  style={{width:'1000px' , background:'black'}}
               placement='top'

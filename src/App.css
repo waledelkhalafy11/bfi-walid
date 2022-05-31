@@ -279,3 +279,6 @@ label {
 }
 
 
+.modal-content{
+  border-radius: 1.5rem/* 24px */ !important;
+}

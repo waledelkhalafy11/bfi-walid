@@ -24,6 +24,8 @@ const Blog = () => {
     //  ********* UseEffects *************
 
     useEffect(() => {
+      document.getElementById('bfiTitle').innerHTML = 'BFI | Units';
+
         dataApiPromise.then(function (result) {
             setDataApi(result);
         });

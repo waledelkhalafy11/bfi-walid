@@ -15,6 +15,7 @@ const AboutUs = () => {
 
     console.log(process.env.REACT_APP_TEST);
 
+    document.getElementById('bfiTitle').innerHTML = 'BFI | About Us' ;
 
     return (
         // ================> Cards photo
