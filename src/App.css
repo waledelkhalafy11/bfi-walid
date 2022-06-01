@@ -281,12 +281,6 @@ label {
 }
 
 
-@media (max-width: 768px) {
-
- 
-  }
-
-
 .modal-content{
   border-radius: 1.5rem/* 24px */ !important;
 }
