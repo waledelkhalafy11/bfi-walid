@@ -239,6 +239,8 @@ label {
     
   }
 
+  
+
   .mapboxgl-popup-content {
     border-radius: 40px !important;
     width: 300px !important;
@@ -274,11 +276,21 @@ label {
 .btn-higlight{
   padding: 7px !important;
   background-color: #45b6ca !important;
-  border-radius: 10px !important;
+  border-radius: 15px !important;
   border: none !important;
 }
 
 
+@media (max-width: 768px) {
+
+ 
+  }
+
+
 .modal-content{
   border-radius: 1.5rem/* 24px */ !important;
+}
+
+.PrivateSwipeArea{
+  touch-action: none !important;
 }

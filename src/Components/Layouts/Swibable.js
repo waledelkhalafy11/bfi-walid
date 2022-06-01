@@ -35,6 +35,15 @@ const Puller = styled(Box)(({ theme }) => ({
 
 function SwipeableEdgeDrawer(props) {
 
+
+  const glideBullets = Array.from(document.querySelectorAll('.glide__bullet'));
+
+glideBullets.forEach((el) => {
+el.addEventListener('click', (e) => {
+e.stopPropagation();
+});
+});
+
     //  ********* Redux Context *************
     const dataApiPromise = useSelector((state) => state);
 
@@ -68,15 +77,23 @@ function SwipeableEdgeDrawer(props) {
       <PlacesCard
       key={itm.unit.id}
       id={itm.unit.id}
-      city={itm.location[0].city_name}
+      city={itm.location.city_name}
       address={itm.unit.unit_address}
       title={itm.unit.unit_name}
       price={itm.unit.unit_price}
-      description={itm.unit.unit_description}
-      rooms={itm.props[0].bedroom}
+      category={itm.unit.unit_category}
+      rooms={itm.props[0].rooms}
       bathrooms={itm.props[0].bathroom}
+      kitchen={itm.props[0].kitchen}
+      bedroom={itm.props[0].bedroom}
+      living_room={itm.props[0].living_room}
+      garage={itm.props[0].garage}
+      garden={itm.props[0].garden}
+      elevator={itm.props[0].elevator}
+      floor={itm.props[0].floor}
       space={itm.props[0].surface_area}
       image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
+      location={itm.location[0].city_name+', '+itm.location[0].region_name}
       />
     );
   });
@@ -86,15 +103,23 @@ function SwipeableEdgeDrawer(props) {
       <PlacesCard
       key={itm.unit.id}
       id={itm.unit.id}
-      city={itm.location[0].city_name}
+      city={itm.location.city_name}
       address={itm.unit.unit_address}
       title={itm.unit.unit_name}
       price={itm.unit.unit_price}
-      description={itm.unit.unit_description}
-      rooms={itm.props[0].bedroom}
+      category={itm.unit.unit_category}
+      rooms={itm.props[0].rooms}
       bathrooms={itm.props[0].bathroom}
+      kitchen={itm.props[0].kitchen}
+      bedroom={itm.props[0].bedroom}
+      living_room={itm.props[0].living_room}
+      garage={itm.props[0].garage}
+      garden={itm.props[0].garden}
+      elevator={itm.props[0].elevator}
+      floor={itm.props[0].floor}
       space={itm.props[0].surface_area}
       image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
+      location={itm.location[0].city_name+', '+itm.location[0].region_name}
       />
     );
   });
@@ -140,7 +165,7 @@ function SwipeableEdgeDrawer(props) {
           }}
         >
           <Puller  />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>{dataApi.length} result</Typography>
+          <Typography sx={{ p: 2, color: 'text.secondary' }}>Show Units</Typography>
         </StyledBox>
         <StyledBox
           sx={{
