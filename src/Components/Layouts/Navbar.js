@@ -32,12 +32,6 @@ const FixedNavbar = () => {
 
       navigate: "/about-us",
     },
-      // {
-      //   id: 6,
-      //   name: "Agent",
-
-      //   navigate: "/",
-      // },
     {
       id: 4,
       name: "Units",
@@ -126,44 +120,24 @@ const FixedNavbar = () => {
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
               {btns.map((item) => {
-              if(item.id === 9 ){
-                return (
-                  <Nav.Link
-                    onClick={() => {
-                    
-                      document.getElementById(item.navigate).scrollIntoView();
-
-                      handleActive(item.id);
-                    }}
-                    className={
-                      isActive === item.id
-                        ? Active + navHoverClass
-                        : navHoverClass
-                    }
-                  >
-                    {item.name}
-                  </Nav.Link>
-                );
-              }else {
-
-                return (
-                  <Nav.Link
-                    onClick={() => {
-                    
-                      navigate(item.navigate)
-                      handleActive(item.id);
-                    }}
-                    className={
-                      isActive === item.id
-                        ? Active + navHoverClass
-                        : navHoverClass
-                    }
-                  >
-                    {item.name}
-                  </Nav.Link>
-                );
-              }
-              })}
+              return (
+                <Nav.Link
+                onClick={() => {
+                
+                  navigate(item.navigate)
+                  handleActive(item.id);
+                }}
+                className={
+                  isActive === item.id
+                    ? Active + navHoverClass
+                    : navHoverClass
+                }
+              >
+                {item.name}
+              </Nav.Link>
+              )
+                }
+              )}
             
             </Nav>
             <Nav className="hidden xl:flex ms-auto md:font-[900] mr-[5%]">

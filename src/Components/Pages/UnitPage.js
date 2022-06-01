@@ -12,7 +12,7 @@ import bathroom from "../../Assets/icons/unit/bathroom.svg";
 import gardenn from "../../Assets/icons/unit/plant-garden.svg";
 import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
-import price from "../../Assets/icons/unit/floors.svg";
+import floors from "../../Assets/icons/unit/floors.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 
@@ -163,7 +163,7 @@ const UnitPage = () => {
                             quantity={unit.props[0].elevator}
                         />
                         <UnitContent
-                            icon={price}
+                            icon={floors}
                             title="Floors"
                             quantity={unit.props[0].floor}
                         />

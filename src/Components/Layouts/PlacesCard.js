@@ -7,6 +7,16 @@ import {Link} from "react-router-dom"
 import Bedrooms from "../../Assets/icons/ListingsCards/bed.png";
 import Bathrooms from "../../Assets/icons/ListingsCards/bath.png";
 import Space from "../../Assets/icons/ListingsCards/size.svg";
+import kitchen from "../../Assets/icons/unit/kitchen.svg";
+import livingroom from "../../Assets/icons/unit/livingroom.svg";
+import gardenn from "../../Assets/icons/unit/plant-garden.svg";
+import garage from "../../Assets/icons/unit/garage.svg";
+import elevator from "../../Assets/icons/unit/elevator.svg";
+import floors from "../../Assets/icons/unit/floors.svg";
+import price from "../../Assets/icons/price-tag.svg";
+import placeholder from "../../Assets/icons/placeholderMap.svg";
+
+
 
 const PlacesCard = (props) => {
   return (
@@ -24,31 +34,57 @@ const PlacesCard = (props) => {
         >
           <Container  >
 
-            <div className="sm:d-flex justify-between">
-            <h3 className="text-[12px] md:text-[25px] font-black">{props.title}</h3>
+            <div className="sm:d-flex md:flex justify-between">
+            <h3 className="text-[8px] md:text-[25px] font-black">{props.title}</h3>
 
             {/* <h2 className="text-[10px] md:text-xl text-left  hidden">
               {props.description}
             </h2> */}
 
             {/* <span className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon /></span> */}
-            <h1 className="sm:text-[15px] text-[12px]   my-auto font-medium">{props.city} </h1>
+            <h1 className="sm:text-[15px] md:text-[18px] text-[8px] my-auto font-medium"><span className="text-[#45b6ca]">{props.category} </span>
+            <img className="sm:w-[25px] w-[15px] inline mr-[5px]  my-auto " src={placeholder} alt="Size" /> {props.location} </h1>
             </div>
            
-            <div className="details-icons d-flex bt-3 w-full">
+            <div className="details-icons flex flex-wrap bt-3 w-full">
                             <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
-                            <h6 className="sm:text-[14px] text-[12px]   font-black mt-[12px]">{props.rooms}</h6>
+                            <img className="sm:w-[25px] w-[10px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+                            <h6 className="sm:text-[14px] text-[8px]   font-black mt-[12px]">{props.rooms}</h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
-                            <h6 className="sm:text-[14px] text-[12px]   font-black mt-[12px]">{props.bathrooms}</h6>
+                            <h6 className="sm:text-[14px] text-[8px]   font-black mt-[12px]">{props.bathrooms}</h6>
                             </div>
-                            <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[12px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
                             </div>
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={kitchen} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.kitchen} </h6>
                             </div>
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={livingroom} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.living_room} </h6>
+                            </div>
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={gardenn} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.garden} </h6>
+                            </div>
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={garage} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.garage} </h6>
+                            </div>
+                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:my-autoopacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={elevator} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.elevator} </h6>
+                            </div>
+                            <div className="Lbedrooms   d-flex opacity-40 hover:opacity-100">
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={floors} alt="Size" />
+                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.floor} </h6>
+                            </div>
+              </div>
+
 
 
 
@@ -66,10 +102,13 @@ const PlacesCard = (props) => {
               }
             >
               
-              <Button className="btn-higlight text-[10px] md:text-[18px]  " variant="success">{props.price.toLocaleString()} EGP</Button>
+              <Button className="btn-higlight h-7 sm:h-12 text-[8px] md:text-[18px]  " > 
+              <img className="sm:w-[25px] w-[10px] inline mr-[5px]  my-auto " src={price} alt="Size" />
+
+              {props.price.toLocaleString()} EGP</Button>
             
             </OverlayTrigger>
-            <Link to ={`/unit/${props.id}`} className="text-white btn-higlight  text-[10px] md:text-[18px] ">Visit Unit</Link></div>
+            <Link to ={`/unit/${props.id}`} className="text-white btn-higlight hover:opacity-100 opacity-60 text-[10px] md:text-[15px] mt-2 h-5 sm:h-8">Read More</Link></div>
           </Container>
         </Container>
       </Container>
