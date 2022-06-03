@@ -233,7 +233,7 @@ label {
   height: 70vh !important;
   
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .mapps > div > div{
     width : 100% !important;
     
@@ -282,6 +282,14 @@ label {
   border: none !important;
 }
 
+.btn-higlight1{
+  padding: 4px 8px!important;
+  background-color: #45b6cac2 !important;
+  border-radius: 20px !important;
+
+  margin: auto 0;
+  border: none !important;
+}
 
 .modal-content{
   border-radius: 1.5rem/* 24px */ !important;

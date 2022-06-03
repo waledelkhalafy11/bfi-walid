@@ -283,10 +283,10 @@ const handleCloseModal = ()=> setSerchModal(false)
     <>
       {windowWidth <= 820 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
-          <Container className="absolute top-2 z-50">
+          <div className="absolute top-2 w-full mx-auto  z-50">
             
             
-          <Button className="bg-[#45b6ca] mt-[25%] md:mt-[10%] rounded-" onClick={handleShowModal}>
+          <Button className="bg-[#45b6ca] mt-[25%] md:mt-[20%] rounded-" onClick={handleShowModal}>
             Search 
             </Button> 
             <Modal
@@ -366,14 +366,14 @@ const handleCloseModal = ()=> setSerchModal(false)
             </Container>
             </Modal>
             
-          </Container>
+          </div>
           <Container
             fluid
             className="p-0 w-[100%] flex flex-col lg:flex-row h-[70%]"
           >
             <Container
               fluid
-              className="p-0 mapps g:h-[100vh] w-[100%] md:w-[70%] bg-black "
+              className="p-0 mapps g:h-[100vh] w-[100%] md:w-[100%] bg-black "
             >
               <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
             </Container>

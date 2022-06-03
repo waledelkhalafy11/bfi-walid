@@ -23,7 +23,7 @@ const PlacesCard = (props) => {
     <>
       <Container
         fluid
-        className="flex  shadow-sm py-[1%] md:py-[2.5%] pl-0 mt-4 rounded-2xl h-fit  sm:h-[40%]  md:h-[40%] lg:h-[30%] bg-white flex-row"
+        className="flex  shadow-sm py-[1%] md:py-[2.5%] pl-0 mt-4 rounded-2xl h-fit   bg-white flex-row"
       >
         <Container fluid className=" w-[30%] overflow-hidden ">
         <Link to = {`/unit/${props.id}`}><img className="rounded-xl object-cover h-full w-full" src={props.image}></img></Link> 
@@ -101,13 +101,13 @@ const PlacesCard = (props) => {
               }
             >
               
-              <Button className="btn-higlight h-7 sm:h-12 text-[8px] md:text-[18px]  " > 
-              <img className="sm:w-[25px] w-[10px] inline mr-[5px]  my-auto " src={price} alt="Size" />
+              <Button className="btn-higlight h-7 sm:h-12 text-[8px] md:text-[18px] my-[10px] " > 
+              <img className="sm:w-[25px] w-[10px] inline mr-[5px]  my-auto  " src={price} alt="Size" />
 
               {props.price.toLocaleString()} EGP</Button>
             
             </OverlayTrigger>
-            <Link to ={`/unit/${props.id}`} className="text-white btn-higlight hover:opacity-100 opacity-60 text-[10px] md:text-[15px] mt-2 h-5 sm:h-8">Read More</Link></div>
+            <Link to ={`/unit/${props.id}`} className="btn-higlight1 text-[10px] my-auto md:text-[18px] ">Read More</Link></div>
           </Container>
         </Container>
       </Container>
