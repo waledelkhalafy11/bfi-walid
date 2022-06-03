@@ -290,3 +290,7 @@ label {
 .PrivateSwipeArea{
   touch-action: none !important;
 }
+
+.mapboxgl-ctrl-logo , .mapboxgl-ctrl-bottom-right{
+  display: none !important;
+}
