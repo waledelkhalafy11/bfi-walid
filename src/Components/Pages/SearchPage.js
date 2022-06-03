@@ -160,6 +160,7 @@ const handleCloseModal = ()=> setSerchModal(false)
       <PlacesCard
         key={itm.unit.id}
         id={itm.unit.id}
+        description={itm.unit.unit_description}
         city={itm.location.city_name}
         address={itm.unit.unit_address}
         title={itm.unit.unit_name}
@@ -186,6 +187,7 @@ const handleCloseModal = ()=> setSerchModal(false)
       <PlacesCard
       key={itm.unit.id}
       id={itm.unit.id}
+      description={itm.unit.unit_description}
       city={itm.location.city_name}
       address={itm.unit.unit_address}
       title={itm.unit.unit_name}
