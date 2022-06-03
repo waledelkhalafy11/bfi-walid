@@ -97,7 +97,6 @@ const PlacesCard = (props) => {
               overlay={
                 <Tooltip  >
                  {props.description}
-
                 </Tooltip>
               }
             >
