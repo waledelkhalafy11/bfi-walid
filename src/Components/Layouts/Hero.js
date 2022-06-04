@@ -1,7 +1,7 @@
 
 import { tw } from "../../Assets/Animations/typeWrite";
 import { hc } from "../../Assets/Animations/heroCards";
-import villaIcon from "../../Assets/icons/villa-svgrepo-com.svg";
+import villaIcon from "../../Assets/icons/hero-villa.svg";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 
