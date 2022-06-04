@@ -31,8 +31,36 @@ const Hero = () => {
         });
     },[]);
 
-console.log(dataWeb.heroCards);
+// console.log(dataWeb.heroCards);
+
+
+let herodata = dataWeb.heroCards;
   
+let heroCards = herodata?.map((itm)=>{
+
+
+
+  return (
+
+
+    <div>
+    <a>
+    <div
+      id={itm.card.element_id_name} 
+      className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
+      onMouseEnter={() => setHoverdCard(itm.card.id)}
+      onMouseLeave={() => setHoverdCard(-1)}>
+    <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
+    <h3>Fast Preformance</h3>
+    <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
+    </div>
+       </a>
+   
+  </div>
+
+
+  )
+})
   // TYPEWRITE ANIMATION 
   
   useEffect(()=>{  
@@ -59,8 +87,10 @@ console.log(dataWeb.heroCards);
   const [hoverdCard , setHoverdCard] = useState(-1)
   
   useEffect(()=> {
-  
+  if(herodata[0] != undefined){
     hc(hoverdCard)
+  }
+   
   } , [hoverdCard])
 
 
@@ -78,61 +108,7 @@ console.log(dataWeb.heroCards);
         </Container>
 
         <Container className="text-white py-4 rounded-3xl justify-between align-middle mt-[3%] md:mt-[5%] flex-wrap flex md:flex-row ">
-            <div>
-              <a>
-              <div
-                id="firstCard" 
-                className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
-                onMouseEnter={() => setHoverdCard(1)}
-                onMouseLeave={() => setHoverdCard(-1)}>
-              <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
-              <h3>Fast Preformance</h3>
-              <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
-              </div>
-                 </a>
-             
-            </div>
-            
-            <div>
-              <a>
-              <div 
-                id="secondCard" 
-                className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
-                onMouseEnter={() => setHoverdCard(2)}
-                onMouseLeave={() => setHoverdCard(-1)}>
-              <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
-              <h3>Fast Preformance</h3>
-              <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
-              </div>
-                 </a>
-             
-            </div>
-            <div>
-            <a>
-              <div
-              id="thirdCard" 
-              className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
-               onMouseEnter={() => setHoverdCard(3)}
-               onMouseLeave={() => setHoverdCard(-1)}>
-              <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
-              <h3>Fast Preformance</h3>
-              <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
-              </div>
-             </a>
-            </div>
-            <div>
-            <a>
-              <div
-              id="fourthCard" 
-              className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
-               onMouseEnter={() => setHoverdCard(4)}
-               onMouseLeave={() => setHoverdCard(-1)}>
-              <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
-              <h3>Fast Preformance</h3>
-              <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
-              </div>
-             </a>
-            </div>
+           {heroCards}
            
           </Container>
         
