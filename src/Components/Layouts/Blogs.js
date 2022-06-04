@@ -116,7 +116,7 @@ const options = {
         <div className="text-center m-3">
           <Link
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
-            to="/Blog"
+            to="/Units"
           >
             VISIT UNITS
           </Link>
