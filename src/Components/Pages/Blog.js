@@ -11,7 +11,7 @@ import ReactLoading from "react-loading";
 const Blog = () => {
 
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 

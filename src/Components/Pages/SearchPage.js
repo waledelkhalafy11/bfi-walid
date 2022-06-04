@@ -23,7 +23,7 @@ export const SelectionContext = createContext(null);
 const Search = () => {
 
   //  ********* Redux Context *************
-  const dataApiPromise = useSelector(state => state);
+  const dataApiPromise = useSelector(state => state.apiReducer);
 
 
   //  ********* States Start *************

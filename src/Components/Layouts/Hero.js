@@ -4,8 +4,34 @@ import { hc } from "../../Assets/Animations/heroCards";
 import villaIcon from "../../Assets/icons/hero-villa.svg";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
+
+
+
+
+    //  ********* Redux Context *************
+    const dataWebPromise = useSelector((state) => state.webReducer);
+
+
+
+
+    //  ********* States  *************
+    const [dataWeb, setDataWeb] = useState([]);
+
+
+
+    //  ********* UseEffects *************
+
+    useEffect(() => {
+      dataWebPromise.then(function (result) {
+        setDataWeb(result);
+
+        });
+    },[]);
+
+console.log(dataWeb.heroCards);
   
   // TYPEWRITE ANIMATION 
   
