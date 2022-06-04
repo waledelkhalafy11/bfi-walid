@@ -22,7 +22,7 @@ import ReactLoading from "react-loading";
 const UnitPage = () => {
 
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 

@@ -61,7 +61,7 @@ function bubbleSort(arr, n) {
 
 const ListingCardApi = () => {
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 

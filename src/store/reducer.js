@@ -1,17 +1,10 @@
-import axios from 'axios'
-const getRequest = axios.get(`${process.env.REACT_APP_DOMAIN}/api/allunits`)
-  .then(res => {
-    const response = res.data;
-    return response
-  })
+import apiReducer from "./apiReducer";
+import webReducer from "./webReducer";
+import { combineReducers } from "redux";
 
-let initialState = getRequest;
+const reducers = combineReducers({
+  apiReducer : apiReducer, 
+  webReducer : webReducer, 
+})
 
-const apiReducer = (state = initialState) => {
-  
-    return state
-  
-}
-
-export default apiReducer;
-
+export default reducers ; 
