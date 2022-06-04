@@ -21,7 +21,10 @@ import {
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+});
   //  ********* Redux Context *************
   const dataApiPromise = useSelector(state => state.apiReducer);
 

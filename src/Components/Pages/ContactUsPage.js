@@ -6,7 +6,10 @@ import "../Layouts/layouts.css";
 
 const ContactUsPage = () => {
     document.getElementById('bfiTitle').innerHTML = 'BFI | Contact Us';
-
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
     return (
         <>
             <div className="mb-40 ">
