@@ -86,12 +86,12 @@ let heroCards = herodata?.map((itm)=>{
   // HOVER ANIMATION 
   const [hoverdCard , setHoverdCard] = useState(-1)
   
-  useEffect(()=> {
-  if(herodata[0] != undefined){
-    hc(hoverdCard)
-  }
+  // useEffect(()=> {
+  // if(herodata[0] != undefined){
+  //   hc(hoverdCard)
+  // }
    
-  } , [hoverdCard])
+  // } , [hoverdCard])
 
 
   return (
