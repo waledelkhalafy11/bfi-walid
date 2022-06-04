@@ -16,7 +16,10 @@ const AboutUs = () => {
     console.log(process.env.REACT_APP_TEST);
 
     document.getElementById('bfiTitle').innerHTML = 'BFI | About Us' ;
-
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
     return (
         // ================> Cards photo
 
