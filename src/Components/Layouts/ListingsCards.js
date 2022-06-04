@@ -29,11 +29,14 @@ function Listings(props) {
   return (
     <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
       {/* ------------------------------------------ Card ----------------------------------------------------------- */}
-      <Link to={`/unit/${props.id}`}>
+     
       <div className="item max-w-[750px]  h-fit bg-[#f2f2f2] ">
+
         <div className="cardd  ">
+        <Link to={`/unit/${props.id}`}>
           <div className="image relative">
             <div className="   overflow-hidden  w-full h-[300px]">
+       
               <img
                 src={props.image}
                 className="card-img-top  object-cover h-full w-full"
@@ -63,8 +66,9 @@ function Listings(props) {
             </div>
 
           </div>
-
+          </Link>
           <div className="card-body  bg-[#ffff] text-right">
+          <Link to={`/unit/${props.id}`}>
             <h5 className="card-title  text-left">
               <a
                 className="text-[24px] font-semibold no-underline text-black"
@@ -73,8 +77,9 @@ function Listings(props) {
                 {props.title}
               </a>
             </h5>
+             
             <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price.toLocaleString()} EGP</h6>
-
+            </Link>
             <div className="details-icons d-flex bt-3">
               <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
                 <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
@@ -90,9 +95,10 @@ function Listings(props) {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
-      </Link>
+    
     </section>
   );
 }

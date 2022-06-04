@@ -50,9 +50,9 @@ let heroCards = herodata?.map((itm)=>{
       className="md:w-[300px] w-[100%]  p-2 min-h-[20vh]  md:p-4 cursor-pointer my-4 md:my-2 md:m-2 md:h-[200px] rounded-3xl bg-[#1d709471]"
       onMouseEnter={() => setHoverdCard(itm.card.id)}
       onMouseLeave={() => setHoverdCard(-1)}>
-    <img className="filter-white w-[18%] mx-auto my-1" src={villaIcon} />
-    <h3>Fast Preformance</h3>
-    <p>Optimized for a smaller build size, faster dev compilation and dozens of other improvements.</p>
+    <img className="filter-white w-[18%] mx-auto my-1" src={process.env.REACT_APP_DOMAIN + itm.icon[0].card_icon_url} />
+    <h3>{itm.card.card_title}</h3>
+    <p>{itm.card.card_desciption}</p>
     </div>
        </a>
    
