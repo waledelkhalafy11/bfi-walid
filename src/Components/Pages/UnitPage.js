@@ -13,6 +13,7 @@ import gardenn from "../../Assets/icons/unit/plant-garden.svg";
 import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import floors from "../../Assets/icons/unit/floors.svg";
+import area from "../../Assets/icons/ListingsCards/size.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
 
@@ -22,7 +23,7 @@ import ReactLoading from "react-loading";
 const UnitPage = () => {
 
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 
@@ -42,7 +43,10 @@ const UnitPage = () => {
     },[]);
 
 
-
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
     //  ********* Getting Parameter >> GET request *************
     let { id } = useParams();
 
@@ -92,7 +96,7 @@ const UnitPage = () => {
                     </p>
                 </div>
 
-                <p className=" my-auto text-xl text-left w-[30%] md:w-[10%]">
+                <p className=" my-auto text-xl text-left w-[30%] md:w-[25%]">
                     {props.quantity == null ? "—" : props.quantity}{" "}
                 </p>
             </div>
@@ -144,6 +148,11 @@ const UnitPage = () => {
                             icon={bathroom}
                             title="Bath Room"
                             quantity={unit.props[0].bathroom}
+                        />
+                         <UnitContent
+                            icon={area}
+                            title="area"
+                            quantity={unit.props[0].surface_area  }
                         />
                     </div>
                     <div className="flex flex-col w-[30%]">

@@ -61,7 +61,7 @@ function bubbleSort(arr, n) {
 
 const ListingCardApi = () => {
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 
@@ -134,7 +134,7 @@ const ListingCardApi = () => {
                 rooms={itm.props[0].bedroom}
                 bathrooms={itm.props[0].bathroom}
                 address={itm.unit.unit_address}
-                space="170"
+                space={itm.props[0].surface_area}
                 image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
                 id={itm.unit.id} />
         )

@@ -39,7 +39,7 @@ function UnitGalary(props) {
       <div className="w-full h-full">
         <img
           className="object-fill h-full"
-          src={`http://127.0.0.1:8000${photo.unit_image_url}`}
+          src={process.env.REACT_APP_DOMAIN + photo.unit_image_url}
         />
         
 

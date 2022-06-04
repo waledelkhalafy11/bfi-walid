@@ -19,7 +19,7 @@ const Landing = () => {
 
   document.getElementById('bfiTitle').innerHTML = 'BFI | Home ';
 
-  const dataApiPromise = useSelector((state) => state);
+  const dataApiPromise = useSelector((state) => state.apiReducer);
 
   const [dataApi, setDataApi] = useState([]);
 

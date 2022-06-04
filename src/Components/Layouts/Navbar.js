@@ -36,7 +36,7 @@ const FixedNavbar = () => {
       id: 4,
       name: "Units",
 
-      navigate: "/Blog",
+      navigate: "/Units",
     },
     {
       id: 5,

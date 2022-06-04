@@ -36,7 +36,7 @@ const options = {
   const Blog = () => {
 
     //  ********* Redux Context *************
-    const dataApiPromise = useSelector((state) => state);
+    const dataApiPromise = useSelector((state) => state.apiReducer);
 
 
 
@@ -89,7 +89,7 @@ const options = {
             title = {itm.unit.unit_name}
             description ={itm.unit.unit_description}
             date = {itm.unit.updated_at}
-            image={`http://127.0.0.1:8000${itm.photos[0].unit_image_url}`}
+            image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
             id= {itm.unit.id}
     />
       )
@@ -116,7 +116,7 @@ const options = {
         <div className="text-center m-3">
           <Link
             className="bot-button no-underline  bg-[#45b6ca] text-white py-[10px] px-[20px] text-[16px] font-normal leading-[36px] my-[0] mx-auto  hover:opacity-80"
-            to="/Blog"
+            to="/Units"
           >
             VISIT UNITS
           </Link>

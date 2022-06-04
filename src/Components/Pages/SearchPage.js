@@ -21,9 +21,12 @@ import {
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+});
   //  ********* Redux Context *************
-  const dataApiPromise = useSelector(state => state);
+  const dataApiPromise = useSelector(state => state.apiReducer);
 
 
   //  ********* States Start *************
@@ -286,7 +289,7 @@ const handleCloseModal = ()=> setSerchModal(false)
           <div className="absolute top-2 w-full mx-auto  z-50">
             
             
-          <Button className="bg-[#45b6ca] mt-[25%] md:mt-[20%] rounded-" onClick={handleShowModal}>
+          <Button className="bg-[#45b6ca] rounded-3xl border-none mt-[25%] md:mt-[20%] rounded-" onClick={handleShowModal}>
             Search 
             </Button> 
             <Modal
@@ -353,15 +356,16 @@ const handleCloseModal = ()=> setSerchModal(false)
                     })}
                   </Form.Select>
                 </div>
-                {/* <div className="md:w-[25%] p-2 flex mx-2 flex-col">
+                <div className="md:w-[25%] p-2 flex mx-2 flex-col">
                   <Button
+                  onClick={handleCloseModal}
                     className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
                     size="lg"
                   >
-                    <SearchIcon />
-                    Search
+                   
+                    Ok
                   </Button>
-                </div> */}
+                </div>
               </>
             </Container>
             </Modal>
