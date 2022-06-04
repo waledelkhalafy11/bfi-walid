@@ -107,7 +107,7 @@ const PlacesCard = (props) => {
               {props.price.toLocaleString()} EGP</Button>
             
             </OverlayTrigger>
-            <Link to ={`/unit/${props.id}`} className="btn-higlight1 text-[10px] my-auto md:text-[18px] ">Read More</Link></div>
+            <Link to ={`/unit/${props.id}`} className="btn-higlight1 text-[10px] my-auto md:text-[18px]  hover:text-white hover:opacity-80">Read More</Link></div>
           </Container>
         </Container>
       </Container>
