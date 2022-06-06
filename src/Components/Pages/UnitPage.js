@@ -43,7 +43,10 @@ const UnitPage = () => {
     },[]);
 
 
-
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
     //  ********* Getting Parameter >> GET request *************
     let { id } = useParams();
 
