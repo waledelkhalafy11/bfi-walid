@@ -42,7 +42,7 @@ function ClientSection() {
 
         return (
           <div className="flex flex-row slideOfClients">
-          <img src={process.env.REACT_APP_DOMAIN + itm.icon_image_url} className=" h-[120px] w-[120px]"></img>
+          <img src={process.env.REACT_APP_DOMAIN + itm.icon_image_url} className="h-[70px] w-[70px] sm:h-[120px] sm:w-[120px]"></img>
           {/* <p className="ml-2">{props.name}</p> */}
         </div>
       );
@@ -54,13 +54,13 @@ function ClientSection() {
       <>
         {/* First Part Of The Footer */}
   
-        <div className="   h-auto bg-[#f2f2f2] md:py-12">
+        <div className="   h-fit bg-[#f2f2f2] pb-[5px] md:py-12">
           <div className="h-4"></div>
   
           <h2 className="text-center  font-black">CLIENTS</h2>
           <div className="line  my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
   
-          <div className="flex  sliderOfClients flex-row   text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
+          <div className="flex  sliderOfClients flex-row  my-[20px] text-[#020100] md:gap-14 mx-auto md:justify-center text-xl md:text-2xl md:font-bold">
 
             {clients}
           </div>
