@@ -46,7 +46,7 @@ const Imgs = () => {
 
   return (
     <section className="galary bg-[#bg-white] py-[50px]">
-      <h2 className="text-center  font-black">EXPLORE</h2>
+      <h2 className="text-center  font-black">PLACES</h2>
         <div className="line mb-5 my-0 mx-auto  w-[90px] h-[2px] bg-[#45b6ca] "></div>
 
       <Container className="lg:d-none ">
