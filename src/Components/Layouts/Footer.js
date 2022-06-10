@@ -71,17 +71,20 @@ function Footer() {
               Lorem ipsum dolor,eius, illo eum, adipisci perferendis.
             </p>
 
-            <MyhomeItem img={location}  title="520 5th Ave, New York, USA"/>
+            <MyhomeItem img={location}
+            href = "https://goo.gl/maps/7p7YShU1u4LtQHCP9"
+            title="6th obour buildings, Salah Salem Road. 16th floor"/>
             <MyhomeItem
               img={telephone}
-              title="(123) 345-6789"
+              title="+20 122 500 3306"
               classNameAdd="myhome "
-              href="tel:0105050505"
+              href="tel:01225003306"
             />
             <MyhomeItem
               img={email}
-              title="support@tangibledesing.net"
+              title="Info@bfi-re.com"
               classNameAdd="myhome  md:mt-8  lg:mt-0"
+              href="mailto: Info@bfi-re.com"
             />
           </div>
 
