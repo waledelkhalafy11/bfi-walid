@@ -91,10 +91,10 @@ function Footer() {
           <div className="w-full md:w-[22%] mr-6 mt-4 text-left">
             <p className="font-bold mb-3 text-[#f2f2f2]">CATEGORIES</p>
             <div className="blogs">
-              <BlogItem href="#" title="Villa" />
-              <BlogItem href="#" title="House" />
-              <BlogItem href="#" title="Apartment" />
-              <BlogItem href="#" title="Office" />
+              <BlogItem href="#" title="Residential" />
+              <BlogItem href="#" title="Commercial" />
+              <BlogItem href="#" title="Administration" />
+              <BlogItem href="#" title="Medical" />
             </div>
           </div>
           <div className="w-full md:w-[35%] mx-2 mt-4 text-left">
@@ -102,16 +102,15 @@ function Footer() {
               <p className="font-bold text-[#f2f2f2]">FEATURES</p>
             </div>
             <div className="flex flex-wrap mt-3 features">
-              <FeaturesItem title="Air Conditioning" href="#" />
-              <FeaturesItem title="Ceilfing Fan" href="#" />
-              <FeaturesItem title="Dishwasher" href="#" />
-              <FeaturesItem title="Fireplace" href="#" />
-              <FeaturesItem title="High Ceiling" href="#" />
-              <FeaturesItem title="Microwave" href="#" />
-              <FeaturesItem title="Patio" href="#" />
-              <FeaturesItem title="Porch" href="#" />
-              <FeaturesItem title="Refrigerator" href="#" />
-              <FeaturesItem title="Wifi" href="#" />
+              <FeaturesItem title="Standalone" href="#" />
+              <FeaturesItem title="Twin House" href="#" />
+              <FeaturesItem title="Town House" href="#" />
+              <FeaturesItem title="Duplex" href="#" />
+              <FeaturesItem title="Penthouse" href="#" />
+              <FeaturesItem title="Appartment" href="#" />
+              <FeaturesItem title="Chalets" href="#" />
+              <FeaturesItem title="Loft" href="#" />
+              <FeaturesItem title="One Story" href="#" />
             </div>
           </div>
 
@@ -120,7 +119,7 @@ function Footer() {
               <p className="font-bold text-[#f2f2f2]">CONTACT US</p>
             </div>
 
-            <div className="flex flex-wrap mt-3 followus">
+            <div className="flex flex-row mt-3 followus">
               <FollowusItem href="https://www.facebook.com/" img={facebook} />
               <FollowusItem href="https://www.twitter.com/" img={twitter} />
               <FollowusItem href="https://www.instagram.com/" img={instagram} />
@@ -131,7 +130,7 @@ function Footer() {
           </div>
         </div>
         <div className="w-full h-10  bg-[#061d2e] pt-1">
-          <p className="text-[#ffff] ">2022 MyHome by Regums development </p>
+          <p className="text-[#ffff] ">copyright &copy; 2022 BFI by Regum Apps Team </p>
         </div>
       </div>
     </>
