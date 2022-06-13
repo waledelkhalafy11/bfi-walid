@@ -49,6 +49,8 @@ let mapData =  props.data
     let lng2 =Number(props.mapzoom?.city_longitude);
     let lat2 =Number(props.mapzoom?.city_latitude);
     
+    let lng3 =Number(props.mapzoom?.dist_longitude);
+    let lat3 =Number(props.mapzoom?.dist_latitude);
    
     setSelectedRegion({
       'lng': lng , 
@@ -66,6 +68,13 @@ let mapData =  props.data
         latitude: lat2, 
         longitude :lng2
         , zoom : 8
+      })
+    }
+    else if(lng3){
+      setViewport({...viewport , 
+        latitude: lat3, 
+        longitude :lng3
+        , zoom : 12
       })
     }
 
