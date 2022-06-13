@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContactUs from "../Layouts/ContactUs";
 import Footer from "../Layouts/Footer";
 import ContactUsPhoto from "../../Assets/imgs/restaurant.jpg";
@@ -6,10 +6,12 @@ import "../Layouts/layouts.css";
 
 const ContactUsPage = () => {
     document.getElementById('bfiTitle').innerHTML = 'BFI | Contact Us';
+useEffect(()=>{
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
     });
+},[])
     return (
         <>
             <div className="mb-40 ">

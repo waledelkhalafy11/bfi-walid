@@ -3,6 +3,7 @@ import box9 from "../../Assets/imgs/about-us/box9.jpg";
 import Footer from "../Layouts/Footer";
 import { Link } from "react-router-dom";
 import ReactReadMoreReadLess from "react-read-more-read-less";
+import { useEffect } from "react";
 
 const AboutUs = () => {
     const prag1 = `Brookfield works with of Egypt’s top real estate developers to market their new properties. Brookfield’s agents are trustworthy thus your perfect consultant. They can advise you on which properties to invest in and which to think twice about. At Brookfield, our clients are our partners. We carefully study each project and guarantee that you to invest to earn never pushing for a quick sale. Any real estate developer you know, we know them inside out.​
@@ -11,10 +12,12 @@ const AboutUs = () => {
     console.log(process.env.REACT_APP_TEST);
 
     document.getElementById('bfiTitle').innerHTML = 'BFI | About Us' ;
+useEffect(()=>{
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
     });
+},[])
     return (
         // ================> Cards photo
 

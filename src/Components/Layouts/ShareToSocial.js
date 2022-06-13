@@ -81,7 +81,7 @@ const ShareToSocial = () => {
 
 
       <FacebookShareButton
-        url={`http://localhost:3000${location.pathname}`}
+        url={process.env.REACT_APP_SHARE_DOMAIN + location.pathname}
 
         hashtag={"#hashtag"}
         description={"aiueo"}
@@ -92,7 +92,7 @@ const ShareToSocial = () => {
 
 
       <TwitterShareButton
-        url={`http://localhost:3000${location.pathname}`}
+        url={process.env.REACT_APP_SHARE_DOMAIN + location.pathname}
 
         hashtag={"#hashtag"}
         description={"aiueo"}
@@ -103,7 +103,7 @@ const ShareToSocial = () => {
 
 
       <WhatsappShareButton
-        url={`http://localhost:3000${location.pathname}`}
+        url={process.env.REACT_APP_SHARE_DOMAIN + location.pathname}
 
         hashtag={"#hashtag"}
         description={"aiueo"}

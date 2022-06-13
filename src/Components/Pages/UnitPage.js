@@ -40,13 +40,15 @@ const UnitPage = () => {
             setDataApi(result);
 
         });
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     },[]);
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
+   
     //  ********* Getting Parameter >> GET request *************
     let { id } = useParams();
 

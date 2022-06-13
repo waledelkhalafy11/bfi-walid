@@ -21,10 +21,7 @@ import {
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-});
+  
   //  ********* Redux Context *************
   const dataApiPromise = useSelector(state => state.apiReducer);
 
@@ -35,6 +32,7 @@ const Search = () => {
   const [unitsData, setunitsData] = useState([...dataApi]);
   const [allLocations, setLocations] = useState([]);
   const [cities, setCities] = useState([]);
+  const [districts, setDistricts] = useState([]);
   const [mapZoom, setMapZoom] = useState({});
   const [categories, setCategories] = useState([
     "Appartment",
@@ -46,6 +44,7 @@ const Search = () => {
     region: null,
     category: null,
     city: null,
+    district : null
   });
   // +-+-+-+-+- States End +-+-+-+-+-
 
@@ -77,14 +76,19 @@ const Search = () => {
     if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all" ) {
 
       if (selectedFilters.city == item.location[0].city_name || selectedFilters.city == "all") {
-    
-    
-        if (selectedFilters.category == item.unit.unit_category || selectedFilters.category == "all") {
+        if (selectedFilters.district == item.location[0].dist_name || selectedFilters.district == "all") {
+          if (selectedFilters.category == item.unit.main_category || selectedFilters.category == "all") {
+            return item
+          }else if (selectedFilters.category == null ){
+            return item
+        
+          }
+        }else if(selectedFilters.district == null){
+          
           return item
-        }else if (selectedFilters.category == null ){
-          return item
-      
         }
+    
+  
     
     
       }else if (selectedFilters.city == null ){
@@ -106,6 +110,7 @@ const Search = () => {
           region: selected,
           category: null,
           city: null,
+          district :null
         });
         break;
       case 2:
@@ -113,6 +118,7 @@ const Search = () => {
           region: selectedFilters.region,
           category: selected,
           city: selectedFilters.city,
+          district: selectedFilters.district
         });
         break;
       case 3:
@@ -120,8 +126,19 @@ const Search = () => {
           region: selectedFilters.region,
           category: selectedFilters.category,
           city: selected,
+          district: selectedFilters.district,
+
         });
         break;
+      case 4  :
+          setSelectedFilters({
+            region: selectedFilters.region,
+            category: selectedFilters.category,
+            city: selectedFilters.city,
+            district :selected
+
+          });
+          break;
       default:
         break;
     }
@@ -168,7 +185,7 @@ const handleCloseModal = ()=> setSerchModal(false)
         address={itm.unit.unit_address}
         title={itm.unit.unit_name}
         price={itm.unit.unit_price}
-        category={itm.unit.unit_category}
+        category={itm.unit.main_category}
         rooms={itm.props[0].rooms}
         bathrooms={itm.props[0].bathroom}
         kitchen={itm.props[0].kitchen}
@@ -195,7 +212,7 @@ const handleCloseModal = ()=> setSerchModal(false)
       address={itm.unit.unit_address}
       title={itm.unit.unit_name}
       price={itm.unit.unit_price}
-      category={itm.unit.unit_category}
+      category={itm.unit.main_category}
       rooms={itm.props[0].rooms}
       bathrooms={itm.props[0].bathroom}
       kitchen={itm.props[0].kitchen}
@@ -228,6 +245,10 @@ const handleCloseModal = ()=> setSerchModal(false)
       setDataApi(result);
 
     });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  });
   },[])
 
 
@@ -242,7 +263,19 @@ const handleCloseModal = ()=> setSerchModal(false)
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
         if (selectedFilters.city == itm.location[0].city_name) {
-          allCats11.push(itm.unit.unit_category)
+        if (selectedFilters.district == itm.location[0].dist_name) {
+          allCats11.push(itm.unit.main_category)
+        }
+        }
+      }
+    });
+
+    let alldists11 = []
+    dataApi.map((itm) => {
+      if (selectedFilters.region == itm.location[0].region_name) {
+        if (selectedFilters.city == itm.location[0].city_name) {
+          alldists11.push(itm.location[0].dist_name)
+        
         }
       }
     });
@@ -259,9 +292,13 @@ const handleCloseModal = ()=> setSerchModal(false)
     let allCats12 = allCats11.filter((c, index) => {
       return allCats11.indexOf(c) === index;
     });
+    let alldists12 = alldists11.filter((c, index) => {
+      return alldists11.indexOf(c) === index;
+    });
   
-    setCategories(allCats12);
     setCities(allcities12);
+    setDistricts(alldists12);
+    setCategories(allCats12);
     let region = allLocations.find(isRegion);
 
 
@@ -284,7 +321,7 @@ const handleCloseModal = ()=> setSerchModal(false)
 
   return (
     <>
-      {windowWidth <= 820 ? (
+      {windowWidth <= 912 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
           <div className="absolute top-2 w-full mx-auto  z-50">
             
@@ -391,7 +428,7 @@ const handleCloseModal = ()=> setSerchModal(false)
               <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
                 <>
                   {" "}
-                  <div className="md:w-[33%] flex mx-2 flex-col">
+                  <div className=" md:w-[25%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Region
                     </Form.Label>
@@ -410,7 +447,7 @@ const handleCloseModal = ()=> setSerchModal(false)
                     </Form.Select>
                   </div>
 
-                  <div className="md:w-[33%] flex mx-2 flex-col">
+                  <div className="md:w-[25%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       City
                     </Form.Label>
@@ -428,7 +465,25 @@ const handleCloseModal = ()=> setSerchModal(false)
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[33%] flex mx-2 flex-col">
+                  <div className="md:w-[25%] flex mx-2 flex-col">
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      District
+                    </Form.Label>
+                    <Form.Select
+                      onChange={(e) => selectedData(e.target.value, 4)}
+                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select a District
+                      </option>
+                      <option value="all">All</option>
+                      {districts?.map((district) => {
+                        return <option value={district}>{district}</option>
+                      })}
+                    </Form.Select>
+                  </div>
+                  <div className="md:w-[25%] flex mx-2 flex-col">
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Category
                     </Form.Label>
@@ -446,15 +501,6 @@ const handleCloseModal = ()=> setSerchModal(false)
                       })}
                     </Form.Select>
                   </div>
-                  {/* <div className="md:w-[25%] p-2 flex mx-2 flex-col">
-                    <Button
-                      className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
-                      size="lg"
-                    >
-                      <SearchIcon />
-                      Search
-                    </Button>
-                  </div> */}
                 </>
               </Container>
             </Container>
