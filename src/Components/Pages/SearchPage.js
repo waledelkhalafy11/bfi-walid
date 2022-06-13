@@ -150,6 +150,9 @@ const Search = () => {
   let isCity = (city) => {
     return city.city_name === selectedFilters.city;
   }
+  let isDist = (dist) => {
+    return dist.dist_name == selectedFilters.district;
+  }
 
 
   //  +-+-+-+-+- Data Filtration End +-+-+-+-+-
@@ -304,10 +307,18 @@ const handleCloseModal = ()=> setSerchModal(false)
 
 
     if(selectedFilters.city != null && selectedFilters.city != 'all' && selectedFilters.city != '' ){
-      let region = allLocations.find(isRegion);
-      let city = region.cities.find(isCity);
-      setMapZoom(city)
-    }else{
+      if(selectedFilters.district != null && selectedFilters.district != 'all' && selectedFilters.district != ''){
+        let region = allLocations.find(isRegion);
+        let dist = region.dists[0].find(isDist);
+        
+        setMapZoom(dist)
+      }else{
+        let region = allLocations.find(isRegion);
+        let city = region.cities.find(isCity);
+        setMapZoom(city)
+      }
+    }
+    else{
     let region = allLocations.find(isRegion);
     setMapZoom(region)
 
