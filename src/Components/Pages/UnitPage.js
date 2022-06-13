@@ -40,13 +40,15 @@ const UnitPage = () => {
             setDataApi(result);
 
         });
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
     },[]);
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
+   
     //  ********* Getting Parameter >> GET request *************
     let { id } = useParams();
 
@@ -112,6 +114,8 @@ const UnitPage = () => {
                     <p className=" font-bold mb-2 text-xl md:text-2xl text-left">
                         {unit.unit.unit_name}
                     </p>
+                    <a className="text-black" target='_Blank' href={`http://www.google.com/maps/place/${unit.unit.unit_latitude},${unit.unit.unit_longitude}`}  >
+
                     <div className=" lg:flex-row flex flex-col justify-between">
                         <p className="text-left  mb-3 text-lg md:text=xl">
                             <span className="md:underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
@@ -121,6 +125,7 @@ const UnitPage = () => {
                         </p>
                         <p className="text-[#45b6ca] font-bold text-xl md:text-2xl ">{unit.unit.unit_price.toLocaleString()} EGP </p>
                     </div>
+                    </a>
                 </div>
 
                 <UnitGalary photos={unit.photos} />

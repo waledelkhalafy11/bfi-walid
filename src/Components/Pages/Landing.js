@@ -27,6 +27,10 @@ const Landing = () => {
     dataApiPromise.then(function (result) {
         setDataApi(result);
     });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  });
 },[]);
 
 
