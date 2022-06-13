@@ -284,7 +284,7 @@ const handleCloseModal = ()=> setSerchModal(false)
 
   return (
     <>
-      {windowWidth <= 820 ? (
+      {windowWidth <= 912 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
           <div className="absolute top-2 w-full mx-auto  z-50">
             
