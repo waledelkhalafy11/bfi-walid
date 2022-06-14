@@ -31,13 +31,17 @@ const Search = () => {
   const [mapZoom, setMapZoom] = useState({});
   const [showResFilter, setShowResFilter] = useState(false);
   const [categories, setCategories] = useState([]);
-  const [resCategories, setResCategories] = useState([]);
+  const [unitCategories, setUnitCategories] = useState([]);
+  const [resUnitCategories, setResUnitCategories] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
     region: null,
     category: null,
     city: null,
-    district: null
+    district: null,
+    unitcat: null,
+    rescat: null
   });
+
   // +-+-+-+-+- States End +-+-+-+-+-
 
 
@@ -69,7 +73,15 @@ const Search = () => {
       if (selectedFilters.city == item.location[0].city_name || selectedFilters.city == "all") {
         if (selectedFilters.district == item.location[0].dist_name || selectedFilters.district == "all") {
           if (selectedFilters.category == item.unit.main_category || selectedFilters.category == "all") {
-            return item
+            if (selectedFilters.unitcat == item.unit.unit_category || selectedFilters.unitcat == "all") {
+              if (selectedFilters.rescat == item.unit.res_unit_category || selectedFilters.rescat == "all") {
+                return item
+              } else if (selectedFilters.rescat == null) {
+                return item
+              }
+            } else if (selectedFilters.unitcat == null) {
+              return item
+            }
           } else if (selectedFilters.category == null) {
             return item
           }
@@ -100,7 +112,10 @@ const Search = () => {
           region: selectedFilters.region,
           category: selected,
           city: selectedFilters.city,
-          district: selectedFilters.district
+          district: selectedFilters.district,
+          unitcat: selectedFilters.unitcat,
+          rescat: selectedFilters.rescat
+
         });
         break;
       case 3:
@@ -109,6 +124,8 @@ const Search = () => {
           category: selectedFilters.category,
           city: selected,
           district: selectedFilters.district,
+          unitcat: selectedFilters.unitcat,
+          rescat: selectedFilters.rescat
 
         });
         break;
@@ -117,7 +134,31 @@ const Search = () => {
           region: selectedFilters.region,
           category: selectedFilters.category,
           city: selectedFilters.city,
-          district: selected
+          district: selected,
+          unitcat: selectedFilters.unitcat,
+          rescat: selectedFilters.rescat
+
+        });
+        break;
+      case 5:
+        setSelectedFilters({
+          region: selectedFilters.region,
+          category: selectedFilters.category,
+          city: selectedFilters.city,
+          district: selectedFilters.district,
+          unitcat: selected,
+          rescat: selectedFilters.rescat
+
+        });
+        break;
+      case 6:
+        setSelectedFilters({
+          region: selectedFilters.region,
+          category: selectedFilters.category,
+          city: selectedFilters.city,
+          district: selectedFilters.district,
+          unitcat: selectedFilters.unitcat,
+          rescat: selected
 
         });
         break;
@@ -255,6 +296,35 @@ const Search = () => {
       }
     });
 
+    let allunitCats11 = []
+    dataApi.map((itm) => {
+      if (selectedFilters.region == itm.location[0].region_name) {
+        if (selectedFilters.city == itm.location[0].city_name) {
+          if (selectedFilters.district == itm.location[0].dist_name) {
+            if (selectedFilters.category == itm.unit.main_category) {
+              allunitCats11.push(itm.unit.unit_category)
+            }
+
+          }
+        }
+      }
+    });
+
+    let allresCats11 = []
+    dataApi.map((itm) => {
+      if (selectedFilters.region == itm.location[0].region_name) {
+        if (selectedFilters.city == itm.location[0].city_name) {
+          if (selectedFilters.district == itm.location[0].dist_name) {
+            if (selectedFilters.category == itm.unit.main_category) {
+              if (selectedFilters.unitcat == itm.unit.unit_category) {
+                allresCats11.push(itm.unit.res_unit_category)
+              }
+            }
+          }
+        }
+      }
+    });
+
     let alldists11 = []
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
@@ -280,10 +350,18 @@ const Search = () => {
     let alldists12 = alldists11.filter((c, index) => {
       return alldists11.indexOf(c) === index;
     });
+    let allunitCats12 = allunitCats11.filter((c, index) => {
+      return allunitCats11.indexOf(c) === index;
+    });
+    let allresCats12 = allresCats11.filter((c, index) => {
+      return allresCats11.indexOf(c) === index;
+    });
 
     setCities(allcities12);
     setDistricts(alldists12);
     setCategories(allCats12);
+    setUnitCategories(allunitCats12)
+    setResUnitCategories(allresCats12)
     let region = allLocations.find(isRegion);
 
     if (selectedFilters.category === "Residential") {
@@ -514,7 +592,7 @@ const Search = () => {
                           Unit Category
                         </Form.Label>
                         <Form.Select
-                          onChange={(e) => selectedData(e.target.value, 2)}
+                          onChange={(e) => selectedData(e.target.value, 5)}
                           className="md:ml-2 w-[100%] border-none ay7aga"
                           size="sm"
                         >
@@ -522,8 +600,8 @@ const Search = () => {
                             Select a Category
                           </option>
                           <option value="all">All</option>
-                          {categories?.map((category) => {
-                            return <option value={category}>{category}</option>
+                          {unitCategories?.map((unitcategory) => {
+                            return <option value={unitcategory}>{unitcategory}</option>
                           })}
                         </Form.Select>
                       </div>
@@ -532,7 +610,7 @@ const Search = () => {
                           Type
                         </Form.Label>
                         <Form.Select
-                          onChange={(e) => selectedData(e.target.value, 2)}
+                          onChange={(e) => selectedData(e.target.value, 6)}
                           className="md:ml-2 w-[100%] border-none ay7aga"
                           size="sm"
                         >
@@ -540,8 +618,8 @@ const Search = () => {
                             Select a Type
                           </option>
                           <option value="all">All</option>
-                          {categories?.map((category) => {
-                            return <option value={category}>{category}</option>
+                          {resUnitCategories?.map((type) => {
+                            return <option value={type}>{type}</option>
                           })}
                         </Form.Select>
                       </div>
