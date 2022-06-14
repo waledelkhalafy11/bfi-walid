@@ -1,5 +1,4 @@
 import GlMap from "../Layouts/GlMap";
-import SearchIcon from "@mui/icons-material/Search";
 import PlacesCard from "../Layouts/PlacesCard";
 import { useEffect, useState } from "react";
 import SwipeableEdgeDrawer from "../Layouts/Swibable";
@@ -11,17 +10,13 @@ import {
   Button,
   Container,
   Modal,
-  ModalBody,
-  ModalDialog
 } from "react-bootstrap";
-
-
 
 //  ********* Context API *************
 export const SelectionContext = createContext(null);
 
 const Search = () => {
-  
+
   //  ********* Redux Context *************
   const dataApiPromise = useSelector(state => state.apiReducer);
 
@@ -34,21 +29,18 @@ const Search = () => {
   const [cities, setCities] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [mapZoom, setMapZoom] = useState({});
-  const [categories, setCategories] = useState([
-    "Appartment",
-    "Villa",
-    "House",
-    "Office",
-  ]);
+  const [showResFilter, setShowResFilter] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [resCategories, setResCategories] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({
     region: null,
     category: null,
     city: null,
-    district : null
+    district: null
   });
   // +-+-+-+-+- States End +-+-+-+-+-
 
-  
+
 
   //  ********* Locations Request Start *************
   const GetRequest = async () => {
@@ -73,34 +65,24 @@ const Search = () => {
   //  ********* Data Filtration Start *************
 
   let majorFilter = (item) => {
-    if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all" ) {
-
+    if (selectedFilters.region == item.location[0].region_name || selectedFilters.region == "all") {
       if (selectedFilters.city == item.location[0].city_name || selectedFilters.city == "all") {
         if (selectedFilters.district == item.location[0].dist_name || selectedFilters.district == "all") {
           if (selectedFilters.category == item.unit.main_category || selectedFilters.category == "all") {
             return item
-          }else if (selectedFilters.category == null ){
+          } else if (selectedFilters.category == null) {
             return item
-        
           }
-        }else if(selectedFilters.district == null){
-          
+        } else if (selectedFilters.district == null) {
+
           return item
         }
-    
-  
-    
-    
-      }else if (selectedFilters.city == null ){
-
-      return item 
+      } else if (selectedFilters.city == null) {
+        return item
       }
-    }else if (selectedFilters.region == null){
-
+    } else if (selectedFilters.region == null) {
       return item
     }
-
-
   };
 
   const selectedData = (selected, index) => {
@@ -110,7 +92,7 @@ const Search = () => {
           region: selected,
           category: null,
           city: null,
-          district :null
+          district: null
         });
         break;
       case 2:
@@ -130,15 +112,15 @@ const Search = () => {
 
         });
         break;
-      case 4  :
-          setSelectedFilters({
-            region: selectedFilters.region,
-            category: selectedFilters.category,
-            city: selectedFilters.city,
-            district :selected
+      case 4:
+        setSelectedFilters({
+          region: selectedFilters.region,
+          category: selectedFilters.category,
+          city: selectedFilters.city,
+          district: selected
 
-          });
-          break;
+        });
+        break;
       default:
         break;
     }
@@ -157,8 +139,8 @@ const Search = () => {
 
   //  +-+-+-+-+- Data Filtration End +-+-+-+-+-
 
-const handleShowModal = ()=> setSerchModal(true)
-const handleCloseModal = ()=> setSerchModal(false)
+  const handleShowModal = () => setSerchModal(true)
+  const handleCloseModal = () => setSerchModal(false)
 
 
 
@@ -200,7 +182,7 @@ const handleCloseModal = ()=> setSerchModal(false)
         floor={itm.props[0].floor}
         space={itm.props[0].surface_area}
         image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
-        location={itm.location[0].city_name+', '+itm.location[0].region_name}
+        location={itm.location[0].city_name + ', ' + itm.location[0].region_name}
       />
     );
   });
@@ -208,26 +190,26 @@ const handleCloseModal = ()=> setSerchModal(false)
   let cardDara = unitsData.map((itm) => {
     return (
       <PlacesCard
-      key={itm.unit.id}
-      id={itm.unit.id}
-      description={itm.unit.unit_description}
-      city={itm.location.city_name}
-      address={itm.unit.unit_address}
-      title={itm.unit.unit_name}
-      price={itm.unit.unit_price}
-      category={itm.unit.main_category}
-      rooms={itm.props[0].rooms}
-      bathrooms={itm.props[0].bathroom}
-      kitchen={itm.props[0].kitchen}
-      bedroom={itm.props[0].bedroom}
-      living_room={itm.props[0].living_room}
-      garage={itm.props[0].garage}
-      garden={itm.props[0].garden}
-      elevator={itm.props[0].elevator}
-      floor={itm.props[0].floor}
-      space={itm.props[0].surface_area}
-      image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
-      location={itm.location[0].city_name+', '+itm.location[0].region_name}
+        key={itm.unit.id}
+        id={itm.unit.id}
+        description={itm.unit.unit_description}
+        city={itm.location.city_name}
+        address={itm.unit.unit_address}
+        title={itm.unit.unit_name}
+        price={itm.unit.unit_price}
+        category={itm.unit.main_category}
+        rooms={itm.props[0].rooms}
+        bathrooms={itm.props[0].bathroom}
+        kitchen={itm.props[0].kitchen}
+        bedroom={itm.props[0].bedroom}
+        living_room={itm.props[0].living_room}
+        garage={itm.props[0].garage}
+        garden={itm.props[0].garden}
+        elevator={itm.props[0].elevator}
+        floor={itm.props[0].floor}
+        space={itm.props[0].surface_area}
+        image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
+        location={itm.location[0].city_name + ', ' + itm.location[0].region_name}
       />
     );
   });
@@ -243,7 +225,7 @@ const handleCloseModal = ()=> setSerchModal(false)
 
 
   useEffect(() => {
-    document.getElementById('bfiTitle').innerHTML = 'BFI | Search' ;
+    document.getElementById('bfiTitle').innerHTML = 'BFI | Search';
     dataApiPromise.then(function (result) {
       setDataApi(result);
 
@@ -251,8 +233,8 @@ const handleCloseModal = ()=> setSerchModal(false)
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
-  });
-  },[])
+    });
+  }, [])
 
 
   useEffect(() => {
@@ -266,9 +248,9 @@ const handleCloseModal = ()=> setSerchModal(false)
     dataApi.map((itm) => {
       if (selectedFilters.region == itm.location[0].region_name) {
         if (selectedFilters.city == itm.location[0].city_name) {
-        if (selectedFilters.district == itm.location[0].dist_name) {
-          allCats11.push(itm.unit.main_category)
-        }
+          if (selectedFilters.district == itm.location[0].dist_name) {
+            allCats11.push(itm.unit.main_category)
+          }
         }
       }
     });
@@ -278,7 +260,7 @@ const handleCloseModal = ()=> setSerchModal(false)
       if (selectedFilters.region == itm.location[0].region_name) {
         if (selectedFilters.city == itm.location[0].city_name) {
           alldists11.push(itm.location[0].dist_name)
-        
+
         }
       }
     });
@@ -298,29 +280,34 @@ const handleCloseModal = ()=> setSerchModal(false)
     let alldists12 = alldists11.filter((c, index) => {
       return alldists11.indexOf(c) === index;
     });
-  
+
     setCities(allcities12);
     setDistricts(alldists12);
     setCategories(allCats12);
     let region = allLocations.find(isRegion);
 
+    if (selectedFilters.category === "Residential") {
+      setShowResFilter(true);
+    } else {
+      setShowResFilter(false)
+    }
 
 
-    if(selectedFilters.city != null && selectedFilters.city != 'all' && selectedFilters.city != '' ){
-      if(selectedFilters.district != null && selectedFilters.district != 'all' && selectedFilters.district != ''){
+    if (selectedFilters.city != null && selectedFilters.city != 'all' && selectedFilters.city != '') {
+      if (selectedFilters.district != null && selectedFilters.district != 'all' && selectedFilters.district != '') {
         let region = allLocations.find(isRegion);
         let dist = region.dists[0].find(isDist);
-        
+
         setMapZoom(dist)
-      }else{
+      } else {
         let region = allLocations.find(isRegion);
         let city = region.cities.find(isCity);
         setMapZoom(city)
       }
     }
-    else{
-    let region = allLocations.find(isRegion);
-    setMapZoom(region)
+    else {
+      let region = allLocations.find(isRegion);
+      setMapZoom(region)
 
     }
     setunitsData(dataApi.filter(majorFilter));
@@ -328,115 +315,25 @@ const handleCloseModal = ()=> setSerchModal(false)
 
   // +-+-+-+-+- UseEffects End +-+-+-+-+-
 
-  
+
 
   return (
     <>
       {windowWidth <= 912 ? (
         <div className="bg-[#f2f2f2] md:h-[100vh]">
           <div className="absolute top-2 w-full mx-auto  z-50">
-            
-            
-          <Button className="bg-[#45b6ca] rounded-3xl border-none mt-[25%] md:mt-[20%] rounded-" onClick={handleShowModal}>
-            Search 
-            </Button> 
+
+
+            <Button className="bg-[#45b6ca] rounded-3xl border-none mt-[25%] md:mt-[20%] rounded-" onClick={handleShowModal}>
+              Search
+            </Button>
             <Modal
-            centered
-            className="rounded-3xl"
-            show={searchModal}
+              centered
+              className="rounded-3xl"
+              show={searchModal}
               onHide={handleCloseModal}
             >
-              <Container  className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl  flex flex-col md:flex-row">
-              <>
-                {" "}
-                <div className="md:w-[25%] flex mx-2 flex-col">
-                  <Form.Label className="md:ml-4 text-xl text-left">
-                    Region
-                  </Form.Label>
-                  <Form.Select
-                    className="md:ml-2 w-[100%] border-none"
-                    size="sm"
-                    onChange={(e) => selectedData(e.target.value, 1)}
-                  >
-                    <option disabled selected>
-                      Select a Region
-                    </option>
-                    <option value="all">All</option>
-                    {regions.map((region) => {
-                      return <option value={region}>{region}</option>;
-                    })}
-                  </Form.Select>
-                </div>
-
-                <div className="md:w-[25%] flex mx-2 flex-col">
-                  <Form.Label className="md:ml-4 text-xl text-left">
-                    City
-                  </Form.Label>
-                  <Form.Select
-                    onChange={(e) => selectedData(e.target.value, 3)}
-                    className="md:ml-2 w-[100%] border-none"
-                    size="sm"
-                  >
-                    <option disabled selected>
-                      Select City
-                    </option>
-                    <option value="all">All</option>
-                    {cities?.map((city) => {
-                      return <option value={city}>{city}</option>
-                    })}
-                  </Form.Select>
-                </div>
-                <div className="md:w-[25%] flex mx-2 flex-col">
-                  <Form.Label className="md:ml-4 text-xl text-left">
-                    Category
-                  </Form.Label>
-                  <Form.Select
-                    onChange={(e) => selectedData(e.target.value, 2)}
-                    className="md:ml-2 w-[100%] border-none ay7aga"
-                    size="sm"
-                  >
-                    <option disabled selected>
-                      Select a Category
-                    </option>
-                    <option value="all">All</option>
-                    {categories?.map((category) => {
-                      return <option value={category}>{category}</option>
-                    })}
-                  </Form.Select>
-                </div>
-                <div className="md:w-[25%] p-2 flex mx-2 flex-col">
-                  <Button
-                  onClick={handleCloseModal}
-                    className="md:ml-2 bg-[#45b6ca] rounded-full w-[100%] border-none"
-                    size="lg"
-                  >
-                   
-                    Ok
-                  </Button>
-                </div>
-              </>
-            </Container>
-            </Modal>
-            
-          </div>
-          <Container
-            fluid
-            className="p-0 w-[100%] flex flex-col lg:flex-row h-[70%]"
-          >
-            <Container
-              fluid
-              className="p-0 mapps g:h-[100vh] w-[100%] md:w-[100%] bg-black "
-            >
-              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
-            </Container>
-            <SwipeableEdgeDrawer carddata={unitsData} />
-          </Container>
-        </div>
-      ) : (
-        <div className="bg-[#f2f2f2] md:h-[100vh]">
-          <Container className="">
-            <Container className="static top px-[10%] p-[2%] md:px-[5%] ">
-              <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
+              <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl  flex flex-col md:flex-row">
                 <>
                   {" "}
                   <div className=" md:w-[25%] flex mx-2 flex-col">
@@ -512,6 +409,145 @@ const handleCloseModal = ()=> setSerchModal(false)
                       })}
                     </Form.Select>
                   </div>
+                </>
+              </Container>
+            </Modal>
+
+          </div>
+          <Container
+            fluid
+            className="p-0 w-[100%] flex flex-col lg:flex-row h-[70%]"
+          >
+            <Container
+              fluid
+              className="p-0 mapps g:h-[100vh] w-[100%] md:w-[100%] bg-black "
+            >
+              <GlMap selectedunits={unitsData} mapzoom={mapZoom} data={mapData} />
+            </Container>
+            <SwipeableEdgeDrawer carddata={unitsData} />
+          </Container>
+        </div>
+      ) : (
+        <div className="bg-[#f2f2f2] md:h-[100vh]">
+          <Container className="">
+            <Container className="static top px-[10%] p-[2%] md:px-[5%] ">
+              <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl mt-[20%] md:mt-[10%] flex flex-col md:flex-row">
+                <>
+                  {" "}
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      Region
+                    </Form.Label>
+                    <Form.Select
+                      className="md:ml-2 w-[100%] border-none"
+                      size="sm"
+                      onChange={(e) => selectedData(e.target.value, 1)}
+                    >
+                      <option disabled selected>
+                        Select a Region
+                      </option>
+                      <option value="all">All</option>
+                      {regions.map((region) => {
+                        return <option value={region}>{region}</option>;
+                      })}
+                    </Form.Select>
+                  </div>
+
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      City
+                    </Form.Label>
+                    <Form.Select
+                      onChange={(e) => selectedData(e.target.value, 3)}
+                      className="md:ml-2 w-[100%] border-none"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select City
+                      </option>
+                      <option value="all">All</option>
+                      {cities?.map((city) => {
+                        return <option value={city}>{city}</option>
+                      })}
+                    </Form.Select>
+                  </div>
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      District
+                    </Form.Label>
+                    <Form.Select
+                      onChange={(e) => selectedData(e.target.value, 4)}
+                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select a District
+                      </option>
+                      <option value="all">All</option>
+                      {districts?.map((district) => {
+                        return <option value={district}>{district}</option>
+                      })}
+                    </Form.Select>
+                  </div>
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                    <Form.Label className="md:ml-4 text-xl text-left">
+                      Category
+                    </Form.Label>
+                    <Form.Select
+                      onChange={(e) => selectedData(e.target.value, 2)}
+                      className="md:ml-2 w-[100%] border-none ay7aga"
+                      size="sm"
+                    >
+                      <option disabled selected>
+                        Select a Category
+                      </option>
+                      <option value="all">All</option>
+                      {categories?.map((category) => {
+                        return <option value={category}>{category}</option>
+                      })}
+                    </Form.Select>
+                  </div>
+                  {
+                    showResFilter ? (<>
+                      <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                        <Form.Label className="md:ml-4 text-xl text-left">
+                          Unit Category
+                        </Form.Label>
+                        <Form.Select
+                          onChange={(e) => selectedData(e.target.value, 2)}
+                          className="md:ml-2 w-[100%] border-none ay7aga"
+                          size="sm"
+                        >
+                          <option disabled selected>
+                            Select a Category
+                          </option>
+                          <option value="all">All</option>
+                          {categories?.map((category) => {
+                            return <option value={category}>{category}</option>
+                          })}
+                        </Form.Select>
+                      </div>
+                      <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                        <Form.Label className="md:ml-4 text-xl text-left">
+                          Type
+                        </Form.Label>
+                        <Form.Select
+                          onChange={(e) => selectedData(e.target.value, 2)}
+                          className="md:ml-2 w-[100%] border-none ay7aga"
+                          size="sm"
+                        >
+                          <option disabled selected>
+                            Select a Type
+                          </option>
+                          <option value="all">All</option>
+                          {categories?.map((category) => {
+                            return <option value={category}>{category}</option>
+                          })}
+                        </Form.Select>
+                      </div>
+                    </>
+                    ) : null
+                  }
                 </>
               </Container>
             </Container>

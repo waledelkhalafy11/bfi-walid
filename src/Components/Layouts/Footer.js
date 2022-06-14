@@ -65,10 +65,10 @@ function Footer() {
       <div className="w-full h-auto bg-[#0c314e]">
         <div className="flex flex-col md:flex-row mb-2 w-3/4 h-full mx-auto text-[#ffff]">
           <div className="w-full md:w-[26%] md:mr-2 mt-4 text-left">
-            <p className="font-bold mb-5 text-[#f2f2f2]">MY HOME</p>
+            <p className="font-bold mb-5 text-[#f2f2f2]">Brookfield Investments</p>
             <p className="mb-3 text-left">
               {" "}
-              Lorem ipsum dolor,eius, illo eum, adipisci perferendis.
+              Brookfield works with of Egypt’s top real estate developers to market their new properties. Brookfield’s agents are trustworthy thus your perfect consultant.
             </p>
 
             <MyhomeItem img={location}
