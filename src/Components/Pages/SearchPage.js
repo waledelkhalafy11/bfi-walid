@@ -113,8 +113,8 @@ const Search = () => {
           category: selected,
           city: selectedFilters.city,
           district: selectedFilters.district,
-          unitcat: selectedFilters.unitcat,
-          rescat: selectedFilters.rescat
+          unitcat: null,
+          rescat: null
 
         });
         break;
@@ -124,8 +124,8 @@ const Search = () => {
           category: selectedFilters.category,
           city: selected,
           district: selectedFilters.district,
-          unitcat: selectedFilters.unitcat,
-          rescat: selectedFilters.rescat
+          unitcat: null,
+          rescat: null
 
         });
         break;
@@ -135,9 +135,8 @@ const Search = () => {
           category: selectedFilters.category,
           city: selectedFilters.city,
           district: selected,
-          unitcat: selectedFilters.unitcat,
-          rescat: selectedFilters.rescat
-
+          unitcat: null,
+          rescat: null
         });
         break;
       case 5:
@@ -412,9 +411,9 @@ const Search = () => {
               onHide={handleCloseModal}
             >
               <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl  flex flex-col md:flex-row">
-                <>
+              <>
                   {" "}
-                  <div className=" md:w-[25%] flex mx-2 flex-col">
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Region
                     </Form.Label>
@@ -433,7 +432,7 @@ const Search = () => {
                     </Form.Select>
                   </div>
 
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
                     <Form.Label className="md:ml-4 text-xl text-left">
                       City
                     </Form.Label>
@@ -451,7 +450,7 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
                     <Form.Label className="md:ml-4 text-xl text-left">
                       District
                     </Form.Label>
@@ -469,7 +468,7 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
-                  <div className="md:w-[25%] flex mx-2 flex-col">
+                  <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
                     <Form.Label className="md:ml-4 text-xl text-left">
                       Category
                     </Form.Label>
@@ -487,6 +486,47 @@ const Search = () => {
                       })}
                     </Form.Select>
                   </div>
+                  {
+                    showResFilter ? (<>
+                      <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                        <Form.Label className="md:ml-4 text-xl text-left">
+                          Unit Category
+                        </Form.Label>
+                        <Form.Select
+                          onChange={(e) => selectedData(e.target.value, 5)}
+                          className="md:ml-2 w-[100%] border-none ay7aga"
+                          size="sm"
+                        >
+                          <option disabled selected>
+                            Select a Category
+                          </option>
+                          <option value="all">All</option>
+                          {unitCategories?.map((unitcategory) => {
+                            return <option value={unitcategory}>{unitcategory}</option>
+                          })}
+                        </Form.Select>
+                      </div>
+                      <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
+                        <Form.Label className="md:ml-4 text-xl text-left">
+                          Type
+                        </Form.Label>
+                        <Form.Select
+                          onChange={(e) => selectedData(e.target.value, 6)}
+                          className="md:ml-2 w-[100%] border-none ay7aga"
+                          size="sm"
+                        >
+                          <option disabled selected>
+                            Select a Type
+                          </option>
+                          <option value="all">All</option>
+                          {resUnitCategories?.map((type) => {
+                            return <option value={type}>{type}</option>
+                          })}
+                        </Form.Select>
+                      </div>
+                    </>
+                    ) : null
+                  }
                 </>
               </Container>
             </Modal>
