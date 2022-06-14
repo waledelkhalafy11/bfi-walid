@@ -9,6 +9,10 @@ import ReactLoading from "react-loading";
 
 
 const Blog = () => {
+  let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
 
     //  ********* Redux Context *************
     const dataApiPromise = useSelector((state) => state.apiReducer);
@@ -29,44 +33,67 @@ const Blog = () => {
         dataApiPromise.then(function (result) {
             setDataApi(result);
         });
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+      });
+    
     },[]);
 
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-  });
-
-  let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `;
-      
     let unitsPerPage = 3 ;
-    const [data ,setData]         = useState([...dataApi]); 
-    const [visible , setVisible]  = useState(unitsPerPage);
+    const [data    ,setData   ]  = useState([...dataApi]); 
+    const [visible ,setVisible]  = useState(unitsPerPage);
+    const [main    ,setMain   ]  = useState([...dataApi]);
+
+
+
+    /*filter main categories */
   
+    let filter_Residential    = (item) => {
+      if (item.unit.main_category === "Residential"   ) {return item;}};
+    let filter_Commerical     = (item) => {
+      if (item.unit.main_category === "Commerical"    ) {return item;}};
+    let filter_Administrative = (item) => {
+      if (item.unit.main_category === "Administrative") {return item;}};
+    let filter_Medical        = (item) => {
+      if (item.unit.main_category === "Medical"       ) {return item;}};
+
+
+    
+    /*filter  categories */
     let filter_appartment = (item) => {
-        if (item.unit.unit_category === "Appartment") {return item;}};
-    let filter_office = (item) =>     {
-        if (item.unit.unit_category === "Office")     {return item;}};
-    let filter_villa = (item) =>      {
-        if (item.unit.unit_category === "Villa")      {return item;}};
-    let filter_house = (item) =>      {
-        if (item.unit.unit_category === "House")      {return item;}};
+        if (item.unit.unit_category   === "Appartment")   {return item;}};   
+    let filter_office =     (item) => {
+        if (item.unit.unit_category   === "Office"    )   {return item;}};
+    let filter_villa  =     (item) => {
+        if (item.unit.unit_category   === "Villa"     )   {return item;}};
+    let filter_house  =     (item) => {
+        if (item.unit.unit_category   === "House"     )   {return item;}};
+    let filter_Chalet =     (item) => {
+        if (item.unit.unit_category   === "Chalet"    )   {return item;}};
 
-    let all        = dataApi                          ;
-    let appartment = dataApi.filter(filter_appartment);
-    let office     = dataApi.filter(filter_office)    ;
-    let villa      = dataApi.filter(filter_villa)     ;
-    let house      = dataApi.filter(filter_house)     ;
+      /*filter  from  all data */
+    let all            = dataApi                              ;
+    let residential    = dataApi.filter(filter_Residential   );
+    let commerical     = dataApi.filter(filter_Commerical    );
+    let administrative = dataApi.filter(filter_Administrative);
+    let medical        = dataApi.filter(filter_Medical       );
 
+
+     /*filter  residential */
+    let appartment     = dataApi.filter(filter_appartment);
+    let chalet         = dataApi.filter(filter_office    );
+    let villa          = dataApi.filter(filter_villa     );
+    let house          = dataApi.filter(filter_house     );
+    
+
+
+    let office         = dataApi.filter(filter_office)    ;
 
     const showMoreUnits = () => {
       setVisible(visible + 3);
     }
-
-
-
       let noUnitAll = () =>{
       if(all.length == 0  ){
         return ""
@@ -99,7 +126,6 @@ const Blog = () => {
          
             let color = "#45b6ca"
             let type = "spinningBubbles"
-
             let unitAvailable = (itm , category) => {
 
               if(dataApi.length != 0 ){
@@ -124,6 +150,11 @@ const Blog = () => {
                     } 
             }
 
+
+
+
+
+
     let allblogData = all.slice(0,visible).map((itm) => {
   
         return (
@@ -139,7 +170,28 @@ const Blog = () => {
           />
         );
   });
+  
 
+  let mainData = main.slice(0,visible).map((itm) => {
+  
+    return (
+      <Cards
+        title     = {itm.unit.unit_name}
+        price     = {itm.unit.unit_price}
+        rooms     = {itm.props[0].bedroom}
+        bathrooms = {itm.props[0].bathroom}
+        address   = {itm.unit.unit_address}
+        space     = "170"
+        image     = {process.env.REACT_APP_DOMAIN +itm.photos[0].unit_image_url}
+        id        = {itm.unit.id}
+      />
+    );
+});
+
+
+
+
+  
 
     let blogData = data.slice(0,visible).map((itm) => { return (
     <Cards
@@ -200,11 +252,14 @@ const Blog = () => {
       </div>
 
       {/*----------------------------------------------------- properties_lists---------------------------------------------------------------------------------- */}
+  
       <div className="properties_lists container">
-        <nav>
+
+
+      <nav>
           <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
             <button onClick={()=>{setData([...all]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] active sm:text-[16px] "
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] active "
               id="nav-all-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-all"
@@ -215,8 +270,91 @@ const Blog = () => {
             >
               All
             </button>
-            <button onClick={()=> {setData([...villa]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
+           
+
+            <button 
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
+              id="nav-residential-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-residential"
+              type="button"
+              role="tab"
+              aria-controls="nav-residential"
+              aria-selected="true"
+            >
+              residential
+            </button>
+
+            <button 
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
+              id="nav-commerical-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-commerical"
+              type="button"
+              role="tab"
+              aria-controls="nav-commerical"
+              aria-selected="true"
+            >
+              commerical
+            </button>
+
+            <button 
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
+              id="nav-administrative-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-administrative"
+              type="button"
+              role="tab"
+              aria-controls="nav-administrative"
+              aria-selected="true"
+            >
+              administrative
+            </button>
+
+            <button 
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
+              id="nav-medical-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-medical"
+              type="button"
+              role="tab"
+              aria-controls="nav-medical"
+              aria-selected="true"
+            >
+              medical
+            </button>
+          </div>
+        </nav>
+
+
+
+        <div class="tab-content mb-5" id="nav-tabContent">
+
+
+
+          <div
+            class="tab-pane fade show active"
+            id="nav-all"
+            role="tabpanel"
+            aria-labelledby="nav-all-tab"
+          >
+            <div className="row"> {unitAvailable(allblogData,all)}</div>
+            {noUnitAll()}
+            </div>
+
+
+            <div
+            class="tab-pane fade"
+            id="nav-residential"
+            role="tabpanel"
+            aria-labelledby="nav-residential-tab"
+          >
+           
+           <nav>
+          <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+            
+            <button onClick={()=> {setData([...appartment]);(setVisible(unitsPerPage))}}
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] active ]"
               id="nav-villa-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-villa"
@@ -225,10 +363,10 @@ const Blog = () => {
               aria-controls="nav-villa"
               aria-selected="false"
             >
-              Villa
+              appartment
             </button>
-            <button  onClick={()=>{setData([...house]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
+            <button  onClick={()=>{setData([...villa]);(setVisible(unitsPerPage))}}
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] ]"
               id="nav-house-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-house"
@@ -237,11 +375,11 @@ const Blog = () => {
               aria-controls="nav-house"
               aria-selected="false"
             >
-              House
+              villa
             </button>
           
-            <button   onClick={()=>{setData([...appartment]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
+            <button   onClick={()=>{setData([...house]);(setVisible(unitsPerPage))}}
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] s"
               id="nav-appartment-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-appartment"
@@ -250,11 +388,11 @@ const Blog = () => {
               aria-controls="nav-appartment"
               aria-selected="false"
             >
-              Apartment
+              house
             </button>
 
             <button onClick={()=>{setData([...office]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[13px] sm:text-[16px]"
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] "
               id="nav-office-tab"
               data-bs-toggle="tab"
               data-bs-target="#nav-office"
@@ -263,26 +401,12 @@ const Blog = () => {
               aria-controls="nav-office"
               aria-selected="false"
             >
-              Office
+              office
             </button>
           </div>
         </nav>
 
-{/* ------------------------------------------------------down units---------------------------------------------------------------- */}
-
-
         <div class="tab-content mb-5" id="nav-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="nav-all"
-            role="tabpanel"
-            aria-labelledby="nav-all-tab"
-          >
-           
-            <div className="row"> {unitAvailable(allblogData,all)}</div>
-            {noUnitAll()}
-            </div>
-
           <div
             class="tab-pane fade"
             id="nav-villa"
@@ -292,7 +416,6 @@ const Blog = () => {
             <div className="row mt-5">{unitAvailable(blogData,data)} </div>
             {noUnit()}
           </div>
-
           <div
             class="tab-pane fade"
             id="nav-house"
@@ -303,10 +426,6 @@ const Blog = () => {
             {noUnit()}
      
           </div>
-
-
-
-
           <div
             class="tab-pane fade"
             id="nav-appartment"
@@ -315,11 +434,7 @@ const Blog = () => {
           >
             <div className="row mt-5">{unitAvailable(blogData,data)}</div>
             {noUnit()}
-     
           </div>
-
-
-
           <div
             class="tab-pane fade"
             id="nav-office"
@@ -332,6 +447,79 @@ const Blog = () => {
           </div>
 
         </div>
+
+         
+          </div>
+
+
+
+          <div
+            class="tab-pane fade "
+            id="nav-commerical"
+            role="tabpanel"
+            aria-labelledby="nav-commerical-tab"
+          >
+            <div className="row"> {unitAvailable(allblogData,all)}</div>
+            {noUnitAll()}
+            </div>
+
+
+
+
+            <div
+            class="tab-pane fade "
+            id="nav-administrative"
+            role="tabpanel"
+            aria-labelledby="nav-administrative-tab"
+          >
+            <div className="row"> {unitAvailable(allblogData,all)}</div>
+            {noUnitAll()}
+            </div>
+
+
+
+
+
+
+
+            <div
+            class="tab-pane fade "
+            id="nav-medical"
+            role="tabpanel"
+            aria-labelledby="nav-  medical-tab"
+          >
+            <div className="row"> {unitAvailable(allblogData,all)}</div>
+            {noUnitAll()}
+            </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       
+
+{/* ------------------------------------------------------down units---------------------------------------------------------------- */}
+
+
      
       </div>
 
