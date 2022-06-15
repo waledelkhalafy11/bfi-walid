@@ -21,7 +21,7 @@ useEffect(()=>{
     return (
         // ================> Cards photo
 
-        <div className=" bg-[#f2f2f2] mt-[80px]">
+        <div className=" bg-[#f2f2f2] md:mt-[80px] xl:mt-[10px]">
             <div className="row    w-full  p-[20px]  ">
 
                 {/* left side */}
@@ -50,7 +50,7 @@ useEffect(()=>{
 
                         </div>
 
-                        <div className="mt-[50px]">
+                        <div className="md:mt-[50px] xl:mt-[40px]">
 
                             <div className="line mb-5 my-0 mx-auto  w-[100%] h-[2px] bg-[#45b6ca] "></div>
 
