@@ -27,6 +27,10 @@ const Landing = () => {
     dataApiPromise.then(function (result) {
         setDataApi(result);
     });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  });
 },[]);
 
 
@@ -36,9 +40,9 @@ const Landing = () => {
 
   while (!dataApi[0]) {
       return (
-          <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] mt-[45vh] translate-x-[-50%]  ">
+          <div className="mx-auto w-[50px] h-[50px] md:w-[100px] md:h-[100px] mt-[45vh]   ">
 
-              <ReactLoading type={type} color={color} height={100} width={100} />
+           <div className="translate-x-[-25%]"><ReactLoading type={type} color={color} height={100} width={100} /></div>   
 
           </div>
 

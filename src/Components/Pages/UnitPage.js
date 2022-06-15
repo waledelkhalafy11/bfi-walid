@@ -13,6 +13,7 @@ import gardenn from "../../Assets/icons/unit/plant-garden.svg";
 import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import floors from "../../Assets/icons/unit/floors.svg";
+// import pool from "../../Assets/icons/unit/pool.svg";
 import area from "../../Assets/icons/ListingsCards/size.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
@@ -40,13 +41,15 @@ const UnitPage = () => {
             setDataApi(result);
 
         });
-    },[]);
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }, []);
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
+
     //  ********* Getting Parameter >> GET request *************
     let { id } = useParams();
 
@@ -87,7 +90,7 @@ const UnitPage = () => {
 
     function UnitContent(props) {
         return (
-            <div className="flex flex-row mb-3 gap-24 md:gap-3">
+            <div className="flex flex-row mb-3  justify-between">
                 <div className="flex flex-row w-[70%] md:w-[90%]">
                     <img src={props.icon} className=" h-7 w-7  my-auto "></img>
 
@@ -96,13 +99,13 @@ const UnitPage = () => {
                     </p>
                 </div>
 
-                <p className=" my-auto text-xl text-left w-[30%] md:w-[25%]">
-                    {props.quantity == null ? "—" : props.quantity}{" "}
+                <p className=" my-auto text-xl text-right w-[30%] md:w-[25%]">
+                    {props.quantity == '0' ? "—" : props.quantity == '1' ? "✓" : props.quantity}{" "}
                 </p>
             </div>
         );
     }
-    document.getElementById('bfiTitle').innerHTML = 'BFI | ' + unit.unit.unit_name ;
+    document.getElementById('bfiTitle').innerHTML = 'BFI | ' + unit.unit.unit_name;
 
 
     return (
@@ -112,72 +115,229 @@ const UnitPage = () => {
                     <p className=" font-bold mb-2 text-xl md:text-2xl text-left">
                         {unit.unit.unit_name}
                     </p>
-                    <div className=" lg:flex-row flex flex-col justify-between">
-                        <p className="text-left  mb-3 text-lg md:text=xl">
-                            <span className="md:underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
-                             
-                                {unit.unit.unit_address}
-                            </span>
-                        </p>
-                        <p className="text-[#45b6ca] font-bold text-xl md:text-2xl ">{unit.unit.unit_price.toLocaleString()} EGP </p>
-                    </div>
+                    <a className="text-black" target='_Blank' href={`http://www.google.com/maps/place/${unit.unit.unit_latitude},${unit.unit.unit_longitude}`}  >
+
+                        <div className=" lg:flex-row flex flex-col justify-between">
+                            <p className="text-left  mb-3 text-lg md:text=xl">
+                                <span className="md:underline underline-offset-1 hover:no-underline cursor-pointer hover:text-[#45b6ca]">
+
+                                    {unit.unit.unit_address}
+                                </span>
+                            </p>
+                            <p className="text-[#45b6ca] font-bold text-xl md:text-2xl ">{unit.unit.unit_price.toLocaleString()} EGP </p>
+                        </div>
+                    </a>
                 </div>
 
                 <UnitGalary photos={unit.photos} />
             </div>
             <div className="mb-24 mt-16 w-[70%] md:w-[60%] mx-auto ">
                 <p className="text-2xl font-bold text-left ">What this place include</p>
-                <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
-                    <div className="flex flex-col w-[30%]">
-                        <UnitContent
-                            icon={kitchen}
-                            title="kitchen"
-                            quantity={unit.props[0].kitchen}
-                        />
-                        <UnitContent
-                            icon={bedroom}
-                            title="bed Room"
-                            quantity={unit.props[0].bedroom}
-                        />
-                        <UnitContent
-                            icon={livingroom}
-                            title="living Room"
-                            quantity={unit.props[0].living_room}
-                        />
-                        <UnitContent
-                            icon={bathroom}
-                            title="Bath Room"
-                            quantity={unit.props[0].bathroom}
-                        />
-                         <UnitContent
-                            icon={area}
-                            title="area"
-                            quantity={unit.props[0].surface_area  }
-                        />
-                    </div>
-                    <div className="flex flex-col w-[30%]">
-                        <UnitContent
-                            icon={gardenn}
-                            title="Garden"
-                            quantity={unit.props[0].garden}
-                        />
-                        <UnitContent
-                            icon={garage}
-                            title="Garage"
-                            quantity={unit.props[0].garage}
-                        />
-                        <UnitContent
-                            icon={elevator}
-                            title="Elevator"
-                            quantity={unit.props[0].elevator}
-                        />
-                        <UnitContent
-                            icon={floors}
-                            title="Floors"
-                            quantity={unit.props[0].floor}
-                        />
-                    </div>
-                </div>
+
+
+
+
+                {unit.unit.main_category == 'Residential' ?
+
+
+                    (
+                        <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
+                            <div className="flex flex-col w-[80%] md:w-[30%]">
+                                <UnitContent
+                                    icon={area}
+                                    title="area"
+                                    quantity={unit.props[0].surface_area}
+                                />
+                                <UnitContent
+                                    icon={livingroom}
+                                    title="living Room"
+                                    quantity={unit.props[0].living_room}
+                                />
+                                <UnitContent
+                                    icon={bedroom}
+                                    title="bed Room"
+                                    quantity={unit.props[0].bedroom}
+                                />
+                                <UnitContent
+                                    icon={kitchen}
+                                    title="kitchen"
+                                    quantity={unit.props[0].kitchen}
+                                />
+
+
+                                <UnitContent
+                                    icon={bathroom}
+                                    title="Bath Room"
+                                    quantity={unit.props[0].bathroom}
+                                />
+
+                            </div>
+                            <div className="flex flex-col w-[80%] md:w-[30%]">
+                                <UnitContent
+                                    icon={gardenn}
+                                    title="Garden"
+                                    quantity={unit.props[0].garden}
+                                />
+                                <UnitContent
+                                    icon={garage}
+                                    title="Garage"
+                                    quantity={unit.props[0].garage}
+                                />
+                                <UnitContent
+                                    icon={elevator}
+                                    title="Elevator"
+                                    quantity={unit.props[0].elevator}
+                                />
+                                <UnitContent
+                                    icon={floors}
+                                    title="Floors"
+                                    quantity={unit.props[0].floor}
+                                />
+                                <UnitContent
+                                    icon={floors}
+                                    title="Pool"
+                                    quantity={unit.props[0].pool}
+                                />
+                            </div>
+
+                        </div>
+                    )
+
+
+                    : unit.unit.main_category == 'Commercial' ?
+
+                        (
+                            <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
+                                <div className="flex flex-col w-[80%] md:w-[30%]">
+
+
+                                    <UnitContent
+                                        icon={bathroom}
+                                        title="Rooms"
+                                        quantity={unit.props[0].rooms}
+                                    />
+                                    <UnitContent
+                                        icon={area}
+                                        title="area"
+                                        quantity={unit.props[0].surface_area}
+                                    />
+                                    <UnitContent
+                                        icon={elevator}
+                                        title="Elevator"
+                                        quantity={unit.props[0].elevator}
+                                    />
+                                </div>
+                                <div className="flex flex-col w-[80%] md:w-[30%]">
+                                    <UnitContent
+                                        icon={gardenn}
+                                        title="Garden View"
+                                        quantity={unit.props[0].garden}
+                                    />
+                                    <UnitContent
+                                        icon={garage}
+                                        title="Garage"
+                                        quantity={unit.props[0].garage}
+                                    />
+
+
+                                </div>
+
+                            </div>
+                        )
+
+
+                        : unit.unit.main_category == 'Administration' ?
+
+
+                            (
+                                <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
+                                    <div className="flex flex-col w-[80%] md:w-[30%]">
+
+
+
+                                        <UnitContent
+                                            icon={area}
+                                            title="Area"
+                                            quantity={unit.props[0].surface_area}
+                                        />
+                                        <UnitContent
+                                            icon={elevator}
+                                            title="Elevator"
+                                            quantity={unit.props[0].elevator}
+                                        />
+                                    </div>
+                                    <div className="flex flex-col w-[80%] md:w-[30%]">
+                                        <UnitContent
+                                            icon={gardenn}
+                                            title="Garden View"
+                                            quantity={unit.props[0].garden}
+                                        />
+                                        <UnitContent
+                                            icon={garage}
+                                            title="Garage"
+                                            quantity={unit.props[0].garage}
+                                        />
+
+
+                                    </div>
+
+                                </div>
+                            )
+
+                            : unit.unit.main_category == 'Medical' ?
+
+
+                                (
+                                    <div className="flex md:flex-row flex-col  md:gap-36   mt-5 ">
+                                        <div className="flex flex-col w-[80%] md:w-[30%]">
+
+
+
+                                            <UnitContent
+                                                icon={area}
+                                                title="Area"
+                                                quantity={unit.props[0].surface_area}
+                                            />
+                                            <UnitContent
+                                                icon={elevator}
+                                                title="Elevator"
+                                                quantity={unit.props[0].elevator}
+                                            />
+                                        </div>
+                                        <div className="flex flex-col w-[80%] md:w-[30%]">
+                                            <UnitContent
+                                                icon={gardenn}
+                                                title="Garden View"
+                                                quantity={unit.props[0].garden}
+                                            />
+                                            <UnitContent
+                                                icon={garage}
+                                                title="Garage"
+                                                quantity={unit.props[0].garage}
+                                            />
+
+
+                                        </div>
+
+                                    </div>
+                                )
+
+
+
+
+
+
+
+                                : 'nothing'}
+
+
+
+
+
+
+
+
+
             </div>
             <div className="w-full bg-[#f2f2f2] py-14 ">
                 <div className="w-[60%] mx-auto ">
