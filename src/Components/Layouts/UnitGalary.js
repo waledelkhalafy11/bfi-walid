@@ -41,6 +41,8 @@ function UnitGalary(props) {
           className="object-fill h-full"
           src={process.env.REACT_APP_DOMAIN + photo.unit_image_url}
         />
+        <p className="categoryBadge">Apartment</p>
+        
         
 
        
@@ -54,6 +56,7 @@ function UnitGalary(props) {
         <div className="  h-[70%]  galaryOfUnits ">
           <Carousel className="mx-auto w-[80%] md:w-[60%]   ">
             {unitPhotos}
+            
           </Carousel>
         </div>
         <ShareToSocial />
