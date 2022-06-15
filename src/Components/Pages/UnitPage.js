@@ -13,7 +13,7 @@ import gardenn from "../../Assets/icons/unit/plant-garden.svg";
 import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import floors from "../../Assets/icons/unit/floors.svg";
-// import pool from "../../Assets/icons/unit/pool.svg";
+import pool from "../../Assets/icons/unit/pool.svg";
 import area from "../../Assets/icons/ListingsCards/size.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
@@ -196,7 +196,7 @@ const UnitPage = () => {
                                     quantity={unit.props[0].floor}
                                 />
                                 <UnitContent
-                                    icon={floors}
+                                    icon={pool}
                                     title="Pool"
                                     quantity={unit.props[0].pool}
                                 />
