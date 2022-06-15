@@ -14,8 +14,63 @@ import Location from "../../Assets/icons/ListingsCards/location.png";
 function Cards(props) {
 
 
-   
+   let category = () =>{
+    if (props.main_category == "Residential"){
+
+    return (props.res_category)
+}else {
+    return (props.main_category)
+}
+
+    
+   }
  
+let icon_filter = () => {
+
+    if(props.main_category == "Commercial" || props.main_category == "Medical"){
+        return (
+
+            <div className="details-icons d-flex bt-3 w-full">
+            <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+            <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+            <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+            </div>
+            </div>
+        )
+    }else if(props.main_category === "Administration")  {
+
+        return(
+        <div className="details-icons d-flex bt-3 w-full">
+        <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+        <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
+        </div>
+        <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+        <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+        <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+        </div>
+        </div>)
+    }else {
+     return(
+        <div className="details-icons d-flex bt-3 w-full">
+        <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
+        <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
+        </div>
+        <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+        <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
+        </div>
+        <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+        <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+        <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+        </div>
+        </div>
+     )
+    }
+}
+
+
 
     
   return (
@@ -33,11 +88,17 @@ function Cards(props) {
                                 <img src={props.image} className="card-img-top  object-cover h-full w-full" alt="1"/>
 
                             </div>
-                        <div className="absolute top-[20px] right-5">
-                            <div className="text-[12px]  ">
-                                <a className="text-white py-[1px] px-[15px] bg-[red] text-[15px] rounded-[5px] " href="#">SOLD</a> 
-                            </div>
-                        </div>
+                            <div className="absolute top-[20px] left-5">
+                                   <div className="text-[12px]  ">
+                                       <a className="text-white py-[1px] px-[15px] bg-[#eebf87] text-[15px] rounded-[5px] " href="#"> {category()}</a> 
+                                   </div>
+                               </div>
+         
+                           
+
+
+
+
                                     <div className="absolute bottom-[10px] left-5">
                                         <div className="text-[12px]  d-flex">
                                             <img className="w-[10px] h-[10px] my-auto mr-[2px]" src={Location} alt="location" />
@@ -53,20 +114,7 @@ function Cards(props) {
                             <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price.toLocaleString()} EGP</h6>
                                             
                     <div className="d-flex justify-betweem">
-                            <div className="details-icons d-flex bt-3 w-full">
-                            <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                            <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
-                            <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
-                            </div>
-                            <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
-                            <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
-                            <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
-                            </div>
-                            <div className="Lspace  d-flex opacity-40 hover:opacity-100">
-                            <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                            <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
-                            </div>
-                            </div>
+             {icon_filter()}
 
                             {/* <img className="w-[22px]  p-[3px] mr-1 opacity-40 hover:opacity-100" src={Share} alt="share" /> */}
                     </div>

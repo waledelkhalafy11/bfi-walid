@@ -26,6 +26,73 @@ import { Link } from "react-router-dom";
 
 function Listings(props) {
 
+
+  let category = () =>{
+    if (props.main_category == "Residential"){
+
+    return (props.res_category)
+}else {
+    return (props.main_category)
+}
+
+    
+   }
+ 
+let icon_filter = () => {
+
+    if(props.main_category == "Commercial" || props.main_category == "Medical"){
+        return (
+
+            <div className="details-icons d-flex bt-3 w-full">
+            <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+            <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+            <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+            </div>
+            </div>
+        )
+    }else if(props.main_category === "Administration")  {
+
+        return(
+        <div className="details-icons d-flex bt-3 w-full">
+        <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+        <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
+        </div>
+        <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+        <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+        <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+        </div>
+        </div>)
+    }else {
+     return(
+        <div className="details-icons d-flex bt-3 w-full">
+        <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
+        <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
+        </div>
+        <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
+        <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
+        <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
+        </div>
+        <div className="Lspace  d-flex opacity-40 hover:opacity-100">
+        <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
+        <h6 className="text-[14px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+        </div>
+        </div>
+     )
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
   return (
     <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
       {/* ------------------------------------------ Card ----------------------------------------------------------- */}
@@ -44,14 +111,14 @@ function Listings(props) {
               /></div>
             <div className="absolute top-[20px] right-5">
               <div className="text-[12px]  ">
-                <a className="text-white py-[0px] px-[10px]  bg-[#45b6ca] mr-2 rounded-[5px]" href="#">Sales</a>
-                <a className="text-white py-[0px] px-[10px]  bg-[red]          rounded-[5px] " href="#">New Offer</a>
+                {/* <a className="text-white py-[0px] px-[10px]  bg-[#45b6ca] mr-2 rounded-[5px]" href="#">Sales</a> */}
+                {/* <a className="text-white py-[0px] px-[10px]  bg-[red]          rounded-[5px] " href="#">New Offer</a> */}
               </div>
             </div>
 
             <div className="absolute top-[20px] left-5">
               <div className="text-[12px]  ">
-                <a className="text-white py-[0px] px-[10px]  bg-[#eebf87] mr-2 rounded-[5px]" href="#">Featured</a>
+                <a className="text-white py-[0px] px-[10px]  bg-[#eebf87] mr-2 rounded-[5px]" href="#">{category()}</a>
 
               </div>
             </div>
@@ -80,20 +147,12 @@ function Listings(props) {
              
             <h6 className="text-[#45b6ca] text-left font-black text-[15px] ">from {props.price.toLocaleString()} EGP</h6>
             </Link>
-            <div className="details-icons d-flex bt-3">
-              <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                <img className="w-[25px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
-                <h6 className="text-[16px]  font-black mt-[12px]">{props.rooms}</h6>
-              </div>
-              <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
-                <img className="w-[23px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
-                <h6 className="text-[16px]  font-black mt-[12px]">{props.bathrooms}</h6>
-              </div>
-              <div className="Lspace  d-flex opacity-40 hover:opacity-100">
-                <img className="w-[18px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                <h6 className="text-[14px]  font-black mt-[14px]"> {props.space}  m<sup>2</sup></h6>
-              </div>
-            </div>
+
+
+             {icon_filter()}
+
+
+
           </div>
           
         </div>

@@ -106,6 +106,13 @@ const ListingCardApi = () => {
 
    
 
+
+
+
+
+
+
+
     return (
 
         <section className="ListingsCards bg-[#f2f2f2]  py-[50px] ">
@@ -129,14 +136,19 @@ const ListingCardApi = () => {
         </div> */}
                         {listingsApi?.map((itm) => (
             <ListingsCards
-                title={itm.unit.unit_name}
-                price={itm.unit.unit_price}
-                rooms={itm.props[0].bedroom}
-                bathrooms={itm.props[0].bathroom}
-                address={itm.unit.unit_address}
-                space={itm.props[0].surface_area}
-                image={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
-                id={itm.unit.id} />
+                title         ={itm.unit.unit_name}
+                price         ={itm.unit.unit_price}
+                rooms         ={itm.props[0].bedroom}
+                bathrooms     ={itm.props[0].bathroom}
+                address       ={itm.unit.unit_address}
+                space         ={itm.props[0].surface_area}
+                image         ={process.env.REACT_APP_DOMAIN + itm.photos[0].unit_image_url}
+                id            ={itm.unit.id}
+                unit_category ={itm.unit.res_unit_category}
+                main_category ={itm.unit.main_category}
+                res_category  ={itm.unit.res_unit_category} 
+                />
+                
         )
     )}
 
