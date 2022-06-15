@@ -121,9 +121,9 @@ const Search = () => {
       case 3:
         setSelectedFilters({
           region: selectedFilters.region,
-          category: selectedFilters.category,
+          category: null,
           city: selected,
-          district: selectedFilters.district,
+          district: null,
           unitcat: null,
           rescat: null
 
@@ -132,7 +132,7 @@ const Search = () => {
       case 4:
         setSelectedFilters({
           region: selectedFilters.region,
-          category: selectedFilters.category,
+          category: null,
           city: selectedFilters.city,
           district: selected,
           unitcat: null,
@@ -146,7 +146,7 @@ const Search = () => {
           city: selectedFilters.city,
           district: selectedFilters.district,
           unitcat: selected,
-          rescat: selectedFilters.rescat
+          rescat: null
 
         });
         break;
@@ -411,7 +411,7 @@ const Search = () => {
               onHide={handleCloseModal}
             >
               <Container className="bg-white border-2 p-2 md:h-[80px] rounded-3xl md:rounded-3xl  flex flex-col md:flex-row">
-              <>
+                <>
                   {" "}
                   <div className={showResFilter ? "md:w-1/6 flex mx-2 flex-col" : "md:w-1/4 flex mx-2 flex-col"}>
                     <Form.Label className="md:ml-4 text-xl text-left">
