@@ -22,18 +22,25 @@ function ClientSection() {
 
 
 
+
+
+
     //  ********* UseEffects *************
 
-    useEffect(() => {
+    useEffect(() => {   
+
       dataWebPromise.then(function(result) {
         setDataWeb(result);
 
         });
+
+       
     },[]);
 
 
-   
 
+
+    
 
         
 
@@ -41,8 +48,8 @@ function ClientSection() {
       let clients = logos?.map((itm)=>{
 
         return (
-          <div className="flex flex-row slideOfClients">
-          <img src={process.env.REACT_APP_DOMAIN + itm.icon_image_url} className=" w-[70px]  sm:w-[120px]"></img>
+          <div className="flex flex-row slideOfClients my-4">
+          <img src={process.env.REACT_APP_DOMAIN + itm.icon_image_url} className="h-[90px]"></img>
           {/* <p className="ml-2">{props.name}</p> */}
         </div>
       );
