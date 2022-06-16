@@ -211,6 +211,8 @@ const Search = () => {
         title={itm.unit.unit_name}
         price={itm.unit.unit_price}
         category={itm.unit.main_category}
+        unitCategory={itm.unit.unit_category}
+        resCategory={itm.unit.res_unit_category}
         rooms={itm.props[0].rooms}
         bathrooms={itm.props[0].bathroom}
         kitchen={itm.props[0].kitchen}
@@ -238,6 +240,8 @@ const Search = () => {
         title={itm.unit.unit_name}
         price={itm.unit.unit_price}
         category={itm.unit.main_category}
+        unitCategory={itm.unit.unit_category}
+        resCategory={itm.unit.res_unit_category}
         rooms={itm.props[0].rooms}
         bathrooms={itm.props[0].bathroom}
         kitchen={itm.props[0].kitchen}
