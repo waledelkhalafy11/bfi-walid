@@ -45,13 +45,15 @@ function ContactUs() {
                     <div>
                         <p className="text-3xl font-bold text-[#45b6ca] ">Get in touch</p>
                         <p className="text-center mx-auto w-[90%]">
-                            Have an inquiry or some feedback for us? Fill out the form below
+                            Have some feedback for us?
+                             Fill out the form below
                             to contact our team.
                         </p>
                     </div>
 
                     <Formik
                         className="flex flex-col md:text-left "
+                        enableReinitialize
                         initialValues={{
                             Name: "",
 
@@ -64,7 +66,7 @@ function ContactUs() {
                             msg: "",
                         }}
                         validationSchema={SignupSchema}
-                        onSubmit={(values) => {
+                        onSubmit={(values , {resetForm}) => {
                             
                             // same shape as initial values
                             
@@ -84,6 +86,8 @@ function ContactUs() {
                                         inpts.forEach(input => {
                                             input.value = '';
                                         });
+                                        resetForm();
+
                                     } else {
                                         sendMessageError()
                                     }

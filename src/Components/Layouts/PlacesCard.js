@@ -42,7 +42,7 @@ const PlacesCard = (props) => {
             </h2> */}
 
             {/* <span className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon /></span> */}
-            <h1 className="sm:text-[15px] md:text-[18px] text-[8px] my-auto font-medium"><span className="text-[#45b6ca]">{props.category} </span>
+            <h1 className="sm:text-[15px] md:text-[18px] text-[8px] my-auto font-medium"><span className="text-[#45b6ca]">{props.resCategory ? props.resCategory + ' ' + props.unitCategory : props.category } </span>
             <img className="sm:w-[25px] w-[15px] inline mr-[5px]  my-auto " src={placeholder} alt="Size" /> {props.location} </h1>
             </div>
            
