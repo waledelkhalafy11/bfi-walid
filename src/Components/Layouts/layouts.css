@@ -81,7 +81,7 @@ a {
 }
 
 
-@media (max-width: 1020px) {
+
     .sliderOfClients {
         width: 90%;
         height: fit-content !important;
@@ -95,7 +95,7 @@ a {
         flex-shrink: 0;
         height: 100%;
     }
-}
+
 
 
 
