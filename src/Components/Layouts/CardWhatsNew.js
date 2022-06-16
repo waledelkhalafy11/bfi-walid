@@ -26,12 +26,12 @@ if(filterDate.length > 10 ) filterDate = filterDate.substring(0,10);
                     </div>
                     <div className="card-body h-[200px]  bg-[#ffff] text-right">
                     <h5 className="card-title  text-left">
-                        <a
+                        <Link
                         className="text-[24px] font-semibold no-underline text-black"
-                        href=""
+                        to = {`/unit/${props.id}`}
                         >
                         {props.title}
-                        </a>
+                        </Link>
                     </h5>
              
                     <p className="card-text text-[16px] leading[1.5] w-full text-left">
