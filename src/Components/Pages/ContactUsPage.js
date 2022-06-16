@@ -17,8 +17,7 @@ useEffect(()=>{
             <div className="mb-40 ">
                 <div>
                     <p className="mt-24 md:mt-40 mb-4 md:mb-28   lg:w-[70%]  mx-auto text-2xl md:text-4xl font-bold text-[#45b6ca]">
-                        Contact us today if you'd like to know more about how we help
-                        buy,sell or rent your home
+                        Be In Touch With Our Team 
                     </p>
                 </div>
 

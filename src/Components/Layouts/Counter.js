@@ -40,13 +40,13 @@ function Counter() {
         });
     },[]);
 
-    
+    const icons = [clocation , agents ,happy ,property]
 
 let countersData = dataWeb.counters;
-let countDetails = countersData?.map((itm)=>{
+let countDetails = countersData?.map((itm , i )=>{
 return (
 <div className="col-lg-3  col-md-6  col-sm-6  mb-[50px] lg:mb-0">
-  <img  className="mb-[10px] mx-auto w-[60px]" src={clocation} alt="" />
+  <img  className="mb-[10px] mx-auto w-[60px]" src={icons[i]} alt="" />
   <h3 className="font-[Montserrat] text-white font-black my-0 mx-auto"><CountUp end={itm.num_count} redraw={true}  duration={1}  > 
   {({ countUpRef, start }) => (
       <VisibilitySensor onChange={start} delayedCall>
@@ -54,7 +54,7 @@ return (
       </VisibilitySensor>
   )}
 </CountUp>+</h3>
-  <p className="text-white text-white  text-center text-[16px] my-0 mx-auto">{itm.count_name}</p>
+  <p className="text-white text-center text-[16px] my-0 mx-auto">{itm.count_name}</p>
   </div>
 )
 })
