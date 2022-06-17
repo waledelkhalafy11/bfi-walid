@@ -14,6 +14,7 @@ import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import floors from "../../Assets/icons/unit/floors.svg";
 import pool from "../../Assets/icons/unit/pool.svg";
+import pool from "../../Assets/icons/unit/rooms.svg";
 import area from "../../Assets/icons/ListingsCards/size.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
@@ -213,11 +214,7 @@ const UnitPage = () => {
                                 <div className="flex flex-col w-[80%] md:w-[30%]">
 
 
-                                    <UnitContent
-                                        icon={bathroom}
-                                        title="Rooms"
-                                        quantity={unit.props[0].rooms}
-                                    />
+
                                     <UnitContent
                                         icon={area}
                                         title="area"
@@ -261,6 +258,11 @@ const UnitPage = () => {
                                             icon={area}
                                             title="Area"
                                             quantity={unit.props[0].surface_area}
+                                        />
+                                        <UnitContent
+                                            icon={rooms}
+                                            title="Rooms"
+                                            quantity={unit.props[0].rooms}
                                         />
                                         <UnitContent
                                             icon={elevator}
