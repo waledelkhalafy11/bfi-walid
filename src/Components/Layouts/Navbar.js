@@ -46,10 +46,11 @@ const FixedNavbar = () => {
     },
   ];
 
+  const windowWidth = window.innerWidth;
+
   window.onscroll = function () {
     scrollFunction();
   };
-
   function scrollFunction() {
     if (document.documentElement.scrollTop > 80) {
       if (window.innerWidth >= 768) {
@@ -78,28 +79,46 @@ const FixedNavbar = () => {
   }, [navVariant]);
 
   useEffect(() => {
+
+    if(windowWidth <= 912 ){
+      setnavVariant('dark');
+      setnavHoverClass("");
+    }
     if (location.pathname === "/") {
       document.getElementById("navbar").classList.remove("bg-white");
       document.getElementById("navbar").classList.remove("scrolledTop");
       
       SetActive(1);
     } else {
-      document.getElementById("navbar").classList.add("bg-white");
-      setnavVariant("light");
-      btns.map((itm) => {
+      if(windowWidth <= 912 ){
+        setnavVariant('dark');
+        setnavHoverClass("");
+      }else{
+
+        document.getElementById("navbar").classList.add("bg-white");
+        setnavVariant("light");
+        btns.map((itm) => {
         if (itm.navigate === location.pathname) {
-        SetActive(itm.id);
+          SetActive(itm.id);
         }
         return null
       });
     }
+    }
+
+
   })
+
+
+
+
+
   return (
     <>
       <Navbar
         id="navbar"
         variant={navVariant}
-        className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
+        className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000c0] md:bg-[#70707000]"
         expand="md"
         fixed="top"
       >
@@ -115,7 +134,7 @@ const FixedNavbar = () => {
             aria-controls="basic-navbar-nav"
           />
           <Navbar.Collapse
-            className="bg-[#000000ab] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
+            className="bg-[#323131eb] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
             id="basic-navbar-nav"
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
@@ -146,19 +165,6 @@ const FixedNavbar = () => {
                  <PhoneIcon  /> +20 122 500 3306
                 </span>
               </Nav.Link>
-
-              {/* <Nav.Link className="md:mt-2" href="#link">
-                <AccountCircleIcon className={navHoverClass} />
-              </Nav.Link> */}
-              {/* <Nav.Link>
-                <Button
-                  variant={
-                    navVariant === "dark" ? "outline-light" : "outline-primary"
-                  }
-                >
-                  Add Listing
-                </Button>
-              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
