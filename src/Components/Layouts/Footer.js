@@ -1,5 +1,6 @@
 import React from "react";
 import "./layouts.css";
+import { Link } from "react-router-dom";
 import facebook from "../../Assets/icons/footer/facebook.svg"
 import instagram from "../../Assets/icons/footer/instagram.svg";
 import twitter from "../../Assets/icons/footer/twitter.svg";
@@ -25,12 +26,12 @@ function Footer() {
 
   function BlogItem(props) {
     return (
-      <a href={props.href}>
+      <Link to="/Units">
         {" "}
         <p className="p-2 h-[40px] border-solid border-b border-[#a9a5a1] hover:font-bold hover:ml-[10px] duration-200 hover:text-[#29aae3]">
           {props.title}
         </p>
-      </a>
+      </Link>
     );
   }
 
