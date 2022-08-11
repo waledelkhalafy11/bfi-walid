@@ -35,53 +35,53 @@ const PlacesCard = (props) => {
           <Container  >
 
             <div className="sm:d-flex md:flex justify-between">
-            <h3 className="text-[8px] md:text-[25px] font-black">{props.title}</h3>
+            <h3 className="text-[12px] md:text-[25px] font-black">{props.title}</h3>
 
             {/* <h2 className="text-[10px] md:text-xl text-left  hidden">
               {props.description}
             </h2> */}
 
             {/* <span className="hidden absolute top-[1%] right-[1%]"><FavoriteBorderIcon /></span> */}
-            <h1 className="sm:text-[15px] md:text-[18px] text-[8px] my-auto font-medium"><span className="text-[#45b6ca]">{props.resCategory ? props.resCategory + ' ' + props.unitCategory : props.category } </span>
+            <h1 className="sm:text-[15px] md:text-[18px] text-[11px]  my-auto font-bold"><span className="text-[#45b6ca]">{props.resCategory ? props.resCategory + ' ' + props.unitCategory : props.category } </span>
             <img className="sm:w-[25px] w-[15px] inline mr-[5px]  my-auto " src={placeholder} alt="Size" /> {props.location} </h1>
             </div>
            
             <div className="details-icons flex flex-wrap bt-3 w-full">
                             <div className="Lbedrooms  d-flex mr-3 opacity-40 hover:opacity-100" >
-                            <img className="sm:w-[25px] w-[10px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
-                            <h6 className="sm:text-[14px] text-[8px]   font-black mt-[12px]">{props.rooms}</h6>
+                            <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Bedrooms} alt="bedrooms" />
+                            <h6 className="sm:text-[14px] text-[10px]   font-black mt-[12px]">{props.rooms}</h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto" src={Bathrooms} alt="bathrooms" />
-                            <h6 className="sm:text-[14px] text-[8px]   font-black mt-[12px]">{props.bathrooms}</h6>
+                            <h6 className="sm:text-[14px] text-[10px]   font-black mt-[12px]">{props.bathrooms}</h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={Space} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.space} m<sup>2</sup></h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={kitchen} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.kitchen} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.kitchen} </h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={livingroom} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.living_room} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.living_room} </h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={gardenn} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.garden} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.garden} </h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={garage} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.garage} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.garage} </h6>
                             </div>
                             <div className="Lbathrooms d-flex mr-3 opacity-40 hover:my-autoopacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={elevator} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.elevator} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.elevator} </h6>
                             </div>
                             <div className="Lbedrooms   d-flex opacity-40 hover:opacity-100">
                             <img className="sm:w-[25px] w-[15px] mr-[5px]  my-auto " src={floors} alt="Size" />
-                            <h6 className="sm:text-[14px] text-[8px]  font-black mt-[14px]">{props.floor} </h6>
+                            <h6 className="sm:text-[14px] text-[10px]  font-black mt-[14px]">{props.floor} </h6>
                             </div>
               </div>
 

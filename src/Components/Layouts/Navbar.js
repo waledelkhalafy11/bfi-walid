@@ -5,7 +5,7 @@ import darkLogo from '../../Assets/imgs/logo1.png'
 import lightLogo from '../../Assets/imgs/logo2.png'
 import { useEffect, useState } from "react";
 import { Button, Navbar, Container, Nav } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 const FixedNavbar = () => {
   const location = useLocation();
   const [isActive, SetActive] = useState();
@@ -123,12 +123,11 @@ const FixedNavbar = () => {
         fixed="top"
       >
         <Container fluid className="flex flex-row">
-          <Navbar.Brand
-            href="#home"
-            className="w-[200px]  hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
-          >
+         <Link to = "/"  className="w-[200px]  hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl">
+           <Navbar.Brand>
             <img className="w-[200px]" alt="" src={navVariant === "dark" ? darkLogo : lightLogo} />
           </Navbar.Brand>
+          </Link>
           <Navbar.Toggle
             className="text-white"
             aria-controls="basic-navbar-nav"

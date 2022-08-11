@@ -39,8 +39,11 @@ const Blog = () => {
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
 
-
-
+    // const footerCategories = () =>{
+    //  setData([]);
+     
+    // }
+ 
     /*filter main categories */
   
     let filter_Residential    = (item) => {
