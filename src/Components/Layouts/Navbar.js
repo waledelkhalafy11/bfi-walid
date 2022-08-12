@@ -90,7 +90,7 @@ const FixedNavbar = () => {
       
       SetActive(1);
     } else {
-      if(windowWidth <= 768 ){
+      if(windowWidth <= 767 ){
         setnavVariant('dark');
         setnavHoverClass("");
 
