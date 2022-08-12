@@ -90,9 +90,11 @@ const FixedNavbar = () => {
       
       SetActive(1);
     } else {
-      if(windowWidth <= 912 ){
+      if(windowWidth <= 768 ){
         setnavVariant('dark');
         setnavHoverClass("");
+
+
       }else{
 
         document.getElementById("navbar").classList.add("bg-white");
@@ -116,6 +118,7 @@ const FixedNavbar = () => {
   return (
     <>
       <Navbar
+      collapseOnSelect
         id="navbar"
         variant={navVariant}
         className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000c0] md:bg-[#70707000]"
@@ -130,19 +133,18 @@ const FixedNavbar = () => {
           </Link>
           <Navbar.Toggle
             className="text-white"
-            aria-controls="basic-navbar-nav"
           />
           <Navbar.Collapse
-            className="bg-[#323131eb] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
-            id="basic-navbar-nav"
+
+            className="bg-[#323131eb] md:bg-[#70707000]  rounded-3xl mt-3 sm:mt-4 md:mt-2"
+
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
-              {btns.map((item) => {
+              {btns.map((item , i) => {
               return (
                 <Nav.Link
+                eventKey={i} as={Link} to={item.navigate}
                 onClick={() => {
-                
-                  navigate(item.navigate)
                   handleActive(item.id);
                 }}
                 className={
