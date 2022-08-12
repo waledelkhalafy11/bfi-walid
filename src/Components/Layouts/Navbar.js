@@ -94,6 +94,7 @@ const FixedNavbar = () => {
         setnavVariant('dark');
         setnavHoverClass("");
 
+
       }else{
 
         document.getElementById("navbar").classList.add("bg-white");
@@ -134,7 +135,9 @@ const FixedNavbar = () => {
             className="text-white"
           />
           <Navbar.Collapse
+
             className="bg-[#323131eb] md:bg-[#70707000]  rounded-3xl mt-3 sm:mt-4 md:mt-2"
+
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
               {btns.map((item , i) => {
