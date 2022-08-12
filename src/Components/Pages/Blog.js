@@ -39,8 +39,11 @@ const Blog = () => {
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
 
-
-
+    // const footerCategories = () =>{
+    //  setData([]);
+     
+    // }
+ 
     /*filter main categories */
   
     let filter_Residential    = (item) => {
@@ -254,7 +257,7 @@ const Blog = () => {
   
       <div className="properties_lists container">
 
-
+{/* -------------------------main nav---------------------------------------- */}
       <nav>
           <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
             <button onClick={()=>{setData([...all]);(setVisible(unitsPerPage))}}
@@ -271,7 +274,7 @@ const Blog = () => {
             </button>
            
 
-            <button onClick={()=>{setData([...appartment]);(setVisible(unitsPerPage))}}
+            <button onClick={()=>{setData([...residential]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
               id="nav-residential-tab"
               data-bs-toggle="tab"
@@ -327,6 +330,11 @@ const Blog = () => {
 
 
 
+
+
+
+
+
         <div class="tab-content mb-5" id="nav-tabContent">
 
 
@@ -351,18 +359,30 @@ const Blog = () => {
            
            <nav>
           <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-            
-            <button onClick={()=> {setData([...appartment]);(setVisible(unitsPerPage))}}
+          <button onClick={()=> {setData([...residential]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] active ]"
-              id="nav-villa-tab"
+              id="nav-allres-tab"
               data-bs-toggle="tab"
-              data-bs-target="#nav-villa"
+              data-bs-target="#nav-allres"
               type="button"
               role="tab"
-              aria-controls="nav-villa"
+              aria-controls="nav-allres"
               aria-selected="false"
             >
-              appartment
+              All
+            </button>
+            
+            <button onClick={()=> {setData([...appartment]);(setVisible(unitsPerPage))}}
+              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]  ]"
+              id="nav-appartment-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-appartment"
+              type="button"
+              role="tab"
+              aria-controls="nav-appartment"
+              aria-selected="false"
+            >
+              Appartment
             </button>
             <button  onClick={()=>{setData([...villa]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] ]"
@@ -374,7 +394,7 @@ const Blog = () => {
               aria-controls="nav-villa"
               aria-selected="false"
             >
-              villa
+              Villa
             </button>
           
             <button   onClick={()=>{setData([...sahel]);(setVisible(unitsPerPage))}}
@@ -387,17 +407,27 @@ const Blog = () => {
               aria-controls="nav-sahel"
               aria-selected="false"
             >
-              sahel
+              Sahel
             </button>
 
           </div>
         </nav>
 
+
+
         <div class="tab-content mb-5" id="nav-tabContent">
 
 
-
-
+        <div
+            class="tab-pane fade show active"
+            id="nav-allres"
+            role="tabpanel"
+            aria-labelledby="nav-allres-tab"
+          >
+            <div className="row mt-5">{unitAvailable(blogData,data)} </div>
+            {noUnit()}
+          </div>
+        
 
 
 
@@ -422,7 +452,7 @@ const Blog = () => {
      
           </div>
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="nav-appartment"
             role="tabpanel"
             aria-labelledby="nav-appartment-tab"
@@ -437,77 +467,6 @@ const Blog = () => {
 
 
 
-
-
-
-    
-
-
-            <div
-            class="tab-pane fade"
-            id="nav-residential"
-            role="tabpanel"
-            aria-labelledby="nav-residential-tab"
-          >
-           
-           <nav>
-          <div class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-            
-            <button onClick={()=> {setData([...appartment]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] active ]"
-              id="nav-villa-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-villa"
-              type="button"
-              role="tab"
-              aria-controls="nav-villa"
-              aria-selected="false"
-            >
-              appartment
-            </button>
-            <button  onClick={()=>{setData([...villa]);(setVisible(unitsPerPage))}}
-              class="nav-link text-[black] hover:text-[#45b6ca] text-[16px] ]"
-              id="nav-house-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-house"
-              type="button"
-              role="tab"
-              aria-controls="nav-house"
-              aria-selected="false"
-            >
-              villa
-            </button>
-      
-
-          
-          </div>
-        </nav>
-
-        <div class="tab-content mb-5" id="nav-tabContent">
-          <div
-            class="tab-pane fade"
-            id="nav-villa"
-            role="tabpanel"
-            aria-labelledby="nav-villa-tab"
-          >
-            <div className="row mt-5">{unitAvailable(blogData,data)} </div>
-            {noUnit()}
-          </div>
-        
-          <div
-            class="tab-pane fade"
-            id="nav-appartment"
-            role="tabpanel"
-            aria-labelledby="nav-appartment-tab"
-          >
-            <div className="row mt-5">{unitAvailable(blogData,data)}</div>
-            {noUnit()}
-          </div>
-
-        </div>
-
-         
-          </div>
 
 
 

@@ -17,6 +17,13 @@
 
 
 
+
+/* 
+.clients.element.style{
+    width: 120px;
+} */
+
+
 /* Footer  Styling */                /* Footer  Styling */               /* Footer  Styling */
 
 
@@ -57,12 +64,15 @@ a {
 
 
 
+/* clientsSection  Styling */                /* clientsSection  Styling */               /* clientsSection  Styling */
+
 @media (max-width: 768px) {
     .sliderOfClients {
         width: 95% !important;
         height: fit-content !important;
         display: flex;
         overflow-x: auto;
+      
 
     }
 
@@ -70,16 +80,19 @@ a {
         width: 200px;
         flex-shrink: 0 !important;
         height: 100%;
+    
     }
 }
 
 
-@media (max-width: 820px) {
+
     .sliderOfClients {
         width: 90%;
         height: fit-content !important;
         display: flex;
         overflow-x: auto;
+        scrollbar-width: none !important;
+  
 
     }
 
@@ -87,8 +100,34 @@ a {
         width: 200px;
         flex-shrink: 0;
         height: 100%;
+        scrollbar-width: none !important;
     }
-}
+
+
+    .sliderOfClients::-webkit-scrollbar {
+       
+        width: 10px !important;
+        height: 10px !important;
+        
+        
+    }
+     
+    .sliderOfClients::-webkit-scrollbar-track {
+        background-color: #e4e4e4 !important;
+        border-radius: 100px  !important;
+        width: 10px !important;
+        height: 10px !important;
+    }
+     
+    .sliderOfClients::-webkit-scrollbar-thumb {
+        background-color: #0c314e !important;
+        border-radius: 100px !important;
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+
+
 
 
 

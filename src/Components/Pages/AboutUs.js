@@ -39,18 +39,18 @@ useEffect(()=>{
 
                 {/* right side */}
 
-                <div className=" col-lg-6 col-md-12 col-sm-12 mx-auto sm:my-auto  md:my-auto " >
+                <div className=" col-lg-6 col-md-12 col-sm-12 mx-auto sm:my-auto  md:my-auto   " >
                     <div className=" w-full  md:w-[80%] mx-auto"  >
                         <h1 className="text-[300%] sm:text-[200%] md:text-[400%] font-semibold leading-[86px] text-[#45b6ca] text-justify">About Brookfield</h1>
 
                         <p className="mt-[25px] not-italic font-medium text-[18px] leading-[135.2%px] text-justify  text-xl ">{prag1}</p>
                         <div className="mt-[38px] text-left">
 
-                            <Link to="/contact-us" className="bg-[#45b6ca] py-[15px]  px-[25px] rounded-[64px] text-white font-bold w-[164px] h-[57px]   text-center hover:opacity-80">Contact Us</Link>
+                            <Link to="/contact-us" className="bg-[#45b6ca] py-[15px]  px-[25px] rounded-[64px] text-white font-bold w-[164px] h-[57px]  text-center hover:opacity-80">Contact Us</Link>
 
                         </div>
 
-                        <div className="md:mt-[50px] xl:mt-[40px]">
+                        <div className="md:mt-[50px] xl:mt-[40px] pt-5 md:p-0">
 
                             <div className="line mb-5 my-0 mx-auto  w-[100%] h-[2px] bg-[#45b6ca] "></div>
 
