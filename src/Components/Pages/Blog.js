@@ -39,8 +39,11 @@ const Blog = () => {
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
 
-
-
+    // const footerCategories = () =>{
+    //  setData([]);
+     
+    // }
+ 
     /*filter main categories */
   
     let filter_Residential    = (item) => {
@@ -371,12 +374,12 @@ const Blog = () => {
             
             <button onClick={()=> {setData([...appartment]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]  ]"
-              id="nav-villa-tab"
+              id="nav-appartment-tab"
               data-bs-toggle="tab"
-              data-bs-target="#nav-villa"
+              data-bs-target="#nav-appartment"
               type="button"
               role="tab"
-              aria-controls="nav-villa"
+              aria-controls="nav-appartment"
               aria-selected="false"
             >
               Appartment

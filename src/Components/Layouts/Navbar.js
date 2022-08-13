@@ -5,7 +5,7 @@ import darkLogo from '../../Assets/imgs/logo1.png'
 import lightLogo from '../../Assets/imgs/logo2.png'
 import { useEffect, useState } from "react";
 import { Button, Navbar, Container, Nav } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 const FixedNavbar = () => {
   const location = useLocation();
   const [isActive, SetActive] = useState();
@@ -46,10 +46,11 @@ const FixedNavbar = () => {
     },
   ];
 
+  const windowWidth = window.innerWidth;
+
   window.onscroll = function () {
     scrollFunction();
   };
-
   function scrollFunction() {
     if (document.documentElement.scrollTop > 80) {
       if (window.innerWidth >= 768) {
@@ -78,53 +79,72 @@ const FixedNavbar = () => {
   }, [navVariant]);
 
   useEffect(() => {
+
+    if(windowWidth <= 912 ){
+      setnavVariant('dark');
+      setnavHoverClass("");
+    }
     if (location.pathname === "/") {
       document.getElementById("navbar").classList.remove("bg-white");
       document.getElementById("navbar").classList.remove("scrolledTop");
       
       SetActive(1);
     } else {
-      document.getElementById("navbar").classList.add("bg-white");
-      setnavVariant("light");
-      btns.map((itm) => {
+      if(windowWidth <= 767 ){
+        setnavVariant('dark');
+        setnavHoverClass("");
+
+
+      }else{
+
+        document.getElementById("navbar").classList.add("bg-white");
+        setnavVariant("light");
+        btns.map((itm) => {
         if (itm.navigate === location.pathname) {
-        SetActive(itm.id);
+          SetActive(itm.id);
         }
         return null
       });
     }
+    }
+
+
   })
+
+
+
+
+
   return (
     <>
       <Navbar
+      collapseOnSelect
         id="navbar"
         variant={navVariant}
-        className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000ab] md:bg-[#70707000]"
+        className="h-[80px] sm:min-h-[9vh] md:min-h-[9vh] bg-[#000000c0] md:bg-[#70707000]"
         expand="md"
         fixed="top"
       >
         <Container fluid className="flex flex-row">
-          <Navbar.Brand
-            href="#home"
-            className="w-[200px]  hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl"
-          >
+         <Link to = "/"  className="w-[200px]  hover:text-[#45b6ca] text-left flex xl:w-[15%] font-[Changa] md:ml-[5%] text-5xl">
+           <Navbar.Brand>
             <img className="w-[200px]" alt="" src={navVariant === "dark" ? darkLogo : lightLogo} />
           </Navbar.Brand>
+          </Link>
           <Navbar.Toggle
             className="text-white"
-            aria-controls="basic-navbar-nav"
           />
           <Navbar.Collapse
-            className="bg-[#000000ab] md:bg-[#70707000]  rounded-3xl sm:mt-4 md:mt-2"
-            id="basic-navbar-nav"
+
+            className="bg-[#323131eb] md:bg-[#70707000]  rounded-3xl mt-3 sm:mt-4 md:mt-2"
+
           >
             <Nav className="text-white small-caps font-[900] xl:me-auto  text-[22px]  lg:text-[25px] ml-auto lg:gap-8">
-              {btns.map((item) => {
+              {btns.map((item , i) => {
               return (
                 <Nav.Link
+                eventKey={i} as={Link} to={item.navigate}
                 onClick={() => {
-                
-                  navigate(item.navigate)
                   handleActive(item.id);
                 }}
                 className={
@@ -146,19 +166,6 @@ const FixedNavbar = () => {
                  <PhoneIcon  /> +20 122 500 3306
                 </span>
               </Nav.Link>
-
-              {/* <Nav.Link className="md:mt-2" href="#link">
-                <AccountCircleIcon className={navHoverClass} />
-              </Nav.Link> */}
-              {/* <Nav.Link>
-                <Button
-                  variant={
-                    navVariant === "dark" ? "outline-light" : "outline-primary"
-                  }
-                >
-                  Add Listing
-                </Button>
-              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

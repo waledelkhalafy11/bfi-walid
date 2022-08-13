@@ -99,7 +99,7 @@ let heroCards = herodata?.map((itm)=>{
       <Container fluid className="  p-0 hero-bg min-h-[35vh] md:min-h-[100vh]">
         
         <Container fluid className="relative px-[5%] pt-[15%] md:pt-[10%]">
-          <div className= "mt-[15%] md:mt-[0%]">
+          <div  className= "mt-[15%] md:mt-[0%]">
             <h1 className="md:text-[50px] text-white font-[jost] tracking-wider font-black">Brookfield Investment<br/>For Real Estate</h1> 
           </div>
           <div className="left-[0%]">
