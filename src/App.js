@@ -9,6 +9,7 @@ import UnitPage from "./Components/Pages/UnitPage";
 import ContactUsPage from "./Components/Pages/ContactUsPage";
 import AboutUs from "./Components/Pages/AboutUs";
 import Blog from "./Components/Pages/Blog"
+import UnitDescriptionPage from "./Components/Pages/UnitDescription";
 
 
 
@@ -26,7 +27,8 @@ function App() {
           <Route exact path="/unit"        element={<UnitPage />}        />
           <Route exact path="/unit/:id"    element={<UnitPage />}        />
           <Route exact path="/About-us"    element={<AboutUs />}         />
-          <Route exact path="/Units"        element={<Blog />}             />
+          <Route exact path="/Units"        element={<Blog />}           />
+          <Route exact path="/unitdescription/:id"        element={<UnitDescriptionPage />}           />
         </Routes>
     </div>
       </Router>

@@ -104,15 +104,15 @@ function Footer() {
               <p className="font-bold text-[#f2f2f2]">FEATURES</p>
             </div>
             <div className="flex flex-wrap mt-3 features">
-              <FeaturesItem title="Standalone" href="#" />
-              <FeaturesItem title="Twin House" href="#" />
-              <FeaturesItem title="Town House" href="#" />
-              <FeaturesItem title="Duplex" href="#" />
-              <FeaturesItem title="Penthouse" href="#" />
-              <FeaturesItem title="Appartment" href="#" />
-              <FeaturesItem title="Chalets" href="#" />
-              <FeaturesItem title="Loft" href="#" />
-              <FeaturesItem title="One Story" href="#" />
+              <FeaturesItem title="Standalone" href="/unitdescription/standalone" />
+              <FeaturesItem title="Twin House" href="/unitdescription/twinhouse" />
+              <FeaturesItem title="Town House" href="/unitdescription/townhouse" />
+              <FeaturesItem title="Duplex" href="/unitdescription/duplex" />
+              <FeaturesItem title="Penthouse" href="/unitdescription/penthouse" />
+              <FeaturesItem title="Appartment" href="/unitdescription/apartment" />
+              <FeaturesItem title="Chalets" href="/unitdescription/chalet" />
+              <FeaturesItem title="Loft" href="/unitdescription/loft" />
+              <FeaturesItem title="One Story" href="/unitdescription/onestory" />
             </div>
           </div>
 
