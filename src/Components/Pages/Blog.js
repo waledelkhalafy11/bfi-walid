@@ -493,7 +493,7 @@ const Blog = () => {
             class="tab-pane fade "
             id="nav-medical"
             role="tabpanel"
-            aria-labelledby="nav-  medical-tab"
+            aria-labelledby="nav-medical-tab"
           >
             <div className="row"> {unitAvailable(mainData,main)}</div>
             {noMainUnit()}

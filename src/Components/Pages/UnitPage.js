@@ -14,7 +14,7 @@ import garage from "../../Assets/icons/unit/garage.svg";
 import elevator from "../../Assets/icons/unit/elevator.svg";
 import floors from "../../Assets/icons/unit/floors.svg";
 import pool from "../../Assets/icons/unit/pool.svg";
-import pool from "../../Assets/icons/unit/rooms.svg";
+import rooms from "../../Assets/icons/unit/rooms.svg";
 import area from "../../Assets/icons/ListingsCards/size.svg";
 import { useSelector } from "react-redux";
 import ReactLoading from "react-loading";
