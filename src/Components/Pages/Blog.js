@@ -1,4 +1,4 @@
-import { useState , useEffect , useRef} from "react";
+import { useState , useEffect , useRef } from "react";
 import { useSelector } from "react-redux";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
@@ -7,7 +7,7 @@ import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
 import ReactLoading from "react-loading";
 import { useParams } from "react-router";
-
+import { useLocation } from "react-router";
 const Blog = () => {
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -39,8 +39,10 @@ const Blog = () => {
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
  
-
+console.log(data);
     const resButton = useRef(null);
+const location = useLocation();
+console.log(location);
 
 
 
@@ -216,10 +218,10 @@ const Blog = () => {
 
           switch (cat) {
             case 'Residential':
-            //  document.getElementById("nav-residential-tab").click()
-            //  setData([...residential])
+             document.getElementById("nav-residential-tab").click()
+             setData([...residential])
             resButton.current.click()
-            
+
               break;
           
             case 'Commercial':
