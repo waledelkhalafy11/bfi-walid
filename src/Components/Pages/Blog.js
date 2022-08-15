@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect , useRef} from "react";
 import { useSelector } from "react-redux";
 import blog1 from "../../Assets/imgs/blog/1.png";
 import blog2 from "../../Assets/imgs/blog/2.png";
@@ -7,7 +7,6 @@ import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
 import ReactLoading from "react-loading";
 import { useParams } from "react-router";
-
 
 const Blog = () => {
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -39,6 +38,9 @@ const Blog = () => {
     const [data    ,setData   ]  = useState([...dataApi]); 
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
+ 
+
+    const resButton = useRef(null);
 
 
 
@@ -214,22 +216,24 @@ const Blog = () => {
 
           switch (cat) {
             case 'Residential':
-              setData([...residential]);(setVisible(unitsPerPage))
-
+            //  document.getElementById("nav-residential-tab").click()
+            //  setData([...residential])
+            resButton.current.click()
+            
               break;
           
             case 'Commercial':
-              setData([...commerical]);setVisible(unitsPerPage)
+              document.getElementById("nav-commerical-tab").click()
               break;
           
             case 'Administration':
-              setData([...administrative]);(setVisible(unitsPerPage))
+              document.getElementById("nav-administrative-tab").click()
 
               break;
               
               
               case 'Medical':
-              setData([...medical]);(setVisible(unitsPerPage))
+                document.getElementById("nav-medical-tab").click()
             
               break;
           
@@ -304,7 +308,7 @@ const Blog = () => {
             </button>
            
 
-            <button onClick={()=>{setData([...residential]);(setVisible(unitsPerPage))}}
+            <button ref={resButton} onClick={()=>{setData([...residential]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
               id="nav-residential-tab"
               data-bs-toggle="tab"

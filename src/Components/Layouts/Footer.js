@@ -26,7 +26,7 @@ function Footer() {
 
   function BlogItem(props) {
     return (
-      <Link to="/Units">
+      <Link to ={`/units/${props.title}`}>
         {" "}
         <p className="p-2 h-[40px] border-solid border-b border-[#a9a5a1] hover:font-bold hover:ml-[10px] duration-200 hover:text-[#29aae3]">
           {props.title}
@@ -93,10 +93,10 @@ function Footer() {
           <div className="w-full md:w-[22%] mr-6 mt-4 text-left">
             <p className="font-bold mb-3 text-[#f2f2f2]">CATEGORIES</p>
             <div className="blogs">
-              <BlogItem href="#" title="Residential" />
-              <BlogItem href="#" title="Commercial" />
-              <BlogItem href="#" title="Administration" />
-              <BlogItem href="#" title="Medical" />
+              <BlogItem  title="Residential" />
+              <BlogItem  title="Commercial" />
+              <BlogItem  title="Administration" />
+              <BlogItem  title="Medical" />
             </div>
           </div>
           <div className="w-full md:w-[35%] mx-2 mt-4 text-left">
