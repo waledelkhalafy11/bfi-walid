@@ -7,7 +7,7 @@ import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
 import ReactLoading from "react-loading";
 import { useParams } from "react-router";
-import { useLocation } from "react-router";
+
 const Blog = () => {
   let prag = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -32,18 +32,18 @@ const Blog = () => {
     },[]);
 
 
-
-
     let unitsPerPage = 3 ;
     const [data    ,setData   ]  = useState([...dataApi]); 
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
- 
-console.log(data);
-    const resButton = useRef(null);
-const location = useLocation();
-console.log(location);
 
+    const [dataTrue , setDataIsTrue] = useState(false)
+
+
+    const resButton   = useRef(null);
+    const comButton   = useRef(null);
+    const adminButton = useRef(null);
+    const medButton   = useRef(null);
 
 
     /*filter main categories */
@@ -57,8 +57,6 @@ console.log(location);
     let filter_Medical        = (item) => {
       if (item.unit.main_category === "Medical"       ) {return item;}};
 
-
-    
     /*filter  categories */
     let filter_appartment = (item) => {
         if (item.unit.unit_category   === "Appartment")   {return item;}};   
@@ -213,29 +211,45 @@ console.log(location);
 
 
         let { cat } = useParams();
-
+            useEffect(()=>{
+              setDataIsTrue(true)
+            } , [dataApi])
         useEffect(()=>{
 
           switch (cat) {
-            case 'Residential':
-             document.getElementById("nav-residential-tab").click()
-             setData([...residential])
-            resButton.current.click()
+
+            case 'Residential':              
+              
+                resButton.current.click();
+               
+                
+      
+        
+            
 
               break;
           
             case 'Commercial':
-              document.getElementById("nav-commerical-tab").click()
+             
+              comButton.current.click();
+            
+              
               break;
           
             case 'Administration':
-              document.getElementById("nav-administrative-tab").click()
+              
+              adminButton.current.click();
+              
+              
 
               break;
               
               
               case 'Medical':
-                document.getElementById("nav-medical-tab").click()
+             
+                medButton.current.click();
+                
+                
             
               break;
           
@@ -244,7 +258,7 @@ console.log(location);
 
               break;
           }
-        },[])
+        },[dataTrue , cat])
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] w-full p-[20px]">
@@ -323,7 +337,7 @@ console.log(location);
               residential
             </button>
 
-            <button onClick={()=>{setMain([...commerical]);(setVisible(unitsPerPage))}}
+            <button ref={comButton} onClick={()=>{setMain([...commerical]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
               id="nav-commerical-tab"
               data-bs-toggle="tab"
@@ -336,7 +350,7 @@ console.log(location);
               commerical
             </button>
 
-            <button onClick={()=>{setMain([...administrative]);(setVisible(unitsPerPage))}}
+            <button ref={adminButton} onClick={()=>{setMain([...administrative]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
               id="nav-administrative-tab"
               data-bs-toggle="tab"
@@ -349,7 +363,7 @@ console.log(location);
               administrative
             </button>
 
-            <button  onClick={()=>{setMain([...medical]);(setVisible(unitsPerPage))}}
+            <button  ref={medButton} onClick={()=>{setMain([...medical]);(setVisible(unitsPerPage))}}
               class="nav-link text-[black] hover:text-[#45b6ca] text-[16px]   "
               id="nav-medical-tab"
               data-bs-toggle="tab"
@@ -538,36 +552,11 @@ console.log(location);
             {noMainUnit()}
             </div>
 
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-       
 
 {/* ------------------------------------------------------down units---------------------------------------------------------------- */}
 
-
-     
       </div>
-
-
-
-     
       <Footer />
     </div>
   );
