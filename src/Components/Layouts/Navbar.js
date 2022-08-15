@@ -3,7 +3,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate, useLocation } from "react-router-dom";
 import darkLogo from '../../Assets/imgs/logo1.png'
 import lightLogo from '../../Assets/imgs/logo2.png'
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef } from "react";
 import { Button, Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const FixedNavbar = () => {
@@ -13,6 +13,10 @@ const FixedNavbar = () => {
   const [navVariant, setnavVariant] = useState("dark");
   const [navHoverClass, setnavHoverClass] = useState("");
   const Active = " active ";
+
+
+  const prevPG = useRef();
+
   const btns = [
     {
       id: 1,
@@ -36,7 +40,7 @@ const FixedNavbar = () => {
       id: 4,
       name: "Units",
 
-      navigate: "/Units",
+      navigate: "/units",
     },
     {
       id: 5,
@@ -100,9 +104,17 @@ const FixedNavbar = () => {
         document.getElementById("navbar").classList.add("bg-white");
         setnavVariant("light");
         btns.map((itm) => {
-        if (itm.navigate === location.pathname) {
+        if(itm.navigate === location.pathname) {
+          
           SetActive(itm.id);
+        }else if (location.pathname.indexOf('units') > -1){
+      
+         
+            SetActive(4)
+            
+          
         }
+        
         return null
       });
     }
@@ -113,8 +125,14 @@ const FixedNavbar = () => {
 
 
 
-
-
+useEffect(()=>{
+  btns.map((btn)=>{
+    if (isActive !== btn.id){
+      let list = document.getElementById(`tabNav${btn.id}`).classList ;
+      list.remove('active')
+    }
+  })
+})
   return (
     <>
       <Navbar
@@ -143,6 +161,7 @@ const FixedNavbar = () => {
               {btns.map((item , i) => {
               return (
                 <Nav.Link
+                id={`tabNav${item.id}`}
                 eventKey={i} as={Link} to={item.navigate}
                 onClick={() => {
                   handleActive(item.id);

@@ -26,7 +26,6 @@ function App() {
           <Route exact path="/contact-us"  element={<ContactUsPage />}   />
           <Route exact path="/unit"        element={<UnitPage />}        />
           <Route exact path="/unit/:id"    element={<UnitPage />}        />
-          <Route exact path="/units/:cat"    element={<Blog />}        />
           <Route exact path="/About-us"    element={<AboutUs />}         />
           <Route exact path="/Units"        element={<Blog />}           />
           <Route exact path="/unitdescription/:id"        element={<UnitDescriptionPage />}           />
