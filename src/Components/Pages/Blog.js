@@ -38,7 +38,7 @@ const Blog = () => {
     const [data    ,setData   ]  = useState([...dataApi]); 
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
- 
+    const [dataTrue , setDataIsTrue] = useState(false)
 
     const resButton = useRef(null);
 
@@ -211,14 +211,20 @@ const Blog = () => {
 
 
         let { cat } = useParams();
-
+            useEffect(()=>{
+              setDataIsTrue(true)
+            } , [dataApi])
         useEffect(()=>{
 
           switch (cat) {
-            case 'Residential':
+            case 'Residential':              
+              setData([...residential]);
+                resButton.current.click();
+                setVisible(unitsPerPage);
+                console.log(data);
+      
             //  document.getElementById("nav-residential-tab").click()
             //  setData([...residential])
-            resButton.current.click()
             
               break;
           
@@ -242,7 +248,7 @@ const Blog = () => {
 
               break;
           }
-        },[])
+        },[dataTrue , cat])
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] w-full p-[20px]">
