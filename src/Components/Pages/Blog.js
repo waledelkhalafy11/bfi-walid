@@ -6,6 +6,7 @@ import blog3 from "../../Assets/imgs/blog/3.png";
 import Footer from "../Layouts/Footer";
 import Cards from "../Layouts/card";
 import ReactLoading from "react-loading";
+import { useParams } from "react-router";
 
 
 const Blog = () => {
@@ -39,11 +40,8 @@ const Blog = () => {
     const [visible ,setVisible]  = useState(unitsPerPage);
     const [main    ,setMain   ]  = useState([...dataApi]);
 
-    // const footerCategories = () =>{
-    //  setData([]);
-     
-    // }
- 
+
+
     /*filter main categories */
   
     let filter_Residential    = (item) => {
@@ -209,6 +207,38 @@ const Blog = () => {
 
         );
 
+
+        let { cat } = useParams();
+
+        useEffect(()=>{
+
+          switch (cat) {
+            case 'Residential':
+              setData([...residential]);(setVisible(unitsPerPage))
+
+              break;
+          
+            case 'Commercial':
+              setData([...commerical]);setVisible(unitsPerPage)
+              break;
+          
+            case 'Administration':
+              setData([...administrative]);(setVisible(unitsPerPage))
+
+              break;
+              
+              
+              case 'Medical':
+              setData([...medical]);(setVisible(unitsPerPage))
+            
+              break;
+          
+            
+            default:
+
+              break;
+          }
+        },[])
   return (
     <div className="blog bg-[#f2f2f2]">
       <div className=" mt-[90px] row bg-[#f2f2f2] w-full p-[20px]">
